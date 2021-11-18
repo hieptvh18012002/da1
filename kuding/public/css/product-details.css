@@ -116,6 +116,107 @@
     font-size: 12px;
     color: #666666;
 }
+.input__comment{
+    display: flex;
+    align-items: center;
+}
+.avatar__comment{
+    width: 50px;
+    height: 50px;
+    overflow: hidden;
+    border-radius: 50%;
+    
+}
+.input__keys input[type=text]{
+    width: 370px;
+    height: 30px;
+    border: none;
+    margin-left: 10px;
+}
+.input__image input[type=file]{
+    width: 30px;
+    height: 30px;
+    margin-top: 6px;
+}
+.input__image input[type=file]::before{
+    font-family: FontAwesome;
+    content: "\f030";
+    font-size: 17px;
+    color: #124086;
+    margin-left:12px;
+    margin-top: 10px;
+    cursor: pointer;
+}
+.sub__comment button{
+    border: none;
+    outline: none;
+    background-color: #fff;
+    color: #124086;
+    margin-right: 10px;
+    margin-left: 8px;
+    cursor: pointer;
+}
+.input__keys{
+    height: 37px;
+    border: 1px solid #5e5e5e;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 20px;
+    margin-left: 10px;
+}
+.comment__itemAll{
+    padding: 15px 0px;
+}
+.item__comment{
+    display: flex;
+    max-width: 550px;
+}
+.item__right{
+    margin-left: 10px;
+    padding-right: 50px;
+    position: relative;
+}
+.item__name{
+    font-size: 16px;
+    font-weight: 600;
+    color: #202020;
+}
+.item__name p{
+    margin: 0;
+}
+.item__time{
+    font-size: 12px;
+    color: #808080;
+}
+.item__nd{
+    font-size: 15px;
+    white-space: 10px;
+}
+.item__img{
+    width: 80px;
+}
+.item__ava{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    overflow: hidden;
+    object-fit: cover;
+}
+.item__more{
+    position: absolute;
+    top: 4px;
+    right: 5px;
+    font-size: 15px;
+    font-family: 700;
+    color: #124086;
+    display: none;
+}
+.item__right:hover .item__more{
+    display: block;
+    color: #333;
+    cursor: pointer;
+}
 /* end more */
 .subnav-trail a{
     text-decoration: none;
@@ -286,20 +387,11 @@ a{
     right: 0;
     margin-right: -15px;
 }
-.sp-title p{
+/* .sp-title p{
     font-size: 20px;
     color: #555;
     text-align: center;
-}
-.sp-title button{
-    padding: 10px 60px;
-    color: white;
-    background: #6b7c88;
-    border: 1px solid #6b7c88;
-    margin:auto;
-    display:block;
-    margin-bottom: 100px;
-}
+} */
 .qa-main p {
     font-size: 20px;
     color: #555;
