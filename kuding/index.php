@@ -1,1 +1,6 @@
 <?php
+
+
+if(isset($_GET['url'])){
+    var_dump($_POST['url']);
+}
