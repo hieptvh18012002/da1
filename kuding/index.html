@@ -187,8 +187,8 @@
                                 </div>
                                 <div class="pop-cart__main row p-3">
                                     <div class="col-3 col-md-3">
-                                        <img src="public/images/products/5cde3d230e25839dd691992b2d3e183ebe69e199.jpg" alt=""
-                                            width="100%">
+                                        <img src="public/images/products/5cde3d230e25839dd691992b2d3e183ebe69e199.jpg"
+                                            alt="" width="100%">
                                     </div>
                                     <div class="col-6 col-md-6">
                                         <div class="pro-name mb-2">Quần jeans Hàn Xẻng!</div>
@@ -297,7 +297,7 @@
                     </div>
                     <div class="toggle-filter " style="display: flex;align-items: center;">
                         <span class="pb-2 pr-3">Nam</span>
-                        <div class="ckbx-style-8" >
+                        <div class="ckbx-style-8">
                             <input type="checkbox" id="filter_new" value="0" name="ckbx-style-8">
                             <label for="filter_new"></label>
                         </div>
@@ -436,7 +436,7 @@
                     </div>
                     <div class="toggle-filter " style="display: flex;align-items: center;">
                         <span class="pb-2 pr-3">Nam</span>
-                        <div class="ckbx-style-8" >
+                        <div class="ckbx-style-8">
                             <input type="checkbox" id="trending" value="0" name="ckbx-style-8">
                             <label for="trending"></label>
                         </div>
@@ -562,17 +562,66 @@
                     trang trực tuyến yêu thích mới của bạn. Với khả năng phục vụ hơn 100 quốc gia, chúng tôi đảm bảo bạn
                     sẽ có trải nghiệm mua sắm dễ dàng.
                 </div>
-                <div class="btn-control">
+                <div class="btn-control-aboutus">
                     +
                 </div>
             </div>
 
+            <!-- end album ,slider 3 -->
 
-            <div class="press-bar">
-                <a href="">
-                    <img src="" alt="">
+            <div class="slider-album pb-4">
+                <div class="slide-title text-center pt-4 pb-2 text-light">
+                    <h3>#KOODING</h3>
+                    <p>Chia sẽ khoảnh khắc của bạn với KOODING TRÊN <i class="fab fa-instagram text-light"
+                            aria-hidden="true"></i> hoặc <i class="fab fa-twitter text-light" aria-hidden="true"></i>
+
+                    </p>
+                </div>
+                <div class="slick__slider">
+                    <div class="slider-album__content pb-3">
+                        <a href="#">
+                            <img src="./public/images/products/7274e18d4ab68a79ad42b3ad401c34c1f0bb4b93.jpg" alt="">
+                        </a>
+                        <a href="#">
+                            <img src="./public/images/products/7274e18d4ab68a79ad42b3ad401c34c1f0bb4b93.jpg" alt="">
+                        </a>
+                        <a href="#">
+                            <img src="./public/images/products/7274e18d4ab68a79ad42b3ad401c34c1f0bb4b93.jpg" alt="">
+                        </a>
+                        <a href="#">
+                            <img src="./public/images/products/7274e18d4ab68a79ad42b3ad401c34c1f0bb4b93.jpg" alt="">
+                        </a>
+                        <a href="#">
+                            <img src="./public/images/products/7274e18d4ab68a79ad42b3ad401c34c1f0bb4b93.jpg" alt="">
+                        </a>
+                        <a href="#">
+                            <img src="./public/images/products/7274e18d4ab68a79ad42b3ad401c34c1f0bb4b93.jpg" alt="">
+                        </a>
+                        <a href="#">
+                            <img src="./public/images/products/7274e18d4ab68a79ad42b3ad401c34c1f0bb4b93.jpg" alt="">
+                        </a>
+                    </div>
+                </div>
+                <a href="#" class="album-button ">
+                    Xem thư viện
                 </a>
             </div>
+            <!-- end slide album -->
+            <div class="press-bar">
+                <a href="">
+                    <img src="public/images/layout/soompi.png" alt="">
+                </a>
+                <a href="">
+                    <img src="public/images/layout/buzzfeed.png" alt="">
+                </a>
+                <a href="">
+                    <img src="public/images/layout/klog.png" alt="">
+                </a>
+                <a href="">
+                    <img src="public/images/layout/chinabrands.png" alt="">
+                </a>
+            </div>
+            <!-- end press -->
         </main>
         <!-- end main -->
         <footer>
@@ -721,6 +770,18 @@
                 ]
             });
         })
+    </script>
+    <script>
+        $(document).ready(function () {
+            $('.slider-album__content').slick({
+                dots: true,
+                infinite: false,
+                slidesToShow: 5,
+                slidesToScroll: 1,
+                autoplay: true,
+                autoplaySpeed: 2000,
+            })
+        });
     </script>
 
 
