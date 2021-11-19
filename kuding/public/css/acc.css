@@ -1,5 +1,6 @@
 
 .body__acc{
+    font-family: 'Open Sans', sans-serif;
     max-width: 100%;
     margin: 0 auto;
 }
@@ -43,14 +44,13 @@
     font-size: 14px;
     letter-spacing: .5px;
     display: inline-block;
-    color: #444;
+    color: #4e4e4e;
     text-decoration: none;
     padding: 5px 0 8px;
     opacity: 0.8;
 }
 .acc__menu__item.active a{
     opacity: 1;
-    font-weight: 700;
 }
 .acc__title__fist.active{
     opacity: 1;
@@ -63,7 +63,7 @@
     left: 0;
     bottom: 30px;
     width: 0;
-    height: 2.3px;
+    height: 1.9px;
     border-radius: 15px;
     background-color: #575757;
     transition: all 0.2s ease;
@@ -79,14 +79,26 @@
 .acc__donhang{
     padding: 30px 20px;
 }
+.acc__DH__title i{
+    margin-left: 10px;
+    margin-top: 10px;
+    font-size: 17px;
+    color: #555;
+}
+.none{
+    display: none;
+}
+#changePass{
+    cursor: pointer;
+}
 .acc__DH__title{
+    display: flex;
     font-size: 24px;
     border-bottom: 1px solid #d7d7d7;
     text-align: left;
-    padding-bottom: 14px;
     cursor: default;
     position: relative;
-    color: #444;
+    color: #555555;
 }
 .DH__content__title{
     display: flex;
@@ -119,9 +131,9 @@
     letter-spacing: .02em;
 }
 .DH__title img{
+    margin-bottom: 15px;
     margin-left: 5px;
     border: 2px;
-    margin-top: -20px;  
 }
 .DH__form{
     padding-top: 10px;
@@ -135,8 +147,8 @@
 .DH__form1 label{
     padding: 10px 0px;
     font-size: 14px;
-    color: #333;
-    font-weight: 800;
+    color: #4e4e4e;
+    font-weight: 600;
 }
 .DH__form1 input{
     padding: 11px 5px;

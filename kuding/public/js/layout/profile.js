@@ -1,3 +1,10 @@
+// code thay đổi pass
+const me = document.querySelector('#changePass');
+const show = document.querySelector('#show')
+me.onclick = function(e){
+    show.classList.toggle('none')
+}
+// end
 const $ = document.querySelector.bind(document)
 const $$ = document.querySelectorAll.bind(document)
 
