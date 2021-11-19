@@ -864,3 +864,59 @@ padding: 0 30px;
 @media screen and (max-width:1200px) {
         
 }
+/* nghĩa add code */
+.about-us{
+    line-height: 24px;
+    color: #555;
+    font-size: 15px;
+    padding: 0px 50px;
+    position: relative;
+    margin-bottom: 50px;
+}
+.btn__times, .btn__minus{
+        margin: 0 auto;
+        font-size: 20px;
+        font-weight: 600;
+        background: #fff;
+        border: 1px solid #b9b9b9;
+        border-radius: 100%;
+        width: 30px;
+        height: 30px;
+        line-height: 30px;
+        text-align: center;
+        z-index: 9;
+        color: #b9b9b9;
+        cursor: pointer;
+}
+.btn__times, .btn__minus{
+    position: absolute;
+    left: -1px;
+    right: 0;
+    bottom: -5px;
+}
+.none{
+        display: none;
+}
+.show1{
+        max-height: 210px;
+}
+.site__intro{
+    line-height: 28px;
+    word-spacing: 2px;
+    overflow: hidden;
+    text-align: left;
+}
+.background__overlay{
+    background-image: linear-gradient(to top, #fff, rgba(255,255,255,0));
+    position: absolute;
+    height: 120px;
+    z-index: 6;
+    width: 100%;
+    left: 0;
+    bottom: 0;
+}
+.about-us .title h5{
+        font-size: 17px;
+        font-weight: 600;
+}
+/* end */
