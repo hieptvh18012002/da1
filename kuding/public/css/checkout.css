@@ -30,7 +30,6 @@
 .nation p{
     font-size: 16px;
     color: #444;
-    font-weight: 800;
     padding: 5px 0px;
 }
 .vn{
@@ -51,7 +50,6 @@
 .address label{
     font-size: 16px;
     color: #444;
-    font-weight: 800;
     padding: 5px 0px;
 }
 .address input{
@@ -102,14 +100,13 @@
 .order__name{
     font-size: 15px;
     color: #444;
-    font-weight: 800;
     margin-bottom: 8px;
     width: 90%;
 }
 .order__text{
     display: flex;
     margin-top: 15px;
-    font-weight: 900;
+    font-weight: 600;
     font-size: 13px;
 }
 .order__text p{
@@ -118,8 +115,7 @@
 .order__chage a{
     text-decoration: none;
     font-size: 13px;
-    font-weight: 600;
-    color: #f9ab4d;
+    color: #f9ab4d !important;
 }
 .order__chage{
     padding: 10px 5px;
@@ -197,25 +193,21 @@
 }
 .content__subtotal span{
     font-size: 15px;
-    font-weight: 800;
 }
 .content__subtotal p{
     font-size: 15px;
-    font-weight: 800;
 }
 .contnet__all{
     display: flex;
     justify-content: space-between;
     color: #444;
     font-size: 15px;
-    font-weight: 800;
     padding-bottom: 30px;
     border-bottom: 1px solid #d7d7d7 ;
 }
 .note{
     font-size: 14px;
     color: #444;
-    font-weight: 600;
     cursor: pointer;
     margin-top: 15px;
 }
@@ -256,7 +248,6 @@
     margin-top: 20px;
     font-size: 14px;
     color: #444;
-    font-weight: 600;
 }
 .content__ok .pretty input:checked~.state.p-info label:after, .pretty.p-toggle .state.p-info label:after {
     background-color: #657682!important;
@@ -308,4 +299,54 @@
     100% {
         transform: translateY(0px);
     }
+}
+
+/* code css select address */
+.input__address{
+    border: 1px solid #d7d7d7;
+    width: 700px;
+    color: #444;
+    height: 33px;
+    font-size: 15px;
+    border-radius: 4px;
+    background-color: #fdfdfd;
+}
+.input__address p{
+    padding-top: 5px;
+    padding-left: 10px;
+}
+.input__address{
+    position: relative;
+    display: flex;
+}
+.close{
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 12px;
+    color: #7c7c7c;
+    cursor: pointer;
+}
+.none{
+    display: none;
+}
+.select__address{
+    display: flex;
+}
+#auto__address{
+    cursor: pointer;
+}
+.item__address{
+    border-bottom: 1.5px solid #bdbdbd;
+}
+.item__address select{
+    width: 233px;
+    height: 35px;
+    border: none;
+    outline: none;
+    appearance: none;
+    text-align: center;
+    font-size: 14px;
+    color: #555;
+    font-weight: 500;
 }
