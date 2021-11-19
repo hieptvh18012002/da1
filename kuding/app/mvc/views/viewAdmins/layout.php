@@ -415,7 +415,7 @@
       <!-- partial -->
       <div class="main-panel">
         <!-- start include content -->
-
+      <?php include_once "./app/views/viewAdmins/".$data['page']."php" ?>
 
         <!-- partial:partials/_footer.html -->
         <footer class="footer">
