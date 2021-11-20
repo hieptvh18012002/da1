@@ -9,7 +9,7 @@ function viewClient($view, $data = [])//$data để gọi page con
 }
 function viewAdmin($view, $data = [])//$data để gọi page con
 {
-    require_once "./apps/mvc/views/viewAdmins/" . $view . ".php";
+    require_once "./app/mvc/views/viewAdmins/" . $view . ".php";
 }
 
 // save_value
