@@ -10,22 +10,18 @@ function urlProcess()
     }
 }
 $controllers = 'index';
-$action = "index";
+$action = "show";
 $params = [];
 $url = urlProcess();
 // kiểm tra và require controller phù hợp
 if (isset($url[0])) {
     // client
-    if (file_exists("./app/mvc/controllers/clientControllers/" . $url[0] . "Controller.php")) {
+    if (file_exists("./app/mvc/controllers/" . $url[0] . "Controller.php")) {
         $controllers = $url[0];
-        require_once "./app/mvc/controllers/clientControllers/" . $controllers . "Controller.php";
-        // admin
-    } else if (file_exists("./app/mvc//controllers/adminControllers/" . $url[0] . "Controller.php")) {
-        $controllers = $url[0];
-        require_once "./app/mvc/controllers/adminControllers/" . $controllers . "Controller.php";
+        require_once "./app/mvc/controllers/" . $controllers . "Controller.php";
     } else {
-        require_once "./app/mvc/controllers/clientControllers/" . $controllers . "Controller.php";
+        require_once "./app/mvc/controllers/" . $controllers . "Controller.php";
     }
 } else {
-    require_once "./app/mvc/controllers/clientControllers/" . $controllers . "Controller.php";
+    require_once "./app/mvc/controllers/" . $controllers . "Controller.php";
 }

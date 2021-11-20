@@ -18,7 +18,6 @@ $(document).ready(function () {
     line.style.left = tabActive.offsetLeft + 'px'
     line.style.width = tabActive.offsetWidth + 'px'
 
-
     tabs.forEach((tab, index) => {
         const pane = panes[index]
         const title = titles[index]
