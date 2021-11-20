@@ -30,6 +30,7 @@ $(document).ready(function () {
         $('#tinh').prop('selectedIndex',0);
         $('#huyen').prop('selectedIndex',0);
         $('#xa').prop('selectedIndex',0);
+        $('#xom').prop('selectedIndex',0);
     });
 
 });
@@ -52,7 +53,15 @@ function innerHTML_huyen() {
 function innerHTML_xa() {
     const opList = document.querySelector('#xa').value;
     console.log(opList);
-    const spanSlec = document.querySelector('.xaAdd');
+    const spanSlec = document.querySelector('.xaAdd')
+    spanSlec.innerText = opList + ` /`;
+
+}
+function innerHTML_xom() {
+    console.log('xom');
+    const opList = document.querySelector('#xom').value;
+    console.log(opList);
+    const spanSlec = document.querySelector('.xomAdd');
     spanSlec.innerText = opList;
     if(opList != ""){
         $('.itemAll__address').addClass('none');

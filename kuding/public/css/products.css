@@ -41,9 +41,9 @@
 .pageLeft, .pageRight{
     color: #6e6e6e;
     font-size: 12px;
-    margin-top: 5px;
+    cursor: pointer;
 }
-.number__paging .numb{
+.number__paging .numB{
     padding: 5px 10px;
     border-radius: 50%;
     font-size: 12px;
@@ -125,7 +125,6 @@
     font-size: 14px;
     color: #555;
     padding-top: 10px;
-    font-weight: 700;
     line-height: 20px;
 }
 .proC__item__PC{
@@ -137,7 +136,7 @@
 }
 .proC__item__price{
     font-size: 14px;
-    font-weight: 900;
+    font-weight: 600;
     color: #444;
 }
 .proC__item__color{
@@ -151,7 +150,7 @@
 }
 .proC__item__color p{
     color: #444;
-    font-weight: 900;
+    font-weight: 600;
     font-size: 13px;
 }
 .proC__love{
@@ -170,6 +169,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    font-size: 16px;
 }
 .proC__icon__color{
     color: red;
@@ -190,4 +190,32 @@
     100%{
         opacity: 1;
     }
+}
+.op__branch{
+    width: 150px;
+    height: 35px;
+    border: none;
+    border-bottom: 1px solid #666;
+    border-top: 1px solid #666;
+
+}
+.select__price{
+    width: 150px;
+    height: 35px;
+    border-bottom: 1px solid #666;
+    border-top: 1px solid #666;
+    margin-left: 100px;
+}
+.filter__title p{
+    margin: 0;
+}
+.filter__title{
+    margin-top: 7px;
+    display: flex;
+    padding: 0px 7px;
+    align-items: center;
+    justify-content: space-between;
+}
+.form__filter{
+    display: flex;
 }
