@@ -920,3 +920,18 @@ padding: 0 30px;
         font-weight: 600;
 }
 /* end */
+
+/* ===========responsive =====*/
+@media screen and (max-width:740px) {
+        .wrapper{
+                max-width: 100%;
+                margin: 0 auto;
+        }
+        .header-main .header-menu{
+                display: none;
+
+        }
+        .header-main .pop-input{
+                display: none ;
+        }
+}
