@@ -13,4 +13,14 @@ $(document).ready(function () {
         $('.site__intro').addClass('show1');
         $('.background__overlay').removeClass('none');
     });
+
+    // responsive main
+    $('.search-rp').click(function(){
+        $('.search').toggleClass("active")
+    })
+    $('.bars').click(function(){
+        $('.header-menu').toggleClass("active-menu")
+        
+    })
+   
 });

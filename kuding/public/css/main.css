@@ -76,6 +76,7 @@ body {
     width: 200px;
 }
 .form-search{
+        display: flex;
         height: 37px;
         border: 1px solid #cecece;
         border-radius: 50px;
@@ -920,3 +921,90 @@ padding: 0 30px;
         font-weight: 600;
 }
 /* end */
+.bars {
+        display: none;
+}
+
+/* ===========responsive =====*/
+@media screen and (max-width:740px) {
+        .wrapper{
+                max-width: 100%;
+                margin: 0 auto;
+        }
+        .header-main .header-menu {
+                display: none;
+                
+        }
+        .box-header-main__start{
+                display: flex;
+                align-items: center;
+                column-gap: 20px;
+        }
+        .header-main .search{
+               width: 100%;
+               margin: 0 auto;
+               height: 60px;
+               position: absolute;
+               left: 0;
+               bottom: -83%;
+               background:#F7F7F7;
+               z-index: 10;
+               transition: 1s all ease;
+               display: none;
+               
+        }
+        .active{
+                display: block !important;
+
+        }
+        .active-menu{
+                display: block !important;
+                text-transform: uppercase;
+                font-size: 15px;
+                padding: 0 20px;
+
+        }
+        .sub-nav{
+                display: block !important;
+                text-transform: uppercase;
+                font-size: 15px; 
+        }
+        .sub-nav a{
+                color:#f79217 !important;
+
+        }
+        .sub-nav li{
+                padding: 20px 0 ;
+                border-top: 1px solid rgba(119, 119, 119, 0.267);
+        }
+        .header-main .form-search{
+                justify-content: space-between;
+                background: #fff;
+                margin: 10px 20px 0 20px;
+        }
+        .form-search input{
+                width: auto;
+        }
+        .account{
+                display: none;
+        }
+        .logo img{
+                width: 140px;
+        }
+        .bars{
+                display: block;
+        }
+        .header-main .bars i{
+               
+                font-size: 20px;
+        }
+        .user-options{
+                width: auto;
+        }
+        .user-options .search-rp::before{
+                font-family: FontAwesome;
+                content:"\f002";
+                font-size: 20px;
+                color:#777;
+        }
+}

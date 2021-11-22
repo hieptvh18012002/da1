@@ -2,6 +2,9 @@
 <html lang="en">
 
 <head>
+
+  <!-- fontawesome -->
+  <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -12,6 +15,7 @@
   <link rel="stylesheet" href="./public/vendors/css/vendor.bundle.base.css">
   <!-- endinject -->
   <!-- Plugin css for this page -->
+  <link rel="stylesheet" href="./public/vendors/select2/select2.min.css">
   <link rel="stylesheet" href="./public/vendors/datatables.net-bs4/dataTables.bootstrap4.css">
   <link rel="stylesheet" href="./public/vendors/ti-icons/css/themify-icons.css">
   <link rel="stylesheet" type="text/css" href="./public/js/jsadmin/select.dataTables.min.css">
@@ -20,6 +24,11 @@
   <link rel="stylesheet" href="./public/css/vertical-layout-light/style.css">
   <!-- endinject -->
   <link rel="shortcut icon" href="images/favicon.png" />
+  <style>
+    #displayImg img {
+      width: 100% !important;
+    }
+  </style>
 </head>
 
 <body>
@@ -219,7 +228,14 @@
   <!-- Custom js for this page-->
   <script src="./public/js/jsadmin/dashboard.js"></script>
   <script src="./public/js/jsadmin/Chart.roundedBarCharts.js"></script>
+
+  <script src="./public/js/file-upload.js"></script>
+  <script src="./public/js/typeahead.js"></script>
+  <script src="./public/js/select2.js"></script>
   <!-- End custom js for this page-->
+  <!-- js -->
+  <script src="./public/js/layout/previewImg.js"></script>
+
 </body>
 
 </html>
