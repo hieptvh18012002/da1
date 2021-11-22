@@ -35,3 +35,21 @@ $(document).ready(function () {
         }
     })
 })
+// repon menu moble
+function menu(){
+    const optionmenu = document.querySelector('.acc__allmenu');
+    const listMenu = document.querySelectorAll('.acc__menu__item');
+    const select = document.querySelector('.show__menu__title');
+    optionmenu.classList.toggle('show__menu')
+    
+    listMenu.forEach(o =>{
+        o.addEventListener("click", () =>{
+            console.log('đụ má');
+            optionmenu.classList.add('show__menu');
+            select.innerHTML = o.querySelector('a').innerHTML
+        });
+    });
+
+
+}
+// end

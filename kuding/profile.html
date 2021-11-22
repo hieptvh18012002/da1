@@ -244,14 +244,22 @@
                         </div>
                     </div>
                     <div class="body__acc__menu">
-                        <nav class="acc__allmenu">
-                            <div class="acc__menu__item active">
+                        <div class="acc__show__menu" onclick="menu();">
+                            <div class="show__menu__title">
+                                <p>Bảng Điều Khiển</p>
+                            </div>
+                            <div class="show__menu__icon">
+                                <i class="fa fa-angle-down" aria-hidden="true"></i>
+                            </div>
+                        </div>
+                        <nav class="acc__allmenu show__menu">
+                            <div id="1" class="acc__menu__item active">
                                 <a href="">Bảng điều khiển</a>
                             </div>
-                            <div class="acc__menu__item">
+                            <div id="2" class="acc__menu__item">
                                 <a href="">Đơn hàng</a>
                             </div>
-                            <div class="acc__menu__item">
+                            <div id="3" class="acc__menu__item">
                                 <a href="">Thông tin tài khoản</a>
                             </div>
                             <div class="acc__line"></div>
@@ -298,18 +306,14 @@
                                             <input type="text" value="Trương Đức Nghĩa">
                                         </div>
                                         <div class="DH__form1">
-                                            <label for="">Tên hiển thị</label>
+                                            <label for="">Tên hiển thị <i>* Để nhận xét và nhận xét sản phẩm.</i></label>
                                             <input type="text" value="Trương Nghĩa">
-                                            <div class="DH__text">
-                                                <i>* Để nhận xét và nhận xét sản phẩm</i>
-                                            </div>
+                                    
                                         </div>
                                         <div class="DH__form1">
-                                            <label for="">E-mail</label>
+                                            <label for="">E-mail <i>* Nơi bạn nhận được thông tin đặt hàng.</i></label>
                                             <input type="text" value="nghiatdph14539@fpt.edu.vn">
-                                            <div class="DH__text">
-                                                <i>* Nơi bạn nhận được thông tin đặt hàng</i>
-                                            </div>
+                                            
                                         </div>
                                         <div class="DH__form1">
                                             <label for="">Ngày sinh</label>
