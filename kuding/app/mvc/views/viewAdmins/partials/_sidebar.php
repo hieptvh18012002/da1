@@ -28,8 +28,8 @@
       </a>
       <div class="collapse" id="products">
         <ul class="nav flex-column sub-menu">
-          <li class="nav-item"> <a class="nav-link" href="?action=">Danh sách sản phẩm</a></li>
-          <li class="nav-item"> <a class="nav-link" href="?action=">Thêm sản phẩm</a></li>
+          <li class="nav-item"> <a class="nav-link" href="product?action=">Danh sách sản phẩm</a></li>
+          <li class="nav-item"> <a class="nav-link" href="product?action=addProduct">Thêm sản phẩm</a></li>
         </ul>
       </div>
     </li>
