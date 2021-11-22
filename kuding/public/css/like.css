@@ -20,7 +20,10 @@
     margin-left: 20px;
     margin-right: 20px;
     margin-top: 30px; */
+    padding: 0px 20px;
     display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
 
 }
 .title__like{
@@ -41,8 +44,12 @@
     margin-top: 10px;
 }
 .like__item{
-    width: 100%;
+    width: 230px;
+    margin-bottom: 20px;
     position: relative;
+}
+.itemm{
+    width: 230px;
 }
 .filter__color{
     visibility: hidden;
@@ -167,24 +174,26 @@ input.filter__select{
 /* end */
 
 /* responsive */
-/* mobile < 740px*/
-@media only screen and (max-width: 740px){
+/* moile < 740 */
+@media only screen and (max-width: 434px){
+    .like__Allitem {
+        /* flex-direction: column; */
+        justify-content: space-evenly;
+    }
+
+}
+/* mobile > 740px*/
+@media only screen and (min-width: 435px) and (max-width: 740px){
     .like__item{
         width: 200px;
     }
     .like__img{
         width: 200px;
     }
-    .like__Allitem {
-        display: grid;
-        grid-template-columns: 200px 200px;
-        grid-column-gap: 15px;
-        grid-gap: 20px;
-        /* display: flex;
-        /* justify-content: start; */
-        /* flex-wrap: wrap;
-        align-items: center; */
-    }
+    /* .like__Allitem {
+        flex-direction: column;
+        justify-content: space-evenly;
+    } */
     .title__like {
         text-align: left;
         font-size: 25px;
@@ -194,11 +203,6 @@ input.filter__select{
 }
 /* tablet width >= 740px and width 1024px */
 @media only screen and (min-width: 740px) and (max-width: 1024px) {
-    .body__like {
-        font-family: 'Open Sans', sans-serif;
-        max-width: 100%;
-        padding-bottom: 70px;
-    }
     .title__like {
         text-align: center;
         font-size: 24px;
@@ -210,16 +214,6 @@ input.filter__select{
     }
     .like__item{
         width: 227px;
-    }
-    .like__Allitem {
-        /* display: grid;
-        grid-template-columns: 227px 227px 227px 227px;
-        grid-column-gap: 15px;
-        grid-gap: 20px; */
-        display: flex;
-        /* justify-content: start; */
-        flex-wrap: wrap;
-        align-items: center;
     }
 }
 /* pc */
