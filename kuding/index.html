@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick-theme.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.css">
     <!-- font awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
         integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
     <!-- css boostrap 4-->
@@ -41,9 +42,13 @@
             <!-- end header-top -->
             <div class="header-main">
                 <div class="box-header-main">
-                    <a href="" class="logo">
-                        <img src="public/images/layout/logo-main.png" alt="" class="logo-img">
-                    </a>
+                    <div class="box-header-main__start">
+                        <div class="bars"><i class="fa fa-bars bars-icon" aria-hidden="true"></i>
+                        </div>
+                        <a href="" class="logo">
+                            <img src="public/images/layout/logo-main.png" alt="" class="logo-img">
+                        </a>
+                    </div>
                     <div class="search">
                         <form action="" class="form-search" method="GET">
                             <div class="pop-input">
@@ -61,15 +66,16 @@
                         </form>
                     </div>
                     <div class="user-options">
-                        <div class="profile pt-4 pb-4">
-                            <!-- <span class="title-pop-user">Hồ sơ<i class="fa fa-angle-down ml-2"  aria-hidden="true"></i></span> -->
+                        <div class="search-rp"></div>
+                        <!-- <div class="profile pt-4 pb-4">
+                            <span class="title-pop-user">Hồ sơ<i class="fa fa-angle-down ml-2"  aria-hidden="true"></i></span>
                             <div class="pop-profile">
                                 <a href="#">Bảng điều khiển</a>
                                 <a href="#">Đơn hàng</a>
                                 <a href="#">Tài khoản</a>
                                 <a href="#">Đăng xuất</a>
                             </div>
-                        </div>
+                        </div> -->
                         <div class="account pt-4 pb-4" id="popup-user" data-toggle="modal"
                             data-target="#box-login-register">
                             <span class="title-pop-user">Đăng nhập / Đăng ký</span>
@@ -537,11 +543,37 @@
                 <div id="minus" class="btn__minus none">-</div>
                 <div class="background__overlay"></div>
                 <div class="site__intro show1">
-                    <p>Chào mừng đến với KOODING.com, thị trường toàn cầu trực tuyến hàng đầu. Mục tiêu của chúng tôi là để mọi người không chỉ kết nối trên toàn cầu thông qua tình yêu của họ về phong cách Hàn Quốc, mà còn để cung cấp truy cập nhanh đến mới nhất thời trang phụ nữ Hàn Quốc , thời trang nam Hàn Quốc , và Hàn Quốc vẻ đẹp sản phẩm và thương hiệu trên toàn thế giới với chi phí thấp nhất và với không rắc rối vận chuyển trên toàn thế giới. Trên tất cả, chúng tôi cố gắng cung cấp cho cộng đồng KOODING những sản phẩm cao cấp được tìm thấy tại các cửa hàng Hàn Quốc với giá cả phải chăng nhất.</p>
-                    <p>KOODING cung cấp những mặt hàng quần áo châu Á trực tuyến tốt nhất và là nơi có thể mua sắm bất cứ thứ gì liên quan đến thời trang Hàn Quốc. Từ thời trang đường phố đến quần áo hàng hiệu cao cấp, chúng tôi giúp việc mua sắm trực tuyến của người Hàn Quốc trở nên dễ dàng hơn bao giờ hết. Tại đây, bạn có thể tìm thấy mọi thứ, từ áo hoodie và áo nỉ thoải mái, những chiếc váy đáng yêu, áo khoác và áo len cổ lọ sành điệu và ấm áp, cùng những chiếc quần jean và quần âu mới yêu thích của bạn. Chúng tôi mang các thương hiệu quần áo Hàn Quốc đích thực như Chuu , NANING9 , Cherrykoko , BASIC HOUSE , MIND BRIDGE , OPEN THE DOOR , REDHOMME , v.v. Bất kể phong cách ưa thích của bạn là gì, bạn chắc chắn có thể tìm thấy trang phục mơ ước của mình với những bộ quần áo đến từ Hàn Quốc này.</p>
-                    <p>KOODING không chỉ là một cửa hàng thời trang trực tuyến của Hàn Quốc; trên thực tế, chúng tôi không chỉ là quần áo theo phong cách Hàn Quốc và còn cung cấp những sản phẩm làm đẹp tuyệt vời nhất , album K-pop , đồ trang sức và phụ kiện hoàn thiện và bổ sung cho mọi khía cạnh trong lối sống của bạn.</p>
-                    <p>Chúng tôi mỹ phẩm Hàn Quốc , trang điểm , và chăm sóc da sản phẩm cho phép bạn đặt khuôn mặt tốt nhất của bạn về phía trước. Các thương hiệu như SNP , Ariul , RiRe , Evercell by Chaum , XYZ và MILLION RED là nhà sản xuất công thức cải tiến trong trang điểm và chăm sóc da sử dụng những gì tốt nhất trong bí quyết làm đẹp của Hàn Quốc. Ở đây, bạn có thể mua sắm mặt nạ tấm mặt , chất tẩy rửa , toner , huyết thanh , kem lên mặt , Hàn Quốc phong cách sắc thái màu môi , đệm hiệp ước, và mọi thứ khác bạn cần để có được vẻ ngoài trang điểm tự nhiên, hoàn thành quy trình chăm sóc da 10 bước , duyệt theo loại da của bạn hoặc điều trị các vấn đề về da của bạn .</p>
-                    <p>Hãy đến để tìm ra nơi cuộc sống của bạn đưa bạn đến tại KOODING! Vui lòng duyệt qua trang web của chúng tôi và xem các phong cách thời trang Hàn Quốc mới nhất và tuyệt vời nhất từ ​​cửa hàng thời trang trực tuyến yêu thích mới của bạn. Với khả năng phục vụ hơn 100 quốc gia, chúng tôi đảm bảo bạn sẽ có trải nghiệm mua sắm dễ dàng.</p>
+                    <p>Chào mừng đến với KOODING.com, thị trường toàn cầu trực tuyến hàng đầu. Mục tiêu của chúng tôi là
+                        để mọi người không chỉ kết nối trên toàn cầu thông qua tình yêu của họ về phong cách Hàn Quốc,
+                        mà còn để cung cấp truy cập nhanh đến mới nhất thời trang phụ nữ Hàn Quốc , thời trang nam Hàn
+                        Quốc , và Hàn Quốc vẻ đẹp sản phẩm và thương hiệu trên toàn thế giới với chi phí thấp nhất và
+                        với không rắc rối vận chuyển trên toàn thế giới. Trên tất cả, chúng tôi cố gắng cung cấp cho
+                        cộng đồng KOODING những sản phẩm cao cấp được tìm thấy tại các cửa hàng Hàn Quốc với giá cả phải
+                        chăng nhất.</p>
+                    <p>KOODING cung cấp những mặt hàng quần áo châu Á trực tuyến tốt nhất và là nơi có thể mua sắm bất
+                        cứ thứ gì liên quan đến thời trang Hàn Quốc. Từ thời trang đường phố đến quần áo hàng hiệu cao
+                        cấp, chúng tôi giúp việc mua sắm trực tuyến của người Hàn Quốc trở nên dễ dàng hơn bao giờ hết.
+                        Tại đây, bạn có thể tìm thấy mọi thứ, từ áo hoodie và áo nỉ thoải mái, những chiếc váy đáng yêu,
+                        áo khoác và áo len cổ lọ sành điệu và ấm áp, cùng những chiếc quần jean và quần âu mới yêu thích
+                        của bạn. Chúng tôi mang các thương hiệu quần áo Hàn Quốc đích thực như Chuu , NANING9 ,
+                        Cherrykoko , BASIC HOUSE , MIND BRIDGE , OPEN THE DOOR , REDHOMME , v.v. Bất kể phong cách ưa
+                        thích của bạn là gì, bạn chắc chắn có thể tìm thấy trang phục mơ ước của mình với những bộ quần
+                        áo đến từ Hàn Quốc này.</p>
+                    <p>KOODING không chỉ là một cửa hàng thời trang trực tuyến của Hàn Quốc; trên thực tế, chúng tôi
+                        không chỉ là quần áo theo phong cách Hàn Quốc và còn cung cấp những sản phẩm làm đẹp tuyệt vời
+                        nhất , album K-pop , đồ trang sức và phụ kiện hoàn thiện và bổ sung cho mọi khía cạnh trong lối
+                        sống của bạn.</p>
+                    <p>Chúng tôi mỹ phẩm Hàn Quốc , trang điểm , và chăm sóc da sản phẩm cho phép bạn đặt khuôn mặt tốt
+                        nhất của bạn về phía trước. Các thương hiệu như SNP , Ariul , RiRe , Evercell by Chaum , XYZ và
+                        MILLION RED là nhà sản xuất công thức cải tiến trong trang điểm và chăm sóc da sử dụng những gì
+                        tốt nhất trong bí quyết làm đẹp của Hàn Quốc. Ở đây, bạn có thể mua sắm mặt nạ tấm mặt , chất
+                        tẩy rửa , toner , huyết thanh , kem lên mặt , Hàn Quốc phong cách sắc thái màu môi , đệm hiệp
+                        ước, và mọi thứ khác bạn cần để có được vẻ ngoài trang điểm tự nhiên, hoàn thành quy trình chăm
+                        sóc da 10 bước , duyệt theo loại da của bạn hoặc điều trị các vấn đề về da của bạn .</p>
+                    <p>Hãy đến để tìm ra nơi cuộc sống của bạn đưa bạn đến tại KOODING! Vui lòng duyệt qua trang web của
+                        chúng tôi và xem các phong cách thời trang Hàn Quốc mới nhất và tuyệt vời nhất từ ​​cửa hàng
+                        thời trang trực tuyến yêu thích mới của bạn. Với khả năng phục vụ hơn 100 quốc gia, chúng tôi
+                        đảm bảo bạn sẽ có trải nghiệm mua sắm dễ dàng.</p>
                 </div>
             </div>
 
