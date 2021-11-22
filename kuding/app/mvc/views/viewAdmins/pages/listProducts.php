@@ -1,49 +1,48 @@
 <div class="card-body">
     <h4 class="card-title">Danh sách sản phẩm</h4>
-    <p class="card-description">
-        Add class <code>.table</code>
-    </p>
+    <div class="btn btn-primary">
+        <a href="product?action=addProduct" class="text-light">Thêm mới</a>
+    </div>
     <div class="table-responsive">
         <table class="table">
             <thead>
                 <tr>
-                    <th>Profile</th>
-                    <th>VatNo.</th>
-                    <th>Created</th>
-                    <th>Status</th>
+                    <th>STT</th>
+                    <th>Tên</th>
+                    <th>Giá.</th>
+                    <th>Ảnh</th>
+                    <th>Giá giảm</th>
+                    <th>Màu</th>
+                    <th>Size</th>
+                    <th>Mô tả</th>
+                    <th>Tình trạng</th>
+                    <th>Chức năng</th>
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>Jacob</td>
-                    <td>53275531</td>
-                    <td>12 May 2017</td>
-                    <td><label class="badge badge-danger">Pending</label></td>
-                </tr>
-                <tr>
-                    <td>Messsy</td>
-                    <td>53275532</td>
-                    <td>15 May 2017</td>
-                    <td><label class="badge badge-warning">In progress</label></td>
-                </tr>
-                <tr>
-                    <td>John</td>
-                    <td>53275533</td>
-                    <td>14 May 2017</td>
-                    <td><label class="badge badge-info">Fixed</label></td>
-                </tr>
-                <tr>
-                    <td>Peter</td>
-                    <td>53275534</td>
-                    <td>16 May 2017</td>
-                    <td><label class="badge badge-success">Completed</label></td>
-                </tr>
-                <tr>
-                    <td>Dave</td>
-                    <td>53275535</td>
-                    <td>20 May 2017</td>
-                    <td><label class="badge badge-warning">In progress</label></td>
-                </tr>
+                <?php $n = 1;
+                foreach ($data['list_pro'] as $item) : ?>
+                    <tr>
+                        <td><?php echo $n; ?></td>
+                        <td><?= $data['name'] ?></td>
+                        <td><?= $data['price'] ?></td>
+                        <td><img src="./public/images/products/<?= $data['avatar'] ?>" alt=""></td>
+                        <td><?= $data['discount'] ?></td>
+                        <td>màu</td>
+                        <td>size</td>
+                        <td><?= $data['description'] ?></td>
+                        <td><label class="badge badge-danger"><?php if ($data['status'] == 1) {
+                                                                    echo "Còn hàng";
+                                                                }
+                                                                echo "Hết hàng"; ?></label></td>
+                        <td>
+                            <a href="#update"><i class="fas fa-pen-square text-warning "></i></a>
+                            <a href="#del"><i class="fas fa-trash-alt text-danger"></i></a>
+                        </td>
+                    </tr>
+                <?php $n++;
+                endforeach ?>
+
             </tbody>
         </table>
     </div>

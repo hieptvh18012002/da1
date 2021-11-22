@@ -1,7 +1,7 @@
 <nav class="sidebar sidebar-offcanvas" id="sidebar">
   <ul class="nav">
     <li class="nav-item">
-      <a class="nav-link" href="index.html">
+      <a class="nav-link" href="index">
       <i class="far fa-chart-bar menu-icon"></i>
         <span class="menu-title">Thống kê</span>
       </a>

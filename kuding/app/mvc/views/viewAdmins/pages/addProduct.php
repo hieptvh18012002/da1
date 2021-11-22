@@ -5,6 +5,11 @@
             <p class="card-description">
                 Thêm sản phẩm mới vào kho hàng
             </p>
+            <?php if (!empty($data['msg'])) : ?>
+                <div class="msg bg-success text-light" style="padding: 7px;">
+                    <?php echo $data['msg']; ?>
+                </div>
+            <?php endif; ?>
             <form action="" class="forms-sample" method="POST" enctype="multipart/form-data">
                 <div class="form-group">
                     <label for="exampleInputName1">Tên </label>
@@ -101,7 +106,7 @@
                         </div>
                     <?php endif; ?>
                     <div id="displayImg" class="" style="width: 200px;">
-                        
+
                     </div>
                 </div>
 

@@ -73,7 +73,7 @@
           <img src="./public/images/upload/bbb3ca852a037b921bd07e62404589b24dc7473c.jpg" alt="profile" />
         </a>
         <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="profileDropdown">
-          <a href="#profile" class="dropdown-item">
+          <a href="profile" class="dropdown-item">
             <i class="ti-settings text-primary"></i>
             Hồ sơ
           </a>

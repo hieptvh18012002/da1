@@ -45,7 +45,7 @@ function showFavoriteProduct()
 
 function product_insert($name,$cate,$price,$avatar,$description)
 {
-    $sql = "INSERT INTO products (name,cate_id,price,avatar,description) VALUES('$name',$cate,$price,'$avatar',$description)";
+    $sql = "INSERT INTO products (name,cate_id,price,avatar,description) VALUES('$name',$cate,$price,'$avatar','$description')";
     pdo_execute($sql);
 }
 function product_update($id, $name, $price, $sale, $quantity, $avatar, $color, $battery, $description, $cate_id, $status)

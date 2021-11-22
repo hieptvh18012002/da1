@@ -230,6 +230,7 @@
     left: 0px;
     right: 0px;
     margin-top: 10px;
+    padding: 10px;
     z-index: 999;
     box-shadow: 0 0 8px rgb(0 0 0 / 30%);
     border: 1px solid #d6d6d6;

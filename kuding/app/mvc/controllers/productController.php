@@ -4,14 +4,16 @@ callModel("productModels");
 callModel("categoryModels");
 
 $list_cate = category_select_all();
+$list_pro = product_select_all(); 
+
 $err = array();
 $err['img'] = '';
+$msg = '';
 if (isset($_GET['action'])) {
     switch ($_GET['action']) {
         case "addProduct":
             if (isset($_POST['btn_add'])) {
                 extract($_POST);
-                // var_dump($_POST);die;
                 $ext_img = ['jpg', 'png', 'jpeg'];
                 $file = $_FILES['avatar'];
                 if ($file['size'] != 0) {
@@ -28,12 +30,15 @@ if (isset($_GET['action'])) {
                     $err['img'] = "Ảnh chưa tải lên";
                 }
                 // insert
-                if(!array_filter($err)){
+                // var_dump($name,$price,$category,$avatar,$desc);die;
 
+                if(!array_filter($err)){
                     product_insert($name, $category, $price, $avatar, $desc);
+                    $msg = "Thêm thành công sản phẩm";
+                    // insert attribute
                 }
             }
-            viewAdmin("layout", ['page' => 'addProduct', 'list_cate' => $list_cate,'errImg'=>$err['img']]);
+            viewAdmin("layout", ['page' => 'addProduct', 'list_cate' => $list_cate,'errImg'=>$err['img'],'msg'=>$msg]);
             break;
 
         default:
@@ -42,4 +47,4 @@ if (isset($_GET['action'])) {
             break;
     }
 }
-viewAdmin("layout", ['page' => 'listProducts']);
+viewAdmin("layout", ['page' => 'listProducts','list_pro'=>$list_pro]);

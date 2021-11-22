@@ -2,12 +2,14 @@
 <html lang="en">
 
 <head>
+    <!-- jq-ui -->
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
     <!-- slick slider -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick-theme.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.css">
     <!-- font awesome -->
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
-    integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+        integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
     <!-- css boostrap 4-->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <!-- Link Swiper's CSS -->
@@ -283,16 +285,23 @@
                                 <i class="fas fa-chevron-down"></i>
                             </div>
                             <div class="box__filter__price none">
-                                <h1>nghĩa</h1>
+                                <!-- khi ng dùng thay đổi value input hidden -> show khoảng giá dưới trên range -->
+                                <input type="hidden" id="hidden_minimum_price" value="0">
+                                <input type="hidden" id="hidden_maximum_price" value="50000000">
+                                <p id="price_show">Từ 500 nghìn - 50 triệu</p>
+                                <div class="price_range" id="price_range">
+
+                                </div>
                             </div>
                         </div>
                     </form>
                 </div>
-                    
+
                 <div class="proC__show">
                     <div class="proC__allItem">
                         <div class="proC__item">
-                            <img src="public/images/products/6f1473a1548aded553382443128eaca705efd7e3.jpg" alt="" width="230px">
+                            <img src="public/images/products/6f1473a1548aded553382443128eaca705efd7e3.jpg" alt=""
+                                width="230px">
                             <div class="proC__item__Name">
                                 <p>Envy Look Lovely Half Turtleneck Long Sleeve Tee Shirt</p>
                             </div>
@@ -313,7 +322,8 @@
                         </div>
 
                         <div class="proC__item">
-                            <img src="public/images/products/6f1473a1548aded553382443128eaca705efd7e3.jpg" alt="" width="230px">
+                            <img src="public/images/products/6f1473a1548aded553382443128eaca705efd7e3.jpg" alt=""
+                                width="230px">
                             <div class="proC__item__Name">
                                 <p>Envy Look Lovely Half Turtleneck Long Sleeve Tee Shirt</p>
                             </div>
@@ -334,7 +344,8 @@
                         </div>
 
                         <div class="proC__item">
-                            <img src="public/images/products/6f1473a1548aded553382443128eaca705efd7e3.jpg" alt="" width="230px">
+                            <img src="public/images/products/6f1473a1548aded553382443128eaca705efd7e3.jpg" alt=""
+                                width="230px">
                             <div class="proC__item__Name">
                                 <p>Envy Look Lovely Half Turtleneck Long Sleeve Tee Shirt</p>
                             </div>
@@ -355,7 +366,8 @@
                         </div>
 
                         <div class="proC__item">
-                            <img src="public/images/products/6f1473a1548aded553382443128eaca705efd7e3.jpg" alt="" width="230px">
+                            <img src="public/images/products/6f1473a1548aded553382443128eaca705efd7e3.jpg" alt=""
+                                width="230px">
                             <div class="proC__item__Name">
                                 <p>Envy Look Lovely Half Turtleneck Long Sleeve Tee Shirt</p>
                             </div>
@@ -376,7 +388,8 @@
                         </div>
 
                         <div class="proC__item">
-                            <img src="public/images/products/6f1473a1548aded553382443128eaca705efd7e3.jpg" alt="" width="230px">
+                            <img src="public/images/products/6f1473a1548aded553382443128eaca705efd7e3.jpg" alt=""
+                                width="230px">
                             <div class="proC__item__Name">
                                 <p>Envy Look Lovely Half Turtleneck Long Sleeve Tee Shirt</p>
                             </div>
@@ -401,7 +414,8 @@
                     <!-- copy product -->
                     <div class="proC__allItem">
                         <div class="proC__item">
-                            <img src="public/images/products/6f1473a1548aded553382443128eaca705efd7e3.jpg" alt="" width="230px">
+                            <img src="public/images/products/6f1473a1548aded553382443128eaca705efd7e3.jpg" alt=""
+                                width="230px">
                             <div class="proC__item__Name">
                                 <p>Envy Look Lovely Half Turtleneck Long Sleeve Tee Shirt</p>
                             </div>
@@ -422,7 +436,8 @@
                         </div>
 
                         <div class="proC__item">
-                            <img src="public/images/products/6f1473a1548aded553382443128eaca705efd7e3.jpg" alt="" width="230px">
+                            <img src="public/images/products/6f1473a1548aded553382443128eaca705efd7e3.jpg" alt=""
+                                width="230px">
                             <div class="proC__item__Name">
                                 <p>Envy Look Lovely Half Turtleneck Long Sleeve Tee Shirt</p>
                             </div>
@@ -443,7 +458,8 @@
                         </div>
 
                         <div class="proC__item">
-                            <img src="public/images/products/6f1473a1548aded553382443128eaca705efd7e3.jpg" alt="" width="230px">
+                            <img src="public/images/products/6f1473a1548aded553382443128eaca705efd7e3.jpg" alt=""
+                                width="230px">
                             <div class="proC__item__Name">
                                 <p>Envy Look Lovely Half Turtleneck Long Sleeve Tee Shirt</p>
                             </div>
@@ -464,7 +480,8 @@
                         </div>
 
                         <div class="proC__item">
-                            <img src="public/images/products/6f1473a1548aded553382443128eaca705efd7e3.jpg" alt="" width="230px">
+                            <img src="public/images/products/6f1473a1548aded553382443128eaca705efd7e3.jpg" alt=""
+                                width="230px">
                             <div class="proC__item__Name">
                                 <p>Envy Look Lovely Half Turtleneck Long Sleeve Tee Shirt</p>
                             </div>
@@ -485,114 +502,8 @@
                         </div>
 
                         <div class="proC__item">
-                            <img src="public/images/products/6f1473a1548aded553382443128eaca705efd7e3.jpg" alt="" width="230px">
-                            <div class="proC__item__Name">
-                                <p>Envy Look Lovely Half Turtleneck Long Sleeve Tee Shirt</p>
-                            </div>
-                            <div class="proC__item__PC">
-                                <div class="proC__item__price">
-                                    <p>$ 69,69</p>
-                                </div>
-                                <div class="proC__item__color">
-                                    <p>3</p>
-                                    <img src="public/images/layout/colorwheel-2.png" alt="">
-                                </div>
-                            </div>
-                            <div class="proC__love">
-                                <div class="proC__love__icon">
-                                    <i class="far fa-heart"></i>
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
-                    <div class="proC__allItem">
-                        <div class="proC__item">
-                            <img src="public/images/products/6f1473a1548aded553382443128eaca705efd7e3.jpg" alt="" width="230px">
-                            <div class="proC__item__Name">
-                                <p>Envy Look Lovely Half Turtleneck Long Sleeve Tee Shirt</p>
-                            </div>
-                            <div class="proC__item__PC">
-                                <div class="proC__item__price">
-                                    <p>$ 69,69</p>
-                                </div>
-                                <div class="proC__item__color">
-                                    <p>3</p>
-                                    <img src="public/images/layout/colorwheel-2.png" alt="">
-                                </div>
-                            </div>
-                            <div class="proC__love">
-                                <div class="proC__love__icon">
-                                    <i class="far fa-heart"></i>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="proC__item">
-                            <img src="public/images/products/6f1473a1548aded553382443128eaca705efd7e3.jpg" alt="" width="230px">
-                            <div class="proC__item__Name">
-                                <p>Envy Look Lovely Half Turtleneck Long Sleeve Tee Shirt</p>
-                            </div>
-                            <div class="proC__item__PC">
-                                <div class="proC__item__price">
-                                    <p>$ 69,69</p>
-                                </div>
-                                <div class="proC__item__color">
-                                    <p>3</p>
-                                    <img src="public/images/layout/colorwheel-2.png" alt="">
-                                </div>
-                            </div>
-                            <div class="proC__love">
-                                <div class="proC__love__icon">
-                                    <i class="far fa-heart"></i>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="proC__item">
-                            <img src="public/images/products/6f1473a1548aded553382443128eaca705efd7e3.jpg" alt="" width="230px">
-                            <div class="proC__item__Name">
-                                <p>Envy Look Lovely Half Turtleneck Long Sleeve Tee Shirt</p>
-                            </div>
-                            <div class="proC__item__PC">
-                                <div class="proC__item__price">
-                                    <p>$ 69,69</p>
-                                </div>
-                                <div class="proC__item__color">
-                                    <p>3</p>
-                                    <img src="public/images/layout/colorwheel-2.png" alt="">
-                                </div>
-                            </div>
-                            <div class="proC__love">
-                                <div class="proC__love__icon">
-                                    <i class="far fa-heart"></i>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="proC__item">
-                            <img src="public/images/products/6f1473a1548aded553382443128eaca705efd7e3.jpg" alt="" width="230px">
-                            <div class="proC__item__Name">
-                                <p>Envy Look Lovely Half Turtleneck Long Sleeve Tee Shirt</p>
-                            </div>
-                            <div class="proC__item__PC">
-                                <div class="proC__item__price">
-                                    <p>$ 69,69</p>
-                                </div>
-                                <div class="proC__item__color">
-                                    <p>3</p>
-                                    <img src="public/images/layout/colorwheel-2.png" alt="">
-                                </div>
-                            </div>
-                            <div class="proC__love">
-                                <div class="proC__love__icon">
-                                    <i class="far fa-heart"></i>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="proC__item">
-                            <img src="public/images/products/6f1473a1548aded553382443128eaca705efd7e3.jpg" alt="" width="230px">
+                            <img src="public/images/products/6f1473a1548aded553382443128eaca705efd7e3.jpg" alt=""
+                                width="230px">
                             <div class="proC__item__Name">
                                 <p>Envy Look Lovely Half Turtleneck Long Sleeve Tee Shirt</p>
                             </div>
@@ -615,7 +526,8 @@
                     </div>
                     <div class="proC__allItem">
                         <div class="proC__item">
-                            <img src="public/images/products/6f1473a1548aded553382443128eaca705efd7e3.jpg" alt="" width="230px">
+                            <img src="public/images/products/6f1473a1548aded553382443128eaca705efd7e3.jpg" alt=""
+                                width="230px">
                             <div class="proC__item__Name">
                                 <p>Envy Look Lovely Half Turtleneck Long Sleeve Tee Shirt</p>
                             </div>
@@ -636,7 +548,8 @@
                         </div>
 
                         <div class="proC__item">
-                            <img src="public/images/products/6f1473a1548aded553382443128eaca705efd7e3.jpg" alt="" width="230px">
+                            <img src="public/images/products/6f1473a1548aded553382443128eaca705efd7e3.jpg" alt=""
+                                width="230px">
                             <div class="proC__item__Name">
                                 <p>Envy Look Lovely Half Turtleneck Long Sleeve Tee Shirt</p>
                             </div>
@@ -657,7 +570,8 @@
                         </div>
 
                         <div class="proC__item">
-                            <img src="public/images/products/6f1473a1548aded553382443128eaca705efd7e3.jpg" alt="" width="230px">
+                            <img src="public/images/products/6f1473a1548aded553382443128eaca705efd7e3.jpg" alt=""
+                                width="230px">
                             <div class="proC__item__Name">
                                 <p>Envy Look Lovely Half Turtleneck Long Sleeve Tee Shirt</p>
                             </div>
@@ -678,7 +592,8 @@
                         </div>
 
                         <div class="proC__item">
-                            <img src="public/images/products/6f1473a1548aded553382443128eaca705efd7e3.jpg" alt="" width="230px">
+                            <img src="public/images/products/6f1473a1548aded553382443128eaca705efd7e3.jpg" alt=""
+                                width="230px">
                             <div class="proC__item__Name">
                                 <p>Envy Look Lovely Half Turtleneck Long Sleeve Tee Shirt</p>
                             </div>
@@ -699,7 +614,120 @@
                         </div>
 
                         <div class="proC__item">
-                            <img src="public/images/products/6f1473a1548aded553382443128eaca705efd7e3.jpg" alt="" width="230px">
+                            <img src="public/images/products/6f1473a1548aded553382443128eaca705efd7e3.jpg" alt=""
+                                width="230px">
+                            <div class="proC__item__Name">
+                                <p>Envy Look Lovely Half Turtleneck Long Sleeve Tee Shirt</p>
+                            </div>
+                            <div class="proC__item__PC">
+                                <div class="proC__item__price">
+                                    <p>$ 69,69</p>
+                                </div>
+                                <div class="proC__item__color">
+                                    <p>3</p>
+                                    <img src="public/images/layout/colorwheel-2.png" alt="">
+                                </div>
+                            </div>
+                            <div class="proC__love">
+                                <div class="proC__love__icon">
+                                    <i class="far fa-heart"></i>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="proC__allItem">
+                        <div class="proC__item">
+                            <img src="public/images/products/6f1473a1548aded553382443128eaca705efd7e3.jpg" alt=""
+                                width="230px">
+                            <div class="proC__item__Name">
+                                <p>Envy Look Lovely Half Turtleneck Long Sleeve Tee Shirt</p>
+                            </div>
+                            <div class="proC__item__PC">
+                                <div class="proC__item__price">
+                                    <p>$ 69,69</p>
+                                </div>
+                                <div class="proC__item__color">
+                                    <p>3</p>
+                                    <img src="public/images/layout/colorwheel-2.png" alt="">
+                                </div>
+                            </div>
+                            <div class="proC__love">
+                                <div class="proC__love__icon">
+                                    <i class="far fa-heart"></i>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="proC__item">
+                            <img src="public/images/products/6f1473a1548aded553382443128eaca705efd7e3.jpg" alt=""
+                                width="230px">
+                            <div class="proC__item__Name">
+                                <p>Envy Look Lovely Half Turtleneck Long Sleeve Tee Shirt</p>
+                            </div>
+                            <div class="proC__item__PC">
+                                <div class="proC__item__price">
+                                    <p>$ 69,69</p>
+                                </div>
+                                <div class="proC__item__color">
+                                    <p>3</p>
+                                    <img src="public/images/layout/colorwheel-2.png" alt="">
+                                </div>
+                            </div>
+                            <div class="proC__love">
+                                <div class="proC__love__icon">
+                                    <i class="far fa-heart"></i>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="proC__item">
+                            <img src="public/images/products/6f1473a1548aded553382443128eaca705efd7e3.jpg" alt=""
+                                width="230px">
+                            <div class="proC__item__Name">
+                                <p>Envy Look Lovely Half Turtleneck Long Sleeve Tee Shirt</p>
+                            </div>
+                            <div class="proC__item__PC">
+                                <div class="proC__item__price">
+                                    <p>$ 69,69</p>
+                                </div>
+                                <div class="proC__item__color">
+                                    <p>3</p>
+                                    <img src="public/images/layout/colorwheel-2.png" alt="">
+                                </div>
+                            </div>
+                            <div class="proC__love">
+                                <div class="proC__love__icon">
+                                    <i class="far fa-heart"></i>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="proC__item">
+                            <img src="public/images/products/6f1473a1548aded553382443128eaca705efd7e3.jpg" alt=""
+                                width="230px">
+                            <div class="proC__item__Name">
+                                <p>Envy Look Lovely Half Turtleneck Long Sleeve Tee Shirt</p>
+                            </div>
+                            <div class="proC__item__PC">
+                                <div class="proC__item__price">
+                                    <p>$ 69,69</p>
+                                </div>
+                                <div class="proC__item__color">
+                                    <p>3</p>
+                                    <img src="public/images/layout/colorwheel-2.png" alt="">
+                                </div>
+                            </div>
+                            <div class="proC__love">
+                                <div class="proC__love__icon">
+                                    <i class="far fa-heart"></i>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="proC__item">
+                            <img src="public/images/products/6f1473a1548aded553382443128eaca705efd7e3.jpg" alt=""
+                                width="230px">
                             <div class="proC__item__Name">
                                 <p>Envy Look Lovely Half Turtleneck Long Sleeve Tee Shirt</p>
                             </div>
@@ -813,21 +841,26 @@
             <i class="fa fa-chevron-up text-secondary" aria-hidden="true"></i>
         </div>
     </div>
-
+    <!-- jqr ui -->
+    <script src=" https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js">
+    </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>  
+    <!-- jqueryui -->
     <!-- js boostrap 4 -->
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    <!-- <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
         integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-        crossorigin="anonymous"></script>
+        crossorigin="anonymous"></script> -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
         integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
         crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script> -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js"></script>
     <!-- js -->
     <script src="public/js/layout/backtop.js"></script>
     <script src="public/js/layout/popupLogin.js"></script>
     <script src="public/js/layout/products.js"></script>
+    <script src="public/js/layout/filter_product.js"></script>
     <!-- Swiper JS -->
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
     <script>
@@ -889,7 +922,22 @@
                 ]
             });
         })
+        // input range
+        $('#price_range').slider({
+                range: true,
+                min: 500000,
+                max: 50000000,
+                values: [500000, 50000000],
+                step: 500000,
+                stop: function(event, ui) {
+                    $('#price_show').html('Từ :' + ui.values[0] + '-' + ui.values[1])
+                    $('#hidden_minimum_price').val(ui.values[0])
+                    $('#hidden_maximum_price').val(ui.values[1])
+                    filter_data();
+                }
+            })
     </script>
+
 
 
 </body>

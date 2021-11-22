@@ -2,6 +2,10 @@
 <html lang="en">
 
 <head>
+    <!--  -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pretty-checkbox@3.0/dist/pretty-checkbox.min.css">
+    <!-- jq-ui -->
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
     <!-- custom checkbox -->
     <link rel="stylesheet" href="public/css/lib/checkboxes.min.css">
     <!--  -->
@@ -96,12 +100,11 @@
                                                 <input type="password" name="password" placeholder="Nhập mật khẩu"
                                                     class="password">
                                             </div>
-                                            <div class="forgot_pass_remember mb-4 mt-4">
-                                                <label for="remember-me" class="">
-                                                    Nhớ thông
-                                                    tin
-                                                </label>
-                                                <input class="" id="remember-me" type="checkbox" name="remember_me">
+                                            <div class="pretty p-default mb-4 mt-4">
+                                                <input type="checkbox" />
+                                                <div class="state">
+                                                    <label>Nhớ thông tin</label>
+                                                </div>
                                             </div>
                                             <button type="submit" class="col-md-12 btn btn-secondary p-2"
                                                 id="btn_login">Đăng

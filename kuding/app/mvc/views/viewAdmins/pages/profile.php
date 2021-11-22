@@ -19,7 +19,7 @@
         <div class="col-lg-4 col-xlg-3 col-md-5">
             <div class="card">
                 <div class="card-body">
-                    <center class="mt-4"> <img src="../../../../public/images/admin/mua_ha_noi.jpg" class="img-circle" width="150" />
+                    <center class="mt-4"> <img src="./public/images/admin/mua_ha_noi.jpg" class="img-circle" width="100%" />
                         <h4 class="card-title mt-2">Hanna Gover</h4>
                         <h6 class="card-subtitle">Accoubts Manager Amix corp</h6>
                         <div class="row text-center justify-content-md-center">
