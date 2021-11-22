@@ -5,33 +5,59 @@
             <p class="card-description">
                 Thêm sản phẩm mới vào kho hàng
             </p>
-            <form class="forms-sample" method="POST" enctype="multipart/form-data">
+            <form action="" class="forms-sample" method="POST" enctype="multipart/form-data">
                 <div class="form-group">
                     <label for="exampleInputName1">Tên </label>
-                    <input type="text" class="form-control" id="exampleInputName1" placeholder="Name">
+                    <input type="text" name="name" class="form-control" id="exampleInputName1" placeholder="Name">
                 </div>
                 <div class="form-group">
                     <label for="cate" class="">Loại sản phẩm</label>
-                    <select name="category" id="cate" class="form-control">
-                        <option value="" disabled selected>Chọn loại sản phẩm</option>
-                        <option value="0">Thời trang nữ</option>
-                        <option value="0">Thời trang nam</option>
+                    <select id="cate" name="category" class="form-control">
+                        <?php foreach ($data['list_cate'] as $item) : ?>
+                            <option value="<?= $item['id'] ?>"><?php echo $item['name'] ?></option>
+                        <?php endforeach; ?>
                     </select>
                 </div>
                 <div class="form-group">
                     <label for="price">Giá</label>
-                    <input type="number" class="form-control" id="price" placeholder="Password">
+                    <input type="number" name="price" class="form-control" id="price" placeholder="Giá sản phẩm">
+                </div>
+                <div class="form-group" style="display:flex; column-gap:30px; align-items:center;">
+                    <label for="">Màu sản phẩm</label>
+                    <div class="form-check">
+                        <label class="form-check-label">
+                            <input class="checkbox" type="checkbox" name="color[]" value="xanh">
+                            Xanh
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <label class="form-check-label">
+                            <input class="checkbox" type="checkbox" name="color[]" value="do">
+                            Đỏ
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <label class="form-check-label">
+                            <input class="checkbox" type="checkbox" name="color[]" value="tim">
+                            Tím
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <label class="form-check-label">
+                            <input class="checkbox" type="checkbox" name="color[]" value="vang">
+                            Vàng
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <label class="form-check-label">
+                            <input class="checkbox" type="checkbox" name="color[]" value="den">
+                            Đen
+                        </label>
+                    </div>
                 </div>
                 <div class="form-group">
-                    <label for="price">Màu</label>
-                    <select name="color" id="color" class="form-control">
-                        <option value="0">Xanh </option>
-                        <option value="2">Đỏ </option>
-                        <option value="1">Tím </option>
-                    </select>
-                    <br>
-                    <p>Hoặc nhập màu tùy chọn</p>
-                    <input type="text" class="form-control" id="price" placeholder="Nhập màu mới" name="new_color">
+                    <label for="">Màu mới </label>
+                    <input type="text" name="color_new" class="form-control" id="" placeholder="Màu mới">
                 </div>
                 <div class="form-group" style="display:flex; column-gap:30px; align-items:center;">
                     <label for="">Kích cỡ</label>
@@ -67,21 +93,23 @@
                     </div>
                 </div>
                 <div class="form-group">
-                      <label>File upload</label>
-                      <input type="file" name="img[]" class="file-upload-default">
-                      <div class="input-group col-xs-12">
-                        <input type="text" class="form-control file-upload-info" disabled placeholder="Upload Image">
-                        <span class="input-group-append">
-                          <button class="file-upload-browse btn btn-primary" type="button">Upload</button>
-                        </span>
-                      </div>
+                    <label>File upload</label>
+                    <input type="file" name="avatar" class="form-control" id="upload" onchange="previewImg()">
+                    <?php if (!empty($data['errImg'])) : ?>
+                        <div class="text-danger">
+                            <?php echo $data['errImg']  ?>
+                        </div>
+                    <?php endif; ?>
+                    <div id="displayImg" class="" style="width: 200px;">
+                        
                     </div>
-                
+                </div>
+
                 <div class="form-group">
                     <label for="exampleTextarea1">Mô tả thông tin sản phẩm</label>
                     <textarea class="form-control" id="exampleTextarea1" name="desc" rows="4"></textarea>
                 </div>
-                <button type="submit" class="btn btn-primary mr-2">Thêm</button>
+                <button type="submit" name="btn_add" class="btn btn-primary mr-2">Thêm</button>
                 <button class="btn btn-light">Cancel</button>
             </form>
         </div>

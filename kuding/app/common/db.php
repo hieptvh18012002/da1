@@ -3,7 +3,7 @@
 function get_connection()
 {
     $host = 'localhost';
-    $dbname = 'apple_store';
+    $dbname = 'da1_kooding';
     $username = 'root';
     $password = '';
     try {
