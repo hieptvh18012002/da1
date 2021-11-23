@@ -22,5 +22,18 @@ $(document).ready(function () {
         $('.header-menu').toggleClass("active-menu")
         
     })
+
+    // javaScript menu burger
+    const menuBtn = document.querySelector('.menu__bars');
+    let menuOpen = false;
+    menuBtn.addEventListener('click', () => {
+    if(!menuOpen) {
+        menuBtn.classList.add('open');
+        menuOpen = true;
+    } else {
+        menuBtn.classList.remove('open');
+        menuOpen = false;
+    }
+});
    
 });
