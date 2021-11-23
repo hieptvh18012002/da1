@@ -924,6 +924,56 @@ padding: 0 30px;
 .bars {
         display: none;
 }
+/* code burger */
+.menu__bars{
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 40px;
+        height: 40px;
+        cursor: pointer;
+        transition: all .2s ease-in-out;
+}
+.btn__burger{
+        width: 25px;
+        height: 2px;
+        background: #919191;
+        border-radius: 5px;
+        box-shadow: 0 2px 5px rgba(156, 156, 156, 0.2);
+        transition: all .2s ease-in-out;
+}
+.btn__burger::before,
+.btn__burger::after{
+        content: '';
+        position: absolute;
+        width: 25px;
+        height: 2px;
+        background: #919191;
+        border-radius: 5px;
+        box-shadow: 0 2px 5px rgba(156, 156, 156, 0.2);
+        transition: all .2s ease-in-out;
+}
+.btn__burger::before {
+        margin-top: 6px;
+        transform: translateY(-16px);
+      }
+.btn__burger::after {
+        margin-top: -6px;
+        transform: translateY(16px);
+}
+.menu__bars.open .btn__burger {
+        transform: translateX(-50px);
+        background: transparent;
+        box-shadow: none;
+}
+.menu__bars.open .btn__burger::before {
+        transform: rotate(45deg) translate(27px, -35px);
+}
+.menu__bars.open .btn__burger::after {
+        transform: rotate(-45deg) translate(26px, 35px);
+}
+/* end */
 .slick-next:before, .slick-prev:before{
         color: #2e2d2d !important;
         font-size: 40px !important;
