@@ -1,531 +1,150 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <!-- jsdelivr -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pretty-checkbox@3.0/dist/pretty-checkbox.min.css">
-    <!-- slick slider -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick-theme.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.css">
-    <!-- font awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <!-- css boostrap 4-->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <!-- Link Swiper's CSS -->
-    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
-    <!-- css -->
-    <link rel="stylesheet" href="public/css/main.css">
-    <link rel="stylesheet" href="public/css/acc.css">
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Thời trang Hàn Quốc/Trang chủ</title>
-</head>
-
-<body>
-    <div class="wrapper">
-        <header>
-            <div class="header-top swiper mySwiper">
-                <div class="swiper-wrapper">
-                    <a href="#" class="swiper-slide slider-top1">Covid-19 </a>
-                    <a href="#" class="swiper-slide slider-top2">Vận chuyển nhanh chóng và tin cậy 🚛</a>
+<main class="body__acc">
+    <div class="body__acc__header">
+        <div class="body__acc__fist">
+            <div class="body__acc__title">
+                <div class="acc__title__fist active">
+                    <p>Bảng điều khiển</p>
+                </div>
+                <div class="acc__title__fist ">
+                    <p>Đơn hàng</p>
+                </div>
+                <div class="acc__title__fist">
+                    <p>Thông tin</p>
+                </div>
+                <div class="acc__title__text mt-3">
+                    <p>Chào mừng bạn trở lại Nghĩa</p>
                 </div>
             </div>
-            <!-- end header-top -->
-            <div class="header-main">
-                <div class="box-header-main">
-                    <a href="" class="logo">
-                        <img src="public/images/layout/logo-main.png" alt="" class="logo-img">
-                    </a>
-                    <div class="search">
-                        <form action="" class="form-search" method="GET">
-                            <select name="filter-cate" id="" class="filter-cate">
-                                <option value=""><a href="">Phụ kiện</a></option>
-                                <option value="">Nam</option>
-                                <option value="">Nữ</option>
-                                <option value="">Trẻ em</option>
-                            </select>
-                            <input type="search" name="keyword" placeholder="Tìm kiếm" required>
-                            <button type="submit">
-                                <i class="fa fa-search" aria-hidden="true"></i>
-                            </button>
-                        </form>
+            <div class="body__acc__menu">
+                <div class="acc__show__menu" onclick="menu();">
+                    <div class="show__menu__title">
+                        <p>Bảng Điều Khiển</p>
                     </div>
-                    <div class="user-options">
-                        <div class="profile pt-4 pb-4">
-                            <!-- <span class="title-pop-user">Hồ sơ<i class="fa fa-angle-down ml-2"  aria-hidden="true"></i></span> -->
-                            <div class="pop-profile">
-                                <a href="#">Bảng điều khiển</a>
-                                <a href="#">Đơn hàng</a>
-                                <a href="#">Tài khoản</a>
-                                <a href="#">Đăng xuất</a>
-                            </div>
-                        </div>
-                        <div class="account pt-4 pb-4" id="popup-user" data-toggle="modal"
-                            data-target="#box-login-register">
-                            <span class="title-pop-user">Đăng nhập / Đăng ký</span>
-                        </div>
-                        <!-- pops up login -->
-                        <div class="modal fade " role="dialog" id="box-login-register" style="z-index: 100;">
-                            <div class="modal-dialog">
-                                <div class="modal-content box-content-user mt-5">
-                                    <div class="modal-header" style="border:none;padding-bottom:0;">
-                                        <button type="button" class="close" data-dismiss="modal"
-                                            style="outline:none;">&times;</button>
-                                    </div>
-
-                                    <div class="modal-body box-user">
-                                        <div class="title">
-                                            <span class="title-sign_in">Đăng nhập</span>
-                                            <span class="title-register">Đăng ký</span>
-                                        </div>
-                                        <div class="welcome">
-                                            Chào mừng bạn!
-                                        </div>
-                                        <form action="" method="POST" name="form-login" class="p-5" id="login_user">
-                                            <div class="form-group">
-                                                <input type="text" name="email" placeholder="Nhập email" class=" email"
-                                                    required>
-                                            </div>
-                                            <div class="form-group">
-                                                <input type="password" name="password" placeholder="Nhập mật khẩu"
-                                                    class="password">
-                                            </div>
-                                            <div class="forgot_pass_remember mb-4 mt-4">
-                                                <label for="remember-me" class="">
-                                                    Nhớ thông
-                                                    tin
-                                                </label>
-                                                <input class="" id="remember-me" type="checkbox" name="remember_me">
-                                            </div>
-                                            <button type="submit" class="col-md-12 btn btn-secondary p-2"
-                                                id="btn_login">Đăng
-                                                nhập</button>
-                                            <div class="forgot-pass text-center m-3">
-                                                <a href="#remember">Bạn quên mật khẩu?</a>
-                                            </div>
-                                            <div class="err" style="color:red;">
-
-                                            </div>
-                                        </form>
-                                        <!-- register -->
-                                        <form action="" method="POST" name="form-login" id="register_user" class="p-5">
-                                            <div class="form-group">
-                                                <input type="text" name="fullname" placeholder="Tên đầy đủ"
-                                                    class="fullname">
-                                            </div>
-                                            <div class="form-group">
-                                                <input type="text" name="email" placeholder="Nhập email" class=" email">
-                                            </div>
-                                            <div class="form-group">
-                                                <input type="password" name="password" placeholder="Nhập mật khẩu"
-                                                    class=" password">
-                                            </div>
-                                            <div class="form-group">
-                                                <input type="date" name="birthday" placeholder="Ngày sinh của bạn"
-                                                    class="password">
-                                            </div>
-                                            <div class="gender col-md-12 mb-4 mt-4">
-                                                <div class="form-check-inline">
-                                                    <input class="form-check-input" id="gender" type="radio"
-                                                        name="gender">
-                                                    <label for="gender" class="form-check-label mr-4">
-                                                        Nam
-                                                    </label>
-                                                    <input class="form-check-input" id="gender2" type="radio"
-                                                        name="gender">
-                                                    <label for="gender2" class="form-check-label">
-                                                        Nữ
-                                                    </label>
-                                                </div>
-                                            </div>
-                                            <button type="submit" class="col-md-12 btn btn-secondary p-2"
-                                                id="btn_register">Tạo tài khoản</button>
-                                            <div class="forgot-pass text-center m-3">
-                                                <p>Bạn chắc chắn rằng sẽ đồng ý với những điều khoản của chúng tôi!</p>
-                                            </div>
-                                            <div class="err" style="color:red;">
-
-                                            </div>
-                                        </form>
-                                    </div>
-
-                                    <div class="modal-footer" style="display:block;">
-
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- end modal login-->
-                        <a href="#lang" class="lang pt-4 pb-4">
-                            <img src="public/images/layout/vietnam.png" alt="">
-                        </a>
-                        <div class="box-favorite-pro pt-4 pb-4">
-                            <a href="" class="favorite-pro">
-                                <i class="fa fa-heart" aria-hidden="true"></i>
-                            </a>
-                            <div class="notifi">1</div>
-                        </div>
-                        <div class="box-cart pt-4 pb-4">
-                            <a href="" class="cart">
-                                <i class="fa fa-shopping-bag" aria-hidden="true"></i>
-                            </a>
-                            <div class="notifi">2</div>
-                            <!-- start popup-cart -->
-                            <div class="pop-cart">
-                                <div class="pop-cart__top">
-                                    <div class="left">
-                                        <div class=""> <i class="fa fa-shopping-bag " aria-hidden="true"></i></div>
-                                    </div>
-                                    <div class="right">
-                                        <span class="total">Tổng tiền:</span>
-                                        <span>500.000đ</span>
-                                    </div>
-                                </div>
-                                <div class="pop-cart__main row p-3">
-                                    <div class="col-3 col-md-3">
-                                        <img src="public/images/products/5cde3d230e25839dd691992b2d3e183ebe69e199.jpg" alt=""
-                                            width="100%">
-                                    </div>
-                                    <div class="col-6 col-md-6">
-                                        <div class="pro-name mb-2">Quần jeans Hàn Xẻng!</div>
-                                        <div class="desc">
-                                            Đen | Size M | SL 1
-                                        </div>
-                                    </div>
-                                    <div class="col-3 col-md-3 cart-option">
-                                        <div class="pro-price mb-5">500.000đ</div>
-                                        <a href="#" class="text-danger">Hủy bỏ</a>
-                                    </div>
-                                </div>
-                                <div class="pop-cart__bottom">
-                                    <a href="#" class="text-white bg-secondary">Thanh toán</a>
-                                    <a href="#" class="">Vào giỏ hàng</a>
-
-                                </div>
-                            </div>
-                        </div>
+                    <div class="show__menu__icon">
+                        <i class="fa fa-angle-down" aria-hidden="true"></i>
                     </div>
                 </div>
-                <div class="header-menu">
-                    <ul class="sub-nav m-0">
-                        <li><a href="">#SPOTLIGHT</a></li>
-                        <li><a href="">Nam</a></li>
-                        <li><a href="">Nữ</a></li>
-                        <li><a href="">Chăm sóc da</a></li>
-                        <li><a href="">Trẻ em</a></li>
-                        <li><a href="">Làm sạch</a></li>
-                        <li><a href="">Làm sạch</a></li>
-                        <li><a href="">Làm sạch</a></li>
-                        <li><a href="">#KOODING</a></li>
-                    </ul>
-                </div>
-
+                <nav class="acc__allmenu show__menu">
+                    <div id="1" class="acc__menu__item active">
+                        <a href="">Bảng điều khiển</a>
+                    </div>
+                    <div id="2" class="acc__menu__item">
+                        <a href="">Đơn hàng</a>
+                    </div>
+                    <div id="3" class="acc__menu__item">
+                        <a href="">Thông tin tài khoản</a>
+                    </div>
+                    <div class="acc__line"></div>
+                </nav>
             </div>
-            <!-- end header-main -->
-
-        </header>
-        <!-- end header -->
-        <main class="body__acc">
-            <div class="body__acc__header">
-                <div class="body__acc__fist">
-                    <div class="body__acc__title">
-                        <div class="acc__title__fist active">
-                            <p>Bảng điều khiển</p>
-                        </div>
-                        <div class="acc__title__fist ">
-                            <p>Đơn hàng</p>
-                        </div>
-                        <div class="acc__title__fist">
-                            <p>Thông tin</p>
-                        </div>
-                        <div class="acc__title__text mt-3">
-                            <p>Chào mừng bạn trở lại Nghĩa</p>
-                        </div>
-                    </div>
-                    <div class="body__acc__menu">
-                        <div class="acc__show__menu" onclick="menu();">
-                            <div class="show__menu__title">
-                                <p>Bảng Điều Khiển</p>
-                            </div>
-                            <div class="show__menu__icon">
-                                <i class="fa fa-angle-down" aria-hidden="true"></i>
-                            </div>
-                        </div>
-                        <nav class="acc__allmenu show__menu">
-                            <div id="1" class="acc__menu__item active">
-                                <a href="">Bảng điều khiển</a>
-                            </div>
-                            <div id="2" class="acc__menu__item">
-                                <a href="">Đơn hàng</a>
-                            </div>
-                            <div id="3" class="acc__menu__item">
-                                <a href="">Thông tin tài khoản</a>
-                            </div>
-                            <div class="acc__line"></div>
-                        </nav>
-                    </div>
-                </div>
-            </div>
-            <div class="body__acc__content">
-                <div class="acc__tab__menu active">
-                    <h1>Nghĩa</h1>
-                </div>
-                <div class="acc__tab__menu">
-                    <div class="acc__menu__content">
-                        <div class="acc__donhang">
-                            <div class="acc__DH__title">
-                                <p>Lịch sử đơn hàng</p>
-                            </div>
-                            <div class="acc__DH__content">
-                                <div class="DH__content__title">
-                                    <p>Không tìm thấy đơn hàng</p>
-                                </div>
-                                <div class="DH__content__body">
-                                    <img src="public/images/layout/empty-orders.jpg" alt="">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="acc__tab__menu">
-                    <div class="acc__menu__content">
-                        <div class="acc__donhang">
-                            <div class="acc__DH__title">
-                                <p>Thông tin tài khoản của bạn</p>
-                            </div>
-                            <div class="acc__DH__content1">
-                                <div class="DH__title">
-                                    <p>Đăng nhập xã hội: </p>
-                                    <img src="public/images/layout/fb-logo-col.svg" alt="" class="">
-                                </div>
-                                <div class="DH__form">
-                                    <form action="" method="post">
-                                        <div class="DH__form1">
-                                            <label for="">Họ và tên</label>
-                                            <input type="text" value="Trương Đức Nghĩa">
-                                        </div>
-                                        <div class="DH__form1">
-                                            <label for="">Tên hiển thị <i>* Để nhận xét và nhận xét sản phẩm.</i></label>
-                                            <input type="text" value="Trương Nghĩa">
-                                    
-                                        </div>
-                                        <div class="DH__form1">
-                                            <label for="">E-mail <i>* Nơi bạn nhận được thông tin đặt hàng.</i></label>
-                                            <input type="text" value="nghiatdph14539@fpt.edu.vn">
-                                            
-                                        </div>
-                                        <div class="DH__form1">
-                                            <label for="">Ngày sinh</label>
-                                            <p>03/08/2002</p>
-                                        </div>
-                                        <div class="DH__form2">
-                                            <label class="sex__text" for="">Giới tính</label>
-                                            <div class="DH__checkBox">
-                                                <div class="pretty p-default">
-                                                    <input type="radio" id="nam" name="gender" />
-                                                    <div class="state p-info">
-                                                        <label for="nam">Nam</label>
-                                                    </div>
-                                                </div>
-                                                <div class="pretty p-default">
-                                                    <input type="radio" id="nu" name="gender"/>
-                                                    <div class="state p-info">
-                                                        <label for="nu">Nữ</label>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="DH__submit">
-                                            <button type="submit">Lưu thông tin của tôi</button>
-                                        </div>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="acc__donhang">
-                            <div id="changePass" class="acc__DH__title">
-                                <p>Thay đổi mật khẩu tài khoản</p> <i class="fa fa-chevron-down" aria-hidden="true"></i>
-                            </div>
-                            <div id="show" class="acc__DH__content1 none">
-                                <div class="DH__form">
-                                    <form action="" method="post">
-                                        <div class="DH__form1">
-                                            <label for="">Mật khẩu cũ</label>
-                                            <input type="text">
-                                        </div>
-                                        <div class="DH__form1">
-                                            <label for="">Mật khẩu mới</label>
-                                            <input type="text">
-                                        </div>
-                                        <div class="DH__form1">
-                                            <label for="">Xác nhận mật khẩu</label>
-                                            <input type="text">
-                                        </div>
-                                        <div class="DH__submit">
-                                            <button type="submit">Cập nhật mật khẩu</button>
-                                        </div>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-
-        </main>
-        <footer>
-            <div class="footer-top">
-                <div class="footer-item">
-                    <span class="footer-top__title text-title">Về chúng tôi</span>
-                    <p class="mt-2">Cho các đề nghị độc quyền!</p>
-                </div>
-                <div class="footer-item">
-                    <form action="" class="register_footer">
-                        <input type="email" placeholder="Địa chỉ email" name="email">
-                        <button type="submit" name="btn_register">Đăng kí</button>
-                    </form>
-                </div>
-                <div class="footer-social">
-                    <a href=""><i class="fa fa-facebook" aria-hidden="true"></i></a>
-                    <a href=""><i class="fa fa-instagram" aria-hidden="true"></i>
-                    </a>
-                    <a href=""><i class="fa fa-twitter" aria-hidden="true"></i>
-                    </a>
-                    <a href=""><i class="fa fa-pinterest" aria-hidden="true"></i>
-                    </a>
-                </div>
-            </div>
-            <div class="footer-main">
-                <div class="footer-item">
-                    <div class="footer-title text-title">
-                        Cần hỗ trợ?
-                    </div>
-                    <a href="">Kết nối với chúng tôi</a>
-                    <a href="">Mua sắm</a>
-                    <a href="">Hoàn trả</a>
-                    <a href="">FAQs</a>
-                    <a href="">Đặt hàng ngay</a>
-                </div>
-                <div class="footer-item">
-                    <div class="footer-title text-title">
-                        Cần hỗ trợ?
-                    </div>
-                    <a href="">Kết nối với chúng tôi</a>
-                    <a href="">Mua sắm</a>
-                    <a href="">Hoàn trả</a>
-                    <a href="">FAQs</a>
-                    <a href="">Đặt hàng ngay</a>
-                </div>
-                <div class="footer-item">
-                    <div class="footer-title text-title">
-                        Cần hỗ trợ?
-                    </div>
-                    <a href="">Kết nối với chúng tôi</a>
-                    <a href="">Mua sắm</a>
-                    <a href="">Hoàn trả</a>
-                    <a href="">FAQs</a>
-                    <a href="">Đặt hàng ngay</a>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <div class="left">
-                    KOODING.com &copy; 2021 . All rights reserved
-                </div>
-                <div class="right">
-                    <a href="">Điều khoản sử dụng</a>
-                    <a href="">Chính sách bảo mật</a>
-                    <a href="">
-                        <i class="fa fa-universal-access" aria-hidden="true"></i>
-                        Hiển thị Công cụ Hỗ trợ Tiếp cận</a>
-                </div>
-            </div>
-        </footer>
-        <div class="back-to-top">
-            <i class="fa fa-chevron-up text-secondary" aria-hidden="true"></i>
         </div>
     </div>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <!-- js boostrap 4 -->
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-        crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
-        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-        crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js"></script>
-    <!-- js -->
-    <script src="public/js/layout/backtop.js"></script>
-    <script src="public/js/layout/popupLogin.js"></script>
-    <script src="public/js/layout/profile.js"></script>
-    <!-- Swiper JS -->
-    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-    <script>
-        var swiper = new Swiper(".mySwiper", {
-            direction: "vertical",
-            autoplay: {
-                delay: 2500,
-                disableOnInteraction: false,
-            },
-            pagination: {
-                el: ".swiper-pagination",
-                clickable: true,
-            },
-        });
-    </script>
-    <script>
-        $(document).ready(function () {
-            $('.single-item').slick({
-                autoplay: true,
-                autoplaySpeed: 2000,
-            });
-            $('.responsive').slick({
-                dots: true,
-                infinite: false,
-                speed: 300,
-                slidesToShow: 6,
-                slidesToScroll: 6,
-                arrows: true,
-                nextArrow: true,
-                prevArrow: true,
+    <div class="body__acc__content">
+        <div class="acc__tab__menu active">
+            <h1>Nghĩa</h1>
+        </div>
+        <div class="acc__tab__menu">
+            <div class="acc__menu__content">
+                <div class="acc__donhang">
+                    <div class="acc__DH__title">
+                        <p>Lịch sử đơn hàng</p>
+                    </div>
+                    <div class="acc__DH__content">
+                        <div class="DH__content__title">
+                            <p>Không tìm thấy đơn hàng</p>
+                        </div>
+                        <div class="DH__content__body">
+                            <img src="public/images/layout/empty-orders.jpg" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="acc__tab__menu">
+            <div class="acc__menu__content">
+                <div class="acc__donhang">
+                    <div class="acc__DH__title">
+                        <p>Thông tin tài khoản của bạn</p>
+                    </div>
+                    <div class="acc__DH__content1">
+                        <div class="DH__title">
+                            <p>Đăng nhập xã hội: </p>
+                            <img src="public/images/layout/fb-logo-col.svg" alt="" class="">
+                        </div>
+                        <div class="DH__form">
+                            <form action="" method="post">
+                                <div class="DH__form1">
+                                    <label for="">Họ và tên</label>
+                                    <input type="text" value="Trương Đức Nghĩa">
+                                </div>
+                                <div class="DH__form1">
+                                    <label for="">Tên hiển thị <i>* Để nhận xét và nhận xét sản phẩm.</i></label>
+                                    <input type="text" value="Trương Nghĩa">
+                            
+                                </div>
+                                <div class="DH__form1">
+                                    <label for="">E-mail <i>* Nơi bạn nhận được thông tin đặt hàng.</i></label>
+                                    <input type="text" value="nghiatdph14539@fpt.edu.vn">
+                                    
+                                </div>
+                                <div class="DH__form1">
+                                    <label for="">Ngày sinh</label>
+                                    <p>03/08/2002</p>
+                                </div>
+                                <div class="DH__form2">
+                                    <label class="sex__text" for="">Giới tính</label>
+                                    <div class="DH__checkBox">
+                                        <div class="pretty p-default">
+                                            <input type="radio" id="nam" name="gender" />
+                                            <div class="state p-info">
+                                                <label for="nam">Nam</label>
+                                            </div>
+                                        </div>
+                                        <div class="pretty p-default">
+                                            <input type="radio" id="nu" name="gender"/>
+                                            <div class="state p-info">
+                                                <label for="nu">Nữ</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="DH__submit">
+                                    <button type="submit">Lưu thông tin của tôi</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
 
-                responsive: [
-                    {
-                        breakpoint: 1024,
-                        settings: {
-                            slidesToShow: 3,
-                            slidesToScroll: 3,
-                            infinite: true,
-                            dots: true
-                        }
-                    },
-                    {
-                        breakpoint: 600,
-                        settings: {
-                            slidesToShow: 2,
-                            slidesToScroll: 2
-                        }
-                    },
-                    {
-                        breakpoint: 480,
-                        settings: {
-                            slidesToShow: 1,
-                            slidesToScroll: 1
-                        }
-                    }
-                    // You can unslick at a given breakpoint now by adding:
-                    // settings: "unslick"
-                    // instead of a settings object
-                ]
-            });
-        })
-    </script>
+                <div class="acc__donhang">
+                    <div id="changePass" class="acc__DH__title">
+                        <p>Thay đổi mật khẩu tài khoản</p> <i class="fa fa-chevron-down" aria-hidden="true"></i>
+                    </div>
+                    <div id="show" class="acc__DH__content1 none">
+                        <div class="DH__form">
+                            <form action="" method="post">
+                                <div class="DH__form1">
+                                    <label for="">Mật khẩu cũ</label>
+                                    <input type="text">
+                                </div>
+                                <div class="DH__form1">
+                                    <label for="">Mật khẩu mới</label>
+                                    <input type="text">
+                                </div>
+                                <div class="DH__form1">
+                                    <label for="">Xác nhận mật khẩu</label>
+                                    <input type="text">
+                                </div>
+                                <div class="DH__submit">
+                                    <button type="submit">Cập nhật mật khẩu</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
 
+            </div>
+        </div>
+    </div>
 
-</body>
-
-</html>
+</main>

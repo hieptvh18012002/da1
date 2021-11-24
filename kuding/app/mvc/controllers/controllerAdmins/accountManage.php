@@ -57,12 +57,21 @@ if (isset($_GET['action'])) :
 
             break;
         case "logout":
+
             // admin thêm khách hàng/nv
             session_destroy();
             echo "<script>window.location.replace(\"index?msg=Đăng xuất thành công!\")</script>;";
             die;
             break;
-    }
+            case "addAccount":
+                viewAdmin("layout",['page'=>'addAccount']);
+                break;
+            default 
+            :
+            viewAdmin('layout',['page'=>'listAccount']);
+            break;
+   
+        }
 endif;
 
 
