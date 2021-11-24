@@ -1,7 +1,7 @@
 <?php
 function product_select_all()
 {
-    $sql = "SELECT * FROM products ORDER BY created_at DESC";
+    $sql = "SELECT p.name as pr_name,p.price,p.discount,p.avatar,p.description,p.status,c.name as ca_name FROM products p INNER JOIN categories c ON p.cate_id = c.id ORDER BY p.created_at DESC";
     return pdo_query($sql);
 }
 function product_select_by_id($id)

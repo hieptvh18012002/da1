@@ -1237,9 +1237,14 @@ padding: 0 30px;
         }
         /* theeme hot */
         
-       
+       .box-header-main{
+                max-width: 100%;
+       }
         /* pro slider */
                 
+        .form-search input{
+                width: auto;
+        }
         .pro-news-slider{
                 width: 80%;
                

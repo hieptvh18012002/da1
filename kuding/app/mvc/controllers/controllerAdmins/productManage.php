@@ -42,9 +42,9 @@ if (isset($_GET['action'])) {
             break;
 
         default:
-            viewAdmin("layout", ['page' => 'listProducts']);
+            viewAdmin("layout", ['page' => 'listProducts','list_pro'=>$list_pro,'list_cate' => $list_cate]);
 
             break;
     }
 }
-viewAdmin("layout", ['page' => 'listProducts','list_pro'=>$list_pro]);
+viewAdmin("layout", ['page' => 'listProducts','list_pro'=>$list_pro,'list_cate' => $list_cate]);

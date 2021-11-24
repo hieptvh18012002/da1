@@ -1,7 +1,7 @@
 <div class="col-12 grid-margin stretch-card">
     <div class="card">
         <div class="card-body">
-            <h4 class="card-title">Thêm sản phẩm mới</h4>
+            <h4 class="card-title">Thêm danh mục sản phẩm mới</h4>
             <p class="card-description">
                 Basic form elements
             </p>
