@@ -435,6 +435,10 @@ a{
 .image-item b{
     font-weight: 500;
 }
+/*  */
+.body__details .slick-next, .slick-prev{
+    display: none !important;
+}
 /* responsive */
 /* mobile < 740px*/
 @media only screen and (max-width: 740px){
@@ -560,9 +564,11 @@ a{
 
     }
 }
-@media only screen and (min-width: 1263px){
+@media only screen and (min-width: 1025px){
    .body__details{
        margin: 0 250px;
+       max-width: 1400px;
+       margin: 0 auto;
    }
    .pd-image{
        margin-right: 0px;
@@ -580,4 +586,5 @@ a{
    .full-images{
        margin: 0 70px;
    }
+
 }
