@@ -219,6 +219,6 @@ input.filter__select{
 /* pc */
 @media only screen and (min-width: 1025px){
     .body__like{
-        max-width: 1263px;
+        max-width: 1400px;
     }
 }

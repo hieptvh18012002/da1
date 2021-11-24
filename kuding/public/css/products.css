@@ -3,6 +3,7 @@
     font-family: 'Open Sans', sans-serif;
     max-width: 100%;
     margin: 0 auto;
+    padding-bottom: 50px;
 }
 .proH__title{
     text-align: center;
@@ -53,7 +54,7 @@
 }
 .proC__filters{
     display: flex;
-    flex-direction: row;
+    flex-wrap: wrap;
     margin-left: 20px;
     /* position: absolute; */
 }
@@ -109,8 +110,18 @@
 .proC__allItem{
     display: flex;
     justify-content: space-between;
+    flex-wrap: wrap;
     margin-left: 20px;
     margin-right: 20px;
+}
+.product__fake{
+    visibility: hidden;
+    height: 0;
+    position: relative;
+    margin-bottom: 0;
+    width: 230px;
+    display: inline-block;
+    margin-bottom: 20px;
 }
 .proC__item{
     width: 210px;
@@ -241,4 +252,83 @@
 }
 .none{
     display: none;
+}
+.proC__item__img{
+    width: 230px;
+    height: 345px;
+    object-fit: cover;
+}
+.proC__item__img img{
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+}
+.proC__fist2{
+    display: flex;
+    justify-content: end;
+}
+/* responsive */
+/* moile < 740 */
+@media only screen and (max-width: 400px){
+    #paging1{
+        display: none;
+    }
+    .form__filter{
+        flex-direction: column;
+    }
+    .select__branch{
+        margin-bottom: 15px;
+    }
+    .select__price{
+        margin: 0;
+    }
+    .proC__allItem{
+        justify-content: center;
+    }
+    .proC__fist2{
+        justify-content: center;
+    }
+    .number__paging .numB {
+        font-size: 15px;
+    }
+}
+/* mobile > 740px*/
+@media only screen and (min-width: 401px) and (max-width: 745px){
+    #paging1{
+        display: none;
+    }
+    .proC__item{
+        font-size: 13px;
+    }
+    .proC__item__Name{
+        font-size: 13px;
+    }
+    .proC__item__price, .proC__item__color{
+        font-size: 12px;
+    }
+    .proC__love{
+        right: 7px;
+    }
+    .product__header{
+        margin-left: 20px;
+    }
+    .proH__title, .proH__text1, .proH__text2{
+        text-align: unset;
+    }
+    .proC__fist2{
+        justify-content: center;
+    }
+    .number__paging .numB {
+        font-size: 15px;
+    }
+}
+/* tablet width >= 740px and width 1024px */
+@media only screen and (min-width: 746px) and (max-width: 1024px) {
+    
+}
+/* pc */
+@media only screen and (min-width: 1025px){
+    .body__product{
+        max-width: 1400px;
+    }
 }
