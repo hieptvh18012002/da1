@@ -26,6 +26,7 @@
 .nation{
     margin: 0 auto;
     text-align: center;
+    width: 100%;
 }
 .nation p{
     font-size: 16px;
@@ -33,9 +34,10 @@
     padding: 5px 0px;
 }
 .vn{
+    background-color: #fdfdfd;
     display: flex;
     align-items: center;
-    width: 350px;
+    width: 100%;
     height: 35px;
     border: 1px solid #d7d7d7;
     font-size: 14px;
@@ -55,7 +57,7 @@
 .address input{
     outline: none;
     border: 1px solid #d7d7d7;
-    width: 700px;
+    width: 100%;
     color: #444;
     height: 35px;
     padding: 0px 10px;
@@ -122,6 +124,7 @@
     text-align: right;
 }
 .body__order__right{
+    margin-left: 20px;
     width: 400px;
     height: 50%;
     padding: 20px;
@@ -304,7 +307,7 @@
 /* code css select address */
 .input__address{
     border: 1px solid #d7d7d7;
-    width: 700px;
+    width: 100%;
     color: #444;
     height: 33px;
     font-size: 15px;
@@ -352,45 +355,35 @@
 }
 /* responsive */
 /* mobile < 740px*/
-@media only screen and (max-width: 740px){
+@media only screen and (max-width: 1024px){
     .body__order__content{
-        display: block;
-        margin: 0  auto;
+        flex-direction: column;
     }
     .body__order__right{
-        margin: 0 auto;
+        margin: 0;
+        width: 100%;
     }
-    .body__order__left input{  
-      width: 80%;
+    .order__text{
+        flex-wrap: wrap;
     }
     .select__address{
-        width: 80%;
-        display: block;
- }
+        flex-direction: column;
+    }
+    .item__address select{
+        width: 100%;
+    }
+    .body__order__content{
+        margin-right: 20px;
+    }
 }
  /* tablet width >= 740px and width 1024px */
- @media only screen and (min-width: 740px) and (max-width: 1024px) {
-   .body__order__left{
-       max-width: 50%;
-   }
-   .body__order__left input{
-       max-width: 100%;
-   }
-   .body__order__right{
-       margin-right: 10px;
-   }
-   textarea {
-        width: 100%;
-    }
-    .order__bottom__title{
-        width: 100%;
-    }
- }
+ @media only screen and (min-width: 750px) and (max-width: 1024px) {
+    
+}
 
 @media only screen and (min-width: 1025px){
-    .body__order__content{
+    .body__order{
         width: 1400px;
         margin: 0 auto;
-      
     }
 }
