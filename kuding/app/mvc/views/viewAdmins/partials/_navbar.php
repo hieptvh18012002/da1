@@ -77,9 +77,9 @@
             <i class="ti-settings text-primary"></i>
             Hồ sơ
           </a>
-          <a class="dropdown-item" href="#logout">
+          <a class="dropdown-item" href="account?action=logout">
             <i class="ti-power-off text-primary"></i>
-            Logout
+            Đăng xuất
           </a>
         </div>
       </li>

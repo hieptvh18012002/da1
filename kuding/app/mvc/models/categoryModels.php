@@ -2,7 +2,8 @@
 // 
 
 function category_select_all(){
-    $sql = "SELECT * FROM categories";
+    $sql = "SELECT c.name,c.avatar, COUNT(p.quantity) qty FROM categories c JOIN products p ON p.cate_id=c.id GROUP BY c.name,c.avatar;
+    ";
     return pdo_query($sql);
 
 }

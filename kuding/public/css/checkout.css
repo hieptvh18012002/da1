@@ -367,6 +367,7 @@
         width: 80%;
         display: block;
  }
+}
  /* tablet width >= 740px and width 1024px */
  @media only screen and (min-width: 740px) and (max-width: 1024px) {
    .body__order__left{
@@ -386,8 +387,10 @@
     }
  }
 
-@media only screen and (min-width: 1263px){
+@media only screen and (min-width: 1025px){
     .body__order__content{
-        margin: 0 10%;
+        width: 1400px;
+        margin: 0 auto;
+      
     }
 }
