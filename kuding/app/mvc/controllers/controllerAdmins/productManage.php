@@ -3,7 +3,7 @@ require_once './app/common/bridge.php';
 callModel("productModels");
 callModel("categoryModels");
 
-$list_cate = category_select_all();
+$list_cate = cate_select_all();
 $list_pro = product_select_all(); 
 
 $err = array();
