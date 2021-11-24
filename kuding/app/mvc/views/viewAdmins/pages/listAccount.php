@@ -1,13 +1,9 @@
 <div class="card-body">
-    <h4 class="card-title">Danh sách sản phẩm</h4>
+    <h4 class="card-title">Quản lí tài khoản</h4>
     <div class="" style="display: flex;">
         <a href="product?action=addProduct" class="text-light btn btn-primary">Thêm mới</a>
         
-        <!-- <select name="filterProByCate" id="filterProByCate" style="border-radius: 15px;">
-            <?php foreach($data['list_cate'] as $item): ?>
-            <option value="<?= $item['id'] ?>"><?= $item['name'] ?></option>
-            <?php endforeach;?>
-        </select> -->
+       
     </div>
 
     <div class="table-responsive">
