@@ -350,3 +350,44 @@
     color: #555;
     font-weight: 500;
 }
+/* responsive */
+/* mobile < 740px*/
+@media only screen and (max-width: 740px){
+    .body__order__content{
+        display: block;
+        margin: 0  auto;
+    }
+    .body__order__right{
+        margin: 0 auto;
+    }
+    .body__order__left input{  
+      width: 80%;
+    }
+    .select__address{
+        width: 80%;
+        display: block;
+ }
+ /* tablet width >= 740px and width 1024px */
+ @media only screen and (min-width: 740px) and (max-width: 1024px) {
+   .body__order__left{
+       max-width: 50%;
+   }
+   .body__order__left input{
+       max-width: 100%;
+   }
+   .body__order__right{
+       margin-right: 10px;
+   }
+   textarea {
+        width: 100%;
+    }
+    .order__bottom__title{
+        width: 100%;
+    }
+ }
+
+@media only screen and (min-width: 1263px){
+    .body__order__content{
+        margin: 0 10%;
+    }
+}
