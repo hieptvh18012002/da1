@@ -33,9 +33,15 @@ if (isset($_GET['action'])) {
                 // var_dump($name,$price,$category,$avatar,$desc);die;
 
                 if(!array_filter($err)){
+                    $created_at = date("Y-m-d H:i:s");
+                    // insert tbl products
                     product_insert($name, $category, $price, $avatar, $desc);
+                    $conn = get_connection();
+                    $stmt = $conn->prepare("INSERT INTO products (name,cate_id,price,avatar,description,created_at) VALUES('$name',$cate,$price,'$avatar','$description','$created_at')");
+                    $stmt->execute();
+                    // insert pro_attribute
+                    
                     $msg = "Thêm thành công sản phẩm";
-                    // insert attribute
                 }
             }
             viewAdmin("layout", ['page' => 'addProduct', 'list_cate' => $list_cate,'errImg'=>$err['img'],'msg'=>$msg]);
