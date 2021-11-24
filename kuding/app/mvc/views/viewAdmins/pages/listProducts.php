@@ -3,11 +3,11 @@
     <div class="" style="display: flex;">
         <a href="product?action=addProduct" class="text-light btn btn-primary">Thêm mới</a>
         
-        <!-- <select name="filterProByCate" id="filterProByCate" style="border-radius: 15px;">
+        <select name="filterProByCate" id="filterProByCate" style="border-radius: 15px;">
             <?php foreach($data['list_cate'] as $item): ?>
             <option value="<?= $item['id'] ?>"><?= $item['name'] ?></option>
             <?php endforeach;?>
-        </select> -->
+        </select>
     </div>
 
     <div class="table-responsive">
