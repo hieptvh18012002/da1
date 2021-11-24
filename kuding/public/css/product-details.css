@@ -54,12 +54,12 @@
 }
 
 .img__right{
-    width: 100%;
+    width: 400px;
     height: 100%;
 }
 .img__right img{
+    width: 100%;
     height: 100%;
-    width: 400px;
     object-fit: cover;
 }
 .pd-image__right{
@@ -407,16 +407,14 @@ a{
     margin-bottom: 100px;
 
 }
-.full-images img{
-    max-width:100%;
-    max-height:100%;
-}
 .full-images{
-    display: grid;
-    grid-template-columns: 240px 240px 240px 240px 240px ;
-    grid-template-rows: 300px 300px 300px 300px;
-    grid-column-gap: 10px;
-    grid-row-gap: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.pd__item__img{
+    margin: 20px 0px;
+    width: 500px;
 }
 .item1{
     grid-column-start: 1;
@@ -439,19 +437,61 @@ a{
 .body__details .slick-next, .slick-prev{
     display: none !important;
 }
+.pd__right{
+    margin-left: 20px;
+}
 /* responsive */
 /* mobile < 740px*/
 @media only screen and (max-width: 740px){
     
 }
 /* tablet width >= 740px and width 1024px */
-@media only screen and (min-width: 740px) and (max-width: 1024px) {
-    
+@media only screen and (max-width: 899px) {
+    .pd-image__right{
+        margin-left: 0;
+        padding-left: 0;
+    }
+    .pd-content{
+        display: block;
+    }
+    #color, #size {
+        width: 100%;
+    }
+    #checkout_0{
+        width: 80%;
+    }
+    .animate-button-wrap {
+        flex-wrap: nowrap;
+    }
+    .input__keys input[type=text] {
+        width: 209px;
+        height: 30px;
+    }
+    .pd__item__img{
+        width: 100%;
+    }
 }
 /* pc */
-@media only screen and (min-width: 1025px) and (max-width: 1263px){
-   
+@media only screen and (max-width: 1024px){
+    .pd-image{
+        justify-content: start;
+        flex-direction: column-reverse;
+    }
+    .img__scroll{
+        flex-direction: row;
+        column-gap: 20px;
+    }
+    .pd-image__right{
+       
+    }
+    .pd-info{
+        width: 100%;
+        flex-wrap: nowrap;
+        margin-right: 20px;
+    }
 }
-@media only screen and (min-width: 1263px){
-   
+@media only screen and (min-width: 1045px){
+   .body__details{
+       max-width: 1400px;
+   }
 }
