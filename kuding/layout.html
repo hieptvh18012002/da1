@@ -14,9 +14,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick-theme.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.css">
     <!-- font awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
-    <!-- <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
-        integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" /> -->
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+        integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
     <!-- css boostrap 4-->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <!-- Link Swiper's CSS -->
@@ -121,7 +120,7 @@
                                             </div>
                                         </form>
                                         <!-- register -->
-                                        <form action="" method="POST" name="form-login" id="register_user" class="p-5">
+                                        <form action="" method="POST" enctype="multipart/form-data" name="form-login" id="register_user" class="p-5">
                                             <div class="form-group">
                                                 <input type="text" name="fullname" placeholder="Tên đầy đủ" class="fullname">
                                             </div>
@@ -136,15 +135,20 @@
                                             </div>
                                             <div class="gender col-md-12 mb-4 mt-4">
                                                 <div class="form-check-inline">
-                                                    <input class="form-check-input" id="gender" type="radio" name="gender">
+                                                    <input class="form-check-input" value="0" id="gender" type="radio" name="gender">
                                                     <label for="gender" class="form-check-label mr-4">
                                                         Nam
                                                     </label>
-                                                    <input class="form-check-input" id="gender2" type="radio" name="gender">
+                                                    <input class="form-check-input" name="1" id="gender2" type="radio" name="gender">
                                                     <label for="gender2" class="form-check-label">
                                                         Nữ
                                                     </label>
                                                 </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="avatar"> Ảnh đại diện
+                                                </label>
+                                                <input type="file" name="avatar" id="" class="form-control pb-2">
                                             </div>
                                             <button type="submit" class="col-md-12 btn btn-secondary p-2" id="btn_register">Tạo tài khoản</button>
                                             <div class="forgot-pass text-center m-3">
@@ -714,101 +718,7 @@
     <script src="public/js/layout/popupLogin.js"></script>
     <!-- Swiper JS -->
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-    <script>
-        var swiper = new Swiper(".mySwiper", {
-            direction: "vertical",
-            autoplay: {
-                delay: 2500,
-                disableOnInteraction: false,
-            },
-            pagination: {
-                el: ".swiper-pagination",
-                clickable: true,
-            },
-        });
-    </script>
-    <script>
-        $(document).ready(function() {
-            $('.single-item').slick({
-                autoplay: true,
-                autoplaySpeed: 4000,
-            });
-            $('.responsive').slick({
-                dots: true,
-                infinite: false,
-                speed: 500,
-                slidesToShow: 6,
-                slidesToScroll: 6,
-
-                responsive: [{
-                        breakpoint: 1024,
-                        settings: {
-                            slidesToShow: 3,
-                            slidesToScroll: 3,
-                            infinite: true,
-                            dots: true
-                        }
-                    },
-                    {
-                        breakpoint: 600,
-                        settings: {
-                            slidesToShow: 2,
-                            slidesToScroll: 2
-                        }
-                    },
-                    {
-                        breakpoint: 480,
-                        settings: {
-                            slidesToShow: 1,
-                            slidesToScroll: 1
-                        }
-                    }
-                    // You can unslick at a given breakpoint now by adding:
-                    // settings: "unslick"
-                    // instead of a settings object
-                ]
-            });
-        })
-    </script>
-    <script>
-        $(document).ready(function() {
-            $('.slider-album__content').slick({
-                dots: true,
-                infinite: false,
-                slidesToShow: 5,
-                slidesToScroll: 1,
-                autoplay: true,
-                autoplaySpeed: 2000,
-                responsive: [{
-                        breakpoint: 1024,
-                        settings: {
-                            slidesToShow: 3,
-                            slidesToScroll: 3,
-                            infinite: true,
-                            dots: true
-                        }
-                    },
-                    {
-                        breakpoint: 600,
-                        settings: {
-                            slidesToShow: 2,
-                            slidesToScroll: 2
-                        }
-                    },
-                    {
-                        breakpoint: 480,
-                        settings: {
-                            slidesToShow: 1,
-                            slidesToScroll: 1
-                        }
-                    }
-                    // You can unslick at a given breakpoint now by adding:
-                    // settings: "unslick"
-                    // instead of a settings object
-                ]
-            })
-        });
-    </script>
+    <script src="public/js/layout/slide_lib.js"></script>
 
 
 </body>

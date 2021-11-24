@@ -2,11 +2,11 @@
   <ul class="nav">
     <li class="nav-item">
       <a class="nav-link" href="indexAdmin">
-      <i class="far fa-chart-bar menu-icon"></i>
+        <i class="far fa-chart-bar menu-icon"></i>
         <span class="menu-title">Thống kê</span>
       </a>
     </li>
-    
+
     <li class="nav-item">
       <a class="nav-link" data-toggle="collapse" href="#products" aria-expanded="false" aria-controls="ui-basic">
         <i class="icon-layout menu-icon"></i>
@@ -35,7 +35,7 @@
     </li>
     <li class="nav-item">
       <a class="nav-link" data-toggle="collapse" href="#account" aria-expanded="false" aria-controls="ui-basic">
-      <i class="far fa-user menu-icon"></i>
+        <i class="far fa-user menu-icon"></i>
         <span class="menu-title">Tài khoản</span>
         <i class="menu-arrow"></i>
       </a>
@@ -48,7 +48,7 @@
     </li>
     <li class="nav-item">
       <a class="nav-link" data-toggle="collapse" href="#comment" aria-expanded="false" aria-controls="ui-basic">
-      <i class="far fa-comments menu-icon"></i>
+        <i class="far fa-comments menu-icon"></i>
         <span class="menu-title">Bình luận</span>
         <i class="menu-arrow"></i>
       </a>
@@ -60,7 +60,7 @@
     </li>
     <li class="nav-item">
       <a class="nav-link" data-toggle="collapse" href="#news" aria-expanded="false" aria-controls="ui-basic">
-      <i class="far fa-newspaper menu-icon"></i>
+        <i class="far fa-newspaper menu-icon"></i>
         <span class="menu-title">Tin tức</span>
         <i class="menu-arrow"></i>
       </a>
@@ -84,15 +84,21 @@
       </div>
     </li>
     <li class="nav-item">
-      <a class="nav-link" href="#voucher">
-      <i class="fas fa-shipping-fast menu-icon"></i>
+      <a class="nav-link" href="#order">
+        <i class="fas fa-shipping-fast menu-icon"></i>
         <span class="menu-title">Đơn hàng</span>
-        <i class="menu-arrow"></i>
       </a>
-      
+
     </li>
-    
-    
-   
+    <li class="nav-item">
+      <a class="nav-link" href="">
+      <i class="fas fa-tv menu-icon"></i>
+        <span class="menu-title">Giao diện</span>
+      </a>
+
+    </li>
+
+
+
   </ul>
 </nav>
