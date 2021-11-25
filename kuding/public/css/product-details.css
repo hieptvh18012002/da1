@@ -434,8 +434,11 @@ a{
     font-weight: 500;
 }
 /*  */
-.body__details .slick-next, .slick-prev{
-    display: none !important;
+.body__details .slick-next.slick-disabled:before, .slick-prev.slick-disabled:before {
+   display: none;
+}
+.body__details .slick-prev::before {
+    display: none;
 }
 .pd__right{
     margin-left: 20px;
