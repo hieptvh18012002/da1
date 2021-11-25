@@ -208,6 +208,10 @@
   </div>
   <!-- container-scroller -->
 
+
+  <!-- editor -->
+
+  <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
   <!-- plugins:js -->
   <script src="./public/vendors/js/vendor.bundle.base.js"></script>
   <!-- endinject -->
@@ -235,6 +239,11 @@
   <!-- End custom js for this page-->
   <!-- js -->
   <script src="./public/js/layout/previewImg.js"></script>
+<!-- editor -->
+  <script src="./public/js/jsadmin/editor.js"></script>
+  <!-- handle data php -->
+<script src="./public/js/handle/filter_pro_admin.js"></script>
+
 
 </body>
 

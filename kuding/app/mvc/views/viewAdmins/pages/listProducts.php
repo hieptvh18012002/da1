@@ -2,12 +2,14 @@
     <h4 class="card-title">Danh sách sản phẩm</h4>
     <div class="" style="display: flex;">
         <a href="product?action=addProduct" class="text-light btn btn-primary">Thêm mới</a>
-        
-        <!-- <select name="filterProByCate" id="filterProByCate" style="border-radius: 15px;">
-            <?php foreach($data['list_cate'] as $item): ?>
-            <option value="<?= $item['id'] ?>"><?= $item['name'] ?></option>
-            <?php endforeach;?>
-        </select> -->
+
+        <select name="categories" id="categories" style="border-radius: 15px;">
+            <option value="" disabled selected>Lọc theo danh mục</option>
+            <option value="">Tất cả sản phẩm</option>
+            <?php foreach ($data['list_cate'] as $item) : ?>
+                <option value="<?= $item['id'] ?>"><?= $item['name'] ?></option>
+            <?php endforeach; ?>
+        </select>
     </div>
 
     <div class="table-responsive">
@@ -25,33 +27,36 @@
                     <th>Chức năng</th>
                 </tr>
             </thead>
-            <tbody>
-                <?php $n = 1;
-                foreach ($data['list_pro'] as $item) : ?>
-                    <tr>
-                        <td><?php echo $n; ?></td>
-                        <td><?= $item['pr_name'] ?></td>
-                        <td><?= $item['ca_name']?></td>
-                        <td><?= number_format($item['price'],0,'.',',') ?>vnd</td>
-                        <td><img src="./public/images/products/<?= $item['avatar'] ?>" alt=""></td>
-                        <td><?= number_format($item['discount'],0,'.',',') ?>vnd</td>
-                        <td><?= substr($item['description'],1,100) ?></td>
-                        <td>
-                            <?php if ($item['status'] == 0) : ?>
-                                <label class="badge badge-danger">Hết hàng</label>
-                            <?php else : ?>
-                                <label class="badge badge-success">Còn hàng</label>
-                            <?php endif; ?>
-                        </td>
-                        <td>
-                            <a href="#update"><i class="fas fa-pen-square text-warning fa-2x "></i></a>
-                            <a href="#del" onclick="return confirm('Bạn chắc chắn muốn xóa sản phẩm?')"><i class="fas fa-trash-alt text-danger fa-2x"></i></a>
-                        </td>
-                    </tr>
-                <?php $n++;
-                endforeach ?>
+            <tbody class="list-product">
+                <?php if (!isset($_GET['action'])) : ?>
+                    <?php $n = 1;
+                    foreach ($data['list_pro'] as $item) : ?>
+                        <tr>
+                            <td><?php echo $n; ?></td>
+                            <td><?= $item['pr_name'] ?></td>
+                            <td><?= $item['ca_name'] ?></td>
+                            <td><?= number_format($item['price'], 0, ',', '.') ?> vnd</td>
+                            <td><img src="./public/images/products/<?= $item['avatar'] ?>" alt=""> </td>
+                            <td><?= $item['discount'] ?>vnd</td>
+                            <td><?= substr($item['description'],0,100) ?></td>
+                            <td>
+                                <?php if ($item['status']  == 0) : ?>
+                                    <label class="badge badge-danger">Hết hàng</label>
+                                <?php else : ?>
+                                    <label class="badge badge-success">Còn hàng</label>
+                                <?php endif; ?>
+                            </td>
+                            <td>
+                                <a href="#update"><i class="fas fa-pen-square text-warning fa-2x "></i></a>
+                                <a href="#del" onclick="return confirm('Bạn chắc chắn muốn xóa sản phẩm?')"><i class="fas fa-trash-alt text-danger fa-2x"></i></a>
+                            </td>
+                        </tr>
+                    <?php endforeach; ?>
+                <?php endif; ?>
 
             </tbody>
         </table>
     </div>
 </div>
+
+<!-- js -->

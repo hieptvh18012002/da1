@@ -9,7 +9,7 @@ function urlProcess()
         return explode('/', trim($_GET['url']));
     }
 }
-$controller = 'index';
+$controller = 'indexClient';
 $action = "show";
 $params = [];
 $url = urlProcess();
