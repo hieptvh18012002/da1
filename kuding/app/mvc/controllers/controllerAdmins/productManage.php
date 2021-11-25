@@ -16,36 +16,33 @@ if (isset($_GET['action'])) {
         case "filter_pro_admin":
             $cate_id = $_GET['categories'];
             $output = '';
-            $result = "";
             if ($cate_id == '') {
-                $result = product_select_all();
+                $all_pro = product_select_all();
                 // var_dump($result);die;
                 $n = 1;
-                foreach ($result as $item) :
-                    $output .= '
+                foreach ($all_pro as $item) :
+                    $output = '
                     <tr>
-                        <td>' . $n . ';</td>
+                        <td>' . $n . '</td>
                         <td>' . $item['pr_name'] . '</td>
                         <td>' . $item['ca_name'] . '</td>
-                        <td>'.$item['price'].' vnd</td>
+                        <td>' . $item['price'] . ' vnd</td>
                         <td><img src="./public/images/products/' . $item['avatar'] . '" alt=""></td>
-                        <td>'.$item['discount'].'vnd</td>
-                        <td>'.substr($item['description'],1,100).'</td>
-                        
+                        <td>' . $item['discount'] . 'vnd</td>
+                        <td>' . substr($item['description'], 1, 100) . '</td>
+                        <td>' . $item['status'] . '</td>
                         <td>
-                            <a href="#update"><i class="fas fa-pen-square text-warning fa-2x "></i></a>
-                            <a href="#del" onclick="return confirm(' . 'Bạn chắc chắn muốn xóa sản phẩm?' . ')"><i class="fas fa-trash-alt text-danger fa-2x"></i></a>
+                            <a href="product?action=update"><i class="fas fa-pen-square text-warning fa-2x "></i></a>
+                            <a href="product?action=del" onclick="return confirm(' . 'Bạn chắc chắn muốn xóa sản phẩm?' . ')"><i class="fas fa-trash-alt text-danger fa-2x"></i></a>
                         </td>
-                    </tr>
-            ';
+                    </tr>';
                     $n++;
                 endforeach;
             } else {
-
                 $pro_by_cate = product_select_by_category($cate_id);
                 // lấy pro by id cate rôi push ra ds
                 $conn = get_connection();
-                $stmt = $conn->prepare("SELECT * FROM products WHERE cate_id=$cate_id ORDER BY created_at DESC");
+                $stmt = $conn->prepare("SELECT p.id pro_id,p.name as pr_name,p.price,p.discount,p.avatar,p.description,p.status,c.name as ca_name FROM products p INNER JOIN categories c ON p.cate_id = c.id WHERE p.cate_id=$cate_id ORDER BY p.created_at DESC ");
                 $stmt->execute();
                 $result = $stmt->fetchAll();
                 $row = $stmt->rowCount();
@@ -56,22 +53,18 @@ if (isset($_GET['action'])) {
                     foreach ($result as $item) :
                         $output .= ' <tr>
                         <td>' . $n . ';</td>
-                        <td>' . $item['name'] . '</td>
-                        <td>' . $item['name'] . '</td>
-                        <td>number_format(' . $item['price'] . ',0,' . ',' . ',' . ') vnd</td>
+                        <td>' . $item['pr_name'] . '</td>
+                        <td>' . $item['ca_name'] . '</td>
+                        <td>' . $item['price'] . ' vnd</td>
                         <td><img src="./public/images/products/' . $item['avatar'] . '" alt=""></td>
-                        <td>number_format(' . $item['discount'] . ',0,' . ',' . ',' . ')vnd</td>
-                        <td>substr(' . $item['description'] . ',1,100)</td>
+                        <td>' . $item['discount'] . 'vnd</td>
+                        <td>' . substr($item['description'], 1, 100) . '</td>
                         <td>
-                            <?php if (' . $item['status'] . ' == 0) : ?>
-                                <label class="badge badge-danger">Hết hàng</label>
-                            <?php else : ?>
-                                <label class="badge badge-success">Còn hàng</label>
-                            <?php endif; ?>
+                            ' . $item['status'] . '
                         </td>
                         <td>
-                            <a href="#update"><i class="fas fa-pen-square text-warning fa-2x "></i></a>
-                            <a href="#del" onclick="return confirm(' . 'Bạn chắc chắn muốn xóa sản phẩm?' . ')"><i class="fas fa-trash-alt text-danger fa-2x"></i></a>
+                            <a href="product?action=update&id=' . $item['pro_id'] . '"><i class="fas fa-pen-square text-warning fa-2x "></i></a>
+                            <a href="product?action=del&id='.$item['pro_id'].'" onclick="return confirm(' . 'Bạn chắc chắn muốn xóa sản phẩm?' . ')"><i class="fas fa-trash-alt text-danger fa-2x"></i></a>
                         </td>
                     </tr>
                 ';
@@ -81,8 +74,8 @@ if (isset($_GET['action'])) {
                     $output = "Hết hàng";
                 }
             }
-
             echo $output;
+            die;
             break;
         case "addProduct":
             if (isset($_POST['btn_add'])) {
@@ -102,9 +95,7 @@ if (isset($_GET['action'])) {
                 } else {
                     $err['img'] = "Ảnh chưa tải lên";
                 }
-                // insert
-                // var_dump($name,$price,$category,$avatar,$desc);die;
-
+                // nếu k có err thì insert
                 if (!array_filter($err)) {
                     $created_at = date("Y-m-d H:i:s");
                     // insert tbl products
@@ -128,9 +119,31 @@ if (isset($_GET['action'])) {
             viewAdmin("layout", ['page' => 'addProduct', 'list_cate' => $list_cate, 'errImg' => $err['img'], 'size_values' => $size_values, 'color_values' => $color_values, 'msg' => $msg]);
             break;
 
-        default:
-            viewAdmin("layout", ['page' => 'listProducts', 'list_pro' => $list_pro, 'list_cate' => $list_cate]);
-
+        case "update":
+            $pros = product_select_by_id($_GET['id']);
+            $id = $_GET['id'];
+            // lấy value của thuộc tính sp tương ứng;
+            $conn = get_connection();
+            $stmt = $conn->prepare("SELECT DISTINCT value_id FROM pro_attributes WHERE pro_id=$id");
+            $stmt->execute();
+            $row = $stmt->rowCount();
+            $value_id = $stmt->fetchAll();
+            // $color_of_pro = get_value_color($_GET['id'],$value_id);
+            // echo "<pre>";
+            // var_dump($color_of_pro);die;
+            if (isset($_POST['btn_update'])) {
+                extract($_POST);
+            }
+            viewAdmin('layout', ['page' => 'updateProduct', 'pros' => $pros,'list_cate'=>$list_cate,'size_values'=>$size_values,'color_values'=>$color_values]);
+            break;
+        case "del":
+            $pros = product_select_by_id($_GET['id']);
+            // xóa sp
+            product_delete($_GET['id']);
+            unlink("./public/images/products/".$pros['avatar']);
+            // xóa attr sp
+            pro_attr_del($_GET['id']);
+            header('Location: product?msg=Xóa thành công sản phẩm');
             break;
     }
 }

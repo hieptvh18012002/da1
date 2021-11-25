@@ -72,24 +72,24 @@
                             <img src="public/images/layout/fb-logo-col.svg" alt="" class="">
                         </div>
                         <div class="DH__form">
-                            <form action="" method="post">
+                            <form action="" method="POST">
                                 <div class="DH__form1">
                                     <label for="">Họ và tên</label>
-                                    <input type="text" value="Trương Đức Nghĩa">
+                                    <input type="text" name="fullname" value="<?= $_SESSION['customer']['fullname'] ?>">
                                 </div>
-                                <div class="DH__form1">
+                                <!-- <div class="DH__form1">
                                     <label for="">Tên hiển thị <i>* Để nhận xét và nhận xét sản phẩm.</i></label>
                                     <input type="text" value="Trương Nghĩa">
                             
-                                </div>
+                                </div> -->
                                 <div class="DH__form1">
                                     <label for="">E-mail <i>* Nơi bạn nhận được thông tin đặt hàng.</i></label>
-                                    <input type="text" value="nghiatdph14539@fpt.edu.vn">
+                                    <input type="text" value="<?= $_SESSION['customer']['email'] ?>">
                                     
                                 </div>
                                 <div class="DH__form1">
                                     <label for="">Ngày sinh</label>
-                                    <p>03/08/2002</p>
+                                    <input type="date" value="<?= $_SESSION['customer']['birthday'] ?>">
                                 </div>
                                 <div class="DH__form2">
                                     <label class="sex__text" for="">Giới tính</label>

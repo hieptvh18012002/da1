@@ -13,7 +13,7 @@
             <form action="" class="forms-sample" method="POST" enctype="multipart/form-data">
                 <div class="form-group">
                     <label for="exampleInputName1">Tên </label>
-                    <input type="text" name="name" class="form-control" id="exampleInputName1" placeholder="Name">
+                    <input type="text" value="<?= save_value("name") ?>" name="name" class="form-control" id="exampleInputName1" placeholder="Name">
                 </div>
                 <div class="form-group">
                     <label for="cate" class="">Loại sản phẩm</label>
@@ -25,7 +25,7 @@
                 </div>
                 <div class="form-group">
                     <label for="price">Giá</label>
-                    <input type="number" name="price" class="form-control" id="price" placeholder="Giá sản phẩm">
+                    <input type="number" value="<?= save_value("price") ?>" name="price" class="form-control" id="price" placeholder="Giá sản phẩm">
                 </div>
                 <div class="form-group" style="display:flex; column-gap:30px; align-items:center;">
                     <label for="">Màu sản phẩm</label>
@@ -68,7 +68,7 @@
 
                 <div class="form-group">
                     <label for="local-upload">Mô tả thông tin sản phẩm</label>
-                    <textarea class="form-control" id="local-upload" name="desc" rows="4"></textarea>
+                    <textarea class="form-control" id="local-upload" name="desc" rows="4"><?= save_value('desc') ?></textarea>
                 </div>
                 <button type="submit" name="btn_add" class="btn btn-primary mr-2">Thêm</button>
                 <button class="btn btn-light">Cancel</button>

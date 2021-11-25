@@ -13,7 +13,7 @@ $(document).ready(function(){
             // nếu gửi vào xử lí  thành cồng thì đổ dt vào 
             success: function(data){
                 $('.list-product').html(data)
-            }
+            },
 
         })
     })

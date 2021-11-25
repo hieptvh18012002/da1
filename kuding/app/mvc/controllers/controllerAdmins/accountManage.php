@@ -46,7 +46,7 @@ if (isset($_GET['action'])) :
             break;
         case "register":
             // khách hàng đăng kí
-            
+
             break;
         case "login":
             // khách hàng lg
@@ -63,16 +63,15 @@ if (isset($_GET['action'])) :
             echo "<script>window.location.replace(\"index?msg=Đăng xuất thành công!\")</script>;";
             die;
             break;
-            case "addAccount":
-                viewAdmin("layout",['page'=>'addAccount']);
-                break;
-            default 
-            :
-            viewAdmin('layout',['page'=>'listAccount']);
+        case "addAccount":
+            
+            viewAdmin("layout", ['page' => 'addAccount']);
             break;
-   
-        }
+        default:
+            viewAdmin('layout', ['page' => 'listAccount']);
+            break;
+    }
 endif;
 
 
-viewAdmin("login", ['err' => $err]);
+viewAdmin("layout", ['page' => 'listAccount', 'err' => $err]);
