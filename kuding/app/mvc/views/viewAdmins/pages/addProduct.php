@@ -29,36 +29,14 @@
                 </div>
                 <div class="form-group" style="display:flex; column-gap:30px; align-items:center;">
                     <label for="">Màu sản phẩm</label>
+                    <?php foreach($data['color_values'] as $item):?>
                     <div class="form-check">
                         <label class="form-check-label">
-                            <input class="checkbox" type="checkbox" name="color[]" value="xanh">
-                            Xanh
+                            <input class="checkbox" type="checkbox" name="color[]" value="<?= $item['id'] ?>">
+                            <?= $item['value'] ?>
                         </label>
                     </div>
-                    <div class="form-check">
-                        <label class="form-check-label">
-                            <input class="checkbox" type="checkbox" name="color[]" value="do">
-                            Đỏ
-                        </label>
-                    </div>
-                    <div class="form-check">
-                        <label class="form-check-label">
-                            <input class="checkbox" type="checkbox" name="color[]" value="tim">
-                            Tím
-                        </label>
-                    </div>
-                    <div class="form-check">
-                        <label class="form-check-label">
-                            <input class="checkbox" type="checkbox" name="color[]" value="vang">
-                            Vàng
-                        </label>
-                    </div>
-                    <div class="form-check">
-                        <label class="form-check-label">
-                            <input class="checkbox" type="checkbox" name="color[]" value="den">
-                            Đen
-                        </label>
-                    </div>
+                   <?php endforeach;?>
                 </div>
                 <div class="form-group">
                     <label for="">Màu mới </label>
@@ -66,36 +44,14 @@
                 </div>
                 <div class="form-group" style="display:flex; column-gap:30px; align-items:center;">
                     <label for="">Kích cỡ</label>
+                    <?php foreach($data['size_values'] as $item):?>
                     <div class="form-check">
                         <label class="form-check-label">
-                            <input class="checkbox" type="checkbox" name="size[]" value="m">
-                            M
+                            <input class="checkbox" type="checkbox" name="size[]" value="<?= $item['id'] ?>">
+                            <?= $item['value'] ?>
                         </label>
                     </div>
-                    <div class="form-check">
-                        <label class="form-check-label">
-                            <input class="checkbox" type="checkbox" name="size[]" value="l">
-                            L
-                        </label>
-                    </div>
-                    <div class="form-check">
-                        <label class="form-check-label">
-                            <input class="checkbox" type="checkbox" name="size[]" value="xl">
-                            XL
-                        </label>
-                    </div>
-                    <div class="form-check">
-                        <label class="form-check-label">
-                            <input class="checkbox" type="checkbox" name="size[]" value="2xl">
-                            XXL
-                        </label>
-                    </div>
-                    <div class="form-check">
-                        <label class="form-check-label">
-                            <input class="checkbox" type="checkbox" name="size[]" value="3xl">
-                            XXXL
-                        </label>
-                    </div>
+                   <?php endforeach;?>
                 </div>
                 <div class="form-group">
                     <label>File upload</label>
@@ -111,8 +67,8 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="exampleTextarea1">Mô tả thông tin sản phẩm</label>
-                    <textarea class="form-control" id="exampleTextarea1" name="desc" rows="4"></textarea>
+                    <label for="local-upload">Mô tả thông tin sản phẩm</label>
+                    <textarea class="form-control" id="local-upload" name="desc" rows="4"></textarea>
                 </div>
                 <button type="submit" name="btn_add" class="btn btn-primary mr-2">Thêm</button>
                 <button class="btn btn-light">Cancel</button>

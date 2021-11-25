@@ -159,6 +159,9 @@ width: 200px;
     overflow-y: auto;
     font-size: 13px !important;
 }
+.modal .modal-content .close{
+    z-index: 99;
+}
 /* scroll bar */
 
 .modal-content::-webkit-scrollbar{
@@ -510,7 +513,9 @@ main{
 /* .product-news .slick-next{
     right: -1200px;
 } */
-
+/* .product-news .slick-slide{
+    width: auto !important;
+} */
 
 .product-news .slick-dots{
     display: none !important;
@@ -995,7 +1000,9 @@ bottom: 0;
         max-width: 100%;
         margin: 0 auto;
 }
-
+.body__details .slider-album__content {
+    width: auto !important;
+}
 /* ===========responsive =====*/
 @media screen and (max-width:350px) {
     .wrapper{

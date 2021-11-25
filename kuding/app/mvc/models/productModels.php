@@ -9,12 +9,19 @@ function product_select_by_id($id)
     $sql = "SELECT * FROM products WHERE product_id=$id";
     return pdo_query_one($sql);
 }
-// 
+// attr
+function size_select_all(){
+    $sql = "SELECT * FROM size_values";
+    return pdo_query($sql);
+}
+function color_select_all(){
+    $sql = "SELECT * FROM color_values";
+    return pdo_query($sql);
+}
 
 function product_select_by_category($id)
 {
-    $sql = "SELECT * FROM products WHERE category_id=$id AND special=0 ";
-
+    $sql = "SELECT * FROM products WHERE cate_id=$id ORDER BY created_at DESC";
     return pdo_query($sql);
 }
 function product_exits($id)
@@ -48,6 +55,18 @@ function product_insert($name,$cate,$price,$avatar,$description)
     $sql = "INSERT INTO products (name,cate_id,price,avatar,description) VALUES('$name',$cate,$price,'$avatar','$description')";
     pdo_execute($sql);
 }
+// add pro_attribute
+function pro_attr_insert($pro_id,$attr_id,$value_id){
+    $sql = "INSERT INTO pro_attributes (pro_id,attr_id,value_id) VALUES($pro_id,$attr_id,$value_id)";
+    pdo_execute($sql);
+}
+// lấy id attr từ value
+function get_id_attr_size(){
+    $sql = "SELECT a.id FROM size_values s JOIN attributes a ON a.id=s.attr_id;";
+    return pdo_query($sql);
+}
+
+
 function product_update($id, $name, $price, $sale, $quantity, $avatar, $color, $battery, $description, $cate_id, $status)
 {
     $sql = "UPDATE products SET product_name='$name',price='$price',sales='$sale',quantity='$quantity',product_avatar='$avatar',color='$color',battery='$battery',description='$description',category_id='$cate_id',status=$status WHERE product_id=$id";
@@ -86,9 +105,5 @@ function load_product_by_id_admin($id)
     $sql = "SELECT * FROM `products`  INNER JOIN product_categories ON products.category_id = product_categories.category_id WHERE product_categories.category_id='$id' ORDER BY products.product_id DESC ";
     return pdo_query($sql);
 }
-// slider
-function slider()
-{
-    $sql = "SELECT * FROM products WHERE special = 1";
-    return pdo_query($sql);
-}
+
+
