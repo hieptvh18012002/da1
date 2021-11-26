@@ -97,20 +97,20 @@
                                 <!-- register -->
                                 <form action="" method="POST" enctype="multipart/form-data" name="form-register" id="register_user" class="p-5">
                                     <div class="form-group">
-                                        <input type="text" id="fullname" placeholder="Tên đầy đủ" class="fullname">
+                                        <input type="text" name="fullname" id="fullname" placeholder="Tên đầy đủ" class="fullname">
                                     </div>
                                     <div class="form-group">
-                                        <input type="text" id="email" placeholder="Nhập email" class=" email">
+                                        <input type="text" name="email" id="email" placeholder="Nhập email" class=" email">
                                     </div>
                                     <div class="form-group">
                                         <input type="password" name="password" placeholder="Nhập mật khẩu" class=" password">
                                     </div>
                                     <div class="form-group">
-                                        <input type="date" id="birthday" placeholder="Ngày sinh của bạn" class="password">
+                                        <input type="date" name="birthday" id="birthday" placeholder="Ngày sinh của bạn" class="password">
                                     </div>
                                     <div class="gender col-md-12 mb-4 mt-4">
                                         <div class="form-check-inline">
-                                            <input class="form-check-input" value="0" id="gender" type="radio" name="gender">
+                                            <input class="form-check-input" value="0" id="gender" type="radio" name="gender" checked>
                                             <label for="gender" class="form-check-label mr-4">
                                                 Nam
                                             </label>

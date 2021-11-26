@@ -51,6 +51,9 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js"></script>
+    <!-- lib js query validate cdn-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.3/jquery.validate.min.js" integrity="sha512-37T7leoNS06R80c8Ulq7cdCDU5MNQBwlYoy1TX/WUsLFC2eYNqtKlV0QjH7r8JpG/S0GUMZwebnVFLPd6SU5yg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
     <!-- js -->
     <script src="./public/js/layout/main.js"></script>
     <script src="./public/js/layout/backtop.js"></script>
@@ -62,6 +65,10 @@
     <script src="./public/js/layout/product-details.js"></script>
     <script src="./public/js/layout/profile.js"></script>
     <!-- <script src="./public/js/layout/client.js"></script> -->
+
+    <!-- validate form -->
+    <script src="./public/js/validate/validator__profile.js" ></script>
+    <script src="./public/js/validate/validator_register.js" ></script>
     <!-- Swiper JS -->
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
     <script src="public/js/layout/slide_lib.js"></script>

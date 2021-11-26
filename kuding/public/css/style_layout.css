@@ -3491,3 +3491,12 @@ a{
 /* Trang 6 */
 
 /* Trang 7 */
+
+/* code validate */
+label.error{
+    font-size: 13px !important;
+    color: red !important;
+    margin: 10px 0px !important;
+    padding: 0!important;
+    font-weight: inherit !important;
+}

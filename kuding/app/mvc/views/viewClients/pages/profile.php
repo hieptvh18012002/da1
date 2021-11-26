@@ -72,7 +72,7 @@
                             <img src="public/images/layout/fb-logo-col.svg" alt="" class="">
                         </div>
                         <div class="DH__form">
-                            <form action="" method="POST">
+                            <form action="" method="POST" id="form_profile">
                                 <div class="DH__form1">
                                     <label for="">Họ và tên</label>
                                     <input type="text" name="fullname" value="<?= $_SESSION['customer']['fullname'] ?>">
@@ -84,12 +84,12 @@
                                 </div> -->
                                 <div class="DH__form1">
                                     <label for="">E-mail <i>* Nơi bạn nhận được thông tin đặt hàng.</i></label>
-                                    <input type="text" value="<?= $_SESSION['customer']['email'] ?>">
+                                    <input type="email" name="email" value="<?= $_SESSION['customer']['email'] ?>">
 
                                 </div>
                                 <div class="DH__form1">
                                     <label for="">Ngày sinh</label>
-                                    <input type="date" value="<?= $_SESSION['customer']['birthday'] ?>">
+                                    <input type="date" name="birthday" value="<?= $_SESSION['customer']['birthday'] ?>">
                                 </div>
                                 <div class="DH__form2">
                                     <label class="sex__text" for="">Giới tính</label>
@@ -123,18 +123,18 @@
                     </div>
                     <div id="show" class="acc__DH__content1 none">
                         <div class="DH__form">
-                            <form action="" method="post">
+                            <form action="" method="post" id="form_pass">
                                 <div class="DH__form1">
                                     <label for="">Mật khẩu cũ</label>
-                                    <input type="text">
+                                    <input name="password" type="text">
                                 </div>
                                 <div class="DH__form1">
                                     <label for="">Mật khẩu mới</label>
-                                    <input type="text">
+                                    <input name="password_new" type="text">
                                 </div>
                                 <div class="DH__form1">
                                     <label for="">Xác nhận mật khẩu</label>
-                                    <input type="text">
+                                    <input name="password_comfim" type="text">
                                 </div>
                                 <div class="DH__submit">
                                     <button type="submit">Cập nhật mật khẩu</button>
