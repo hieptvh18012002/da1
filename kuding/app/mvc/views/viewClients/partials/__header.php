@@ -1,5 +1,5 @@
 <header>
-    
+
     <div class="header-top swiper mySwiper">
         <div class="swiper-wrapper">
             <a href="#" class="swiper-slide slider-top1">Covid-19 </a>
@@ -37,21 +37,22 @@
             </div>
             <div class="user-options">
                 <div class="search-rp"></div>
+
                 <?php if (isset($_SESSION['customer'])) : ?>
                     <div class="profile pt-4 pb-4">
                         <span class="title-pop-user">Hồ sơ<i class="fa fa-angle-down ml-2" aria-hidden="true"></i></span>
                         <div class="pop-profile">
-                            <a href="profileClient">Bảng điều khiển</a>
+                            <a href="account?action=viewProfileClient">Bảng điều khiển</a>
                             <a href="#">Đơn hàng</a>
                             <a href="#">Tài khoản</a>
-                            <a href="accountClient?action=logout" onclick="return confirm('Bạn chắc chắn muốn đăng xuất')">Đăng xuất</a>
+                            <a href="account?action=logoutClient" onclick="return confirm('Bạn chắc chắn muốn đăng xuất')">Đăng xuất</a>
                         </div>
                     </div>
-                <?php else: ?>
-                <div class="account pt-4 pb-4" id="popup-user" data-toggle="modal" data-target="#box-login-register">
-                    <span class="title-pop-user">Đăng nhập / Đăng ký</span>
-                </div>
-                <?php endif;?>
+                <?php else : ?>
+                    <div class="account pt-4 pb-4" id="popup-user" data-toggle="modal" data-target="#box-login-register">
+                        <span class="title-pop-user">Đăng nhập / Đăng ký</span>
+                    </div>
+                <?php endif; ?>
                 <!-- pops up login -->
                 <div class="modal fade " role="dialog" id="box-login-register" style="z-index: 100;">
                     <div class="modal-dialog">
@@ -68,15 +69,15 @@
                                 <div class="welcome">
                                     Chào mừng bạn!
                                 </div>
-                                <form action="accountClient?action=login"  method="POST" name="form-login" class="p-5" id="login_user">
+                                <form action="account?action=loginClient" method="POST" name="form-login" class="p-5" id="login_user">
                                     <div class="form-group">
-                                        <input type="text" name="email" placeholder="Nhập email" value="<?= isset($_COOKIE['emailClient'])?$_COOKIE['emailClient']:'' ?>" class=" email" id="email_login" required>
+                                        <input type="text" name="email" placeholder="Nhập email" value="<?= isset($_COOKIE['emailClient']) ? $_COOKIE['emailClient'] : '' ?>" class=" email" id="email_login" required>
                                     </div>
                                     <div class="form-group">
-                                        <input type="password" name="password" placeholder="Nhập mật khẩu" class="password" value="<?= isset($_COOKIE['passwordClient'])?$_COOKIE['passwordClient']:'' ?>" id="password_login">
+                                        <input type="password" name="password" placeholder="Nhập mật khẩu" class="password" value="<?= isset($_COOKIE['passwordClient']) ? $_COOKIE['passwordClient'] : '' ?>" id="password_login">
                                     </div>
                                     <div class="pretty p-default mb-4 mt-4">
-                                        <input type="checkbox" <?= isset($_COOKIE['emailClient'])?'checked':'' ?> id="remember" name="remember"/>
+                                        <input type="checkbox" <?= isset($_COOKIE['emailClient']) ? 'checked' : '' ?> id="remember" name="remember" />
                                         <div class="state">
                                             <label>Nhớ thông tin</label>
                                         </div>
@@ -145,13 +146,13 @@
                     <img src="public/images/layout/vietnam.png" alt="">
                 </a>
                 <div class="box-favorite-pro pt-4 pb-4">
-                    <a href="favoriteClient" class="favorite-pro">
+                    <a href="product?action=viewFavorite" class="favorite-pro">
                         <i class="fa fa-heart" aria-hidden="true"></i>
                     </a>
                     <div class="notifi">1</div>
                 </div>
                 <div class="box-cart pt-4 pb-4">
-                    <a href="cartClient" class="cart">
+                    <a href="cart" class="cart">
                         <i class="fa fa-shopping-bag" aria-hidden="true"></i>
                     </a>
                     <div class="notifi">2</div>
@@ -182,8 +183,8 @@
                             </div>
                         </div>
                         <div class="pop-cart__bottom">
-                            <a href="checkoutClient" class="text-white bg-secondary">Thanh toán</a>
-                            <a href="cartClient" class="">Vào giỏ hàng</a>
+                            <a href="cart?action=checkout" class="text-white bg-secondary">Thanh toán</a>
+                            <a href="cart" class="">Vào giỏ hàng</a>
 
                         </div>
                     </div>
@@ -193,13 +194,17 @@
         <div class="header-menu">
             <ul class="sub-nav m-0">
                 <li><a href="product.html">#SPOTLIGHT</a></li>
-                <li><a href="productClient">Nam</a></li>
+                <li><a href="product?action=viewListProduct">Nam</a></li>
                 <li><a href="">Nữ</a></li>
                 <li><a href="">Chăm sóc da</a></li>
                 <li><a href="">Trẻ em</a></li>
                 <li><a href="">Làm sạch</a></li>
-                <li><a href="">Làm sạch</a></li>
-                <li><a href="">Làm sạch</a></li>
+                <?php if (isset($_SESSION['admin'])) : ?>
+                    <li class="view_admin">
+                        <a href="indexAdmin">Vào trang quản trị<i class="fa fa-arrow-right ml-2" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                <?php endif; ?>
                 <li><a href="">#KOODING</a></li>
             </ul>
         </div>

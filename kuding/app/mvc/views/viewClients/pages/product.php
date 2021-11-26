@@ -72,7 +72,7 @@
             <div class="proC__allItem">
                 <div class="proC__item">
                     <div class="proC__item__img">
-                        <a href="productClient?action=viewProductDetail">
+                        <a href="product?action=viewProductDetail">
                             <img src="public/images/products/6f1473a1548aded553382443128eaca705efd7e3.jpg" alt="" width="100%">
                         </a>
                     </div>
