@@ -4,13 +4,7 @@ require_once "./app/common/bridge.php";
 
 if(isset($_GET['action'])){
     switch($_GET['action']){
-        case "indexAdmin":
-            if(!isset($_SESSION['admin'])){
-                header("location: account?action=loginAdmin");
-            }else
-            viewAdmin("layout",['page'=>'index']);
-
-            break;
+        
 
             default:
                 viewClient('layout',['page'=>'homepage']);

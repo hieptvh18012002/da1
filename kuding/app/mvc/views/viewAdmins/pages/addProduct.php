@@ -38,10 +38,7 @@
                     </div>
                    <?php endforeach;?>
                 </div>
-                <div class="form-group">
-                    <label for="">Màu mới </label>
-                    <input type="text" name="color_new" class="form-control" id="" placeholder="Màu mới">
-                </div>
+             
                 <div class="form-group" style="display:flex; column-gap:30px; align-items:center;">
                     <label for="">Kích cỡ</label>
                     <?php foreach($data['size_values'] as $item):?>
@@ -54,7 +51,7 @@
                    <?php endforeach;?>
                 </div>
                 <div class="form-group">
-                    <label>File upload</label>
+                    <label>Ảnh đại diện</label>
                     <input type="file" name="avatar" class="form-control" id="upload" onchange="previewImg()">
                     <?php if (!empty($data['errImg'])) : ?>
                         <div class="text-danger">
@@ -64,6 +61,16 @@
                     <div id="displayImg" class="" style="width: 200px;">
 
                     </div>
+                </div>
+                <div class="form-group">
+                    <label>Ảnh Chi tiết</label>
+                    <input type="file" name="avatars[]" class="form-control" id="upload" multiple="multiple" >
+                    <?php if (!empty($data['errImgs'])) : ?>
+                        <div class="text-danger">
+                            <?php echo $data['errImgs']  ?>
+                        </div>
+                    <?php endif; ?>
+                   
                 </div>
 
                 <div class="form-group">

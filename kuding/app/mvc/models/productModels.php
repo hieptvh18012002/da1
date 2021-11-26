@@ -10,19 +10,19 @@ function product_select_by_id($id)
     return pdo_query_one($sql);
 }
 // attr
+function attr_select_all(){
+    $sql = "SELECT * FROM attributes";
+    return pdo_query($sql);
+}
 function size_select_all(){
-    $sql = "SELECT * FROM size_values";
+    $sql = "SELECT * FROM attr_values WHERE attr_id=1";
     return pdo_query($sql);
 }
 function color_select_all(){
-    $sql = "SELECT * FROM color_values";
+    $sql = "SELECT * FROM attr_values WHERE attr_id=2";
     return pdo_query($sql);
 }
 // 
-function pro_select_color($pro_id,$attr_id,$value_id){
-    $sql = "SELECT * FROM color_values";
-    return pdo_query($sql);
-}
 
 function product_select_by_category($id)
 {
@@ -55,6 +55,11 @@ function showFavoriteProduct()
     return pdo_query($sql);
 }
 
+function pro_img_insert($url,$pro_id)
+{
+    $sql = "INSERT INTO pro_imgs (url,pro_id) VALUES('$url','$pro_id')";
+    pdo_execute($sql);
+}
 function product_insert($name,$cate,$price,$avatar,$description)
 {
     $sql = "INSERT INTO products (name,cate_id,price,avatar,description) VALUES('$name',$cate,$price,'$avatar','$description')";
@@ -65,17 +70,10 @@ function pro_attr_insert($pro_id,$attr_id,$value_id){
     $sql = "INSERT INTO pro_attributes (pro_id,attr_id,value_id) VALUES($pro_id,$attr_id,$value_id)";
     pdo_execute($sql);
 }
-// lấy value attr từ value
-function get_value_color($pro_id,$color_id){
-    $sql = "SELECT c.id,c.value FROM `pro_attributes` p JOIN attributes a ON a.id=p.attr_id JOIN color_values c ON a.id=c.attr_id WHERE p.pro_id=$pro_id AND c.id=$color_id";
-    return pdo_query($sql);
-}
-function get_value_size($pro_id,$size_id){
-    $sql = "SELECT c.id,c.value FROM `pro_attributes` p JOIN attributes a ON a.id=p.attr_id JOIN color_values c ON a.id=c.attr_id WHERE p.pro_id=$pro_id AND c.id=$size_id
-    ";
-    return pdo_query($sql);
-}
+// lấy value value từ pro_attr
+function get_value_pro(){
 
+}
 
 function product_update($id, $name, $price, $sale, $quantity, $avatar, $color, $battery, $description, $cate_id, $status)
 {
@@ -96,6 +94,10 @@ function product_delete($id)
 }
 function pro_attr_del($id){
     $sql = "DELETE FROM pro_attributes WHERE pro_id='$id'";
+    pdo_execute($sql);
+}
+function pro_img_del($id){
+    $sql = "DELETE FROM pro_imgs WHERE pro_id='$id'";
     pdo_execute($sql);
 }
 
