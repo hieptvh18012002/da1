@@ -35,21 +35,21 @@
       </div>
     </li>
     <!-- nếu là quản lý thì ms dc  -->
-    <?php if($_SESSION['admin']['role_id'] == 3): ?>
-    <li class="nav-item">
-      <a class="nav-link" data-toggle="collapse" href="#account" aria-expanded="false" aria-controls="ui-basic">
-        <i class="far fa-user menu-icon"></i>
-        <span class="menu-title">Tài khoản</span>
-        <i class="menu-arrow"></i>
-      </a>
-      <div class="collapse" id="account">
-        <ul class="nav flex-column sub-menu">
-          <li class="nav-item"> <a class="nav-link" href="account">Danh sách</a></li>
-          <li class="nav-item"> <a class="nav-link" href="account?action=addAccount">Thêm tài khoản</a></li>
-        </ul>
-      </div>
-    </li>
-    <?php endif;?>
+    <?php if ($_SESSION['admin']['role_id'] == 3) : ?>
+      <li class="nav-item">
+        <a class="nav-link" data-toggle="collapse" href="#account" aria-expanded="false" aria-controls="ui-basic">
+          <i class="far fa-user menu-icon"></i>
+          <span class="menu-title">Tài khoản</span>
+          <i class="menu-arrow"></i>
+        </a>
+        <div class="collapse" id="account">
+          <ul class="nav flex-column sub-menu">
+            <li class="nav-item"> <a class="nav-link" href="account">Danh sách</a></li>
+            <li class="nav-item"> <a class="nav-link" href="account?action=addAccount">Thêm tài khoản</a></li>
+          </ul>
+        </div>
+      </li>
+    <?php endif; ?>
     <li class="nav-item">
       <a class="nav-link" data-toggle="collapse" href="#comment" aria-expanded="false" aria-controls="ui-basic">
         <i class="far fa-comments menu-icon"></i>
@@ -94,13 +94,15 @@
       </a>
 
     </li>
-    <li class="nav-item">
-      <a class="nav-link" href="">
-      <i class="fas fa-tv menu-icon"></i>
-        <span class="menu-title">Giao diện</span>
-      </a>
+    <?php if ($_SESSION['admin']['role_id'] == 3) : ?>
+      <li class="nav-item">
+        <a class="nav-link" href="">
+          <i class="fas fa-tv menu-icon"></i>
+          <span class="menu-title">Giao diện</span>
+        </a>
 
-    </li>
+      </li>
+    <?php endif; ?>
 
 
 

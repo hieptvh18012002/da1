@@ -1,6 +1,6 @@
 <?php
 require_once "./app/common/bridge.php";
-// check login
+//  xử lý tìm kiếm, ...
 
 if(isset($_GET['action'])){
     switch($_GET['action']){

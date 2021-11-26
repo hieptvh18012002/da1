@@ -113,10 +113,10 @@ if (isset($_GET['action'])) {
                     // -- insert pro_attribute
                     // lặp value and isert 2
                     foreach ($size as $s) {
-                        pro_attr_insert($id_pro, 2, $s);
+                        pro_attr_insert($id_pro, 1, $s);
                     }
                     foreach ($color as $c) {
-                        pro_attr_insert($id_pro, 1, $s);
+                        pro_attr_insert($id_pro, 2, $c);
                     }
                     // add nhiều ảnh
                     $files = $_FILES['avatars'];
@@ -140,12 +140,16 @@ if (isset($_GET['action'])) {
             $pros = product_select_by_id($_GET['id']);
             $id = $_GET['id'];
             // lấy value của thuộc tính sp tương ứng;
-
+            $color_id_of_pro = color_select_pro($id);
+            $size_id_of_pro = size_select_pro($id);
+           
             if (isset($_POST['btn_update'])) {
                 extract($_POST);
                 // code update
+
+                // product_update($id,$name,$category,$price,$discount,$avatar,)
             }
-            viewAdmin('layout', ['page' => 'updateProduct', 'pros' => $pros, 'list_cate' => $list_cate, 'size_values' => $size_values, 'color_values' => $color_values]);
+            viewAdmin('layout', ['page' => 'updateProduct', 'pros' => $pros, 'list_cate' => $list_cate, 'size_values' => $size_values, 'color_values' => $color_values,'color_id'=>$color_id_of_pro[0],'size_id'=>$size_id_of_pro[0]]);
             break;
         case "del":
             $pros = product_select_by_id($_GET['id']);

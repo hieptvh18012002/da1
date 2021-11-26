@@ -22,7 +22,15 @@ function color_select_all(){
     $sql = "SELECT * FROM attr_values WHERE attr_id=2";
     return pdo_query($sql);
 }
-// 
+// lấy value attr pro
+function color_select_pro($id_pro){
+    $sql = "SELECT value_id FROM pro_attributes WHERE pro_id=$id_pro AND attr_id=2";
+    return pdo_query($sql);
+}
+function size_select_pro($id_pro){
+    $sql = "SELECT value_id FROM pro_attributes WHERE pro_id=$id_pro AND attr_id=1";
+    return pdo_query($sql);
+}
 
 function product_select_by_category($id)
 {
@@ -75,9 +83,9 @@ function get_value_pro(){
 
 }
 
-function product_update($id, $name, $price, $sale, $quantity, $avatar, $color, $battery, $description, $cate_id, $status)
+function product_update($id,$name,$cate,$price,$discount,$image,$description)
 {
-    $sql = "UPDATE products SET product_name='$name',price='$price',sales='$sale',quantity='$quantity',product_avatar='$avatar',color='$color',battery='$battery',description='$description',category_id='$cate_id',status=$status WHERE product_id=$id";
+    $sql = "UPDATE products SET name='$name',cate_id='$cate',price='$price',discount='$discount',avatar='$image',description='$description' WHERE id=$id";
     pdo_execute($sql);
 }
 function product_delete($id)
