@@ -211,6 +211,7 @@
         <div class="sp-title">
             <p class="vclll">Bình luận của khách hàng</p>
             <div class="form__comment">
+                <?php if(isset($_SESSION['customer']) || isset($_SESSION['admin'])):?>
                 <div class="form__top">
                     <form action="">
                         <div class="input__comment">
@@ -229,6 +230,7 @@
                         </div>
                     </form>
                 </div>
+                <?php endif;?>
                 <div class="form__content">
                     <div class="comment__itemAll">
                         <div class="item__comment">

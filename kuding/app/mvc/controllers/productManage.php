@@ -64,7 +64,7 @@ if (isset($_GET['action'])) {
                         </td>
                         <td>
                             <a href="product?action=update&id=' . $item['pro_id'] . '"><i class="fas fa-pen-square text-warning fa-2x "></i></a>
-                            <a href="product?action=del&id='.$item['pro_id'].'" onclick="return confirm(' . 'Bạn chắc chắn muốn xóa sản phẩm?' . ')"><i class="fas fa-trash-alt text-danger fa-2x"></i></a>
+                            <a href="product?action=del&id=' . $item['pro_id'] . '" onclick="return confirm(' . 'Bạn chắc chắn muốn xóa sản phẩm?' . ')"><i class="fas fa-trash-alt text-danger fa-2x"></i></a>
                         </td>
                     </tr>
                 ';
@@ -134,16 +134,31 @@ if (isset($_GET['action'])) {
             if (isset($_POST['btn_update'])) {
                 extract($_POST);
             }
-            viewAdmin('layout', ['page' => 'updateProduct', 'pros' => $pros,'list_cate'=>$list_cate,'size_values'=>$size_values,'color_values'=>$color_values]);
+            viewAdmin('layout', ['page' => 'updateProduct', 'pros' => $pros, 'list_cate' => $list_cate, 'size_values' => $size_values, 'color_values' => $color_values]);
             break;
         case "del":
             $pros = product_select_by_id($_GET['id']);
             // xóa sp
             product_delete($_GET['id']);
-            unlink("./public/images/products/".$pros['avatar']);
+            unlink("./public/images/products/" . $pros['avatar']);
             // xóa attr sp
             pro_attr_del($_GET['id']);
             header('Location: product?msg=Xóa thành công sản phẩm');
+            break;
+        case "viewListProduct":
+            viewClient('layout', ['page' => 'product']);
+            die;
+            break;
+        case "viewProductDetail":
+            viewClient('layout', ['page' => 'product-details']);
+            die;
+            break;
+        case "viewFavorite":
+            // code sản phẩm yêu thích
+            // nếu là khách thì lưu vào session >< đã đang nhập thì lưu db
+
+            viewClient('layout',['page'=>'favorite']);
+            die;
             break;
     }
 }

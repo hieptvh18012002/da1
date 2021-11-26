@@ -9,23 +9,19 @@ function urlProcess()
         return explode('/', trim($_GET['url']));
     }
 }
-$controller = 'indexClient';
+$controller = 'index';
 $action = "show";
 $params = [];
 $url = urlProcess();
 // kiểm tra và require controller phù hợp
 if (isset($url[0])) {
-     // client
-     if (file_exists("./app/mvc/controllers/controllerClients/" . $url[0] . ".php")) {
+     // 
+     if (file_exists("./app/mvc/controllers/" . $url[0] . "Manage.php")) {
         $controller = $url[0];
-        require_once "./app/mvc/controllers/controllerClients/" . $controller . ".php";
-        // admin
-    } else if (file_exists("./app/mvc/controllers/controllerAdmins/" . $url[0] . "Manage.php")) {
-        $controller = $url[0];
-        require_once "./app/mvc/controllers/controllerAdmins/" . $controller . "Manage.php";
+        require_once "./app/mvc/controllers/" . $controller . "Manage.php";
     } else {
-        require_once "./app/mvc/controllers/controllerClients/" . $controller . ".php";
+        require_once "./app/mvc/controllers/" . $controller . "Manage.php";
     }
 } else {
-    require_once "./app/mvc/controllers/controllerClients/" . $controller . ".php";
+    require_once "./app/mvc/controllers/" . $controller . "Manage.php";
 }

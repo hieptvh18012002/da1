@@ -85,7 +85,7 @@
                                 <div class="DH__form1">
                                     <label for="">E-mail <i>* Nơi bạn nhận được thông tin đặt hàng.</i></label>
                                     <input type="text" value="<?= $_SESSION['customer']['email'] ?>">
-                                    
+
                                 </div>
                                 <div class="DH__form1">
                                     <label for="">Ngày sinh</label>
@@ -94,14 +94,15 @@
                                 <div class="DH__form2">
                                     <label class="sex__text" for="">Giới tính</label>
                                     <div class="DH__checkBox">
+
                                         <div class="pretty p-default">
-                                            <input type="radio" id="nam" name="gender" />
+                                            <input <?= $_SESSION['customer']['gender'] == 0 ? 'checked' : '' ?> type="radio" id="nam" name="gender" />
                                             <div class="state p-info">
                                                 <label for="nam">Nam</label>
                                             </div>
                                         </div>
                                         <div class="pretty p-default">
-                                            <input type="radio" id="nu" name="gender"/>
+                                            <input <?= $_SESSION['customer']['gender'] == 1 ? 'checked' : '' ?> type="radio" id="nu" name="gender" />
                                             <div class="state p-info">
                                                 <label for="nu">Nữ</label>
                                             </div>

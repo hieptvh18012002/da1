@@ -69,7 +69,7 @@
         $(document).ready(function() {
             $('#login_user').submit(function(e) {
                 e.preventDefault();
-                var action = 'login';
+                var action = 'loginClient';
                 var email = $('#email_login').val();
                 var password = $('#password_login').val();
                 var remember = $('#remember')
@@ -84,8 +84,8 @@
                 }else{
                     $("#loading_spinner").css({"display":"block"});
                     $.ajax({
-                        url:"accountClient",
-                        method:"POST",
+                        url:"account",
+                        method:"GET",
                         data:{
                             action: action,
                             email:email,
