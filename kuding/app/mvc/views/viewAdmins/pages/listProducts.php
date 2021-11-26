@@ -11,7 +11,11 @@
             <?php endforeach; ?>
         </select>
     </div>
-
+    <?php if (isset($_GET['msg'])) : ?>
+        <div class="bg-danger p-2 mt-2 text-white">
+            <?php echo $_GET['msg']; ?>
+        </div>
+    <?php endif; ?>
     <div class="table-responsive">
         <table class="table">
             <thead>
@@ -38,7 +42,7 @@
                             <td><?= number_format($item['price'], 0, ',', '.') ?> vnd</td>
                             <td><img src="./public/images/products/<?= $item['avatar'] ?>" alt=""> </td>
                             <td><?= $item['discount'] ?>vnd</td>
-                            <td><?= substr($item['description'],0,100) ?></td>
+                            <td><?= substr($item['description'], 0, 100) ?></td>
                             <td>
                                 <?php if ($item['status']  == 0) : ?>
                                     <label class="badge badge-danger">Hết hàng</label>
@@ -47,8 +51,8 @@
                                 <?php endif; ?>
                             </td>
                             <td>
-                                <a href="#update"><i class="fas fa-pen-square text-warning fa-2x "></i></a>
-                                <a href="#del" onclick="return confirm('Bạn chắc chắn muốn xóa sản phẩm?')"><i class="fas fa-trash-alt text-danger fa-2x"></i></a>
+                                <a href="product?action=update&id=<?= $item['pro_id'] ?>"><i class="fas fa-pen-square text-warning fa-2x "></i></a>
+                                <a href="?action=del&id=<?= $item['pro_id'] ?>" onclick="return confirm('Bạn chắc chắn muốn xóa sản phẩm?')"><i class="fas fa-trash-alt text-danger fa-2x"></i></a>
                             </td>
                         </tr>
                     <?php endforeach; ?>
@@ -58,5 +62,6 @@
         </table>
     </div>
 </div>
+<div id="output"></div>
 
 <!-- js -->

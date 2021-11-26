@@ -139,7 +139,7 @@ width: 200px;
 }
 .box-user .title{
     width: 220px;
-    margin: 0 auto;
+    margin: 10px auto 0 auto;
     font-size: 18px;
     display: flex;
     justify-content: space-between;

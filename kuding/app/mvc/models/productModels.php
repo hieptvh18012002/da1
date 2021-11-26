@@ -1,12 +1,12 @@
 <?php
 function product_select_all()
 {
-    $sql = "SELECT p.name as pr_name,p.price,p.discount,p.avatar,p.description,p.status,c.name as ca_name FROM products p INNER JOIN categories c ON p.cate_id = c.id ORDER BY p.created_at DESC";
+    $sql = "SELECT p.id pro_id,p.name as pr_name,p.price,p.discount,p.avatar,p.description,p.status,c.name as ca_name FROM products p INNER JOIN categories c ON p.cate_id = c.id ORDER BY p.created_at DESC";
     return pdo_query($sql);
 }
 function product_select_by_id($id)
 {
-    $sql = "SELECT * FROM products WHERE product_id=$id";
+    $sql = "SELECT * FROM products WHERE id=$id";
     return pdo_query_one($sql);
 }
 // attr
@@ -15,6 +15,11 @@ function size_select_all(){
     return pdo_query($sql);
 }
 function color_select_all(){
+    $sql = "SELECT * FROM color_values";
+    return pdo_query($sql);
+}
+// 
+function pro_select_color($pro_id,$attr_id,$value_id){
     $sql = "SELECT * FROM color_values";
     return pdo_query($sql);
 }
@@ -60,9 +65,14 @@ function pro_attr_insert($pro_id,$attr_id,$value_id){
     $sql = "INSERT INTO pro_attributes (pro_id,attr_id,value_id) VALUES($pro_id,$attr_id,$value_id)";
     pdo_execute($sql);
 }
-// lấy id attr từ value
-function get_id_attr_size(){
-    $sql = "SELECT a.id FROM size_values s JOIN attributes a ON a.id=s.attr_id;";
+// lấy value attr từ value
+function get_value_color($pro_id,$color_id){
+    $sql = "SELECT c.id,c.value FROM `pro_attributes` p JOIN attributes a ON a.id=p.attr_id JOIN color_values c ON a.id=c.attr_id WHERE p.pro_id=$pro_id AND c.id=$color_id";
+    return pdo_query($sql);
+}
+function get_value_size($pro_id,$size_id){
+    $sql = "SELECT c.id,c.value FROM `pro_attributes` p JOIN attributes a ON a.id=p.attr_id JOIN color_values c ON a.id=c.attr_id WHERE p.pro_id=$pro_id AND c.id=$size_id
+    ";
     return pdo_query($sql);
 }
 
@@ -76,14 +86,19 @@ function product_delete($id)
 {
     if (is_array($id)) {
         foreach ($id as $id) {
-            $sql = "DELETE FROM products WHERE product_id='$id'";
+            $sql = "DELETE FROM products WHERE id='$id'";
             pdo_execute($sql);
         }
     } else {
-        $sql = "DELETE FROM products WHERE product_id='$id'";
+        $sql = "DELETE FROM products WHERE id='$id'";
         pdo_execute($sql);
     }
 }
+function pro_attr_del($id){
+    $sql = "DELETE FROM pro_attributes WHERE pro_id='$id'";
+    pdo_execute($sql);
+}
+
 function load_all_product()
 {
     $sql = "SELECT * FROM `products` INNER JOIN product_categories ON products.category_id = product_categories.category_id WHERE special=0 ORDER BY products.product_id DESC";

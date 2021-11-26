@@ -7,46 +7,50 @@ $err = '';
 if (isset($_GET['action'])) :
     switch ($_GET['action']) {
         case "loginAdmin":
-            extract($_POST);
-            // lấy tt acc về check
-            // case ng dùng check remember
-            if (isset($remember)) {
-                $acc_exsits = pdo_query_one("SELECT * FROM accounts WHERE email='$email'");
-                $pass = md5($password);
-                // check email
-                if (is_array($acc_exsits)) {
-                    // check pass
-                    if ($pass == $acc_exsits['password']) {
-                        // 2592000(30 ngay)
-                        setcookie('emailAdmin', $email, time() + 2592000, '/');
-                        setcookie('passwordAdmin', $password, time() + 2592000, '/');
-                        $_SESSION['admin'] = $acc_exsits;
-                        header("location: indexAdmin");
-                        die;
+            if (isset($_POST['btnLogin'])) {
+                extract($_POST);
+                // lấy tt acc về check
+                // case ng dùng check remember
+                if (isset($remember)) {
+                    $acc_exsits = pdo_query_one("SELECT * FROM accounts WHERE email='$email'");
+                    $pass = md5($password);
+                    // check email
+                    if (is_array($acc_exsits)) {
+                        // check pass
+                        if ($pass == $acc_exsits['password']) {
+                            // 2592000(30 ngay)
+                            setcookie('emailAdmin', $email, time() + 2592000, '/');
+                            setcookie('passwordAdmin', $password, time() + 2592000, '/');
+                            $_SESSION['admin'] = $acc_exsits;
+                            header("location: indexAdmin");
+                            die;
+                        } else
+                            $err = "Tài khoản hoặc mật khẩu không chính xác!";
                     } else
                         $err = "Tài khoản hoặc mật khẩu không chính xác!";
-                } else
-                    $err = "Tài khoản hoặc mật khẩu không chính xác!";
-            } else { // ko check rmb
-                setcookie('emailAdmin', '', time() - 60, '/');
-                setcookie('passwordAdmin', '', time() - 60, '/');
-                $acc_exsits = pdo_query_one("SELECT * FROM accounts WHERE email='$email'");
-                $pass = md5($password);
-                if (is_array($acc_exsits)) {
-                    // check pass
-                    if ($pass == $acc_exsits['password']) {
-                        $_SESSION['admin'] = $acc_exsits;
-                        header("location: indexAdmin");
-                        die;
-                    }
-                    $err = "Mật khẩu sai!";
-                } else
-                    $err = "Tài khoản hoặc mật khẩu không chính xác!";
+                } else { // ko check rmb
+                    setcookie('emailAdmin', '', time() - 60, '/');
+                    setcookie('passwordAdmin', '', time() - 60, '/');
+                    $acc_exsits = pdo_query_one("SELECT * FROM accounts WHERE email='$email'");
+                    $pass = md5($password);
+                    if (is_array($acc_exsits)) {
+                        // check pass
+                        if ($pass == $acc_exsits['password']) {
+                            $_SESSION['admin'] = $acc_exsits;
+                            header("location: indexAdmin");
+                            die;
+                        }
+                        $err = "Mật khẩu sai!";
+                    } else
+                        $err = "Tài khoản hoặc mật khẩu không chính xác!";
+                }
             }
+            viewAdmin('login',['err'=>$err]);
+            die;
             break;
         case "register":
             // khách hàng đăng kí
-            
+
             break;
         case "login":
             // khách hàng lg
@@ -63,16 +67,15 @@ if (isset($_GET['action'])) :
             echo "<script>window.location.replace(\"index?msg=Đăng xuất thành công!\")</script>;";
             die;
             break;
-            case "addAccount":
-                viewAdmin("layout",['page'=>'addAccount']);
-                break;
-            default 
-            :
-            viewAdmin('layout',['page'=>'listAccount']);
+        case "addAccount":
+
+            viewAdmin("layout", ['page' => 'addAccount']);
             break;
-   
-        }
+        default:
+            viewAdmin('layout', ['page' => 'listAccount']);
+            break;
+    }
 endif;
 
 
-viewAdmin("login", ['err' => $err]);
+viewAdmin("layout", ['page' => 'listAccount', 'err' => $err]);

@@ -15,7 +15,7 @@
     <div class="product__content">
         <div class="proC__fist">
             <div class="proC__title">
-                <p>Phụ nữ</p>
+                <p>Chọn mua những gì phù hợp với bạn</p>
             </div>
             <div id="paging1" class="proC__paging">
                 <nav class="pages">

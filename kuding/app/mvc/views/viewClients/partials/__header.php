@@ -1,4 +1,5 @@
 <header>
+    
     <div class="header-top swiper mySwiper">
         <div class="swiper-wrapper">
             <a href="#" class="swiper-slide slider-top1">Covid-19 </a>
@@ -43,7 +44,7 @@
                             <a href="profileClient">Bảng điều khiển</a>
                             <a href="#">Đơn hàng</a>
                             <a href="#">Tài khoản</a>
-                            <a href="#">Đăng xuất</a>
+                            <a href="accountClient?action=logout" onclick="return confirm('Bạn chắc chắn muốn đăng xuất')">Đăng xuất</a>
                         </div>
                     </div>
                 <?php else: ?>
@@ -67,20 +68,23 @@
                                 <div class="welcome">
                                     Chào mừng bạn!
                                 </div>
-                                <form action="" method="POST" name="form-login" class="p-5" id="login_user">
+                                <form action="accountClient?action=login"  method="POST" name="form-login" class="p-5" id="login_user">
                                     <div class="form-group">
-                                        <input type="text" name="email" placeholder="Nhập email" class=" email" required>
+                                        <input type="text" name="email" placeholder="Nhập email" value="<?= isset($_COOKIE['emailClient'])?$_COOKIE['emailClient']:'' ?>" class=" email" id="email_login" required>
                                     </div>
                                     <div class="form-group">
-                                        <input type="password" name="password" placeholder="Nhập mật khẩu" class="password">
+                                        <input type="password" name="password" placeholder="Nhập mật khẩu" class="password" value="<?= isset($_COOKIE['passwordClient'])?$_COOKIE['passwordClient']:'' ?>" id="password_login">
                                     </div>
                                     <div class="pretty p-default mb-4 mt-4">
-                                        <input type="checkbox" />
+                                        <input type="checkbox" <?= isset($_COOKIE['emailClient'])?'checked':'' ?> id="remember" name="remember"/>
                                         <div class="state">
                                             <label>Nhớ thông tin</label>
                                         </div>
                                     </div>
-                                    <button type="submit" class="col-md-12 btn btn-secondary p-2" id="btn_login">Đăng
+                                    <div class="errLogin text-danger pb-2">
+
+                                    </div>
+                                    <button type="submit" class="col-md-12 btn btn-secondary p-2" id="btn_login_client">Đăng
                                         nhập</button>
                                     <div class="forgot-pass text-center m-3">
                                         <a href="#remember">Bạn quên mật khẩu?</a>
@@ -90,18 +94,18 @@
                                     </div>
                                 </form>
                                 <!-- register -->
-                                <form action="" method="POST" enctype="multipart/form-data" name="form-login" id="register_user" class="p-5">
+                                <form action="" method="POST" enctype="multipart/form-data" name="form-register" id="register_user" class="p-5">
                                     <div class="form-group">
-                                        <input type="text" name="fullname" placeholder="Tên đầy đủ" class="fullname">
+                                        <input type="text" id="fullname" placeholder="Tên đầy đủ" class="fullname">
                                     </div>
                                     <div class="form-group">
-                                        <input type="text" name="email" placeholder="Nhập email" class=" email">
+                                        <input type="text" id="email" placeholder="Nhập email" class=" email">
                                     </div>
                                     <div class="form-group">
                                         <input type="password" name="password" placeholder="Nhập mật khẩu" class=" password">
                                     </div>
                                     <div class="form-group">
-                                        <input type="date" name="birthday" placeholder="Ngày sinh của bạn" class="password">
+                                        <input type="date" id="birthday" placeholder="Ngày sinh của bạn" class="password">
                                     </div>
                                     <div class="gender col-md-12 mb-4 mt-4">
                                         <div class="form-check-inline">
@@ -109,7 +113,7 @@
                                             <label for="gender" class="form-check-label mr-4">
                                                 Nam
                                             </label>
-                                            <input class="form-check-input" name="1" id="gender2" type="radio" name="gender">
+                                            <input class="form-check-input" id="gender2" type="radio" name="gender">
                                             <label for="gender2" class="form-check-label">
                                                 Nữ
                                             </label>
