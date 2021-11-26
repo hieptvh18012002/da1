@@ -10,6 +10,7 @@ $color_values = color_select_all();
 
 $err = array();
 $err['img'] = '';
+$err['imgs'] = '';
 $msg = '';
 if (isset($_GET['action'])) {
     switch ($_GET['action']) {
@@ -95,11 +96,15 @@ if (isset($_GET['action'])) {
                 } else {
                     $err['img'] = "Ảnh chưa tải lên";
                 }
-                // nếu k có err thì insert
+                // ktra ảnh ct
+                if ($_FILES['avatars']['size'] <= 0) {
+                    $err['imgs'] = "Tải ít nhất 1 ảnh chi tiết";
+                }
+                // thêm sp
                 if (!array_filter($err)) {
                     $created_at = date("Y-m-d H:i:s");
                     // insert tbl products
-                    move_uploaded_file($_FILES['avatar']['tmp_name'], "./public/images/products/" . $avatar);
+                    move_uploaded_file($file['tmp_name'], "./public/images/products/" . $avatar);
                     $conn = get_connection();
                     $stmt = $conn->prepare("INSERT INTO products (name,cate_id,price,avatar,description,created_at) VALUES('$name',$category,$price,'$avatar','$desc','$created_at')");
                     $stmt->execute();
@@ -113,26 +118,32 @@ if (isset($_GET['action'])) {
                     foreach ($color as $c) {
                         pro_attr_insert($id_pro, 1, $s);
                     }
+                    // add nhiều ảnh
+                    $files = $_FILES['avatars'];
+                    $file_names = $files['name'];
+                    //    lặp + up 
+                    foreach ($file_names as $key => $item) {
+                        move_uploaded_file($files['tmp_name'][$key], "./public/images/products/" . $item);
+                    }
+                    // insert pro_img
+                    foreach ($file_names as $item) {
+                        pro_img_insert($item, $id_pro);
+                    }
                     $msg = "Thêm thành công sản phẩm";
+                    // nếu k có err thì insert
                 }
             }
-            viewAdmin("layout", ['page' => 'addProduct', 'list_cate' => $list_cate, 'errImg' => $err['img'], 'size_values' => $size_values, 'color_values' => $color_values, 'msg' => $msg]);
+            viewAdmin("layout", ['page' => 'addProduct', 'list_cate' => $list_cate, 'errImg' => $err, 'errImgs' => $err['imgs'], 'errImg' => $err['img'], 'size_values' => $size_values, 'color_values' => $color_values, 'msg' => $msg]);
             break;
 
         case "update":
             $pros = product_select_by_id($_GET['id']);
             $id = $_GET['id'];
             // lấy value của thuộc tính sp tương ứng;
-            $conn = get_connection();
-            $stmt = $conn->prepare("SELECT DISTINCT value_id FROM pro_attributes WHERE pro_id=$id");
-            $stmt->execute();
-            $row = $stmt->rowCount();
-            $value_id = $stmt->fetchAll();
-            // $color_of_pro = get_value_color($_GET['id'],$value_id);
-            // echo "<pre>";
-            // var_dump($color_of_pro);die;
+
             if (isset($_POST['btn_update'])) {
                 extract($_POST);
+                // code update
             }
             viewAdmin('layout', ['page' => 'updateProduct', 'pros' => $pros, 'list_cate' => $list_cate, 'size_values' => $size_values, 'color_values' => $color_values]);
             break;
@@ -143,7 +154,16 @@ if (isset($_GET['action'])) {
             unlink("./public/images/products/" . $pros['avatar']);
             // xóa attr sp
             pro_attr_del($_GET['id']);
+            // xóa ảnh detail
+            pro_img_del($_GET['id']);
             header('Location: product?msg=Xóa thành công sản phẩm');
+            break;
+            // attr
+        case "addAttrProduct":
+            $attrs = attr_select_all();
+            // code add attr
+            viewAdmin('layout', ['page' => 'addAttr', 'attrs' => $attrs]);
+            die;
             break;
         case "viewListProduct":
             viewClient('layout', ['page' => 'product']);
@@ -157,7 +177,7 @@ if (isset($_GET['action'])) {
             // code sản phẩm yêu thích
             // nếu là khách thì lưu vào session >< đã đang nhập thì lưu db
 
-            viewClient('layout',['page'=>'favorite']);
+            viewClient('layout', ['page' => 'favorite']);
             die;
             break;
     }

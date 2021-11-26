@@ -17,6 +17,7 @@
         <ul class="nav flex-column sub-menu">
           <li class="nav-item"> <a class="nav-link" href="product">Danh sách sản phẩm</a></li>
           <li class="nav-item"> <a class="nav-link" href="product?action=addProduct">Thêm sản phẩm</a></li>
+          <li class="nav-item"> <a class="nav-link" href="product?action=addAttrProduct">Thêm giá trị thuộc tính</a></li>
         </ul>
       </div>
     </li>
@@ -33,6 +34,8 @@
         </ul>
       </div>
     </li>
+    <!-- nếu là quản lý thì ms dc  -->
+    <?php if($_SESSION['admin']['role_id'] == 3): ?>
     <li class="nav-item">
       <a class="nav-link" data-toggle="collapse" href="#account" aria-expanded="false" aria-controls="ui-basic">
         <i class="far fa-user menu-icon"></i>
@@ -46,6 +49,7 @@
         </ul>
       </div>
     </li>
+    <?php endif;?>
     <li class="nav-item">
       <a class="nav-link" data-toggle="collapse" href="#comment" aria-expanded="false" aria-controls="ui-basic">
         <i class="far fa-comments menu-icon"></i>

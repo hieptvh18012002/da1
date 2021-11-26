@@ -2,7 +2,7 @@
 <?php
 require_once "./app/common/bridge.php";
 callModel("accountModels");
-
+$list_acc = acc_select_all();
 $err = '';
 if (isset($_GET['action'])) :
     switch ($_GET['action']) {
@@ -22,7 +22,8 @@ if (isset($_GET['action'])) :
                             setcookie('emailAdmin', $email, time() + 2592000, '/');
                             setcookie('passwordAdmin', $password, time() + 2592000, '/');
                             $_SESSION['admin'] = $acc_exsits;
-                            header("location: indexAdmin");
+                            unset($_SESSION['customer']);
+                            header("location: admin");
                             die;
                         } else
                             $err = "Tài khoản hoặc mật khẩu không chính xác!";
@@ -37,7 +38,8 @@ if (isset($_GET['action'])) :
                         // check pass
                         if ($pass == $acc_exsits['password']) {
                             $_SESSION['admin'] = $acc_exsits;
-                            header("location: indexAdmin");
+                            unset($_SESSION['customer']);
+                            header("location: admin");
                             die;
                         }
                         $err = "Mật khẩu sai!";
@@ -64,6 +66,7 @@ if (isset($_GET['action'])) :
                         $pass = md5($_GET['mk']);
                         if ($pass == $acc_exist['password']) {
                             $_SESSION['customer'] = $acc_exist;
+                            unset($_SESSION['admin']);
                             echo "<script>location.reload()</script>";
                         } else {
                             echo "Mật khẩu không chính xác!";
@@ -84,6 +87,7 @@ if (isset($_GET['action'])) :
                             setcookie('emailClient', $email, time() + 2592000, '/');
                             setcookie('passwordClient', $mk, time() + 2592000, '/');
                             $_SESSION['customer'] = $acc_exist;
+                            unset($_SESSION['admin']);
                             echo "<script>location.reload()</script>";
                         } else {
                             echo "Mật khẩu không chính xác!";
@@ -111,6 +115,7 @@ if (isset($_GET['action'])) :
 
             viewAdmin("layout", ['page' => 'addAccount']);
             break;
+
         case "updateAccount":
 
             break;
@@ -130,10 +135,10 @@ if (isset($_GET['action'])) :
             die;
             break;
         default:
-            viewAdmin('layout', ['page' => 'listAccount']);
+            viewAdmin('layout', ['page' => 'listAccount','list_acc'=>$list_acc]);
             break;
     }
 endif;
 
 
-viewAdmin("layout", ['page' => 'listAccount', 'err' => $err]);
+viewAdmin("layout", ['page' => 'listAccount', 'err' => $err,'list_acc'=>$list_acc]);

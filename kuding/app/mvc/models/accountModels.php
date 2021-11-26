@@ -1,6 +1,10 @@
 <?php
 
 // select 
+function acc_select_all(){
+    $sql = "SELECT * FROM accounts ORDER BY created_at DESC";
+    return pdo_query($sql);
+}
 function acc_select_by_email($e){
     $sql = "SELECT * FROM accounts WHERE email='$e'";
     return pdo_query_one($sql);
