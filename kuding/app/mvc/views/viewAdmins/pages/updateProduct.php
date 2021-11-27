@@ -31,48 +31,45 @@
                     <label for="price">Giá</label>
                     <input type="number" name="price" class="form-control" id="price" value="<?= $data['pros']['price'] ?>">
                 </div>
+                <div class="form-group">
+                    <label for="price">Giảm giá trực tiếp</label>
+                    <input type="number" name="discount" class="form-control" id="discount" placeholder="Nhập giá giảm">
+                </div>
                 <div class="form-group" style="display:flex; column-gap:30px; align-items:center;">
                     <label for="">Màu sản phẩm</label>
                     <?php foreach ($data['color_values'] as $item) : ?>
                         <div class="form-check">
                             <label class="form-check-label">
-                                <input class="checkbox" type="checkbox" name="color[]" value="<?= $item['id'] ?>">
+                                <input class="checkbox" <?= in_array($item['id'],$data['color_id'])?"checked":'' ?> type="checkbox" name="color[]" value="<?= $item['id'] ?>">
                                 <?= $item['value'] ?>
                             </label>
                         </div>
                     <?php endforeach; ?>
                 </div>
-                <div class="form-group">
-                    <label for="">Màu mới </label>
-                    <input type="text" name="color_new" class="form-control" id="" placeholder="Màu mới">
-                </div>
+              
                 <div class="form-group" style="display:flex; column-gap:30px; align-items:center;">
                     <label for="">Kích cỡ</label>
                     <?php foreach ($data['size_values'] as $item) : ?>
                         <div class="form-check">
                             <label class="form-check-label">
-                                <input class="checkbox" type="checkbox" name="size[]" value="<?= $item['id'] ?>">
+                                <input <?= in_array($item['id'],$data['size_id'])?"checked":'' ?> class="checkbox" type="checkbox" name="size[]" value="<?= $item['id'] ?>">
                                 <?= $item['value'] ?>
                             </label>
                         </div>
                     <?php endforeach; ?>
                 </div>
                 <div class="form-group">
-                    <label>Ảnh sản phẩm</label>
+                    <label>Ảnh đại diện</label>
                     <div class="" style="width: 300px;height:200px;">
                         <img src="./public/images/products/<?= $data['pros']['avatar'] ?>" width="100%" height="100%" alt="" style="object-fit: cover;">
                     </div>
                     <!-- new img -->
-                    <label for="">Tải lên ảnh mới</label>
+                    <label for="">Tải lên ảnh đại diện mới</label>
                     <input type="file" name="avatar" class="form-control" id="upload" onchange="previewImg()">
-                    <?php if (!empty($data['errImg'])) : ?>
-                        <div class="text-danger">
-                            <?php echo $data['errImg']  ?>
-                        </div>
-                    <?php endif; ?>
                     <div id="displayImg" class="" style="width: 200px;">
 
                     </div>
+                     
                 </div>
 
                 <div class="form-group">

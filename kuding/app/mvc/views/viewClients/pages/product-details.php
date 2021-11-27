@@ -19,26 +19,16 @@
                 <!-- chứa slider và hình ảnh chi tiết -->
                 <div class="pd-image__left">
                     <div class="img__scroll">
-                        <button id="img1" class="thunb__img">
-                            <img src="public/images/products/44608fda495b3c113c6b99bf7bd9262fcaf50fe6.jpg" alt="">
-                        </button>
-                        <button id="img2" class="thunb__img">
-                            <img src="public/images/products/17a9f1a15978f8f5423877a092836a62b5c16074.jpg" alt="">
-                        </button>
-                        <button id="img2" class="thunb__img">
-                            <img src="public/images/products/17a9f1a15978f8f5423877a092836a62b5c16074.jpg" alt="">
-                        </button>
-                        <button id="img2" class="thunb__img">
-                            <img src="public/images/products/17a9f1a15978f8f5423877a092836a62b5c16074.jpg" alt="">
-                        </button>
-                        <button id="img2" class="thunb__img">
-                            <img src="public/images/products/17a9f1a15978f8f5423877a092836a62b5c16074.jpg" alt="">
-                        </button>
+                        <?php foreach ($data['list_img'] as $item) : ?>
+                            <button id="img1" class="thunb__img">
+                                <img src="public/images/products/<?= $item['url'] ?>" alt="">
+                            </button>
+                        <?php endforeach; ?>
                     </div>
                 </div>
                 <div class="pd-image__right">
                     <div class="img__right">
-                        <img src="public/images/products/c6bee8d6d9efc8b1f33b3871146bac9ed20db2b2.jpg" alt="">
+                        <img src="public/images/products/<?= $data['pros']['avatar'] ?>" alt="">
                     </div>
                 </div>
             </div>
@@ -46,13 +36,12 @@
                 <!-- chứa thông tin chi tiết sp -->
                 <form class="pd__right" action="#">
                     <div class="pd-info-head">
-                        <div class="pd-brand-sub"><span class="pd-brand-name"><a href="/mind-bridge/b/252">Mind
-                                    Bridge</a></span></div>
-                        <div class="pd-name">KGE Sleeve Woven Patch Knit</div>
+                        <div class="pd-brand-sub"><span class="pd-brand-name"><a href="/mind-bridge/b/252">Brand:</a></span></div>
+                        <div class="pd-name"><?= $data['pros']['name'] ?></div>
                     </div>
                     <div class="pd-price ">
                         <div id="price-observer">
-                            <div class="default-price"><span class="currency lc">$</span><span class="number">118.99</span></div>
+                            <div class="default-price"><span class="currency lc"></span><span class="number"><?= number_format($data['pros']['price']) ?>vnd</span></div>
                         </div>
                         <div class="pd-sku">
                             <p>SKU# MNB0001599</p>
@@ -106,9 +95,8 @@
                                 </div>
                             </div>
                             <div class="info__body">
-                                <p>Chất liệu vải</p>
-                                <span>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Natus itaque sed
-                                    maiores praesentium aliquam explicabo ipsum eius dolores facere ea!</span>
+                                <p>Mô tả</p>
+                                <span><?= $data['pros']['description'] ?></span>
                             </div>
                         </div>
                         <div class="content__detail__info">
@@ -211,95 +199,76 @@
         <div class="sp-title">
             <p class="vclll">Bình luận của khách hàng</p>
             <div class="form__comment">
-                <?php if(isset($_SESSION['customer']) || isset($_SESSION['admin'])):?>
-                <div class="form__top">
-                    <form action="">
-                        <div class="input__comment">
-                            <div class="avatar__comment">
-                                <img src="./public/images/products/ong1.jpg" alt="" width="100%">
-                            </div>
-                            <div class="input__keys">
-                                <input type="text" placeholder="Đánh giá của bạn">
-                                <div class="input__image">
-                                    <input type="file" value="📁">
+                <?php if (isset($_SESSION['customer']) || isset($_SESSION['admin'])) : ?>
+                    <div class="form__top" style="display:flex; align-items:center;">
+                        <form action="" method="POST" enctype="multipart/form-data">
+                            <div class="input__comment">
+                                <div class="avatar__comment">
+                                    <img src="./public/images/products/ong1.jpg" alt="" width="100%">
                                 </div>
-                                <div class="sub__comment">
-                                    <button type="submit"><i class="fas fa-paper-plane"></i></button>
+                                <div class="input__keys">
+                                    <input type="text" name="content" placeholder="Bình luận của bạn">
+                                    <div class="input__image">
+                                        <input type="file" name="image" value="📁">
+                                    </div>
+                                    <div class="sub__comment">
+                                        <button name="btn_cmt" type="submit"><i class="fas fa-paper-plane"></i></button>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    </form>
-                </div>
-                <?php endif;?>
+                        </form>
+                        <?php if (!empty($data['errCmt'])) : ?>
+                            <div class="errCmt text-danger ml-5">
+                                <?php echo $data['errCmt']; ?>
+                                <i class="fa fa-exclamation-circle text-danger" aria-hidden="true"></i>
+                            </div>
+                        <?php endif; ?>
+                        <?php if (!empty($data['errImg'])) : ?>
+                            <div class="errCmt text-danger ml-5">
+                                <?php echo $data['errImg']; ?>
+                                <i class="fa fa-exclamation-circle text-danger" aria-hidden="true"></i>
+                            </div>
+                        <?php endif; ?>
+                    </div>
+                <?php endif; ?>
                 <div class="form__content">
                     <div class="comment__itemAll">
-                        <div class="item__comment">
-                            <div class="item__ava">
-                                <img src="./public/images/products/ong1.jpg" alt="" width="100%">
-                            </div>
-                            <div class="item__right">
-                                <div class="item__name">
-                                    <p>Đầu cắt moi</p>
-                                </div>
-                                <div class="item__time">
-                                    <i>10:31 PM / 18-11-2021</i>
-                                </div>
-                                <div class="item__nd">
-                                    <p>Sản phẩm như đb</p>
-                                </div>
-                                <div class="item__img">
-                                    <img src="./public/images/products/fa692ed538bbcb9d3e4e5ca7c5a1de8a5e04165f.jpg" alt="" width="100%">
-                                </div>
-                                <div class="item__more">
-                                    <i class="fas fa-trash-alt"></i>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="comment__itemAll">
+                        <?php foreach ($data['list_cmt'] as $item) : ?>
                             <div class="item__comment">
                                 <div class="item__ava">
                                     <img src="./public/images/products/ong1.jpg" alt="" width="100%">
                                 </div>
                                 <div class="item__right">
                                     <div class="item__name">
-                                        <p>Đầu cắt moi</p>
+                                        <p><?= $item['fullname'] ?></p>
                                     </div>
                                     <div class="item__time">
-                                        <i>10:31 PM / 18-11-2021</i>
+                                        <i><?= $item['created_at'] ?></i>
                                     </div>
                                     <div class="item__nd">
-                                        <p>Sản phẩm như đb</p>
+                                        <p><?= $item['content'] ?></p>
                                     </div>
                                     <div class="item__img">
-                                        <img src="./public/images/products/fa692ed538bbcb9d3e4e5ca7c5a1de8a5e04165f.jpg" alt="" width="100%">
+                                        <img src="./public/images/upload/<?= $item['image'] ?>" alt="" width="100%">
                                     </div>
                                     <div class="item__more">
                                         <i class="fas fa-trash-alt"></i>
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        <?php endforeach; ?>
+
                     </div>
                 </div>
             </div>
             <p class="vclll">Hình ảnh chi tiết</p>
             <div class="full-images">
                 <div class="full__box__img">
-                    <div class="pd__item__img">
-                        <img src="./public/images/products/9f30f851aba16bf6caa561efa611a44c8281943e.jpg" alt="" width="100%">
-                    </div>
-                    <div class="pd__item__img">
-                        <img src="./public/images/products/c6bee8d6d9efc8b1f33b3871146bac9ed20db2b2.jpg" alt="" width="100%">
-                    </div>
-                    <div class="pd__item__img">
-                        <img src="./public/images/products/7274e18d4ab68a79ad42b3ad401c34c1f0bb4b93.jpg" alt="" width="100%">
-                    </div>
-                    <div class="pd__item__img">
-                        <img src="./public/images/products/83fb3dff2c0c7da9251de97214a14d967d7db687.jpg" alt="" width="100%">
-                    </div>
-                    <div class="pd__item__img">
-                        <img src="./public/images/products/7dd9479d0f868a4cfec7e0f75d7cc77ba805b44e.jpg" alt="" width="100%">
-                    </div>
+                    <?php foreach ($data['list_img'] as $item) : ?>
+                        <div class="pd__item__img">
+                            <img src="./public/images/products/<?= $item['url'] ?>" alt="" width="100%">
+                        </div>
+                    <?php endforeach; ?>
                 </div>
 
             </div>

@@ -51,7 +51,7 @@
                    <?php endforeach;?>
                 </div>
                 <div class="form-group">
-                    <label>Ảnh đại diện</label>
+                    <label>Ảnh đại diện( ảnh)</label>
                     <input type="file" name="avatar" class="form-control" id="upload" onchange="previewImg()">
                     <?php if (!empty($data['errImg'])) : ?>
                         <div class="text-danger">
@@ -63,7 +63,7 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    <label>Ảnh Chi tiết</label>
+                    <label>Ảnh Chi tiết(dưới 5 ảnh)</label>
                     <input type="file" name="avatars[]" class="form-control" id="upload" multiple="multiple" >
                     <?php if (!empty($data['errImgs'])) : ?>
                         <div class="text-danger">
