@@ -1,6 +1,9 @@
 <?php
 require_once "./app/common/bridge.php";
 callModel("productModels");
+callModel("categoryModels");
+
+$list_cate = cate_select_all();
 // nếu caart empty thì gọi viu empty
 // if (!isset($_SESSION['cart']) || $_SESSION['cart'] == '') {
 //     viewClient('layout', ['page' => 'cart-empty']);
@@ -18,5 +21,5 @@ callModel("productModels");
                 break;
         }
     }
-    viewClient('layout', ['page' => 'cart']);
+    viewClient('layout', ['page' => 'cart','list_cate'=>$list_cate]);
 // }

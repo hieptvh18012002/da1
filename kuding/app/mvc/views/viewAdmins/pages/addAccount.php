@@ -1,7 +1,7 @@
 <div class="col-12 grid-margin stretch-card">
     <div class="card">
         <div class="card-body">
-            <h4 class="card-title">Thêm sản tài khoản</h4>
+            <h4 class="card-title">Thêm tài khoản</h4>
             <p class="card-description">
                 Thêm tài khoản tào lao cho vui
             </p>
@@ -51,6 +51,10 @@
                             Nữ
                         </label>
                     </div>
+                </div>
+                <div class="form-group">
+                    <label for="">Số điện thoại</label>
+                    <input type="text"  name="phone" id="phone" placeholder="Nhập số điện thoại" class="form-control" >
                 </div>
                
                 <button type="submit" name="btn_add" class="btn btn-primary mr-2">Thêm</button>

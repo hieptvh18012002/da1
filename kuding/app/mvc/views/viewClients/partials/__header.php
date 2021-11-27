@@ -191,10 +191,9 @@
         <div class="header-menu">
             <ul class="sub-nav m-0">
                 <li><a href="product.html">#SPOTLIGHT</a></li>
-                <li><a href="product?action=viewListProduct">Nam</a></li>
-                <li><a href="">Nữ</a></li>
-                <li><a href="">Chăm sóc da</a></li>
-                <li><a href="">Trẻ em</a></li>
+                <?php foreach ($data['list_cate'] as $c) : ?>
+                    <li><a href="product?action=viewListProduct&filtercate=<?= $c['id'] ?>"><?= $c['name'] ?></a></li>
+                <?php endforeach; ?>
                 <li><a href="">Làm sạch</a></li>
                 <?php if (isset($_SESSION['admin'])) : ?>
                     <li class="view_admin">
