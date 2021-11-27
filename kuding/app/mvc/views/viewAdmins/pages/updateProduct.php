@@ -37,6 +37,7 @@
                 </div>
                 <div class="form-group" style="display:flex; column-gap:30px; align-items:center;">
                     <label for="">Màu sản phẩm</label>
+                    <!-- lặp + so khớp + -->
                     <?php foreach ($data['color_values'] as $item) : ?>
                         <div class="form-check">
                             <label class="form-check-label">

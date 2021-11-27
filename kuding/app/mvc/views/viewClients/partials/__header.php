@@ -96,17 +96,20 @@
                                 </form>
                                 <!-- register -->
                                 <form action="" method="POST" enctype="multipart/form-data" name="form-register" id="register_user" class="p-5">
+                                    <div class="errRegister" style="color:red;">
+
+                                    </div>
                                     <div class="form-group">
                                         <input type="text" name="fullname" id="fullname" placeholder="Tên đầy đủ" class="fullname">
                                     </div>
                                     <div class="form-group">
-                                        <input type="text" name="email" id="email" placeholder="Nhập email" class=" email">
+                                        <input type="text" name="email" id="email_register" placeholder="Nhập email" class=" email">
                                     </div>
                                     <div class="form-group">
-                                        <input type="password" name="password" placeholder="Nhập mật khẩu" class=" password">
+                                        <input type="password" name="password" placeholder="Nhập mật khẩu" class=" password" id="pass_register">
                                     </div>
                                     <div class="form-group">
-                                        <input type="date" name="birthday" id="birthday" placeholder="Ngày sinh của bạn" class="password">
+                                        <input type="date" name="birthday" id="birthday" placeholder="Ngày sinh của bạn" class="birthday">
                                     </div>
                                     <div class="gender col-md-12 mb-4 mt-4">
                                         <div class="form-check-inline">
@@ -120,18 +123,12 @@
                                             </label>
                                         </div>
                                     </div>
-                                    <div class="form-group">
-                                        <label for="avatar"> Ảnh đại diện
-                                        </label>
-                                        <input type="file" name="avatar" id="" class="form-control pb-2">
-                                    </div>
+
                                     <button type="submit" class="col-md-12 btn btn-secondary p-2" id="btn_register">Tạo tài khoản</button>
                                     <div class="forgot-pass text-center m-3">
                                         <p>Bạn chắc chắn rằng sẽ đồng ý với những điều khoản của chúng tôi!</p>
                                     </div>
-                                    <div class="err" style="color:red;">
 
-                                    </div>
                                 </form>
                             </div>
 

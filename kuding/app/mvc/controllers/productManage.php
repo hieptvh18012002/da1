@@ -141,17 +141,27 @@ if (isset($_GET['action'])) {
         case "update":
             $pros = product_select_by_id($_GET['id']);
             $id = $_GET['id'];
-            // lấy value của thuộc tính sp tương ứng;
-            $color_id_of_pro = color_select_pro($id);
-            $size_id_of_pro = size_select_pro($id);
-
+            // lấy value của thuộc tính sp tương ứng;--> thuộc tính lấy dc nó trả về kiểu array object
+            //  cần convert sang dạng mảng
+            $size_id_of_pro = '';
+            $color_id_of_pro = '';
+            // chuyển mảng 2 chieefu về thành chuỗi
+            foreach(color_select_pro($id) as $c){
+                $color_id_of_pro .= $c['value_id'].' ';
+            }
+            foreach(size_select_pro($id) as $s){
+                $size_id_of_pro .= $s['value_id'].' ';
+            }
+            // chuyển chuỗi vừa đổi -> mảng 1 chiều để so khớp bằng in_array
+            $color_id = explode(' ', $color_id_of_pro);
+            $size_id = explode(' ', $size_id_of_pro);
             if (isset($_POST['btn_update'])) {
                 extract($_POST);
                 // code update
 
                 // product_update($id,$name,$category,$price,$discount,$avatar,)
             }
-            viewAdmin('layout', ['page' => 'updateProduct', 'pros' => $pros, 'list_cate' => $list_cate, 'size_values' => $size_values, 'color_values' => $color_values, 'color_id' => $color_id_of_pro[0], 'size_id' => $size_id_of_pro[0]]);
+            viewAdmin('layout', ['page' => 'updateProduct', 'pros' => $pros, 'list_cate' => $list_cate, 'size_values' => $size_values, 'color_values' => $color_values, 'color_id' => $color_id, 'size_id' => $size_id]);
             break;
         case "del":
             $pros = product_select_by_id($_GET['id']);
