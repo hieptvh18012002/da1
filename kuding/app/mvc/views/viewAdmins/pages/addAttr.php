@@ -16,7 +16,7 @@
             <p class="card-description">
                 Basic form elements
             </p>
-            <form action="" class="forms-sample mb-5" method="POST" enctype="multipart/form-data">
+            <form id="add_arb" action="" class="forms-sample mb-5" method="POST" enctype="multipart/form-data">
                 <div class="form-group">
                     <label for="exampleInputName1">Thuộc tính</label>
                     <select name="attr" id="attr" class="form-control">

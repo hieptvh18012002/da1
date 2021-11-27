@@ -75,3 +75,135 @@ $("#form_categorys").validate({
       form.submit();
     }
  });
+
+
+ // form add products
+ $("#add_products").validate({
+    rules: {
+        name: {
+            required : true,
+            minlength : 6,
+            maxlength : 26
+        },
+        price: {
+            required : true,
+        },
+        avatar: {
+            required : true
+        },
+        'avatars[]': {
+            required : true,
+        },
+        'color[]': {
+            required : true,
+        },
+        'size[]': {
+            required : true,
+        },
+        desc: {
+            required : true,
+        }
+        
+    },
+
+    messages: {
+        name: {
+            required: "Vui lòng nhập tên sản phẩm !",
+            minlength: "Nhập tối thiếu 6 ký tự",
+            maxlength: "Nhập tối đa 26 ký tự"
+        },
+        price: {
+            required: "Vui lòng nhập giá sản phẩm !",
+        },
+        avatar: {
+            required: "Vui lòng nhập ảnh !"
+        },
+        'avatars[]': {
+            required: "Vui lòng nhập ảnh chi tiết !",
+        },
+        'color[]':{
+            required: "Vui lòng màu cho sản phẩm !",
+        },
+        'size[]':{
+            required: "Vui lòng kích cỡ cho sản phẩm !",
+        },
+        desc: {
+            required: "Vui lòng nhập mô tả sản phẩm !"
+        }
+    },
+    submitHandler: function(form) {
+      form.submit();
+    }
+ });
+
+ // form add products
+ $("#update_products").validate({
+    rules: {
+        name: {
+            required : true,
+            minlength : 6,
+            maxlength : 26
+        },
+        price: {
+            required : true,
+        },
+        'color[]': {
+            required : true,
+        },
+        'size[]': {
+            required : true,
+        },
+        color_new: {
+            minlength : 6,
+            maxlength : 26
+        }
+        
+    },
+
+    messages: {
+        name: {
+            required: "Vui lòng nhập tên sản phẩm !",
+            minlength: "Nhập tối thiếu 6 ký tự",
+            maxlength: "Nhập tối đa 26 ký tự"
+        },
+        price: {
+            required: "Vui lòng nhập giá sản phẩm !",
+        },
+        'color[]':{
+            required: "Vui lòng màu cho sản phẩm !",
+        },
+        'size[]':{
+            required: "Vui lòng kích cỡ cho sản phẩm !",
+        },
+        color_new: {
+            minlength: "Nhập tối thiếu 6 ký tự",
+            maxlength: "Nhập tối đa 26 ký tự"
+        }
+    },
+    submitHandler: function(form) {
+      form.submit();
+    }
+ });
+
+
+ // form add thuộc tính
+ $("#add_arb").validate({
+    rules: {
+        value: {
+            required : true,
+            minlength : 2,
+            maxlength : 26
+        }
+    },
+
+    messages: {
+        value: {
+            required: "Vui lòng nhập thuộc tính sản phẩm !",
+            minlength: "Nhập tối thiếu 2 ký tự",
+            maxlength: "Nhập tối đa 26 ký tự"
+        },
+    },
+    submitHandler: function(form) {
+      form.submit();
+    }
+ });
