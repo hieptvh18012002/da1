@@ -67,8 +67,8 @@
     <!-- <script src="./public/js/layout/client.js"></script> -->
 
     <!-- validate form -->
-    <script src="./public/js/validate/validator__profile.js" ></script>
-    <script src="./public/js/validate/validator_register.js" ></script>
+    <script src="./public/js/validate/validatorClients/validator__profile.js" ></script>
+    <script src="./public/js/validate/validatorClients/validator_register.js" ></script>
     <!-- Swiper JS -->
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
     <script src="public/js/layout/slide_lib.js"></script>
