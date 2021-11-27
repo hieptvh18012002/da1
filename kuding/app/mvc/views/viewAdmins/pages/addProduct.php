@@ -10,7 +10,7 @@
                     <?php echo $data['msg']; ?>
                 </div>
             <?php endif; ?>
-            <form action="" class="forms-sample" method="POST" enctype="multipart/form-data">
+            <form action="" id="add_products" class="forms-sample" method="POST" enctype="multipart/form-data">
                 <div class="form-group">
                     <label for="exampleInputName1">Tên </label>
                     <input type="text" value="<?= save_value("name") ?>" name="name" class="form-control" id="exampleInputName1" placeholder="Name">
@@ -37,6 +37,7 @@
                         </label>
                     </div>
                    <?php endforeach;?>
+                   <label for="color[]" class="error"></label>
                 </div>
              
                 <div class="form-group" style="display:flex; column-gap:30px; align-items:center;">
@@ -49,6 +50,7 @@
                         </label>
                     </div>
                    <?php endforeach;?>
+                   <label for="size[]" class="error"></label>
                 </div>
                 <div class="form-group">
                     <label>Ảnh đại diện( ảnh)</label>
@@ -64,7 +66,7 @@
                 </div>
                 <div class="form-group">
                     <label>Ảnh Chi tiết(dưới 5 ảnh)</label>
-                    <input type="file" name="avatars[]" class="form-control" id="upload" multiple="multiple" >
+                    <input type="file" name="avatars[]" class="form-control" id="uploads" multiple="multiple" >
                     <?php if (!empty($data['errImgs'])) : ?>
                         <div class="text-danger">
                             <?php echo $data['errImgs']  ?>
