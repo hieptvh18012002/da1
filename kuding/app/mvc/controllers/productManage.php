@@ -1,6 +1,7 @@
 <?php
 require_once './app/common/bridge.php';
 callModel("productModels");
+callModel("commentModels");
 callModel("categoryModels");
 
 $list_cate = cate_select_all();
@@ -10,6 +11,7 @@ $color_values = color_select_all();
 
 $err = array();
 $err['img'] = '';
+$err['cmt'] = '';
 $err['imgs'] = '';
 $msg = '';
 if (isset($_GET['action'])) {
@@ -142,14 +144,14 @@ if (isset($_GET['action'])) {
             // lấy value của thuộc tính sp tương ứng;
             $color_id_of_pro = color_select_pro($id);
             $size_id_of_pro = size_select_pro($id);
-           
+
             if (isset($_POST['btn_update'])) {
                 extract($_POST);
                 // code update
 
                 // product_update($id,$name,$category,$price,$discount,$avatar,)
             }
-            viewAdmin('layout', ['page' => 'updateProduct', 'pros' => $pros, 'list_cate' => $list_cate, 'size_values' => $size_values, 'color_values' => $color_values,'color_id'=>$color_id_of_pro[0],'size_id'=>$size_id_of_pro[0]]);
+            viewAdmin('layout', ['page' => 'updateProduct', 'pros' => $pros, 'list_cate' => $list_cate, 'size_values' => $size_values, 'color_values' => $color_values, 'color_id' => $color_id_of_pro[0], 'size_id' => $size_id_of_pro[0]]);
             break;
         case "del":
             $pros = product_select_by_id($_GET['id']);
@@ -165,18 +167,98 @@ if (isset($_GET['action'])) {
             // attr
         case "addAttrProduct":
             $attrs = attr_select_all();
+            $attr_values = attr_value_select_all();
+            // $attr_id = attr_id_select_all();
+            $err_at = '';
             // code add attr
-            viewAdmin('layout', ['page' => 'addAttr', 'attrs' => $attrs]);
+            if (isset($_POST['btn_add_value'])) {
+                $value = strtoupper($_POST['value']);
+                $attr = $_POST['attr'];
+                if ($attr == 1) {
+                    // thêm cl
+                    // check value đã tồn tại
+                    foreach ($color_values as $c) {
+                        if ($c['value'] == $value) {
+                            $err_at = "Giá trị của thuộc tính đã tồn tại!";
+                            break;
+                        }
+                    }
+                } else {
+                    // check sz esx
+                    foreach ($size_values as $s) {
+                        if ($s['value'] == $value) {
+                            $err_at = "Giá trị của thuộc tính đã tồn tại!";
+                            break;
+                        }
+                    }
+                }
+                // nếu k er thì insert
+                if (empty($err_at)) {
+                    attr_value_insert($attr, $value);
+                    $msg = "Thêm thành công giá trị của thuộc tính";
+                    header("location: product?action=addAttrProduct");
+                }
+            }
+
+            viewAdmin('layout', ['page' => 'addAttr', 'attrs' => $attrs, 'msg' => $msg, 'err' => $err_at]);
             die;
             break;
         case "viewListProduct":
-            viewClient('layout', ['page' => 'product']);
+
+            viewClient('layout', ['page' => 'product', 'list_pro' => $list_pro]);
             die;
             break;
         case "viewProductDetail":
-            viewClient('layout', ['page' => 'product-details']);
+            $pro_imgs = pro_img_select_by_id($_GET['id']);
+            $pros = product_select_by_id($_GET['id']);
+            $cmts = cmt_select_by_product($_GET['id']);
+
+            // cmt
+            if (isset($_POST['btn_cmt'])) {
+                // lấy img
+                $content = $_POST['content'];
+                $id = $_GET['id'];
+                $ext_img = ['jpg', 'png', 'jpeg'];
+                $file = $_FILES['image'];
+                if ($file['size'] != 0) {
+                    if ($file['size'] > 2097152) {
+                        $err['img'] = 'Chỉ cho phép tải ảnh dưới 2mb!';
+                    } else {
+                        $image = $file['name'];
+                        $ext = pathinfo($image, PATHINFO_EXTENSION);
+                        if (!in_array($ext, $ext_img)) {
+                            $err['img'] = 'Ảnh tải lên phải là jpg, png hoặc jpeg';
+                        }
+                    }
+                } else {
+                   $image = '';
+                }
+                if (strlen($content) > 400) {
+                    $err['cmt'] = 'Không thể bình luận quá 400 kí tự.';
+                } elseif (strlen($content) <= 0) {
+                    $err['cmt'] = "Bạn chưa nhập nội dung!";
+                } 
+                // ko có er thì ms gán id và insert
+                if(!array_filter($err)){
+                    if (isset($_SESSION['customer'])) {
+                        $id_commenter = $_SESSION['customer']['id'];
+                    } else {
+                        $id_commenter = $_SESSION['admin']['id'];
+                    }
+                    move_uploaded_file($file['tmp_name'],"./public/images/upload/".$image);
+                    cmt_insert($content, $id_commenter, $id,$image,date("Y-m-d H:i:s"));
+                    header("location: product?action=viewProductDetail&id=".$id);
+                }
+                if (strlen($content) > 400) {
+                    $err['cmt'] = 'Không thể bình luận quá 400 kí tự.';
+                } elseif (strlen($content) <= 0) {
+                    $err['cmt'] = "Bạn chưa nhập nội dung!";
+                } 
+            }
+            viewClient('layout', ['page' => 'product-details', 'list_img' => $pro_imgs, 'pros' => $pros, 'errCmt' => $err['cmt'],'errImg'=>$err['img'],'list_cmt'=>$cmts]);
             die;
             break;
+
         case "viewFavorite":
             // code sản phẩm yêu thích
             // nếu là khách thì lưu vào session >< đã đang nhập thì lưu db

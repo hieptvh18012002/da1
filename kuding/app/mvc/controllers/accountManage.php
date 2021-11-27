@@ -61,7 +61,7 @@ if (isset($_GET['action'])) :
                 setcookie('passwordClient', '', time() - 60, '/');
                 if (is_array($acc_exist)) {
                     // ktra nếu đúng tk admin thì lỗi(admin login trang riêng)
-                    if ($acc_exist['role_id'] != 3) {
+                    if ($acc_exist['role_id'] == 1) {
                         // check pass
                         $pass = md5($_GET['mk']);
                         if ($pass == $acc_exist['password']) {
@@ -80,7 +80,7 @@ if (isset($_GET['action'])) :
             } else {
                 if (is_array($acc_exist)) {
                     // ktra nếu đúng tk admin thì lỗi(admin login trang riêng)
-                    if ($acc_exist['role_id'] != 3) {
+                    if ($acc_exist['role_id'] == 1) {
                         // check pass
                         $pass = md5($_GET['mk']);
                         if ($pass == $acc_exist['password']) {

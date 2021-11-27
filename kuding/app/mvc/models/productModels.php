@@ -9,17 +9,34 @@ function product_select_by_id($id)
     $sql = "SELECT * FROM products WHERE id=$id";
     return pdo_query_one($sql);
 }
+function pro_img_select_by_id($id)
+{
+    $sql = "SELECT * FROM pro_imgs WHERE pro_id=$id";
+    return pdo_query($sql);
+}
+
 // attr
 function attr_select_all(){
     $sql = "SELECT * FROM attributes";
     return pdo_query($sql);
 }
+function attr_id_select_all(){
+    $conn = get_connection();
+    $stmt = $conn->prepare("SELECT id FROM attributes");
+    $stmt->execute();
+    $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    return $result;
+}
 function size_select_all(){
-    $sql = "SELECT * FROM attr_values WHERE attr_id=1";
+    $sql = "SELECT * FROM attr_values WHERE attr_id=2";
     return pdo_query($sql);
 }
 function color_select_all(){
-    $sql = "SELECT * FROM attr_values WHERE attr_id=2";
+    $sql = "SELECT * FROM attr_values WHERE attr_id=1";
+    return pdo_query($sql);
+}
+function attr_value_select_all(){
+    $sql = "SELECT * FROM attr_values";
     return pdo_query($sql);
 }
 // lấy value attr pro
@@ -78,6 +95,16 @@ function pro_attr_insert($pro_id,$attr_id,$value_id){
     $sql = "INSERT INTO pro_attributes (pro_id,attr_id,value_id) VALUES($pro_id,$attr_id,$value_id)";
     pdo_execute($sql);
 }
+function attr_value_insert($attr_id,$value){
+    $sql = "INSERT INTO attr_values (attr_id,value) VALUES($attr_id,'$value')";
+    pdo_execute($sql);
+}
+// add attr
+function attr_insert($value){
+    $sql = "INSERT INTO attributes (name) VALUES('$value')";
+    pdo_execute($sql);
+}
+
 // lấy value value từ pro_attr
 function get_value_pro(){
 
