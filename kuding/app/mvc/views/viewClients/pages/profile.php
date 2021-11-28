@@ -84,7 +84,7 @@
                                     </div>
                                 </div>
                                 <div class="DH__submit">
-                                    <button type="submit">Lưu thông tin của tôi</button>
+                                    <button onsubmit="alert('Bạn chắc chắn muốn xóa sản phẩm?')" type="submit">Lưu thông tin của tôi</button>
                                 </div>
                             </form>
                         </div>
