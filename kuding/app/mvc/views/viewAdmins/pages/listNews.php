@@ -1,5 +1,5 @@
 <div class="card-body">
-    <h4 class="card-title">Danh sách sản phẩm</h4>
+    <h4 class="card-title">Danh sách Tin tức</h4>
     <div class="" style="display: flex;">
         <a href="category?action=addCategory" class="text-light btn btn-primary">Thêm mới</a>
         

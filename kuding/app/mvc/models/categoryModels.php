@@ -7,8 +7,9 @@ function cate_select_all(){
     return pdo_query($sql);
 }
 function category_select_all(){
-    $sql = "SELECT c.name,c.avatar, COUNT(p.quantity) qty FROM categories c JOIN products p ON p.cate_id=c.id GROUP BY c.name,c.avatar;
+    $sql = "SELECT * FROM categories
     ";
+    // SELECT c.name,c.avatar, COUNT(p.id) qty FROM categories c JOIN products p ON p.cate_id=c.id GROUP BY c.name,c.avatar
     return pdo_query($sql);
 
 }

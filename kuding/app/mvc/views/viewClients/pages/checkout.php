@@ -24,10 +24,7 @@
                         <label for="">Địa chỉ</label>
                         <label for="xa" class="error" style="display: none; margin: 5px 0px !important;"></label>
                         <div class="auto__address">
-                            <div class="input__auto">
-                                <input type="text" id="auto__address" placeholder="Tỉnh thành phố/quận huyện/Phường Xã"
-                                    disabled>
-                            </div>
+                            
                             <div class="select__allAdd">
                                 <div class="input__address none ">
                                     <p class="tinhAdd"></p>
@@ -37,33 +34,24 @@
                                         <i class="fas fa-times-circle"></i>
                                     </div>
                                 </div>
-                                <div class="itemAll__address none">
+                                <div class="itemAll__address">
                                     <div class="select__address">
-                                        <div class="item__address tinh" onclick="innerHTML_tinh()">
+                                        <div class="item__address tinh" >
                                             <select name="tinh" id="tinh">
                                                 <option value="" disabled selected>Chọn tỉnh</option>
-                                                <option value="Phú Thọ">Phú Thọ</option>
-                                                <option value="Hà Nội">Hà Nội</option>
-                                                <option value="Nghệ AN">Nghệ An</option>
-                                                <option value="Hà Tĩnh">Hà Tĩnh</option>
+                                                <?php foreach($data['list_province'] as $item):?>
+                                                    <option value="<?= $item['provinceid'] ?>"><?= $item['name'] ?></option>
+                                                    <?php endforeach;?>
                                             </select>
                                         </div>
-                                        <div class="item__address huyen" onclick="innerHTML_huyen()">
+                                        <div class="item__address huyen">
                                             <select name="huyen" id="huyen">
-                                                <option value="" selected disabled>Chọn huyện</option>
-                                                <option value="Phù ninh">Phù ninh</option>
-                                                <option value="Việt trì">Việt trì</option>
-                                                <option value="Hùng Lô">Hùng Lô</option>
-                                                <option value="Lâm Thao">Lâm Thao</option>
+                                                <option value="" selected disabled>Chưa chọn tỉnh</option>
                                             </select>
                                         </div>
-                                        <div class="item__address xa" onclick="innerHTML_xa()">
+                                        <div class="item__address xa" >
                                             <select name="xa" id="xa">
-                                                <option value="" disabled selected >Chọn xã</option>
-                                                <option value="Tử Đà">Tử Đà</option>
-                                                <option value="An Đạo">An Đạo</option>
-                                                <option value="Chu hóa">Chu hóa</option>
-                                                <option value="Tiên Du">Tiên Du</option>
+                                                <option value="" selected disabled>Chưa chọn quận huyện</option>
                                             </select>
                                         </div>
                                     </div>
@@ -74,7 +62,7 @@
     
                     </div>
 
-                    <div class="address">
+                    <div class="address" >
                         <label for="">Địa chỉ cụ thể</label>
                         <textarea name="address_spec" id="" cols="30" rows="3" class=""
                             style="border:1px solid #d7d7d7;border-radius: 5px;"></textarea>
@@ -183,3 +171,39 @@
             </div>
         </form>
     </main>
+    <!-- gửi value address -->
+    <script>
+        $(document).ready(function(){
+            $('#tinh').change(function() {
+                var provinceId = $(this).val();
+                $.ajax({
+                    url: "cart?action=checkout",
+                    method: "GET",
+                    // mặc định dữ liệu luân chuyễn dưới dạng đối tg, nếu gửi DOM thì cho = fasle
+                    data: {
+                        provinceId: provinceId
+                    },
+                    // nếu gửi và xử lí thành công thì đổ data vào div filter_data
+                    success: function(data) {
+                        $('#huyen').html(data)
+                    }
+                })
+            })
+            // lấy xã phưuogfn từ quận huyện
+            $('#huyen').change(function() {
+                // lấy id quận huyện
+                var districtId = $(this).val();
+                $.ajax({
+                    url: "address",
+                    method: "GET",
+                    data: {
+                        districtId: districtId
+                    },
+                    // nếu gửi và xử lí thành công thì đổ data vào div filter_data
+                    success: function(data) {
+                        $('#xa').html(data)
+                    }
+                })
+            })
+        })
+    </script>
