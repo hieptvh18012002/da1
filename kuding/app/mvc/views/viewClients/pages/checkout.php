@@ -1,5 +1,5 @@
 <main class="body__order">
-        <form class="body__order__content">
+        <form id="checkout" class="body__order__content">
             <div class="body__order__left">
                 <div class="order__left__title">
                     <h3>1. Địa chỉ giao hàng</h3>
@@ -16,12 +16,13 @@
                     </div>
                     <div class="address">
                         <label for="">Họ tên</label>
-                        <input type="text">
+                        <input name="fullname" type="text">
 
                     </div>
 
                     <div class="address">
                         <label for="">Địa chỉ</label>
+                        <label for="xa" class="error" style="display: none; margin: 5px 0px !important;"></label>
                         <div class="auto__address">
                             <div class="input__auto">
                                 <input type="text" id="auto__address" placeholder="Tỉnh thành phố/quận huyện/Phường Xã"
@@ -39,7 +40,7 @@
                                 <div class="itemAll__address none">
                                     <div class="select__address">
                                         <div class="item__address tinh" onclick="innerHTML_tinh()">
-                                            <select id="tinh">
+                                            <select name="tinh" id="tinh">
                                                 <option value="" disabled selected>Chọn tỉnh</option>
                                                 <option value="Phú Thọ">Phú Thọ</option>
                                                 <option value="Hà Nội">Hà Nội</option>
@@ -48,7 +49,7 @@
                                             </select>
                                         </div>
                                         <div class="item__address huyen" onclick="innerHTML_huyen()">
-                                            <select id="huyen">
+                                            <select name="huyen" id="huyen">
                                                 <option value="" selected disabled>Chọn huyện</option>
                                                 <option value="Phù ninh">Phù ninh</option>
                                                 <option value="Việt trì">Việt trì</option>
@@ -57,7 +58,7 @@
                                             </select>
                                         </div>
                                         <div class="item__address xa" onclick="innerHTML_xa()">
-                                            <select id="xa">
+                                            <select name="xa" id="xa">
                                                 <option value="" disabled selected >Chọn xã</option>
                                                 <option value="Tử Đà">Tử Đà</option>
                                                 <option value="An Đạo">An Đạo</option>
@@ -75,13 +76,13 @@
 
                     <div class="address">
                         <label for="">Địa chỉ cụ thể</label>
-                        <textarea name="address" id="" cols="30" rows="3" class=""
+                        <textarea name="address_spec" id="" cols="30" rows="3" class=""
                             style="border:1px solid #d7d7d7;border-radius: 5px;"></textarea>
 
                     </div>
                     <div class="address">
                         <label for="">Số điện thoại</label>
-                        <input type="text">
+                        <input name="phone" type="text">
 
                     </div>
                 </div>
@@ -167,11 +168,12 @@
                         </div>
                         <div class="content__ok">
                             <div class="pretty p-default">
-                                <input type="checkbox" />
+                                <input type="checkbox" name="agree" checked/>
                                 <div class="state p-info">
                                     <label>Tôi chấp nhận các Điều khoản và Chính sách Bảo mật.</label>
                                 </div>
                             </div>
+                            <label for="agree" class="error" style="display: none;"></label>
                         </div>
                         <div class="content__submitAll">
                             <button type="submit">Đặt hàng</button>

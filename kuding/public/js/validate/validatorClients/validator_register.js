@@ -50,3 +50,59 @@ $("#register_user").validate({
       form.submit();
     }
  });
+
+// validate checkout
+$("#checkout").validate({
+    rules: {
+        fullname: {
+            required: true,
+            minlength : 6,
+            maxlength : 26
+        },
+        address_spec: {
+            required: true,
+            minlength : 6,
+            maxlength : 26
+        },
+        phone:{
+            required: true,
+            minlength : 10,
+            maxlength : 11,
+            number: true
+        },
+        xa:{
+            required: true
+        },
+        agree:{
+            required: true
+        }
+    },
+
+    messages: {
+        fullname: {
+            required: "Vui lòng nhập tên !",
+            minlength : "Nhập tối thiểu 6 ký tự",
+            maxlength : "Nhập tối thiểu 26 ký tự"
+        },
+        address_spec: {
+            required: "Vui lòng nhập địa chỉ cụ thể !",
+            minlength : "Nhập tối thiểu 6 ký tự",
+            maxlength : "Nhập tối thiểu 26 ký tự"
+        },
+        phone:{
+            required: "Vui lòng nhập số điện thoại liên hệ !",
+            minlength : "Số điện thoại phải là 11 số",
+            maxlength : "Số điện thoại phải là 11 số",
+            number: "Vui lòng nhập số !"
+        },
+        xa:{
+            required: "Vui nhập đầy đủ địa chỉ !"
+        },
+        agree:{
+            required: "Bạn phải đồng ý điều khoản của chúng tôi"
+        }
+    },
+    submitHandler: function(form) {
+      form.submit();
+    }
+ });
