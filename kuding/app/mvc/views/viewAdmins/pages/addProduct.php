@@ -10,10 +10,10 @@
                     <?php echo $data['msg']; ?>
                 </div>
             <?php endif; ?>
-            <form action="" class="forms-sample" method="POST" enctype="multipart/form-data">
+            <form action="" id="add_products" class="forms-sample" method="POST" enctype="multipart/form-data">
                 <div class="form-group">
                     <label for="exampleInputName1">Tên </label>
-                    <input type="text" name="name" class="form-control" id="exampleInputName1" placeholder="Name">
+                    <input type="text" value="<?= save_value("name") ?>" name="name" class="form-control" id="exampleInputName1" placeholder="Name">
                 </div>
                 <div class="form-group">
                     <label for="cate" class="">Loại sản phẩm</label>
@@ -25,80 +25,35 @@
                 </div>
                 <div class="form-group">
                     <label for="price">Giá</label>
-                    <input type="number" name="price" class="form-control" id="price" placeholder="Giá sản phẩm">
+                    <input type="number" value="<?= save_value("price") ?>" name="price" class="form-control" id="price" placeholder="Giá sản phẩm">
                 </div>
                 <div class="form-group" style="display:flex; column-gap:30px; align-items:center;">
                     <label for="">Màu sản phẩm</label>
+                    <?php foreach($data['color_values'] as $item):?>
                     <div class="form-check">
                         <label class="form-check-label">
-                            <input class="checkbox" type="checkbox" name="color[]" value="xanh">
-                            Xanh
+                            <input class="checkbox" type="checkbox" name="color[]" value="<?= $item['id'] ?>">
+                            <?= $item['value'] ?>
                         </label>
                     </div>
-                    <div class="form-check">
-                        <label class="form-check-label">
-                            <input class="checkbox" type="checkbox" name="color[]" value="do">
-                            Đỏ
-                        </label>
-                    </div>
-                    <div class="form-check">
-                        <label class="form-check-label">
-                            <input class="checkbox" type="checkbox" name="color[]" value="tim">
-                            Tím
-                        </label>
-                    </div>
-                    <div class="form-check">
-                        <label class="form-check-label">
-                            <input class="checkbox" type="checkbox" name="color[]" value="vang">
-                            Vàng
-                        </label>
-                    </div>
-                    <div class="form-check">
-                        <label class="form-check-label">
-                            <input class="checkbox" type="checkbox" name="color[]" value="den">
-                            Đen
-                        </label>
-                    </div>
+                   <?php endforeach;?>
+                   <label for="color[]" class="error"></label>
                 </div>
-                <div class="form-group">
-                    <label for="">Màu mới </label>
-                    <input type="text" name="color_new" class="form-control" id="" placeholder="Màu mới">
-                </div>
+             
                 <div class="form-group" style="display:flex; column-gap:30px; align-items:center;">
                     <label for="">Kích cỡ</label>
+                    <?php foreach($data['size_values'] as $item):?>
                     <div class="form-check">
                         <label class="form-check-label">
-                            <input class="checkbox" type="checkbox" name="size[]" value="m">
-                            M
+                            <input class="checkbox" type="checkbox" name="size[]" value="<?= $item['id'] ?>">
+                            <?= $item['value'] ?>
                         </label>
                     </div>
-                    <div class="form-check">
-                        <label class="form-check-label">
-                            <input class="checkbox" type="checkbox" name="size[]" value="l">
-                            L
-                        </label>
-                    </div>
-                    <div class="form-check">
-                        <label class="form-check-label">
-                            <input class="checkbox" type="checkbox" name="size[]" value="xl">
-                            XL
-                        </label>
-                    </div>
-                    <div class="form-check">
-                        <label class="form-check-label">
-                            <input class="checkbox" type="checkbox" name="size[]" value="2xl">
-                            XXL
-                        </label>
-                    </div>
-                    <div class="form-check">
-                        <label class="form-check-label">
-                            <input class="checkbox" type="checkbox" name="size[]" value="3xl">
-                            XXXL
-                        </label>
-                    </div>
+                   <?php endforeach;?>
+                   <label for="size[]" class="error"></label>
                 </div>
                 <div class="form-group">
-                    <label>File upload</label>
+                    <label>Ảnh đại diện( ảnh)</label>
                     <input type="file" name="avatar" class="form-control" id="upload" onchange="previewImg()">
                     <?php if (!empty($data['errImg'])) : ?>
                         <div class="text-danger">
@@ -109,10 +64,20 @@
 
                     </div>
                 </div>
+                <div class="form-group">
+                    <label>Ảnh Chi tiết(dưới 5 ảnh)</label>
+                    <input type="file" name="avatars[]" class="form-control" id="uploads" multiple="multiple" >
+                    <?php if (!empty($data['errImgs'])) : ?>
+                        <div class="text-danger">
+                            <?php echo $data['errImgs']  ?>
+                        </div>
+                    <?php endif; ?>
+                   
+                </div>
 
                 <div class="form-group">
-                    <label for="exampleTextarea1">Mô tả thông tin sản phẩm</label>
-                    <textarea class="form-control" id="exampleTextarea1" name="desc" rows="4"></textarea>
+                    <label for="local-upload">Mô tả thông tin sản phẩm</label>
+                    <textarea class="form-control" id="local-upload" name="desc" rows="4"><?= save_value('desc') ?></textarea>
                 </div>
                 <button type="submit" name="btn_add" class="btn btn-primary mr-2">Thêm</button>
                 <button class="btn btn-light">Cancel</button>

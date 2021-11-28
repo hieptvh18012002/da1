@@ -1,3 +1,9 @@
+label.error{
+  font-size: 13px !important;
+  margin: 0;
+  padding-top: 5px;
+  color: red;
+}
 /*------------------------------------------------------------------
  [Master Stylesheet]
 
