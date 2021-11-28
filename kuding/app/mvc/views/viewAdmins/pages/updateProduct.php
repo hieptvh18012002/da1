@@ -37,6 +37,7 @@
                 </div>
                 <div class="form-group" style="display:flex; column-gap:30px; align-items:center;">
                     <label for="">Màu sản phẩm</label>
+                    <!-- lặp + so khớp + -->
                     <?php foreach ($data['color_values'] as $item) : ?>
                         <div class="form-check">
                             <label class="form-check-label">
@@ -67,10 +68,14 @@
                     </div>
                     <!-- new img -->
                     <label for="">Tải lên ảnh đại diện mới</label>
+                    <input type="hidden" name="avatar" value="<?= $data['pros']['avatar'] ?>">
                     <input type="file" name="avatar" class="form-control" id="upload" onchange="previewImg()">
                     <div id="displayImg" class="" style="width: 200px;">
 
                     </div>
+                    <?php if(!empty($data['errImg'])):?>
+                        <div class="errimg text-danger"><?php echo $data['errImg']?></div>
+                    <?php endif;?>
                      
                 </div>
 

@@ -14,8 +14,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick-theme.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.css">
     <!-- font awesome -->
-    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
-        integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
     <!-- css boostrap 4-->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
@@ -67,8 +66,8 @@
     <!-- <script src="./public/js/layout/client.js"></script> -->
 
     <!-- validate form -->
-    <script src="./public/js/validate/validatorClients/validator__profile.js" ></script>
-    <script src="./public/js/validate/validatorClients/validator_register.js" ></script>
+    <script src="./public/js/validate/validatorClients/validator__profile.js"></script>
+    <script src="./public/js/validate/validatorClients/validator_register.js"></script>
     <!-- Swiper JS -->
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
     <script src="public/js/layout/slide_lib.js"></script>
@@ -80,35 +79,78 @@
                 var email = $('#email_login').val();
                 var password = $('#password_login').val();
                 var remember = $('#remember')
-                if(remember.prop("checked") == true){
+                if (remember.prop("checked") == true) {
                     remember = "check";
-                }else{
+                } else {
                     remember = "null";
                 }
-                if(email == '' || password == ''){
+                if (email == '' || password == '') {
                     $('.errLogin').html('Nhập đầy đủ thông tin');
                     return false;
-                }else{
-                    $("#loading_spinner").css({"display":"block"});
+                } else {
+                    $("#loading_spinner").css({
+                        "display": "block"
+                    });
                     $.ajax({
-                        url:"account",
-                        method:"GET",
-                        data:{
+                        url: "account",
+                        method: "GET",
+                        data: {
                             action: action,
-                            email:email,
-                            mk:password,
-                            remember:remember
+                            email: email,
+                            mk: password,
+                            remember: remember
                         },
-                        success: function(data){
+                        success: function(data) {
                             $('.errLogin').html(data)
-                            }
-                       
+                        }
+
                     })
                 }
             })
             // handle register
-            $('#register_user').submit(function(e){
-                
+            $('#register_user').submit(function(e) {
+                e.preventDefault();
+                var action = 'register';
+                var fullname = $('#fullname').val()
+                var birthday = $('#birthday').val()
+                var email = $('#email_register').val();
+                var password = $('#pass_register').val();
+                var gender = $('#gender')
+                var male = '';
+                var female = '';
+                // ktra có dc check
+                if (gender.prop("checked") == true) {
+                    male = "check";
+                    female = null;
+                } else {
+                    female = "check";
+                    male = null;
+                }
+                if (email == '' || password == ''|| fullname == '' || birthday == '') {
+                    return false;
+                } else {
+                    $("#loading_spinner").css({
+                        "display": "block"
+                    });
+                    $.ajax({
+                        url: "account",
+                        method: "GET",
+                        data: {
+                            action: action,
+                            fullname: fullname,
+                            birthday: birthday,
+                            email: email,
+                            mk: password,
+                            male: male,
+                            female: female
+
+                        },
+                        success: function(data) {
+                            $('.errRegister').html(data)
+                        }
+
+                    })
+                }
             })
         })
     </script>

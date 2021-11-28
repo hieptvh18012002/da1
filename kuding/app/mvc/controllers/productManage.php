@@ -1,8 +1,8 @@
 <?php
 require_once './app/common/bridge.php';
 callModel("productModels");
-callModel("commentModels");
 callModel("categoryModels");
+callModel("commentModels");
 
 $list_cate = cate_select_all();
 $list_pro = product_select_all();
@@ -115,10 +115,10 @@ if (isset($_GET['action'])) {
                     // -- insert pro_attribute
                     // lặp value and isert 2
                     foreach ($size as $s) {
-                        pro_attr_insert($id_pro, 1, $s);
+                        pro_attr_insert($id_pro, 2, $s);
                     }
                     foreach ($color as $c) {
-                        pro_attr_insert($id_pro, 2, $c);
+                        pro_attr_insert($id_pro, 1, $c);
                     }
                     // add nhiều ảnh
                     $files = $_FILES['avatars'];
@@ -141,17 +141,57 @@ if (isset($_GET['action'])) {
         case "update":
             $pros = product_select_by_id($_GET['id']);
             $id = $_GET['id'];
-            // lấy value của thuộc tính sp tương ứng;
-            $color_id_of_pro = color_select_pro($id);
-            $size_id_of_pro = size_select_pro($id);
-
+            // lấy value của thuộc tính sp tương ứng;--> value thuộc tính lấy dc nó trả về kiểu array object
+            $size_id_of_pro = '';
+            $color_id_of_pro = '';
+            // chuyển mảng 2 chieefu về thành chuỗi
+            foreach (color_select_pro($id) as $c) {
+                $color_id_of_pro .= $c['value_id'] . ' ';
+            }
+            foreach (size_select_pro($id) as $s) {
+                $size_id_of_pro .= $s['value_id'] . ' ';
+            }
+            // chuyển chuỗi vừa đổi -> mảng 1 chiều để so khớp bằng in_array
+            $color_id = explode(' ', $color_id_of_pro);
+            $size_id = explode(' ', $size_id_of_pro);
             if (isset($_POST['btn_update'])) {
                 extract($_POST);
                 // code update
-
+                $ext_img = ['jpg', 'png', 'jpeg'];
+                $file = $_FILES['avatar'];
+                if ($file['size'] != 0) {
+                    if ($file['size'] > 2097152) {
+                        $err['img'] = 'Chỉ cho phép tải ảnh dưới 2mb!';
+                    } else {
+                        $avatar = $file['name'];
+                        $ext = pathinfo($avatar, PATHINFO_EXTENSION);
+                        if (!in_array($ext, $ext_img)) {
+                            $err['img'] = 'Ảnh tải lên phải là jpg, png hoặc jpeg';
+                        }
+                    }
+                }
+                if (empty($err['img'])) {
+                    // update pro
+                    product_update($id, $name, $category, $price, $discount, $avatar, $desc);
+                    if ($file['size'] > 0) {
+                        move_uploaded_file($file['tmp_name'], './public/images/products/' . $avatar);
+                    }
+                    // update attr value
+                    // lặp value 
+                    foreach ($color as $c) {
+                        pro_attr_update($id, 1, $c);
+                    }
+                    echo "xong";
+                    die;
+                    foreach ($size as $s) {
+                        pro_attr_update($id, 2, $s);
+                    }
+                    header('location: product?action=update&id=' . $id);
+                    $msg = "Cập nhật thành công sản phẩm";
+                }
                 // product_update($id,$name,$category,$price,$discount,$avatar,)
             }
-            viewAdmin('layout', ['page' => 'updateProduct', 'pros' => $pros, 'list_cate' => $list_cate, 'size_values' => $size_values, 'color_values' => $color_values, 'color_id' => $color_id_of_pro[0], 'size_id' => $size_id_of_pro[0]]);
+            viewAdmin('layout', ['page' => 'updateProduct', 'pros' => $pros, 'list_cate' => $list_cate, 'size_values' => $size_values, 'color_values' => $color_values, 'color_id' => $color_id, 'size_id' => $size_id, 'errImg' => $err['img'], 'msg' => $msg]);
             break;
         case "del":
             $pros = product_select_by_id($_GET['id']);
@@ -204,14 +244,100 @@ if (isset($_GET['action'])) {
             die;
             break;
         case "viewListProduct":
+            //    tiêu đề 
+            $title = '';
+            if (isset($_GET['filtercate'])) {
+                $title = category_select_by_id($_GET['filtercate'])['name'];
+            }
 
-            viewClient('layout', ['page' => 'product', 'list_pro' => $list_pro]);
+            if (isset($_GET['filter'])) {
+                $minimum_price = $_GET['minimum_price'];
+                $maximum_price = $_GET['maximum_price'];
+                $qr = "SELECT * FROM products WHERE status=1";
+                if (isset($minimum_price, $maximum_price)) {
+                    $qr .= " AND price BETWEEN $minimum_price AND $maximum_price ";
+                }
+                $db =get_connection();
+                $stmt = $db->prepare($qr);
+                $stmt->execute();
+                $result = $stmt->fetchAll();
+                $count = $stmt->rowCount();
+                $output = '';
+
+                if($count > 0){
+                    foreach ($result as $item) {
+                        $output .= '
+                            <div class="proC__item">
+                                <div class="proC__item__img">
+                                    <a href="product?action=viewProductDetail&id='.$item['id'].'">
+                                        <img src="public/images/products/'.$item['avatar'].'" alt="" width="100%">
+                                    </a>
+                                </div>
+                                <div class="proC__item__Name">
+                                    <p>'.$item['name'].'</p>
+                                </div>
+                                <div class="proC__item__PC">
+                                    <div class="proC__item__price">
+                                        <p>'.number_format($item['price'], 0, ',', '.').' vnd</p>
+                                    </div>
+                                    <div class="proC__item__color">
+                                        <p>3</p>
+                                        <img src="public/images/layout/colorwheel-2.png" alt="">
+                                    </div>
+                                </div>
+                                <div class="proC__love">
+                                    <div class="proC__love__icon">
+                                        <i class="far fa-heart"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            ';
+                    }
+                }else{
+                    $output = "Không tìm thấy sản phẩm phù hợp";
+                }
+                echo $output;
+                die;
+            }
+
+            viewClient('layout', ['page' => 'product', 'list_cate' => $list_cate, 'title' => $title]);
             die;
             break;
         case "viewProductDetail":
             $pro_imgs = pro_img_select_by_id($_GET['id']);
             $pros = product_select_by_id($_GET['id']);
             $cmts = cmt_select_by_product($_GET['id']);
+            $id = $_GET['id'];
+            // show value attr
+            // lấy value_id
+            // lấy value của thuộc tính sp tương ứng;--> value thuộc tính lấy dc nó trả về kiểu array object
+            $size_id_of_pro = '';
+            $color_id_of_pro = '';
+            // chuyển mảng 2 chieefu về thành chuỗi
+            foreach (color_select_pro($id) as $c) {
+                $color_id_of_pro .= $c['value_id'] . ' ';
+            }
+            foreach (size_select_pro($id) as $s) {
+                $size_id_of_pro .= $s['value_id'] . ' ';
+            }
+            // chuyển chuỗi vừa đổi -> mảng 1 chiều để so khớp bằng in_array 
+            //   xóa phần tử "" cuỗi mảng
+            $color_id = explode(' ', $color_id_of_pro);
+            $arr1 = count($color_id);
+            unset($color_id[$arr1 - 1]);
+            $size_id = explode(' ', $size_id_of_pro);
+            //  lặp và select name value
+            $color_name = '';
+            $size_name = '';
+            echo "<pre>";
+            foreach ($color_id as $c) {
+                $color_name = select_name_value_pro($c);
+            }
+            var_dump($color_name);
+            die;
+            foreach ($size_id as $s) {
+                $size_name .= select_name_value_pro($s);
+            }
 
             // cmt
             if (isset($_POST['btn_cmt'])) {
@@ -231,31 +357,31 @@ if (isset($_GET['action'])) {
                         }
                     }
                 } else {
-                   $image = '';
+                    $image = '';
                 }
                 if (strlen($content) > 400) {
                     $err['cmt'] = 'Không thể bình luận quá 400 kí tự.';
                 } elseif (strlen($content) <= 0) {
                     $err['cmt'] = "Bạn chưa nhập nội dung!";
-                } 
+                }
                 // ko có er thì ms gán id và insert
-                if(!array_filter($err)){
+                if (!array_filter($err)) {
                     if (isset($_SESSION['customer'])) {
                         $id_commenter = $_SESSION['customer']['id'];
                     } else {
                         $id_commenter = $_SESSION['admin']['id'];
                     }
-                    move_uploaded_file($file['tmp_name'],"./public/images/upload/".$image);
-                    cmt_insert($content, $id_commenter, $id,$image,date("Y-m-d H:i:s"));
-                    header("location: product?action=viewProductDetail&id=".$id);
+                    move_uploaded_file($file['tmp_name'], "./public/images/upload/" . $image);
+                    cmt_insert($content, $id_commenter, $id, $image, date("Y-m-d H:i:s"));
+                    header("location: product?action=viewProductDetail&id=" . $id);
                 }
                 if (strlen($content) > 400) {
                     $err['cmt'] = 'Không thể bình luận quá 400 kí tự.';
                 } elseif (strlen($content) <= 0) {
                     $err['cmt'] = "Bạn chưa nhập nội dung!";
-                } 
+                }
             }
-            viewClient('layout', ['page' => 'product-details', 'list_img' => $pro_imgs, 'pros' => $pros, 'errCmt' => $err['cmt'],'errImg'=>$err['img'],'list_cmt'=>$cmts]);
+            viewClient('layout', ['page' => 'product-details', 'list_img' => $pro_imgs, 'list_cate' => $list_cate, 'pros' => $pros, 'errCmt' => $err['cmt'], 'errImg' => $err['img'], 'list_cmt' => $cmts]);
             die;
             break;
 
@@ -263,7 +389,7 @@ if (isset($_GET['action'])) {
             // code sản phẩm yêu thích
             // nếu là khách thì lưu vào session >< đã đang nhập thì lưu db
 
-            viewClient('layout', ['page' => 'favorite']);
+            viewClient('layout', ['page' => 'favorite', 'list_cate' => $list_cate]);
             die;
             break;
     }

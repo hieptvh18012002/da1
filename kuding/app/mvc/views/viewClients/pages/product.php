@@ -1,7 +1,7 @@
 <main class="body__product">
     <div class="product__header">
         <div class="proH__title">
-            <p>Phụ nữ</p>
+            <p><?= $data['title'] ?></p>
         </div>
         <div class="proH__text1">
             <p>(17.709 mặt hàng)</p>
@@ -59,7 +59,7 @@
                         <!-- khi ng dùng thay đổi value input hidden -> show khoảng giá dưới trên range -->
                         <input type="hidden" id="hidden_minimum_price" value="0">
                         <input type="hidden" id="hidden_maximum_price" value="50000000">
-                        <p id="price_show">Từ 500 nghìn - 50 triệu</p>
+                        <p id="price_show">Từ 10 nghìn đến 20 triệu</p>
                         <div class="price_range" id="price_range">
 
                         </div>
@@ -70,32 +70,7 @@
 
         <div class="proC__show">
             <div class="proC__allItem">
-                <?php foreach ($data['list_pro'] as $item) : ?>
-                    <div class="proC__item">
-                        <div class="proC__item__img">
-                            <a href="product?action=viewProductDetail&id=<?= $item['pro_id'] ?>">
-                                <img src="public/images/products/<?= $item['avatar'] ?>" alt="" width="100%">
-                            </a>
-                        </div>
-                        <div class="proC__item__Name">
-                            <p><?= $item['pr_name'] ?></p>
-                        </div>
-                        <div class="proC__item__PC">
-                            <div class="proC__item__price">
-                                <p><?= number_format($item['price'], 0, ',', '.') ?> vnd</p>
-                            </div>
-                            <div class="proC__item__color">
-                                <p>3</p>
-                                <img src="public/images/layout/colorwheel-2.png" alt="">
-                            </div>
-                        </div>
-                        <div class="proC__love">
-                            <div class="proC__love__icon">
-                                <i class="far fa-heart"></i>
-                            </div>
-                        </div>
-                    </div>
-                <?php endforeach; ?>
+                
 
 
 

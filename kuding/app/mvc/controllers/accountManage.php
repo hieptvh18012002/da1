@@ -104,7 +104,25 @@ if (isset($_GET['action'])) :
             break;
         case "register":
             // khách hàng đăng kí
+            $gender = 0;
+            if ($_GET['male'] == "check") {
+                $gender = 0;
+            } else {
+                $gender = 1;
+            }
+            // ktra email đã tồn tại
+            $acc_exist = acc_select_by_email($_GET['email']);
+            var_dump($acc_exist);die;
+            if(is_array($acc_exist)){
+                echo "Đù má đăng kí tài khoản khác hộ";
+            }else{
+                //   mh pass
+                $pass = md5($_GET['mk']);
+                acc_insert($_GET['fullname'], $_GET['birthday'], $_GET['email'], $pass, 1, $gender);
+                echo "<script>alert('Đăng kí tài khoản thành công!')</script>";
+                die;
 
+            }
             break;
         case "viewProfileClient":
             // code update profile cá nhân
@@ -135,10 +153,10 @@ if (isset($_GET['action'])) :
             die;
             break;
         default:
-            viewAdmin('layout', ['page' => 'listAccount','list_acc'=>$list_acc]);
+            viewAdmin('layout', ['page' => 'listAccount', 'list_acc' => $list_acc]);
             break;
     }
 endif;
 
 
-viewAdmin("layout", ['page' => 'listAccount', 'err' => $err,'list_acc'=>$list_acc]);
+viewAdmin("layout", ['page' => 'listAccount', 'msg' => $msg, 'err' => $err, 'list_acc' => $list_acc]);
