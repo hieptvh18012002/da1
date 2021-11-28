@@ -10,12 +10,13 @@ if (isset($_GET['action'])) {
     switch ($_GET['action']) {
             // hành động của admin;
         case "del_cmt":
-           $id= $_POST['cmt_id'];
-            pdo_execute("DELETE FROM comments WHERE cmt_id='$id'");
-            echo "<script>" . 'alert("Xóa thành công 1 comment")' . "</script>";
+            $id = $_GET['cmt_id'];
+            $pro_id = $_POST['pro_id'];
+
+            pdo_execute("DELETE FROM comments WHERE id='$id'");
+            header('location: ');
             viewClient("master", ['page' => 'productDetails']);
             break;
-        
     }
 }
 

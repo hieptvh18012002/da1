@@ -66,6 +66,12 @@
                     <div class="acc__DH__title">
                         <p>Thông tin tài khoản của bạn</p>
                     </div>
+                    <?php if (!empty($data['msg'])) : ?>
+                        <div class="bg-success p-2">
+                            <?php echo $data['msg'] ?>
+                        </div>
+                    <?php endif; ?>
+                   
                     <div class="acc__DH__content1">
                         <div class="DH__title">
                             <p>Đăng nhập xã hội: </p>
@@ -84,7 +90,7 @@
                                 </div> -->
                                 <div class="DH__form1">
                                     <label for="">E-mail <i>* Nơi bạn nhận được thông tin đặt hàng.</i></label>
-                                    <input type="email" name="email" value="<?= $_SESSION['customer']['email'] ?>">
+                                    <input type="email" name="email" disabled value="<?= $_SESSION['customer']['email'] ?>">
 
                                 </div>
                                 <div class="DH__form1">
@@ -110,7 +116,7 @@
                                     </div>
                                 </div>
                                 <div class="DH__submit">
-                                    <button type="submit">Lưu thông tin của tôi</button>
+                                    <button type="submit" name="btn_update">Lưu thông tin của tôi</button>
                                 </div>
                             </form>
                         </div>
@@ -127,6 +133,9 @@
                                 <div class="DH__form1">
                                     <label for="">Mật khẩu cũ</label>
                                     <input name="password" type="text">
+                                    <?php if(isset($data['errPass'])): ?>
+                                        <div class="text-danger"><?php echo $data['errPass'] ?></div>
+                                        <?php endif;?>
                                 </div>
                                 <div class="DH__form1">
                                     <label for="">Mật khẩu mới</label>
@@ -136,8 +145,13 @@
                                     <label for="">Xác nhận mật khẩu</label>
                                     <input name="password_comfim" type="text">
                                 </div>
+                                <?php if($data['err_pass']):?>
+                                    <div class="text-danger">
+                                        <?php echo $data['err_pass'];?>
+                                    </div>
+                                    <?php endif;?>
                                 <div class="DH__submit">
-                                    <button type="submit">Cập nhật mật khẩu</button>
+                                    <button type="submit" name="btn_change_pass">Cập nhật mật khẩu</button>
                                 </div>
                             </form>
                         </div>
@@ -149,3 +163,43 @@
     </div>
 
 </main>
+
+<!-- js -->
+<script>
+    // $(document).ready(function(){
+    //     $('#form_pass').submit(function(e) {
+    //             e.preventDefault();
+    //             var action = 'loginClient';
+    //             var email = $('#email_login').val();
+    //             var password = $('#password_login').val();
+    //             var remember = $('#remember')
+    //             if (remember.prop("checked") == true) {
+    //                 remember = "check";
+    //             } else {
+    //                 remember = "null";
+    //             }
+    //             if (email == '' || password == '') {
+    //                 $('.errLogin').html('Nhập đầy đủ thông tin');
+    //                 return false;
+    //             } else {
+    //                 $("#loading_spinner").css({
+    //                     "display": "block"
+    //                 });
+    //                 $.ajax({
+    //                     url: "account",
+    //                     method: "GET",
+    //                     data: {
+    //                         action: action,
+    //                         email: email,
+    //                         mk: password,
+    //                         remember: remember
+    //                     },
+    //                     success: function(data) {
+    //                         $('.errLogin').html(data)
+    //                     }
+
+    //                 })
+    //             }
+    //         }) 
+    // })
+</script>

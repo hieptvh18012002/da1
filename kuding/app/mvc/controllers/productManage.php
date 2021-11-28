@@ -172,7 +172,7 @@ if (isset($_GET['action'])) {
                 }
                 if (empty($err['img'])) {
                     // update pro
-                    product_update($id, $name, $category, $price, $discount, $avatar, $desc);
+                    product_update($id, $name, $category, $price, $discount, $avatar, $desc,$special);
                     if ($file['size'] > 0) {
                         move_uploaded_file($file['tmp_name'], './public/images/products/' . $avatar);
                     }
@@ -236,7 +236,7 @@ if (isset($_GET['action'])) {
                 if (empty($err_at)) {
                     attr_value_insert($attr, $value);
                     $msg = "Thêm thành công giá trị của thuộc tính";
-                    header("location: product?action=addAttrProduct");
+                    header("location: product?action=addAttrProduct&msg=Thêm thành công giá trị");
                 }
             }
 
@@ -250,7 +250,10 @@ if (isset($_GET['action'])) {
             if (isset($_GET['filtercate'])) {
                 $qr .= " AND cate_id=".$_GET['filtercate'];
                 $title = category_select_by_id($_GET['filtercate'])['name'];
-            }else{
+            }elseif($_GET['keyword']){
+                $title = "Kết quả tìm kiếm ".'.'.$_GET['keyword'].'.';
+            }
+            else{
                 $title = "Tất cả sản phẩm";
             }
 
@@ -333,15 +336,15 @@ if (isset($_GET['action'])) {
             //  lặp và select name value
             $color_name = '';
             $size_name = '';
-            echo "<pre>";
-            foreach ($color_id as $c) {
-                $color_name = select_name_value_pro($c);
-            }
-            var_dump($color_name);
-            die;
-            foreach ($size_id as $s) {
-                $size_name .= select_name_value_pro($s);
-            }
+            // echo "<pre>";
+            // foreach ($color_id as $c) {
+            //     $color_name = select_name_value_pro($c);
+            // }
+            // var_dump($color_name);
+            // die;
+            // foreach ($size_id as $s) {
+            //     $size_name .= select_name_value_pro($s);
+            // }
 
             // cmt
             if (isset($_POST['btn_cmt'])) {
@@ -385,6 +388,8 @@ if (isset($_GET['action'])) {
                     $err['cmt'] = "Bạn chưa nhập nội dung!";
                 }
             }
+            // xóa cmt
+
             viewClient('layout', ['page' => 'product-details', 'list_img' => $pro_imgs, 'list_cate' => $list_cate, 'pros' => $pros, 'errCmt' => $err['cmt'], 'errImg' => $err['img'], 'list_cmt' => $cmts]);
             die;
             break;

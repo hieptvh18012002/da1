@@ -58,7 +58,7 @@
       </a>
       <div class="collapse" id="comment">
         <ul class="nav flex-column sub-menu">
-          <li class="nav-item"> <a class="nav-link" href="?action=">Tổng hợp</a></li>
+          <li class="nav-item"> <a class="nav-link" href="comment">Tổng hợp</a></li>
         </ul>
       </div>
     </li>
