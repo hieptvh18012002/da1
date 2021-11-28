@@ -70,7 +70,8 @@
       </a>
       <div class="collapse" id="news">
         <ul class="nav flex-column sub-menu">
-          <li class="nav-item"> <a class="nav-link" href="?action=">Tổng hợp</a></li>
+          <li class="nav-item"> <a class="nav-link" href="news?action=list">Tổng hợp</a></li>
+          <li class="nav-item"> <a class="nav-link" href="news?action=add">Thêm tin tức</a></li>
         </ul>
       </div>
     </li>
@@ -82,8 +83,8 @@
       </a>
       <div class="collapse" id="voucher">
         <ul class="nav flex-column sub-menu">
-          <li class="nav-item"> <a class="nav-link" href="?action=">Tổng hợp</a></li>
-          <li class="nav-item"> <a class="nav-link" href="?action=add">Thêm mã</a></li>
+          <li class="nav-item"> <a class="nav-link" href="vourcher?action=list">Tổng hợp</a></li>
+          <li class="nav-item"> <a class="nav-link" href="vourcher?action=add">Thêm mã</a></li>
         </ul>
       </div>
     </li>

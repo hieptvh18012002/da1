@@ -33,29 +33,29 @@ $(document).ready(function () {
     });
 
 });
-function innerHTML_tinh() {
-    $('.input__address').removeClass('none');
-    $('.input__auto').addClass('none');
-    const opList = document.querySelector('#tinh').value;
-    console.log(opList);
-    const spanSlec = document.querySelector('.tinhAdd')
-    spanSlec.innerText = opList + ` /`;
+// function innerHTML_tinh() {
+//     $('.input__address').removeClass('none');
+//     $('.input__auto').addClass('none');
+//     const opList = document.querySelector('#tinh').value;
+//     console.log(opList);
+//     const spanSlec = document.querySelector('.tinhAdd')
+//     spanSlec.innerText = opList + ` /`;
 
-}
-function innerHTML_huyen() {
-    const opList = document.querySelector('#huyen').value;
-    console.log(opList);
-    const spanSlec = document.querySelector('.huyenAdd')
-    spanSlec.innerText = opList + ` /`;
+// }
+// function innerHTML_huyen() {
+//     const opList = document.querySelector('#huyen').value;
+//     console.log(opList);
+//     const spanSlec = document.querySelector('.huyenAdd')
+//     spanSlec.innerText = opList + ` /`;
 
-}
-function innerHTML_xa() {
-    const opList = document.querySelector('#xa').value;
-    console.log(opList);
-    const spanSlec = document.querySelector('.xaAdd');
-    spanSlec.innerText = opList;
-    if(opList != ""){
-        $('.itemAll__address').addClass('none');
-    }
+// }
+// function innerHTML_xa() {
+//     const opList = document.querySelector('#xa').value;
+//     console.log(opList);
+//     const spanSlec = document.querySelector('.xaAdd');
+//     spanSlec.innerText = opList;
+//     if(opList != ""){
+//         $('.itemAll__address').addClass('none');
+//     }
     
-}
+// }

@@ -28,9 +28,9 @@ $(document).ready(function () {
     $('#price_range').slider({
         range: true,
         min: 10000,
-        max: 20000000,
-        values: [1, 5000000],
-        step: 20000,
+        max: 10000000,
+        values: [10000, 10000000],
+        step: 50000,
         stop: function (event, ui) {
             $('#price_show').html('Từ :' + ui.values[0] + '-' + ui.values[1])
             $('#hidden_minimum_price').val(ui.values[0])

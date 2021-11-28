@@ -74,10 +74,7 @@
 
 
 
-                <div class="product__fake"></div>
-                <div class="product__fake"></div>
-                <div class="product__fake"></div>
-                <div class="product__fake"></div>
+                
             </div>
 
             <!-- end copy -->

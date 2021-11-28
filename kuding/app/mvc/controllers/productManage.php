@@ -246,14 +246,18 @@ if (isset($_GET['action'])) {
         case "viewListProduct":
             //    tiêu đề 
             $title = '';
+            $qr = "SELECT * FROM products WHERE status=1 ";
             if (isset($_GET['filtercate'])) {
+                $qr .= " AND cate_id=".$_GET['filtercate'];
                 $title = category_select_by_id($_GET['filtercate'])['name'];
+            }else{
+                $title = "Tất cả sản phẩm";
             }
 
             if (isset($_GET['filter'])) {
+               
                 $minimum_price = $_GET['minimum_price'];
                 $maximum_price = $_GET['maximum_price'];
-                $qr = "SELECT * FROM products WHERE status=1";
                 if (isset($minimum_price, $maximum_price)) {
                     $qr .= " AND price BETWEEN $minimum_price AND $maximum_price ";
                 }
