@@ -3,13 +3,10 @@
         <div class="body__acc__fist">
             <div class="body__acc__title">
                 <div class="acc__title__fist active">
-                    <p>Bảng điều khiển</p>
+                    <p>Thông tin tài khoản</p>
                 </div>
                 <div class="acc__title__fist ">
                     <p>Đơn hàng</p>
-                </div>
-                <div class="acc__title__fist">
-                    <p>Thông tin</p>
                 </div>
                 <div class="acc__title__text mt-3">
                     <p>Chào mừng bạn trở lại Nghĩa</p>
@@ -25,14 +22,11 @@
                     </div>
                 </div>
                 <nav class="acc__allmenu show__menu">
-                    <div id="1" class="acc__menu__item active">
-                        <a href="">Bảng điều khiển</a>
-                    </div>
-                    <div id="2" class="acc__menu__item">
-                        <a href="">Đơn hàng</a>
-                    </div>
-                    <div id="3" class="acc__menu__item">
+                    <div class="acc__menu__item active">
                         <a href="">Thông tin tài khoản</a>
+                    </div>
+                    <div class="acc__menu__item">
+                        <a href="">Đơn hàng</a>
                     </div>
                     <div class="acc__line"></div>
                 </nav>
@@ -41,27 +35,7 @@
     </div>
     <div class="body__acc__content">
         <div class="acc__tab__menu active">
-            <h1>Nghĩa</h1>
-        </div>
-        <div class="acc__tab__menu">
-            <div class="acc__menu__content">
-                <div class="acc__donhang">
-                    <div class="acc__DH__title">
-                        <p>Lịch sử đơn hàng</p>
-                    </div>
-                    <div class="acc__DH__content">
-                        <div class="DH__content__title">
-                            <p>Không tìm thấy đơn hàng</p>
-                        </div>
-                        <div class="DH__content__body">
-                            <img src="public/images/layout/empty-orders.jpg" alt="">
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="acc__tab__menu">
-            <div class="acc__menu__content">
+        <div class="acc__menu__content">
                 <div class="acc__donhang">
                     <div class="acc__DH__title">
                         <p>Thông tin tài khoản của bạn</p>
@@ -144,6 +118,23 @@
                     </div>
                 </div>
 
+            </div>
+        </div>
+        <div class="acc__tab__menu">
+            <div class="acc__menu__content">
+                <div class="acc__donhang">
+                    <div class="acc__DH__title">
+                        <p>Lịch sử đơn hàng</p>
+                    </div>
+                    <div class="acc__DH__content">
+                        <div class="DH__content__title">
+                            <p>Không tìm thấy đơn hàng</p>
+                        </div>
+                        <div class="DH__content__body">
+                            <img src="public/images/layout/empty-orders.jpg" alt="">
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
