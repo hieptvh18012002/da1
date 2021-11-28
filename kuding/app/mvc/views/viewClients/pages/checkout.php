@@ -147,10 +147,10 @@
                             <p>$69, 6969</p>
                         </div>
                         <div class="content__note">
-                            <div class="note">
+                            <div id="note" class="note">
                                 <p><i class="fas fa-plus"></i> Thêm ghi chú vào đơn hàng này</p>
                             </div>
-                            <div class="note__input">
+                            <div id="input_note" class="note__input">
                                 <input type="text" placeholder="Lưu ý của khách hàng">
                             </div>
                         </div>

@@ -5,7 +5,7 @@
             <p class="card-description">
                 Basic form elements
             </p>
-            <form id="form_categorys" class="forms-sample" method="POST" enctype="multipart/form-data" >
+            <form id="form_news" class="forms-sample" method="POST" enctype="multipart/form-data" >
                 <div class="form-group">
                     <label for="exampleInputName1">Tiêu đề </label>
                     <input name="title" type="text" class="form-control" id="exampleInputName1" placeholder="Name">

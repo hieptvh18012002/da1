@@ -5,25 +5,28 @@
             <p class="card-description">
                 Basic form elements
             </p>
-            <form id="form_categorys" class="forms-sample" method="POST" enctype="multipart/form-data" >
+            <form id="form_vourcher" class="forms-sample" method="POST" enctype="multipart/form-data" >
                 <div class="form-group">
-                    <label for="exampleInputName1">Tên mã</label>
-                    <input name="name_cate" type="text" class="form-control" id="exampleInputName1" placeholder="Name">
+                    <label for="">Tên mã</label>
+                    <input name="name_vour" type="text" class="form-control" id="" placeholder="Name">
+                    <label for="name_vour" class="error" style="display: none !important;"></label>
                 </div>
                 <div class="form-group">
-                    <label for="exampleInputName1">Loại giảm</label>
-                  <select name="cate_code" id="">
-                      <option value="">Giảm theo %</option>
-                      <option value="">Giảm tiền trực tiếp</option>
+                    <label for="">Loại giảm</label>
+                  <select name="cate_code" id="driveaway">
+                      <option value="y">Giảm theo %</option>
+                      <option value="n">Giảm tiền trực tiếp</option>
                   </select>
                 </div>
                 <div class="form-group">
-                    <label for="exampleInputName1">Mã code</label>
-                    <input name="code" type="text" class="form-control" id="exampleInputName1" placeholder="code(ABCDEF)...">
+                    <label for="">Mã code</label>
+                    <input name="code" type="text" class="form-control" id="" placeholder="code(ABCDEF)...">
+                    <label for="code" class="error" style="display: none !important;"></label>
                 </div>
                 <div class="form-group">
-                    <label for="exampleInputName1">Mệnh giá giảm</label>
-                    <input name="name_cate" type="number" class="form-control" id="exampleInputName1" placeholder="Giá giảm">
+                    <label for="">Mệnh giá giảm</label>
+                    <input id="driveamount" name="sale" type="number" class="form-control" id="" placeholder="Giá giảm" maxlength="2">
+                    <label for="sale" class="error" style="display: none !important;"></label>
                 </div>
                 <button type="submit" class="btn btn-primary mr-2">Submit</button>
                 <button class="btn btn-light">Cancel</button>
