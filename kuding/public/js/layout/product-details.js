@@ -1,30 +1,15 @@
 $(document).ready(function () {
     // code javascript ảnh
-    $('#img1').click(function (e) { 
-        e.preventDefault();
-        const srcImg = $('#img1 img').attr('src');
-        $('.img__right img').attr('src', srcImg);
-    });
-    $('#img2').click(function (e) { 
-        e.preventDefault();
-        const srcImg = $('#img2 img').attr('src');
-        $('.img__right img').attr('src', srcImg);
-    });
-    $('#img3').click(function (e) { 
-        e.preventDefault();
-        const srcImg = $('#img3 img').attr('src');
-        $('.img__right img').attr('src', srcImg);
-    });
-    $('#img4').click(function (e) { 
-        e.preventDefault();
-        const srcImg = $('#img4 img').attr('src');
-        $('.img__right img').attr('src', srcImg);
-    });
-    $('#img5').click(function (e) { 
-        e.preventDefault();
-        const srcImg = $('#img5 img').attr('src');
-        $('.img__right img').attr('src', srcImg);
-    });
+    const thumbImg = document.querySelectorAll('.thunb__img');
+    const ImgAttr = document.querySelectorAll('.thunb__img img');
+    const imgIndex = document.querySelector('.img__right img');
+    console.log(thumbImg);
+    thumbImg.forEach((thumb, index) =>{
+        const attr = ImgAttr[index].getAttribute("src");
+        thumb.onclick = function (){
+            imgIndex.setAttribute("src", attr);
+        }
+    })
     // code javascript tim
     $('.animate-button-wrap i').click(function (e) { 
         e.preventDefault();

@@ -10,7 +10,7 @@
                     <?php echo $data['msg']; ?>
                 </div>
             <?php endif; ?>
-            <form action="" class="forms-sample" method="POST" enctype="multipart/form-data">
+            <form id="update_products" action="" class="forms-sample" method="POST" enctype="multipart/form-data">
                 <div class="form-group">
                     <label for="exampleInputName1">Tên </label>
                     <input type="text" name="name" class="form-control" id="exampleInputName1" value="<?= $data['pros']['name'] ?>">
@@ -46,6 +46,7 @@
                             </label>
                         </div>
                     <?php endforeach; ?>
+                    <label for="color[]" class="error"></label>
                 </div>
               
                 <div class="form-group" style="display:flex; column-gap:30px; align-items:center;">
@@ -58,6 +59,7 @@
                             </label>
                         </div>
                     <?php endforeach; ?>
+                    <label for="size[]" class="error"></label>
                 </div>
                 <div class="form-group">
                     <label>Ảnh đại diện</label>
