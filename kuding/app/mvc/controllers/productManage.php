@@ -103,7 +103,11 @@ if (isset($_GET['action'])) {
                 // ktra ảnh ct
                 if ($_FILES['avatars']['size'] <= 0) {
                     $err['imgs'] = "Tải ít nhất 1 ảnh chi tiết";
+                } elseif (count($_FILES['avatars']['name']) > 5) {
+
+                    $err['img'] = "Chỉ được tải tối đa 5 ảnh chi tiết";
                 }
+
                 // thêm sp
                 if (!array_filter($err)) {
                     $created_at = date("Y-m-d H:i:s");
@@ -174,7 +178,7 @@ if (isset($_GET['action'])) {
                 }
                 if (empty($err['img'])) {
                     // update pro
-                    product_update($id, $name, $category, $price, $discount, $avatar, $desc,$special);
+                    product_update($id, $name, $category, $price, $discount, $avatar, $desc, $special);
                     if ($file['size'] > 0) {
                         move_uploaded_file($file['tmp_name'], './public/images/products/' . $avatar);
                     }
@@ -246,71 +250,61 @@ if (isset($_GET['action'])) {
             die;
             break;
         case "viewListProduct":
-            //    tiêu đề 
-            $title = '';
-            $qr = "SELECT * FROM products WHERE status=1 ";
-            if (isset($_GET['filtercate'])) {
-                $cate_id = $_GET['filtercate'];
-                $qr .= " AND cate_id=$cate_id";
-                $title = category_select_by_id($_GET['filtercate'])['name'];
-            }elseif(isset($_GET['keyword'])){
-                $title = "Kết quả tìm kiếm ".'.'.$_GET['keyword'].'.';
+             //    tiêu đề 
+             $title = '';
+             $qr = "SELECT * FROM products WHERE status=1 ";
+             $total_records = count_recored("SELECT * FROM products WHERE status=1");
+             if (isset($_GET['filtercate'])) {
+                 $id_cate = $_GET['filtercate'];
+                 $total_records = pro_count_recored_cate($id_cate);
+                 $qr .= " AND cate_id='$id_cate'";
+                 $title = category_select_by_id($_GET['filtercate'])['name'];
+             } elseif (isset($_GET['keyword'])) {
+                 $title = "Kết quả tìm kiếm " . '.' . $_GET['keyword'] . '.';
+             } else {
+                 $title = "Tất cả sản phẩm";
+             }
+            // phân trang
+            $current_page = isset($_GET['page']) ? $_GET['page'] : 1;
+            $limit = 5;
+            $total_page = ceil($total_records / $limit);
+            // Giới hạn current_page trong khoảng 1 đến total_page
+            if ($current_page > $total_page) {
+                $current_page = $total_page;
+            } else if ($current_page < 1) {
+                $current_page = 1;
             }
-            else{
-                $title = "Tất cả sản phẩm";
-            }
-
-            if (isset($_GET['filter'])) {
-               
-                $minimum_price = $_GET['minimum_price'];
-                $maximum_price = $_GET['maximum_price'];
-                // if (isset($minimum_price, $maximum_price)) {
-                //     $qr .= " AND price BETWEEN $minimum_price AND $maximum_price ";
-                // }
-                $db =get_connection();
+            $start = ($current_page - 1) * $limit;
+           
+            
+            // if (isset($_GET['filter'])) {
+                
+            //     $minimum_price = $_GET['minimum_price'];
+            //     $maximum_price = $_GET['maximum_price'];
+            //     if (isset($minimum_price, $maximum_price)) {
+            //         $qr .= " AND price BETWEEN $minimum_price AND $maximum_price ";
+            //     }
+            $qr .= " LIMIT $start,$limit";
+                $db = get_connection();
                 $stmt = $db->prepare($qr);
                 $stmt->execute();
                 $result = $stmt->fetchAll();
-                $count = $stmt->rowCount();
-                $output = '';
+            //     $count = $stmt->rowCount();
+            //     $output = '';
 
-                if($count > 0){
-                    foreach ($result as $item) {
-                        $output .= '
-                            <div class="proC__item">
-                                <div class="proC__item__img">
-                                    <a href="product?action=viewProductDetail&id='.$item['id'].'">
-                                        <img src="public/images/products/'.$item['avatar'].'" alt="" width="100%">
-                                    </a>
-                                </div>
-                                <div class="proC__item__Name">
-                                    <p>'.$item['name'].'</p>
-                                </div>
-                                <div class="proC__item__PC">
-                                    <div class="proC__item__price">
-                                        <p>'.number_format($item['price'], 0, ',', '.').' vnd</p>
-                                    </div>
-                                    <div class="proC__item__color">
-                                        <p>3</p>
-                                        <img src="public/images/layout/colorwheel-2.png" alt="">
-                                    </div>
-                                </div>
-                                <div class="proC__love">
-                                    <div class="proC__love__icon">
-                                        <i class="far fa-heart"></i>
-                                    </div>
-                                </div>
-                            </div>
-                            ';
-                    }
-                }else{
-                    $output = "Không tìm thấy sản phẩm phù hợp";
-                }
-                echo $output;
-                die;
-            }
+            //     if ($count > 0) {
+            //         foreach ($result as $item) {
+            //             $output .= '
+                            
+            //         }
+            //     } else {
+            //         $output = "Không tìm thấy sản phẩm phù hợp";
+            //     }
+            //     echo $output;
+            //     die;
+            // }
 
-            viewClient('layout', ['page' => 'product', 'list_cate' => $list_cate, 'title' => $title,'list_vour' => $list_vour]);
+            viewClient('layout', ['page' => 'product', 'list_cate' => $list_cate, 'title' => $title, 'list_vour' => $list_vour,'list_pro'=>$result,'total_page'=>$total_page,'current_page'=>$current_page]);
             die;
             break;
         case "viewProductDetail":
@@ -318,6 +312,8 @@ if (isset($_GET['action'])) {
             $pros = product_select_by_id($_GET['id']);
             $cmts = cmt_select_by_product($_GET['id']);
             $id = $_GET['id'];
+            // tăng viu
+            increaseViewProduct($id);
             // show value attr
             // lấy value_id
             // lấy value của thuộc tính sp tương ứng;--> value thuộc tính lấy dc nó trả về kiểu array object
@@ -393,7 +389,7 @@ if (isset($_GET['action'])) {
             }
             // xóa cmt
 
-            viewClient('layout', ['page' => 'product-details', 'list_img' => $pro_imgs, 'list_cate' => $list_cate, 'pros' => $pros, 'errCmt' => $err['cmt'], 'errImg' => $err['img'], 'list_cmt' => $cmts,'list_vour' => $list_vour]);
+            viewClient('layout', ['page' => 'product-details', 'list_img' => $pro_imgs, 'list_cate' => $list_cate, 'pros' => $pros, 'errCmt' => $err['cmt'], 'errImg' => $err['img'], 'list_cmt' => $cmts, 'list_vour' => $list_vour]);
             die;
             break;
 
@@ -401,7 +397,7 @@ if (isset($_GET['action'])) {
             // code sản phẩm yêu thích
             // nếu là khách thì lưu vào session >< đã đang nhập thì lưu db
 
-            viewClient('layout', ['page' => 'favorite', 'list_cate' => $list_cate,'list_vour' => $list_vour]);
+            viewClient('layout', ['page' => 'favorite', 'list_cate' => $list_cate, 'list_vour' => $list_vour]);
             die;
             break;
     }

@@ -201,7 +201,7 @@
         </div>
         <div class="header-menu">
             <ul class="sub-nav m-0">
-                <li><a href="product?action=viewListProduct">#SPOTLIGHT</a></li>
+                <li><a href="product?action=viewListProduct">#ALL</a></li>
                 <?php foreach ($data['list_cate'] as $c) : ?>
                     <li><a href="product?action=viewListProduct&filtercate=<?= $c['id'] ?>"><?= $c['name'] ?></a></li>
                 <?php endforeach; ?>

@@ -1,5 +1,5 @@
 <main class="body__index">
-    
+
     <div class="banner single-item">
         <a href="#baner " class="banner-item">
             <img src="public/images/layout/5f3c3ce98d1c4e3e07ab5ebc4126a3cbdb33aadb.jpg" alt="" width="100%">
@@ -58,78 +58,20 @@
         </div>
         <div class="slick__slider">
             <div class="pro-news-slider responsive">
-                <a href="product-details.html" class="pro-news-item">
-                    <img src="public/images/products/fa692ed538bbcb9d3e4e5ca7c5a1de8a5e04165f.jpg" alt="">
-                    <div class="pro-name bg-white pt-2 text-center">
-                        Áo nữ
-                    </div>
-                    <div class="pro-des bg-white">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    </div>
-                </a>
-                <a href="#" class="pro-news-item bg-white">
-                    <img src="public/images/products/fa692ed538bbcb9d3e4e5ca7c5a1de8a5e04165f.jpg" alt="">
-                    <div class="pro-name bg-white pt-2 text-center">
-                        Áo nữ
-                    </div>
-                    <div class="pro-des">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    </div>
-                </a>
-                <a href="#" class="pro-news-item">
-                    <img src="public/images/products/fa692ed538bbcb9d3e4e5ca7c5a1de8a5e04165f.jpg" alt="">
-                    <div class="pro-name bg-white pt-2 text-center">
-                        Áo nữ
-                    </div>
-                    <div class="pro-des">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    </div>
-                </a>
-                <a href="#" class="pro-news-item">
-                    <img src="public/images/products/fa692ed538bbcb9d3e4e5ca7c5a1de8a5e04165f.jpg" alt="">
-                    <div class="pro-name bg-white pt-2 text-center">
-                        Áo nữ
-                    </div>
-                    <div class="pro-des">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    </div>
-                </a>
-                <a href="#" class="pro-news-item">
-                    <img src="public/images/products/fa692ed538bbcb9d3e4e5ca7c5a1de8a5e04165f.jpg" alt="">
-                    <div class="pro-name bg-white pt-2 text-center">
-                        Áo nữ
-                    </div>
-                    <div class="pro-des">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    </div>
-                </a>
-                <a href="#" class="pro-news-item">
-                    <img src="public/images/products/fa692ed538bbcb9d3e4e5ca7c5a1de8a5e04165f.jpg" alt="">
-                    <div class="pro-name bg-white pt-2 text-center">
-                        Áo nữ
-                    </div>
-                    <div class="pro-des">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    </div>
-                </a>
-                <a href="#" class="pro-news-item">
-                    <img src="public/images/products/fa692ed538bbcb9d3e4e5ca7c5a1de8a5e04165f.jpg" alt="">
-                    <div class="pro-name bg-white pt-2 text-center">
-                        Áo nữ
-                    </div>
-                    <div class="pro-des">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    </div>
-                </a>
-                <a href="#" class="pro-news-item">
-                    <img src="public/images/products/fa692ed538bbcb9d3e4e5ca7c5a1de8a5e04165f.jpg" alt="">
-                    <div class="pro-name bg-white pt-2 text-center">
-                        Áo nữ
-                    </div>
-                    <div class="pro-des">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    </div>
-                </a>
+                <?php foreach ($data['pro_top10'] as $item) : ?>
+                    <a href="product?action=viewProductDetail&id=<?= $item['id'] ?>" class="pro-news-item">
+                        <img src="public/images/products/<?= $item['avatar'] ?>" alt="">
+                        <div class="">
+                            <div class="pro-name bg-white pt-2 text-center">
+                                <?= $item['name'] ?>
+                            </div>
+                            <div class="pro-des bg-white">
+                               <span> <?= substr($item['description'], 0, 15) ?></span>
+                            </div>
+                        </div>
+                    </a>
+                <?php endforeach; ?>
+
 
                 <!-- <div class="slick-prev btn-prev"></div>
                             <div class="slick-next btn-next"></div> -->
@@ -197,78 +139,17 @@
         </div>
         <div class="slick__slider">
             <div class="pro-news-slider responsive">
-                <a href="#" class="pro-news-item">
-                    <img src="public/images/products/fa692ed538bbcb9d3e4e5ca7c5a1de8a5e04165f.jpg" alt="">
-                    <div class="pro-name bg-white pt-2 text-center">
-                        Áo nữ
-                    </div>
-                    <div class="pro-des bg-white">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    </div>
-                </a>
-                <a href="#" class="pro-news-item bg-white">
-                    <img src="public/images/products/fa692ed538bbcb9d3e4e5ca7c5a1de8a5e04165f.jpg" alt="">
-                    <div class="pro-name bg-white pt-2 text-center">
-                        Áo nữ
-                    </div>
-                    <div class="pro-des">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    </div>
-                </a>
-                <a href="#" class="pro-news-item">
-                    <img src="public/images/products/fa692ed538bbcb9d3e4e5ca7c5a1de8a5e04165f.jpg" alt="">
-                    <div class="pro-name bg-white pt-2 text-center">
-                        Áo nữ
-                    </div>
-                    <div class="pro-des">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    </div>
-                </a>
-                <a href="#" class="pro-news-item">
-                    <img src="public/images/products/fa692ed538bbcb9d3e4e5ca7c5a1de8a5e04165f.jpg" alt="">
-                    <div class="pro-name bg-white pt-2 text-center">
-                        Áo nữ
-                    </div>
-                    <div class="pro-des">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    </div>
-                </a>
-                <a href="#" class="pro-news-item">
-                    <img src="public/images/products/fa692ed538bbcb9d3e4e5ca7c5a1de8a5e04165f.jpg" alt="">
-                    <div class="pro-name bg-white pt-2 text-center">
-                        Áo nữ
-                    </div>
-                    <div class="pro-des">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    </div>
-                </a>
-                <a href="#" class="pro-news-item">
-                    <img src="public/images/products/fa692ed538bbcb9d3e4e5ca7c5a1de8a5e04165f.jpg" alt="">
-                    <div class="pro-name bg-white pt-2 text-center">
-                        Áo nữ
-                    </div>
-                    <div class="pro-des">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    </div>
-                </a>
-                <a href="#" class="pro-news-item">
-                    <img src="public/images/products/fa692ed538bbcb9d3e4e5ca7c5a1de8a5e04165f.jpg" alt="">
-                    <div class="pro-name bg-white pt-2 text-center">
-                        Áo nữ
-                    </div>
-                    <div class="pro-des">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    </div>
-                </a>
-                <a href="#" class="pro-news-item">
-                    <img src="public/images/products/fa692ed538bbcb9d3e4e5ca7c5a1de8a5e04165f.jpg" alt="">
-                    <div class="pro-name bg-white pt-2 text-center">
-                        Áo nữ
-                    </div>
-                    <div class="pro-des">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    </div>
-                </a>
+                <?php foreach ($data['pro_topview'] as $item) : ?>
+                    <a href="#" class="pro-news-item">
+                        <img src="public/images/products/<?= $item['avatar'] ?>" alt="">
+                        <div class="pro-name bg-white pt-2 text-center">
+                            <?= $item['name'] ?>
+                        </div>
+                        <div class="pro-des bg-white">
+                            <?= substr($item['description'], 0, 15) ?>
+                        </div>
+                    </a>
+                <?php endforeach; ?>
 
                 <!-- <div class="slick-prev btn-prev"></div>
                             <div class="slick-next btn-next"></div> -->

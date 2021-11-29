@@ -547,6 +547,7 @@ main{
 }
 .pro-news-slider .pro-des{
     width: 160px;
+    min-height: 30px;
     padding: 0 10px 10px 10px;
     overflow: hidden;
     text-overflow:ellipsis;
@@ -1522,7 +1523,6 @@ bottom: 0;
     height: 35px;
     border-bottom: 1px solid #666;
     border-top: 1px solid #666;
-    margin-left: 100px;
 }
 .filter__title p{
     margin: 0;

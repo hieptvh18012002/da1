@@ -19,3 +19,14 @@ function save_value($label_field) {
     if (isset($$label_field))
         echo $$label_field;
 }
+// count recorred
+function count_recored($sql){
+    $conn = get_connection();
+    $stmt = $conn->prepare($sql);
+    $stmt->execute();
+    $stmt->fetchAll();
+    $count = $stmt->rowCount();
+    return $count;
+
+}
+
