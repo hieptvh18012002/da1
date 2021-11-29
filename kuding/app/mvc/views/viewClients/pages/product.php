@@ -20,21 +20,21 @@
             <div id="paging1" class="proC__paging">
                 <nav class="pages">
                     <?php if ($data['current_page'] > 1 && $data['total_page'] > 1) : ?>
-                        <a href="product?action=viewListProduct&page=<?= ($data['current_page']-1) ?>" class="pageLeft"><i class="far fa-chevron-left"></i></a>
+                        <a href="productClient?action=viewListProduct&page=<?= ($data['current_page'] - 1) ?>" class="pageLeft"><i class="far fa-chevron-left"></i></a>
                     <?php endif; ?>
                     <li class="number__paging">
                         <?php for ($i = 1; $i <= $data['total_page']; $i++) {
                             // Nếu là trang hiện tại thì hiển thị thẻ span
                             // ngược lại hiển thị thẻ a
                             if ($i == $data['current_page']) {
-                                echo '<span class="numB numB__active">'.$i.'</span>';
+                                echo '<span class="numB numB__active">' . $i . '</span>';
                             } else {
-                                echo '<a href="product?action=viewListProduct&page='.$i.'" class="numB">'.$i.'</a>';
+                                echo '<a href="productClient?action=viewListProduct&page=' . $i . '" class="numB">' . $i . '</a>';
                             }
                         } ?>
                     </li>
                     <?php if ($data['current_page'] < $data['total_page'] && $data['total_page'] > 1) : ?>
-                        <a href="product?action=viewListProduct&page=<?= ($current_page+1) ?>" class="pageRight"><i class="far fa-chevron-right"></i></a>
+                        <a href="productClient?action=viewListProduct&page=<?= ($current_page + 1) ?>" class="pageRight"><i class="far fa-chevron-right"></i></a>
                     <?php endif; ?>
                 </nav>
             </div>
@@ -96,25 +96,25 @@
             <div class="proC__fist2">
                 <!-- pagination -->
                 <div id="paging2" class="proC__paging">
-                <nav class="pages">
-                    <?php if ($data['current_page'] > 1 && $data['total_page'] > 1) : ?>
-                        <a href="product?action=viewListProduct&page=<?= ($data['current_page']-1) ?>" class="pageLeft"><i class="far fa-chevron-left"></i></a>
-                    <?php endif; ?>
-                    <li class="number__paging">
-                        <?php for ($i = 1; $i <= $data['total_page']; $i++) {
-                            // Nếu là trang hiện tại thì hiển thị thẻ span
-                            // ngược lại hiển thị thẻ a
-                            if ($i == $data['current_page']) {
-                                echo '<span class="numB numB__active">'.$i.'</span>';
-                            } else {
-                                echo '<a href="product?action=viewListProduct&page='.$i.'" class="numB">'.$i.'</a>';
-                            }
-                        } ?>
-                    </li>
-                    <?php if ($data['current_page'] < $data['total_page'] && $data['total_page'] > 1) : ?>
-                        <a href="product?action=viewListProduct&page=<?= ($current_page+1) ?>" class="pageRight"><i class="far fa-chevron-right"></i></a>
-                    <?php endif; ?>
-                </nav>
+                    <nav class="pages">
+                        <?php if ($data['current_page'] > 1 && $data['total_page'] > 1) : ?>
+                            <a href="productClient?action=viewListProduct&page=<?= ($data['current_page'] - 1) ?>" class="pageLeft"><i class="far fa-chevron-left"></i></a>
+                        <?php endif; ?>
+                        <li class="number__paging">
+                            <?php for ($i = 1; $i <= $data['total_page']; $i++) {
+                                // Nếu là trang hiện tại thì hiển thị thẻ span
+                                // ngược lại hiển thị thẻ a
+                                if ($i == $data['current_page']) {
+                                    echo '<span class="numB numB__active">' . $i . '</span>';
+                                } else {
+                                    echo '<a href="productClient?action=viewListProduct&page=' . $i . '" class="numB">' . $i . '</a>';
+                                }
+                            } ?>
+                        </li>
+                        <?php if ($data['current_page'] < $data['total_page'] && $data['total_page'] > 1) : ?>
+                            <a href="productClient?action=viewListProduct&page=<?= ($current_page + 1) ?>" class="pageRight"><i class="far fa-chevron-right"></i></a>
+                        <?php endif; ?>
+                    </nav>
                 </div>
             </div>
         </div>

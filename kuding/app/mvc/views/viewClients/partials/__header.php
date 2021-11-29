@@ -30,10 +30,10 @@
                 </a>
             </div>
             <div class="search">
-                <form action="" class="form-search" method="GET">
+                <form action="productClient" class="form-search" method="GET">
                     <!-- <input type="hidden" value="action=viewListProduct" name="?"> -->
                     <div class="pop-input">
-                        <select name="filter-cate" id="" class="filter-cate">
+                        <select name="filtercate" id="" class="filter-cate">
                             <option value="all"><a href="">Tất cả</a></option>
                             <?php foreach($data['list_cate'] as $item):?>
                             <option value="<?= $item['id'] ?>"><?= $item['name'] ?></option>
@@ -56,7 +56,7 @@
                             <a href="account?action=viewProfileClient">Bảng điều khiển</a>
                             <a href="#">Đơn hàng</a>
                             <a href="#">Tài khoản</a>
-                            <a href="account?action=logoutClient" onclick="return confirm('Bạn chắc chắn muốn đăng xuất')">Đăng xuất</a>
+                            <a href="accountClient?action=logoutClient" onclick="return confirm('Bạn chắc chắn muốn đăng xuất')">Đăng xuất</a>
                         </div>
                     </div>
                 <?php else : ?>
@@ -80,7 +80,7 @@
                                 <div class="welcome">
                                     Chào mừng bạn!
                                 </div>
-                                <form action="account?action=loginClient" method="POST" name="form-login" class="p-5" id="login_user">
+                                <form method="POST" name="form-login" class="p-5" id="login_user">
                                     <div class="form-group">
                                         <input type="text" name="email" placeholder="Nhập email" value="<?= isset($_COOKIE['emailClient']) ? $_COOKIE['emailClient'] : '' ?>" class=" email" id="email_login" required>
                                     </div>
@@ -154,13 +154,13 @@
                     <img src="public/images/layout/vietnam.png" alt="">
                 </a>
                 <div class="box-favorite-pro pt-4 pb-4">
-                    <a href="product?action=viewFavorite" class="favorite-pro">
+                    <a href="productClient?action=viewFavorite" class="favorite-pro">
                         <i class="fa fa-heart" aria-hidden="true"></i>
                     </a>
                     <div class="notifi">1</div>
                 </div>
                 <div class="box-cart pt-4 pb-4">
-                    <a href="cart" class="cart">
+                    <a href="cartClient" class="cart">
                         <i class="fa fa-shopping-bag" aria-hidden="true"></i>
                     </a>
                     <div class="notifi">2</div>
@@ -191,7 +191,7 @@
                             </div>
                         </div>
                         <div class="pop-cart__bottom">
-                            <a href="cart?action=checkout" class="text-white bg-secondary">Thanh toán</a>
+                            <a href="cartClient?action=checkout" class="text-white bg-secondary">Thanh toán</a>
                             <a href="cart" class="">Vào giỏ hàng</a>
 
                         </div>
@@ -201,9 +201,9 @@
         </div>
         <div class="header-menu">
             <ul class="sub-nav m-0">
-                <li><a href="product?action=viewListProduct">#ALL</a></li>
+                <li><a href="productClient?action=viewListProduct">#ALL</a></li>
                 <?php foreach ($data['list_cate'] as $c) : ?>
-                    <li><a href="product?action=viewListProduct&filtercate=<?= $c['id'] ?>"><?= $c['name'] ?></a></li>
+                    <li><a href="productClient?action=viewListProduct&filtercate=<?= $c['id'] ?>"><?= $c['name'] ?></a></li>
                 <?php endforeach; ?>
                 <li><a href="">Làm sạch</a></li>
                 <?php if (isset($_SESSION['admin'])) : ?>
@@ -212,7 +212,9 @@
                         </a>
                     </li>
                 <?php endif; ?>
-                <li><a href="album">#KOODING</a></li>
+
+                <li><a href="newsClient">Tin tức</a></li>
+                <li><a href="albumClient">#KOODING</a></li>
             </ul>
         </div>
 
