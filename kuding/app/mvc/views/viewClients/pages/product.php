@@ -4,10 +4,10 @@
             <p><?= $data['title'] ?></p>
         </div>
         <div class="proH__text1">
-            <p>(17.709 mặt hàng)</p>
+            <p>(<?= $data['count'] ?> mặt hàng)</p>
         </div>
         <div class="proH__text2">
-            <p>Bạn đang tìm kiếm chiếc váy hoàn hảo phù hợp với mọi thứ hay chiếc váy dễ thương nhất lấy cảm
+            <p>Bạn đang tìm kiếm những sản phẩm hoàn hảo phù hợp với mọi thứ hay chiếc váy dễ thương nhất lấy cảm
                 hứng từ
                 KOODING</p>
         </div>
@@ -63,10 +63,13 @@
 
         <div class="proC__show">
             <div class="proC__allItem">
+                <?php if(!empty($data['msg'])):?>
+                    <p><?php echo $data['msg'];  ?></p>
+                    <?php endif;?>
                 <?php foreach ($data['list_pro'] as $item) : ?>
                     <div class="proC__item">
                         <div class="proC__item__img">
-                            <a href="product?action=viewProductDetail&id=<?= $item['id'] ?>">
+                            <a href="productClient?action=viewProductDetail&id=<?= $item['id'] ?>">
                                 <img src="public/images/products/<?= $item['avatar'] ?> " alt="" width="100%">
                             </a>
                         </div>

@@ -44,19 +44,19 @@
                                                     <?php endforeach;?>
                                             </select>
                                         </div>
-                                        <div class="item__address huyen">
+                                        <div class="item__address">
                                             <select name="huyen" id="huyen">
                                                 <option value="" selected disabled>Chưa chọn tỉnh</option>
                                             </select>
                                         </div>
-                                        <div class="item__address xa" >
-                                            <select name="xa" id="xa">
+                                        <div class="item__address" >
+                                            <select name="xa" class="xa" id="village">
                                                 <option value="" selected disabled>Chưa chọn quận huyện</option>
                                             </select>
                                         </div>
                                     </div>
                                 </div>
-    
+                               
                             </div>
                         </div>
     
@@ -177,7 +177,7 @@
             $('#tinh').change(function() {
                 var provinceId = $(this).val();
                 $.ajax({
-                    url: "cart?action=checkout",
+                    url: "cartClient?action=checkout",
                     method: "GET",
                     // mặc định dữ liệu luân chuyễn dưới dạng đối tg, nếu gửi DOM thì cho = fasle
                     data: {
@@ -194,14 +194,14 @@
                 // lấy id quận huyện
                 var districtId = $(this).val();
                 $.ajax({
-                    url: "address",
+                    url: "cartClient?action=checkout",
                     method: "GET",
                     data: {
                         districtId: districtId
                     },
                     // nếu gửi và xử lí thành công thì đổ data vào div filter_data
                     success: function(data) {
-                        $('#xa').html(data)
+                        $('.xa').html(data)
                     }
                 })
             })

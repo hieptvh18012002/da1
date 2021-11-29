@@ -21,15 +21,15 @@
                 <div class="gender col-md-12 mb-4 mt-4">
                     <p><label for="">Vai trò</label></p>
                     <div class="form-check-inline">
-                        <input class="form-check-input" value="0" id="role" type="radio" name="role" checked>
+                        <input class="form-check-input" value="1" id="role" type="radio" name="role" checked>
                         <label for="role" class="form-check-label mr-4">
                             Khách hàng
                         </label>
-                        <input class="form-check-input" id="role1" type="radio" name="role">
+                        <input class="form-check-input" id="role1" type="radio" name="role" value="2">
                         <label for="role1" class="form-check-label mr-4">
                             Nhân viên
                         </label>
-                        <input class="form-check-input" id="role3" type="radio" name="role">
+                        <input class="form-check-input" id="role3" value="3" type="radio" name="role">
                         <label for="role3" class="form-check-label">
                             Admin quản trị
                         </label>

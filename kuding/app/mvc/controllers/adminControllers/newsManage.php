@@ -10,8 +10,11 @@ if (isset($_GET['action'])) {
             viewAdmin('layout',['page'=>'listNews']);
             break;
             case "add":
-                
-                viewAdmin('layout',['page'=>'addNews']);
+                if(isset($_POST['btn'])){
+                    // 
+                    $msg = "success";
+                }
+                viewAdmin('layout',['page'=>'addNews','msg'=>$msg]);
             break;
         default:
 

@@ -18,67 +18,7 @@ $err['imgs'] = '';
 $msg = '';
 if (isset($_GET['action'])) {
     switch ($_GET['action']) {
-        case "viewListProduct":
-            //    tiêu đề 
-            $title = '';
-            $qr = "SELECT * FROM products WHERE status=1 ";
-            $total_records = count_recored("SELECT * FROM products WHERE status=1");
-            //  cate
-            if (isset($_GET['filtercate'])) {
-                $id_cate = $_GET['filtercate'];
-                $total_records = pro_count_recored_cate($id_cate);
-                $qr .= " AND cate_id='$id_cate'";
-                $title = category_select_by_id($_GET['filtercate'])['name'];
-            } elseif (isset($_GET['keyword'])) {
-                $title = "Kết quả tìm kiếm " . '.' . $_GET['keyword'] . '.';
-            } else {
-                $title = "Tất cả sản phẩm";
-            }
-            //  search
-
-            // phân trang
-            $current_page = isset($_GET['page']) ? $_GET['page'] : 1;
-            $limit = 5;
-            $total_page = ceil($total_records / $limit);
-            // Giới hạn current_page trong khoảng 1 đến total_page
-            if ($current_page > $total_page) {
-                $current_page = $total_page;
-            } else if ($current_page < 1) {
-                $current_page = 1;
-            }
-            $start = ($current_page - 1) * $limit;
-
-
-            // if (isset($_GET['filter'])) {
-
-            //     $minimum_price = $_GET['minimum_price'];
-            //     $maximum_price = $_GET['maximum_price'];
-            //     if (isset($minimum_price, $maximum_price)) {
-            //         $qr .= " AND price BETWEEN $minimum_price AND $maximum_price ";
-            //     }
-            $qr .= " LIMIT $start,$limit";
-            $db = get_connection();
-            $stmt = $db->prepare($qr);
-            $stmt->execute();
-            $result = $stmt->fetchAll();
-            //     $count = $stmt->rowCount();
-            //     $output = '';
-
-            //     if ($count > 0) {
-            //         foreach ($result as $item) {
-            //             $output .= '
-
-            //         }
-            //     } else {
-            //         $output = "Không tìm thấy sản phẩm phù hợp";
-            //     }
-            //     echo $output;
-            //     die;
-            // }
-
-            viewClient('layout', ['page' => 'product', 'list_cate' => $list_cate, 'title' => $title, 'list_vour' => $list_vour, 'list_pro' => $result, 'total_page' => $total_page, 'current_page' => $current_page]);
-            die;
-            break;
+       
         case "viewProductDetail":
             $pro_imgs = pro_img_select_by_id($_GET['id']);
             $pros = product_select_by_id($_GET['id']);
@@ -151,7 +91,7 @@ if (isset($_GET['action'])) {
                     }
                     move_uploaded_file($file['tmp_name'], "./public/images/upload/" . $image);
                     cmt_insert($content, $id_commenter, $id, $image, date("Y-m-d H:i:s"));
-                    header("location: product?action=viewProductDetail&id=" . $id);
+                    header("location: productClient?action=viewProductDetail&id=" . $id);
                 }
                 if (strlen($content) > 400) {
                     $err['cmt'] = 'Không thể bình luận quá 400 kí tự.';
@@ -174,7 +114,80 @@ if (isset($_GET['action'])) {
             break;
 
         default:
-            viewClient('layout', ['page' => 'product', 'list_cate' => $list_cate, 'title' => $title, 'list_vour' => $list_vour, 'list_pro' => $result, 'total_page' => $total_page, 'current_page' => $current_page]);
+            // show list
+            //    tiêu đề 
+            $title = '';
+            $qr = "SELECT * FROM products WHERE status=1 ";
+            $total_records = count_recored("SELECT * FROM products WHERE status=1");
+            //  cate
+            if (isset($_GET['filtercate'])) {
+                $id_cate = $_GET['filtercate'];
+                $total_records = pro_count_recored_cate($id_cate);
+                $qr .= " AND cate_id='$id_cate'";
+                $title = category_select_by_id($_GET['filtercate'])['name'];
+            } elseif (isset($_GET['keyword'],$_GET['filter-cate'] )) {
+                $keyword = $_GET['keyword'];
+                $id_cate = $_GET['filter-cate'];
+                $title = "Kết quả tìm kiếm '$keyword'";
+                if($id_cate == 'all'){
+                    $total_records = count_recored("SELECT * FROM products WHERE status=1 AND name LIKE '%$keyword%' ");
+                    $qr .= " AND name LIKE '%$keyword%' ";
+                }else{
+                    $total_records = pro_count_recored_cate($id_cate);
+                    $qr .= " AND cate_id='$id_cate' AND name LIKE '%$keyword%' ";
+
+                }
+            } else {
+                $title = "Tất cả sản phẩm";
+            }
+            //  search
+           
+            // phân trang
+            $current_page = isset($_GET['page']) ? $_GET['page'] : 1;
+            $limit = 5;
+            $total_page = ceil($total_records / $limit);
+            // Giới hạn current_page trong khoảng 1 đến total_page
+            if ($current_page > $total_page) {
+                $current_page = $total_page;
+            } else if ($current_page < 1) {
+                $current_page = 1;
+            }
+            $start = ($current_page - 1) * $limit;
+
+
+            // if (isset($_GET['filter'])) {
+
+            //     $minimum_price = $_GET['minimum_price'];
+            //     $maximum_price = $_GET['maximum_price'];
+            //     if (isset($minimum_price, $maximum_price)) {
+            //         $qr .= " AND price BETWEEN $minimum_price AND $maximum_price ";
+            //     }
+            $qr .= " LIMIT $start,$limit";
+            $db = get_connection();
+            $stmt = $db->prepare($qr);
+            $stmt->execute();
+            $result = $stmt->fetchAll();
+            $count = $stmt->rowCount();
+            if($count <= 0){
+                $msg = "Không tìm thấy sản phẩm phù hợp";
+            }
+
+            //     $output = '';
+
+            //     if ($count > 0) {
+            //         foreach ($result as $item) {
+            //             $output .= '
+
+            //         }
+            //     } else {
+            //         $output = "Không tìm thấy sản phẩm phù hợp";
+            //     }
+            //     echo $output;
+            //     die;
+            // }
+
+            viewClient('layout', ['page' => 'product', 'list_cate' => $list_cate, 'title' => $title, 'list_vour' => $list_vour, 'list_pro' => $result, 'total_page' => $total_page, 'current_page' => $current_page,'msg'=>$msg,'count'=>$count]);
+            die;
             break;
     }
 }

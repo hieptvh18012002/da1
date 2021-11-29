@@ -25,7 +25,7 @@ if (isset($_GET['action'])) {
                     // $codes = strtoupper($code);
                     // check mã code exsit?
                     $code_exist = vc_select_code($code);
-                    if (is_array($code)) {
+                    if (is_array($code_exist)) {
                         $err = "Mã code đã tồn tại, vui lòng nhập mã khác!";
                     }
                     if (empty($err)) {
@@ -42,7 +42,7 @@ if (isset($_GET['action'])) {
             viewAdmin('layout', ['page' => 'addVourcher', 'err' => $err]);
             break;
         case "list":
-
+            
             viewAdmin('layout', ['page' => 'listVourcher', 'list_vour' => $list_vour]);
             break;
         case "del":
