@@ -83,6 +83,18 @@ function pro_select_special()
     $sql = "SELECT * FROM products WHERE special=1 ORDER BY created_at DESC LIMIT 0,3";
     return pdo_query($sql);
 }
+// lấy 10 sp mới nhât
+function pro_select_top10()
+{
+    $sql = "SELECT * FROM products ORDER BY created_at DESC LIMIT 0,10";
+    return pdo_query($sql);
+}
+// lấy 10 sp dc xem nhiều nhất
+function pro_select_view()
+{
+    $sql = "SELECT * FROM products ORDER BY view DESC LIMIT 0,10";
+    return pdo_query($sql);
+}
 // sp liên quan -> sp cùng danh mục
 function relateProduct($cate_id)
 {
@@ -100,6 +112,13 @@ function pro_img_insert($url, $pro_id)
 function product_insert($name, $cate, $price, $avatar, $description)
 {
     $sql = "INSERT INTO products (name,cate_id,price,avatar,description) VALUES('$name',$cate,$price,'$avatar','$description')";
+    pdo_execute($sql);
+}
+// add view
+//  tăng view
+function increaseViewProduct($id)
+{
+    $sql = "UPDATE products SET view = view + 1 WHERE id='$id'";
     pdo_execute($sql);
 }
 // add pro_attribute
@@ -157,4 +176,16 @@ function pro_img_del($id)
 {
     $sql = "DELETE FROM pro_imgs WHERE pro_id='$id'";
     pdo_execute($sql);
+}
+
+//  trả về số bản ghi vs cate
+
+function pro_count_recored_cate($id){
+    $conn = get_connection();
+    $stmt = $conn->prepare("SELECT * FROM products WHERE status=1 AND cate_id=$id");
+    $stmt->execute();
+    $stmt->fetchAll();
+    $count = $stmt->rowCount();
+    return $count;
+
 }

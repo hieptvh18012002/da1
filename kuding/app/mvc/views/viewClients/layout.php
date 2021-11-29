@@ -2,7 +2,8 @@
 <html lang="en">
 
 <head>
-    <!--  -->
+    <!-- lib album -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@1.8.3/dist/css/lightgallery.min.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pretty-checkbox@3.0/dist/pretty-checkbox.min.css">
     <!-- jq-ui -->
     <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
@@ -24,6 +25,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <!-- css -->
     <link rel="stylesheet" href="public/css/style_layout.css">
+    <link rel="stylesheet" href="public/css/style.css">
+    <link rel="stylesheet" href="public/css/album.css">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -71,90 +74,100 @@
     <!-- Swiper JS -->
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
     <script src="public/js/layout/slide_lib.js"></script>
-    <script>
+    <script type='text/javascript'>
         $(document).ready(function() {
-            $('#login_user').submit(function(e) {
-                e.preventDefault();
-                var action = 'loginClient';
-                var email = $('#email_login').val();
-                var password = $('#password_login').val();
-                var remember = $('#remember')
-                if (remember.prop("checked") == true) {
-                    remember = "check";
-                } else {
-                    remember = "null";
-                }
-                if (email == '' || password == '') {
-                    $('.errLogin').html('Nhập đầy đủ thông tin');
-                    return false;
-                } else {
-                    $("#loading_spinner").css({
-                        "display": "block"
-                    });
-                    $.ajax({
-                        url: "account",
-                        method: "GET",
-                        data: {
-                            action: action,
-                            email: email,
-                            mk: password,
-                            remember: remember
-                        },
-                        success: function(data) {
-                            $('.errLogin').html(data)
-                        }
 
-                    })
-                }
-            })
-            // handle register
-            $('#register_user').submit(function(e) {
-                e.preventDefault();
-                var action = 'register';
-                var fullname = $('#fullname').val()
-                var birthday = $('#birthday').val()
-                var email = $('#email_register').val();
-                var password = $('#pass_register').val();
-                var gender = $('#gender')
-                var male = '';
-                var female = '';
-                // ktra có dc check
-                if (gender.prop("checked") == true) {
-                    male = "check";
-                    female = null;
-                } else {
-                    female = "check";
-                    male = null;
-                }
-                if (email == '' || password == ''|| fullname == '' || birthday == '') {
-                    return false;
-                } else {
-                    $("#loading_spinner").css({
-                        "display": "block"
-                    });
-                    $.ajax({
-                        url: "account",
-                        method: "GET",
-                        data: {
-                            action: action,
-                            fullname: fullname,
-                            birthday: birthday,
-                            email: email,
-                            mk: password,
-                            male: male,
-                            female: female
+            $("#lightgallery").lightGallery();
 
-                        },
-                        success: function(data) {
-                            $('.errRegister').html(data)
-                        }
-
-                    })
-                }
-            })
-            
-        })
+        });
     </script>
+
+</body>
+<script src="https://dl.dropboxusercontent.com/s/6x9xf4l912dcp1d/Lightgallery.js"></script>
+<script>
+    $(document).ready(function() {
+        $('#login_user').submit(function(e) {
+            e.preventDefault();
+            var action = 'loginClient';
+            var email = $('#email_login').val();
+            var password = $('#password_login').val();
+            var remember = $('#remember')
+            if (remember.prop("checked") == true) {
+                remember = "check";
+            } else {
+                remember = "null";
+            }
+            if (email == '' || password == '') {
+                $('.errLogin').html('Nhập đầy đủ thông tin');
+                return false;
+            } else {
+                $("#loading_spinner").css({
+                    "display": "block"
+                });
+                $.ajax({
+                    url: "accountClient",
+                    method: "GET",
+                    data: {
+                        action: action,
+                        email: email,
+                        mk: password,
+                        remember: remember
+                    },
+                    success: function(data) {
+                        $('.errLogin').html(data)
+                    }
+
+                })
+            }
+        })
+        // handle register
+        $('#register_user').submit(function(e) {
+            e.preventDefault();
+            var action = 'register';
+            var fullname = $('#fullname').val()
+            var birthday = $('#birthday').val()
+            var email = $('#email_register').val();
+            var password = $('#pass_register').val();
+            var gender = $('#gender')
+            var male = '';
+            var female = '';
+            // ktra có dc check
+            if (gender.prop("checked") == true) {
+                male = "check";
+                female = null;
+            } else {
+                female = "check";
+                male = null;
+            }
+            if (email == '' || password == '' || fullname == '' || birthday == '') {
+                return false;
+            } else {
+                $("#loading_spinner").css({
+                    "display": "block"
+                });
+                $.ajax({
+                    url: "accountClient",
+                    method: "GET",
+                    data: {
+                        action: action,
+                        fullname: fullname,
+                        birthday: birthday,
+                        email: email,
+                        mk: password,
+                        male: male,
+                        female: female
+
+                    },
+                    success: function(data) {
+                        $('.errRegister').html(data)
+                    }
+
+                })
+            }
+        })
+
+    })
+</script>
 
 </body>
 

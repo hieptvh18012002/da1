@@ -54,7 +54,7 @@
                                 <a href="?action=del&id=<?= $item['pro_id'] ?>" onclick="return confirm('Bạn chắc chắn muốn xóa sản phẩm?')"><i class="fas fa-trash-alt text-danger fa-2x"></i></a>
                             </td>
                         </tr>
-                    <?php endforeach; ?>
+                    <?php $n++; endforeach; ?>
                 <?php endif; ?>
 
             </tbody>

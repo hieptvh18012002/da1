@@ -85,7 +85,7 @@
                             </div>
                         </div>
                         <div class="cart__btn__order">
-                            <a href="cart?action=checkout">
+                            <a href="cartClient?action=checkout">
                                 <button type="button">Thủ tục thanh toán</button>
                             </a>
                         </div>

@@ -19,15 +19,23 @@
             </div>
             <div id="paging1" class="proC__paging">
                 <nav class="pages">
-                    <li class="pageLeft"><i class="far fa-chevron-left"></i></li>
+                    <?php if ($data['current_page'] > 1 && $data['total_page'] > 1) : ?>
+                        <a href="productClient?action=viewListProduct&page=<?= ($data['current_page'] - 1) ?>" class="pageLeft"><i class="far fa-chevron-left"></i></a>
+                    <?php endif; ?>
                     <li class="number__paging">
-                        <span class="numB numB__active">1</span>
-                        <span class="numB">2</span>
-                        <span class="numB">3</span>
-                        <span>...</span>
-                        <span class="numB">100</span>
+                        <?php for ($i = 1; $i <= $data['total_page']; $i++) {
+                            // Nếu là trang hiện tại thì hiển thị thẻ span
+                            // ngược lại hiển thị thẻ a
+                            if ($i == $data['current_page']) {
+                                echo '<span class="numB numB__active">' . $i . '</span>';
+                            } else {
+                                echo '<a href="productClient?action=viewListProduct&page=' . $i . '" class="numB">' . $i . '</a>';
+                            }
+                        } ?>
                     </li>
-                    <li class="pageRight"><i class="far fa-chevron-right"></i></li>
+                    <?php if ($data['current_page'] < $data['total_page'] && $data['total_page'] > 1) : ?>
+                        <a href="productClient?action=viewListProduct&page=<?= ($current_page + 1) ?>" class="pageRight"><i class="far fa-chevron-right"></i></a>
+                    <?php endif; ?>
                 </nav>
             </div>
         </div>
@@ -35,21 +43,6 @@
 
         <div class="proC__filters">
             <form class="form__filter">
-                <div class="select__branch">
-                    <select class="op__branch" name="" id="">
-                        <option value="Việt Nam">Việt Nam</option>
-                        <option value="Việt Nam">Việt Nam</option>
-                        <option value="Việt Nam">Việt Nam</option>
-                        <option value="Việt Nam">Việt Nam</option>
-                        <option value="Việt Nam">Việt Nam</option>
-                        <option value="Việt Nam">Việt Nam</option>
-                        <option value="Việt Nam">Việt Nam</option>
-                        <option value="Việt Nam">Việt Nam</option>
-                        <option value="Việt Nam">Việt Nam</option>
-                        <option value="Việt Nam">Việt Nam</option>
-                        <option value="Việt Nam">Việt Nam</option>
-                    </select>
-                </div>
                 <div class="select__price">
                     <div id="price" class="filter__title">
                         <p>Giá</p>
@@ -70,26 +63,57 @@
 
         <div class="proC__show">
             <div class="proC__allItem">
-                
+                <?php foreach ($data['list_pro'] as $item) : ?>
+                    <div class="proC__item">
+                        <div class="proC__item__img">
+                            <a href="product?action=viewProductDetail&id=<?= $item['id'] ?>">
+                                <img src="public/images/products/<?= $item['avatar'] ?> " alt="" width="100%">
+                            </a>
+                        </div>
+                        <div class="proC__item__Name">
+                            <p><?= $item['name'] ?></p>
+                        </div>
+                        <div class="proC__item__PC">
+                            <div class="proC__item__price">
+                                <p><?= number_format($item['price'], 0, ',', '.') ?> vnd</p>
+                            </div>
+                            <div class="proC__item__color">
+                                <p>3</p>
+                                <img src="public/images/layout/colorwheel-2.png" alt="">
+                            </div>
+                        </div>
+                        <div class="proC__love">
+                            <div class="proC__love__icon">
+                                <i class="far fa-heart"></i>
+                            </div>
+                        </div>
+                    </div>
 
-
-
-                
+                <?php endforeach; ?>
             </div>
 
             <!-- end copy -->
             <div class="proC__fist2">
+                <!-- pagination -->
                 <div id="paging2" class="proC__paging">
                     <nav class="pages">
-                        <li class="pageLeft"><i class="far fa-chevron-left"></i></li>
+                        <?php if ($data['current_page'] > 1 && $data['total_page'] > 1) : ?>
+                            <a href="productClient?action=viewListProduct&page=<?= ($data['current_page'] - 1) ?>" class="pageLeft"><i class="far fa-chevron-left"></i></a>
+                        <?php endif; ?>
                         <li class="number__paging">
-                            <span class="numB numB__active">1</span>
-                            <span class="numB">2</span>
-                            <span class="numB">3</span>
-                            <span>...</span>
-                            <span class="numB">100</span>
+                            <?php for ($i = 1; $i <= $data['total_page']; $i++) {
+                                // Nếu là trang hiện tại thì hiển thị thẻ span
+                                // ngược lại hiển thị thẻ a
+                                if ($i == $data['current_page']) {
+                                    echo '<span class="numB numB__active">' . $i . '</span>';
+                                } else {
+                                    echo '<a href="productClient?action=viewListProduct&page=' . $i . '" class="numB">' . $i . '</a>';
+                                }
+                            } ?>
                         </li>
-                        <li class="pageRight"><i class="far fa-chevron-right"></i></li>
+                        <?php if ($data['current_page'] < $data['total_page'] && $data['total_page'] > 1) : ?>
+                            <a href="productClient?action=viewListProduct&page=<?= ($current_page + 1) ?>" class="pageRight"><i class="far fa-chevron-right"></i></a>
+                        <?php endif; ?>
                     </nav>
                 </div>
             </div>
