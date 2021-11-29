@@ -75,6 +75,7 @@
         </ul>
       </div>
     </li>
+    <?php if ($_SESSION['admin']['role_id'] == 3) : ?>
     <li class="nav-item">
       <a class="nav-link" data-toggle="collapse" href="#voucher" aria-expanded="false" aria-controls="ui-basic">
         <i class="icon-layout menu-icon"></i>
@@ -88,6 +89,7 @@
         </ul>
       </div>
     </li>
+    <?php endif;?>
     <li class="nav-item">
       <a class="nav-link" href="#order">
         <i class="fas fa-shipping-fast menu-icon"></i>

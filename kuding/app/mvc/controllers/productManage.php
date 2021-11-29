@@ -248,9 +248,10 @@ if (isset($_GET['action'])) {
             $title = '';
             $qr = "SELECT * FROM products WHERE status=1 ";
             if (isset($_GET['filtercate'])) {
-                $qr .= " AND cate_id=".$_GET['filtercate'];
+                $cate_id = $_GET['filtercate'];
+                $qr .= " AND cate_id=$cate_id";
                 $title = category_select_by_id($_GET['filtercate'])['name'];
-            }elseif($_GET['keyword']){
+            }elseif(isset($_GET['keyword'])){
                 $title = "Kết quả tìm kiếm ".'.'.$_GET['keyword'].'.';
             }
             else{
@@ -261,9 +262,9 @@ if (isset($_GET['action'])) {
                
                 $minimum_price = $_GET['minimum_price'];
                 $maximum_price = $_GET['maximum_price'];
-                if (isset($minimum_price, $maximum_price)) {
-                    $qr .= " AND price BETWEEN $minimum_price AND $maximum_price ";
-                }
+                // if (isset($minimum_price, $maximum_price)) {
+                //     $qr .= " AND price BETWEEN $minimum_price AND $maximum_price ";
+                // }
                 $db =get_connection();
                 $stmt = $db->prepare($qr);
                 $stmt->execute();

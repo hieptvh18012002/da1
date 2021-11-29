@@ -3,13 +3,10 @@
         <div class="body__acc__fist">
             <div class="body__acc__title">
                 <div class="acc__title__fist active">
-                    <p>Bảng điều khiển</p>
+                    <p>Thông tin tài khoản</p>
                 </div>
                 <div class="acc__title__fist ">
                     <p>Đơn hàng</p>
-                </div>
-                <div class="acc__title__fist">
-                    <p>Thông tin</p>
                 </div>
                 <div class="acc__title__text mt-3">
                     <p>Chào mừng bạn trở lại Nghĩa</p>
@@ -25,14 +22,11 @@
                     </div>
                 </div>
                 <nav class="acc__allmenu show__menu">
-                    <div id="1" class="acc__menu__item active">
-                        <a href="">Bảng điều khiển</a>
-                    </div>
-                    <div id="2" class="acc__menu__item">
-                        <a href="">Đơn hàng</a>
-                    </div>
-                    <div id="3" class="acc__menu__item">
+                    <div class="acc__menu__item active">
                         <a href="">Thông tin tài khoản</a>
+                    </div>
+                    <div class="acc__menu__item">
+                        <a href="">Đơn hàng</a>
                     </div>
                     <div class="acc__line"></div>
                 </nav>
@@ -41,27 +35,7 @@
     </div>
     <div class="body__acc__content">
         <div class="acc__tab__menu active">
-            <h1>Nghĩa</h1>
-        </div>
-        <div class="acc__tab__menu">
-            <div class="acc__menu__content">
-                <div class="acc__donhang">
-                    <div class="acc__DH__title">
-                        <p>Lịch sử đơn hàng</p>
-                    </div>
-                    <div class="acc__DH__content">
-                        <div class="DH__content__title">
-                            <p>Không tìm thấy đơn hàng</p>
-                        </div>
-                        <div class="DH__content__body">
-                            <img src="public/images/layout/empty-orders.jpg" alt="">
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="acc__tab__menu">
-            <div class="acc__menu__content">
+        <div class="acc__menu__content">
                 <div class="acc__donhang">
                     <div class="acc__DH__title">
                         <p>Thông tin tài khoản của bạn</p>
@@ -127,23 +101,23 @@
                     <div id="changePass" class="acc__DH__title">
                         <p>Thay đổi mật khẩu tài khoản</p> <i class="fa fa-chevron-down" aria-hidden="true"></i>
                     </div>
-                    <div id="show" class="acc__DH__content1 none">
+                    <div id="show" class="acc__DH__content1">
                         <div class="DH__form">
                             <form action="" method="post" id="form_pass">
                                 <div class="DH__form1">
                                     <label for="">Mật khẩu cũ</label>
-                                    <input name="password" type="text">
+                                    <input name="password" type="password" value="<?= save_value("password")?>">
                                     <?php if(isset($data['errPass'])): ?>
                                         <div class="text-danger"><?php echo $data['errPass'] ?></div>
                                         <?php endif;?>
                                 </div>
                                 <div class="DH__form1">
                                     <label for="">Mật khẩu mới</label>
-                                    <input name="password_new" type="text">
+                                    <input name="password_new" type="password" value="<?= save_value("password_new") ?>">
                                 </div>
                                 <div class="DH__form1">
                                     <label for="">Xác nhận mật khẩu</label>
-                                    <input name="password_comfim" type="text">
+                                    <input name="password_comfim" type="password">
                                 </div>
                                 <?php if($data['err_pass']):?>
                                     <div class="text-danger">
@@ -160,46 +134,24 @@
 
             </div>
         </div>
+        <div class="acc__tab__menu">
+            <div class="acc__menu__content">
+                <div class="acc__donhang">
+                    <div class="acc__DH__title">
+                        <p>Lịch sử đơn hàng</p>
+                    </div>
+                    <div class="acc__DH__content">
+                        <div class="DH__content__title">
+                            <p>Không tìm thấy đơn hàng</p>
+                        </div>
+                        <div class="DH__content__body">
+                            <img src="public/images/layout/empty-orders.jpg" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
 </main>
 
-<!-- js -->
-<script>
-    // $(document).ready(function(){
-    //     $('#form_pass').submit(function(e) {
-    //             e.preventDefault();
-    //             var action = 'loginClient';
-    //             var email = $('#email_login').val();
-    //             var password = $('#password_login').val();
-    //             var remember = $('#remember')
-    //             if (remember.prop("checked") == true) {
-    //                 remember = "check";
-    //             } else {
-    //                 remember = "null";
-    //             }
-    //             if (email == '' || password == '') {
-    //                 $('.errLogin').html('Nhập đầy đủ thông tin');
-    //                 return false;
-    //             } else {
-    //                 $("#loading_spinner").css({
-    //                     "display": "block"
-    //                 });
-    //                 $.ajax({
-    //                     url: "account",
-    //                     method: "GET",
-    //                     data: {
-    //                         action: action,
-    //                         email: email,
-    //                         mk: password,
-    //                         remember: remember
-    //                     },
-    //                     success: function(data) {
-    //                         $('.errLogin').html(data)
-    //                     }
-
-    //                 })
-    //             }
-    //         }) 
-    // })
-</script>

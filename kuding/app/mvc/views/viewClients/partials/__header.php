@@ -2,7 +2,17 @@
 
     <div class="header-top swiper mySwiper">
         <div class="swiper-wrapper">
-            <a href="#" class="swiper-slide slider-top1">Covid-19 </a>
+            <a href="#" class="swiper-slide slider-top1">
+                    <!-- nếu có vourcher thì hiển thị nhiều nhất 2 cái -->
+                    <?php if(isset($data['vourchers'])){
+                        echo "Nhanh tay nhập mã giảm giá để giảm giá cho đơn hàng! - ";
+                        foreach($data['vourchers'] as $item){
+                            echo $item['code'].",";
+                        }
+                    }else{
+                     echo "Covid-19";   
+                    }?>
+        </a>
             <a href="#" class="swiper-slide slider-top2">Vận chuyển nhanh chóng và tin cậy 🚛</a>
         </div>
     </div>
@@ -20,7 +30,7 @@
                 </a>
             </div>
             <div class="search">
-                <form action="123?action=" class="form-search" method="GET">
+                <form action="" class="form-search" method="GET">
                     <!-- <input type="hidden" value="action=viewListProduct" name="?"> -->
                     <div class="pop-input">
                         <select name="filter-cate" id="" class="filter-cate">
@@ -202,7 +212,7 @@
                         </a>
                     </li>
                 <?php endif; ?>
-                <li><a href="">#KOODING</a></li>
+                <li><a href="album">#KOODING</a></li>
             </ul>
         </div>
 

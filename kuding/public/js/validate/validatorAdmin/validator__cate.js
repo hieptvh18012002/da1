@@ -37,7 +37,7 @@ $("#form_categorys").validate({
         },
         email: {
             required : true,
-            email: /^[a-zA-Z0-9._%-]+@[a-zA-Z0-9.-]+.[a-zA-Z]{2,4}$/
+            valiEmail : true
         },
         password: {
             required : true,
@@ -47,6 +47,12 @@ $("#form_categorys").validate({
         birthday: {
             required : true,
             date: true
+        },
+        phone: {
+            required : true,
+            number: true,
+            minlength: 10,
+            maxlength: 11,
         },
         
     },
@@ -59,7 +65,6 @@ $("#form_categorys").validate({
         },
         email: {
             required: "Vui lòng nhập email !",
-            email: "Nhập đúng định dạng email"
         },
         password: {
             required: "Vui lòng nhập mật khẩu !",
@@ -69,6 +74,12 @@ $("#form_categorys").validate({
         birthday: {
             required: "Vui lòng nhập ngày sinh !",
             date: "Nhập đúng định dạng ngày",
+        },
+        phone: {
+            required : "Vui lòng nhập số điện thoại",
+            number: "Số điện thoại phải là số",
+            minlength: "Số điện thoại ít nhất 10 số",
+            maxlength: "Số điện thoại nhiều nhất nhất 11 số",
         },
     },
     submitHandler: function(form) {
@@ -207,3 +218,101 @@ $("#form_categorys").validate({
       form.submit();
     }
  });
+
+
+  // form add tin tức
+  $("#form_news").validate({
+    rules: {
+        title: {
+            required : true,
+            minlength : 10,
+        },
+        img_cate: {
+            required : true,
+        },
+        shortdesc: {
+            required : true,
+            minlength : 10,
+        },
+        desc: {
+            required : true,
+        }
+    },
+
+    messages: {
+        title: {
+            required: "Vui lòng nhập tiêu đề !",
+            minlength: "Tiêu đề quá ngắn",
+        },
+        img_cate: {
+            required: "Vui lòng nhập ảnh cho tin tức !",
+        },
+        shortdesc: {
+            required: "Vui lòng nhập mô tả ngắn !",
+            minlength: "Nhập tối thiếu 10 ký tự",
+        },
+        desc: {
+            required: "Vui lòng nhập thuộc tính sản phẩm !",
+        },
+    },
+    submitHandler: function(form) {
+      form.submit();
+    }
+ });
+
+  // form add vourcher
+  $("#form_vourcher").validate({
+    rules: {
+        name_vour: {
+            required : true,
+            minlength : 10
+        },
+        code: {
+            required : true,
+            minlength : 6,
+        },
+        sale: {
+            required : true,
+        }
+    },
+
+    messages: {
+        name_vour: {
+            required: "Vui lòng nhập tên mã giảm giá !",
+            minlength: "Tên giảm  quá ngắn",
+        },
+        code: {
+            required: "Vui lòng nhập mã code !",
+            minlength: "Mã code tối thiểu 6 ký tự",
+        },
+        sale: {
+            required: "Vui lòng nhập mệnh giá !",
+            maxlength: "Vui lòng nhập giá trị từ 1% -> 99%"
+        }
+    },
+    submitHandler: function(form) {
+      form.submit();
+    }
+ });
+
+ $.validator.addMethod("valiEmail", function (value, element) {
+    return this.optional(element) || /^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/.test(value);
+}, "Nhập đúng định dạng email (VD: Kooding@gmail.com)");
+
+$("#driveaway").change(function() {
+    var selectedCountry = $(this). children("option:selected"). val();  
+    if(selectedCountry == "y"){
+        $("#driveamount").prop('maxlength', "2");
+    }
+    else if(selectedCountry == "n"){           
+        $("#driveamount").removeAttr("maxlength", "2");
+    }
+});
+
+// $("#driveaway").change(function() {
+//     const selectedCountry = $(this). children("option:selected").val();
+//     if(selectedCountry == n){
+//         $("#driveamount").removeAttr("maxlength");
+//     }
+// });
+

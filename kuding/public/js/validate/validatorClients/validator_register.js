@@ -11,6 +11,7 @@ $("#register_user").validate({
         },
         password: {
             required : true,
+            validatePassword: true,
             minlength : 6,
             maxlength : 12
         },
@@ -47,6 +48,7 @@ $("#register_user").validate({
         }
     },
     submitHandler: function(form) {
+        console.log(form);
       form.submit();
     }
  });
@@ -106,3 +108,7 @@ $("#checkout").validate({
       form.submit();
     }
  });
+
+ $.validator.addMethod("validatePassword", function (value, element) {
+    return this.optional(element) || /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,}$/.test(value);
+}, "Mật khẩu không chứa ký đặc biệt ít nhất 1 số và 1 chữ cái");
