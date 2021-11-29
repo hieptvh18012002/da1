@@ -3,7 +3,9 @@ require_once './app/common/bridge.php';
 callModel("productModels");
 callModel("categoryModels");
 callModel("commentModels");
-
+callModel("vourcherModels");
+// lấy list
+$list_vour = vc_select_all();
 $list_cate = cate_select_all();
 $list_pro = product_select_all();
 $size_values = size_select_all();
@@ -308,7 +310,7 @@ if (isset($_GET['action'])) {
                 die;
             }
 
-            viewClient('layout', ['page' => 'product', 'list_cate' => $list_cate, 'title' => $title]);
+            viewClient('layout', ['page' => 'product', 'list_cate' => $list_cate, 'title' => $title,'list_vour' => $list_vour]);
             die;
             break;
         case "viewProductDetail":
@@ -391,7 +393,7 @@ if (isset($_GET['action'])) {
             }
             // xóa cmt
 
-            viewClient('layout', ['page' => 'product-details', 'list_img' => $pro_imgs, 'list_cate' => $list_cate, 'pros' => $pros, 'errCmt' => $err['cmt'], 'errImg' => $err['img'], 'list_cmt' => $cmts]);
+            viewClient('layout', ['page' => 'product-details', 'list_img' => $pro_imgs, 'list_cate' => $list_cate, 'pros' => $pros, 'errCmt' => $err['cmt'], 'errImg' => $err['img'], 'list_cmt' => $cmts,'list_vour' => $list_vour]);
             die;
             break;
 
@@ -399,7 +401,7 @@ if (isset($_GET['action'])) {
             // code sản phẩm yêu thích
             // nếu là khách thì lưu vào session >< đã đang nhập thì lưu db
 
-            viewClient('layout', ['page' => 'favorite', 'list_cate' => $list_cate]);
+            viewClient('layout', ['page' => 'favorite', 'list_cate' => $list_cate,'list_vour' => $list_vour]);
             die;
             break;
     }
