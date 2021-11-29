@@ -5,7 +5,6 @@
 
         <select name="categories" id="categories" style="border-radius: 15px;">
             <option value="" disabled selected>Lọc theo danh mục</option>
-            <option value="">Tất cả sản phẩm</option>
             <?php foreach ($data['list_cate'] as $item) : ?>
                 <option value="<?= $item['id'] ?>"><?= $item['name'] ?></option>
             <?php endforeach; ?>

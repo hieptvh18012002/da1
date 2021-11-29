@@ -2,7 +2,17 @@
 
     <div class="header-top swiper mySwiper">
         <div class="swiper-wrapper">
-            <a href="#" class="swiper-slide slider-top1">Covid-19 </a>
+            <a href="#" class="swiper-slide slider-top1">
+                    <!-- nếu có vourcher thì hiển thị nhiều nhất 2 cái -->
+                    <?php if(isset($data['vourchers'])){
+                        echo "Nhanh tay nhập mã giảm giá để giảm giá cho đơn hàng! - ";
+                        foreach($data['vourchers'] as $item){
+                            echo $item['code'].",";
+                        }
+                    }else{
+                     echo "Covid-19";   
+                    }?>
+        </a>
             <a href="#" class="swiper-slide slider-top2">Vận chuyển nhanh chóng và tin cậy 🚛</a>
         </div>
     </div>
@@ -21,16 +31,17 @@
             </div>
             <div class="search">
                 <form action="" class="form-search" method="GET">
+                    <!-- <input type="hidden" value="action=viewListProduct" name="?"> -->
                     <div class="pop-input">
                         <select name="filter-cate" id="" class="filter-cate">
-                            <option value=""><a href="">Phụ kiện</a></option>
-                            <option value="">Nam</option>
-                            <option value="">Nữ</option>
-                            <option value="">Trẻ em</option>
+                            <option value="all"><a href="">Tất cả</a></option>
+                            <?php foreach($data['list_cate'] as $item):?>
+                            <option value="<?= $item['id'] ?>"><?= $item['name'] ?></option>
+                           <?php endforeach;?>
                         </select>
                         <input type="search" name="keyword" placeholder="Tìm kiếm" required>
                     </div>
-                    <button type="submit">
+                    <button type="submit" >
                         <i class="fa fa-search" aria-hidden="true"></i>
                     </button>
                 </form>
@@ -201,7 +212,7 @@
                         </a>
                     </li>
                 <?php endif; ?>
-                <li><a href="">#KOODING</a></li>
+                <li><a href="album">#KOODING</a></li>
             </ul>
         </div>
 

@@ -17,8 +17,13 @@ function comment_exits($id_cmt){
 
 // show tổng hợp comments
 function syn_comments(){
-    return pdo_query("SELECT hh.product_id ,hh.product_name,COUNT(*) quantity,MIN(cmt.created_at) bl_cunhat,MAX(cmt.created_at) bl_moinhat FROM comments cmt JOIN product_lists hh ON cmt.product_id=hh.product_id GROUP BY hh.product_id ,hh.product_name HAVING quantity>0");
+    return pdo_query("SELECT hh.id ,hh.name pro_name,COUNT(*) quantity,MIN(cmt.created_at) bl_cunhat,MAX(cmt.created_at) bl_moinhat FROM comments cmt JOIN products hh ON cmt.pro_id=hh.id GROUP BY hh.id ,hh.name HAVING quantity>0");
 }
 function syn_comments_by_cate($id){
     return pdo_query("SELECT lh.category_name, hh.product_id ,hh.product_name,COUNT(*) quantity,MIN(cmt.created_at) bl_cunhat,MAX(cmt.created_at) bl_moinhat FROM product_lists hh JOIN comments cmt ON cmt.product_id=hh.product_id JOIN product_categories lh ON lh.category_id=hh.category_id WHERE lh.category_id='$id' GROUP BY hh.product_id ,hh.product_name,lh.category_name HAVING quantity>0; ");
+}
+
+//  xóa cmt ;
+function del_cmts(){
+    
 }

@@ -56,7 +56,8 @@ function size_select_pro($id_pro)
     return pdo_query($sql);
 }
 // show name value attr
-function select_name_value_pro($id_value){
+function select_name_value_pro($id_value)
+{
     $sql = "SELECT av.value FROM attr_values av WHERE av.id=$id_value;";
     return pdo_query($sql);
 }
@@ -74,6 +75,12 @@ function product_exits($id)
 function searchProducts($key)
 {
     $sql = "SELECT * FROM products pl JOIN product_categories pc ON pl.category_id=pc.category_id WHERE special=0 AND pl.product_name  LIKE '%$key%'  OR pc.category_name LIKE '%$key%' ORDER BY pl.created_at DESC";
+    return pdo_query($sql);
+}
+// lấy sp đặc biệt;
+function pro_select_special()
+{
+    $sql = "SELECT * FROM products WHERE special=1 ORDER BY created_at DESC LIMIT 0,3";
     return pdo_query($sql);
 }
 // sp liên quan -> sp cùng danh mục
@@ -124,9 +131,9 @@ function get_value_pro()
 {
 }
 
-function product_update($id, $name, $cate, $price, $discount, $image, $description)
+function product_update($id, $name, $cate, $price, $discount, $image, $description, $special)
 {
-    $sql = "UPDATE products SET name='$name',cate_id='$cate',price='$price',discount='$discount',avatar='$image',description='$description' WHERE id=$id";
+    $sql = "UPDATE products SET name='$name',cate_id='$cate',price='$price',discount='$discount',avatar='$image',description='$description',special=$special WHERE id=$id ";
     pdo_execute($sql);
 }
 function product_delete($id)
@@ -151,5 +158,3 @@ function pro_img_del($id)
     $sql = "DELETE FROM pro_imgs WHERE pro_id='$id'";
     pdo_execute($sql);
 }
-
-

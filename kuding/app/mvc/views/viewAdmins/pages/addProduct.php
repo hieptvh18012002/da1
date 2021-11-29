@@ -29,28 +29,28 @@
                 </div>
                 <div class="form-group" style="display:flex; column-gap:30px; align-items:center;">
                     <label for="">Màu sản phẩm</label>
-                    <?php foreach($data['color_values'] as $item):?>
-                    <div class="form-check">
-                        <label class="form-check-label">
-                            <input class="checkbox" type="checkbox" name="color[]" value="<?= $item['id'] ?>">
-                            <?= $item['value'] ?>
-                        </label>
-                    </div>
-                   <?php endforeach;?>
-                   <label for="color[]" class="error"></label>
+                    <?php foreach ($data['color_values'] as $item) : ?>
+                        <div class="form-check">
+                            <label class="form-check-label">
+                                <input class="checkbox" type="checkbox" name="color[]" value="<?= $item['id'] ?>">
+                                <?= $item['value'] ?>
+                            </label>
+                        </div>
+                    <?php endforeach; ?>
+                    <label for="color[]" class="error"></label>
                 </div>
-             
+
                 <div class="form-group" style="display:flex; column-gap:30px; align-items:center;">
                     <label for="">Kích cỡ</label>
-                    <?php foreach($data['size_values'] as $item):?>
-                    <div class="form-check">
-                        <label class="form-check-label">
-                            <input class="checkbox" type="checkbox" name="size[]" value="<?= $item['id'] ?>">
-                            <?= $item['value'] ?>
-                        </label>
-                    </div>
-                   <?php endforeach;?>
-                   <label for="size[]" class="error"></label>
+                    <?php foreach ($data['size_values'] as $item) : ?>
+                        <div class="form-check">
+                            <label class="form-check-label">
+                                <input class="checkbox" type="checkbox" name="size[]" value="<?= $item['id'] ?>">
+                                <?= $item['value'] ?>
+                            </label>
+                        </div>
+                    <?php endforeach; ?>
+                    <label for="size[]" class="error"></label>
                 </div>
                 <div class="form-group">
                     <label>Ảnh đại diện( ảnh)</label>
@@ -66,15 +66,25 @@
                 </div>
                 <div class="form-group">
                     <label>Ảnh Chi tiết(dưới 5 ảnh)</label>
-                    <input type="file" name="avatars[]" class="form-control" id="uploads" multiple="multiple" >
+                    <input type="file" name="avatars[]" class="form-control" id="uploads" multiple="multiple">
                     <?php if (!empty($data['errImgs'])) : ?>
                         <div class="text-danger">
                             <?php echo $data['errImgs']  ?>
                         </div>
                     <?php endif; ?>
-                   
-                </div>
 
+                </div>
+                <div class="form-check-inline">
+                    <label for="" class="mr-3"> Có phải sản phẩm đặc biệt?(hiển thị trang chủ)</label>
+                    <input class="form-check-input" value="0" id="special" type="radio" name="special" checked>
+                    <label for="special" class="form-check-label mr-4">
+                        Không
+                    </label>
+                    <input class="form-check-input" id="special1" type="radio" name="special" value="1">
+                    <label for="special1" class="form-check-label">
+                        Có
+                    </label>
+                </div>
                 <div class="form-group">
                     <label for="local-upload">Mô tả thông tin sản phẩm</label>
                     <textarea class="form-control" id="local-upload" name="desc" rows="4"><?= save_value('desc') ?></textarea>

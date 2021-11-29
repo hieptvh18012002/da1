@@ -1,8 +1,8 @@
 <div class="col-12 grid-margin stretch-card">
     <div class="card">
-        <?php if (!empty($data['msg'])) : ?>
+        <?php if (isset($_GET['msg'])) : ?>
             <div class="bg-success p-2">
-                <?php echo $data['msg']; ?>
+                <?php echo $_GET['msg']; ?>
             </div>
         <?php endif; ?>
         <?php if (!empty($data['err'])) : ?>

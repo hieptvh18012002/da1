@@ -2,8 +2,15 @@
 <?php
 require_once "./app/common/bridge.php";
 callModel("accountModels");
+callModel("categoryModels");
 $list_acc = acc_select_all();
+$list_cate = category_select_all();
 $err = '';
+$er = array();
+$er['pass'] = '';
+$err_pass = '';
+$err_pass_old = '';
+$msg = '';
 if (isset($_GET['action'])) :
     switch ($_GET['action']) {
         case "loginAdmin":
@@ -126,7 +133,36 @@ if (isset($_GET['action'])) :
             break;
         case "viewProfileClient":
             // code update profile cá nhân
-            viewClient('layout', ['page' => 'profile']);
+            if(isset($_POST['btn_update'])){
+                extract($_POST);
+                acc_update($_SESSION['customer']['id'],$fullname,$birthday,1,$gender);
+                session_destroy();
+                header('location: homepage?msg=Cập nhật tài khoản thành công! Vui lòng đăng nhập lại.');
+            }
+            if(isset($_POST['btn_change_pass'])){
+                extract($_POST);
+                // check pas confirm
+                $email = $_SESSION['customer']['email'];
+                $acc = acc_select_by_email($email);
+                $pass = md5($password);
+                if($acc['password'] != $pass ){
+                    $er['pass'] = "Mật khẩu cũ không chính xác";
+                }else{
+                    if($password_new == $password_comfim){
+    
+                    }else{
+                        $err_pass_old = "Mật khẩu mới không khớp";
+                    }
+    
+                    if(empty($err_pass_old) && empty($er['pass'])){
+                        $pass_success = md5($password_new);
+                        acc_update_pass($_SESSION['customer']['id'],$pass_success);
+                        $msg = "Thay đổi mật khẩu thành công";
+                    }
+                }
+            }
+
+            viewClient('layout', ['page' => 'profile','errPass'=>$er['pass'],'err_pass'=>$err_pass_old,'list_cate'=>$list_cate,'msg'=>$msg]);
             die;
             break;
         case "addAccount":

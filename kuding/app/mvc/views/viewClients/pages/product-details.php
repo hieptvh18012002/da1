@@ -252,7 +252,11 @@
                                         <img src="./public/images/upload/<?= $item['image'] ?>" alt="" width="100%">
                                     </div>
                                     <div class="item__more">
+                                        <?php if(isset($_SESSION['admin'])):?>
+                                        <a href="comment?action=del&cmt_id=<?= $item['id'] ?>&pro_id=<?= $data['pros']['id'] ?>">
                                         <i class="fas fa-trash-alt"></i>
+                                        </a>
+                                        <?php endif;?>
                                     </div>
                                 </div>
                             </div>

@@ -40,6 +40,12 @@
                     <div class="acc__DH__title">
                         <p>Thông tin tài khoản của bạn</p>
                     </div>
+                    <?php if (!empty($data['msg'])) : ?>
+                        <div class="bg-success p-2">
+                            <?php echo $data['msg'] ?>
+                        </div>
+                    <?php endif; ?>
+                   
                     <div class="acc__DH__content1">
                         <div class="DH__title">
                             <p>Đăng nhập xã hội: </p>
@@ -58,7 +64,7 @@
                                 </div> -->
                                 <div class="DH__form1">
                                     <label for="">E-mail <i>* Nơi bạn nhận được thông tin đặt hàng.</i></label>
-                                    <input type="email" name="email" value="<?= $_SESSION['customer']['email'] ?>">
+                                    <input type="email" name="email" disabled value="<?= $_SESSION['customer']['email'] ?>">
 
                                 </div>
                                 <div class="DH__form1">
@@ -84,7 +90,7 @@
                                     </div>
                                 </div>
                                 <div class="DH__submit">
-                                    <button onsubmit="alert('Bạn chắc chắn muốn xóa sản phẩm?')" type="submit">Lưu thông tin của tôi</button>
+                                    <button type="submit" name="btn_update">Lưu thông tin của tôi</button>
                                 </div>
                             </form>
                         </div>
@@ -95,23 +101,31 @@
                     <div id="changePass" class="acc__DH__title">
                         <p>Thay đổi mật khẩu tài khoản</p> <i class="fa fa-chevron-down" aria-hidden="true"></i>
                     </div>
-                    <div id="show" class="acc__DH__content1 none">
+                    <div id="show" class="acc__DH__content1">
                         <div class="DH__form">
                             <form action="" method="post" id="form_pass">
                                 <div class="DH__form1">
                                     <label for="">Mật khẩu cũ</label>
-                                    <input name="password" type="text">
+                                    <input name="password" type="password" value="<?= save_value("password")?>">
+                                    <?php if(isset($data['errPass'])): ?>
+                                        <div class="text-danger"><?php echo $data['errPass'] ?></div>
+                                        <?php endif;?>
                                 </div>
                                 <div class="DH__form1">
                                     <label for="">Mật khẩu mới</label>
-                                    <input name="password_new" type="text">
+                                    <input name="password_new" type="password" value="<?= save_value("password_new") ?>">
                                 </div>
                                 <div class="DH__form1">
                                     <label for="">Xác nhận mật khẩu</label>
-                                    <input name="password_comfim" type="text">
+                                    <input name="password_comfim" type="password">
                                 </div>
+                                <?php if($data['err_pass']):?>
+                                    <div class="text-danger">
+                                        <?php echo $data['err_pass'];?>
+                                    </div>
+                                    <?php endif;?>
                                 <div class="DH__submit">
-                                    <button type="submit">Cập nhật mật khẩu</button>
+                                    <button type="submit" name="btn_change_pass">Cập nhật mật khẩu</button>
                                 </div>
                             </form>
                         </div>
@@ -140,3 +154,4 @@
     </div>
 
 </main>
+

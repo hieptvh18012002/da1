@@ -3,7 +3,9 @@ require_once './app/common/bridge.php';
 callModel("productModels");
 callModel("categoryModels");
 callModel("commentModels");
-
+callModel("vourcherModels");
+// lấy list
+$list_vour = vc_select_all();
 $list_cate = cate_select_all();
 $list_pro = product_select_all();
 $size_values = size_select_all();
@@ -172,7 +174,7 @@ if (isset($_GET['action'])) {
                 }
                 if (empty($err['img'])) {
                     // update pro
-                    product_update($id, $name, $category, $price, $discount, $avatar, $desc);
+                    product_update($id, $name, $category, $price, $discount, $avatar, $desc,$special);
                     if ($file['size'] > 0) {
                         move_uploaded_file($file['tmp_name'], './public/images/products/' . $avatar);
                     }
@@ -236,7 +238,7 @@ if (isset($_GET['action'])) {
                 if (empty($err_at)) {
                     attr_value_insert($attr, $value);
                     $msg = "Thêm thành công giá trị của thuộc tính";
-                    header("location: product?action=addAttrProduct");
+                    header("location: product?action=addAttrProduct&msg=Thêm thành công giá trị");
                 }
             }
 
@@ -248,9 +250,13 @@ if (isset($_GET['action'])) {
             $title = '';
             $qr = "SELECT * FROM products WHERE status=1 ";
             if (isset($_GET['filtercate'])) {
-                $qr .= " AND cate_id=".$_GET['filtercate'];
+                $cate_id = $_GET['filtercate'];
+                $qr .= " AND cate_id=$cate_id";
                 $title = category_select_by_id($_GET['filtercate'])['name'];
-            }else{
+            }elseif(isset($_GET['keyword'])){
+                $title = "Kết quả tìm kiếm ".'.'.$_GET['keyword'].'.';
+            }
+            else{
                 $title = "Tất cả sản phẩm";
             }
 
@@ -258,9 +264,9 @@ if (isset($_GET['action'])) {
                
                 $minimum_price = $_GET['minimum_price'];
                 $maximum_price = $_GET['maximum_price'];
-                if (isset($minimum_price, $maximum_price)) {
-                    $qr .= " AND price BETWEEN $minimum_price AND $maximum_price ";
-                }
+                // if (isset($minimum_price, $maximum_price)) {
+                //     $qr .= " AND price BETWEEN $minimum_price AND $maximum_price ";
+                // }
                 $db =get_connection();
                 $stmt = $db->prepare($qr);
                 $stmt->execute();
@@ -304,7 +310,7 @@ if (isset($_GET['action'])) {
                 die;
             }
 
-            viewClient('layout', ['page' => 'product', 'list_cate' => $list_cate, 'title' => $title]);
+            viewClient('layout', ['page' => 'product', 'list_cate' => $list_cate, 'title' => $title,'list_vour' => $list_vour]);
             die;
             break;
         case "viewProductDetail":
@@ -333,15 +339,15 @@ if (isset($_GET['action'])) {
             //  lặp và select name value
             $color_name = '';
             $size_name = '';
-            echo "<pre>";
-            foreach ($color_id as $c) {
-                $color_name = select_name_value_pro($c);
-            }
-            var_dump($color_name);
-            die;
-            foreach ($size_id as $s) {
-                $size_name .= select_name_value_pro($s);
-            }
+            // echo "<pre>";
+            // foreach ($color_id as $c) {
+            //     $color_name = select_name_value_pro($c);
+            // }
+            // var_dump($color_name);
+            // die;
+            // foreach ($size_id as $s) {
+            //     $size_name .= select_name_value_pro($s);
+            // }
 
             // cmt
             if (isset($_POST['btn_cmt'])) {
@@ -385,7 +391,9 @@ if (isset($_GET['action'])) {
                     $err['cmt'] = "Bạn chưa nhập nội dung!";
                 }
             }
-            viewClient('layout', ['page' => 'product-details', 'list_img' => $pro_imgs, 'list_cate' => $list_cate, 'pros' => $pros, 'errCmt' => $err['cmt'], 'errImg' => $err['img'], 'list_cmt' => $cmts]);
+            // xóa cmt
+
+            viewClient('layout', ['page' => 'product-details', 'list_img' => $pro_imgs, 'list_cate' => $list_cate, 'pros' => $pros, 'errCmt' => $err['cmt'], 'errImg' => $err['img'], 'list_cmt' => $cmts,'list_vour' => $list_vour]);
             die;
             break;
 
@@ -393,7 +401,7 @@ if (isset($_GET['action'])) {
             // code sản phẩm yêu thích
             // nếu là khách thì lưu vào session >< đã đang nhập thì lưu db
 
-            viewClient('layout', ['page' => 'favorite', 'list_cate' => $list_cate]);
+            viewClient('layout', ['page' => 'favorite', 'list_cate' => $list_cate,'list_vour' => $list_vour]);
             die;
             break;
     }
