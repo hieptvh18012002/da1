@@ -34,7 +34,7 @@
                         } ?>
                     </li>
                     <?php if ($data['current_page'] < $data['total_page'] && $data['total_page'] > 1) : ?>
-                        <a href="productClient?action=viewListProduct&page=<?= ($current_page + 1) ?>" class="pageRight"><i class="far fa-chevron-right"></i></a>
+                        <a href="productClient?action=viewListProduct&page=<?= ($data['current_page'] + 1) ?>" class="pageRight"><i class="far fa-chevron-right"></i></a>
                     <?php endif; ?>
                 </nav>
             </div>
@@ -69,7 +69,7 @@
                 <?php foreach ($data['list_pro'] as $item) : ?>
                     <div class="proC__item">
                         <div class="proC__item__img">
-                            <a href="productClient?action=viewProductDetail&id=<?= $item['id'] ?>">
+                            <a href="productDetail?action=viewDetail&id=<?= $item['id'] ?>">
                                 <img src="public/images/products/<?= $item['avatar'] ?> " alt="" width="100%">
                             </a>
                         </div>
@@ -115,7 +115,7 @@
                             } ?>
                         </li>
                         <?php if ($data['current_page'] < $data['total_page'] && $data['total_page'] > 1) : ?>
-                            <a href="productClient?action=viewListProduct&page=<?= ($current_page + 1) ?>" class="pageRight"><i class="far fa-chevron-right"></i></a>
+                            <a href="productClient?action=viewListProduct&page=<?= ($data['current_page'] + 1) ?>" class="pageRight"><i class="far fa-chevron-right"></i></a>
                         <?php endif; ?>
                     </nav>
                 </div>

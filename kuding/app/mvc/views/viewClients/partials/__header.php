@@ -105,9 +105,9 @@
                                     </div>
                                 </form>
                                 <!-- register -->
-                                <form action="" method="POST" enctype="multipart/form-data" name="form-register" id="register_user" class="p-5">
+                                <form action="" method="POST" enctype="multipart/form-data" name="form-register" id="register_user" class="p-5" >
                                     <div class="errRegister" style="color:red;">
-
+                        
                                     </div>
                                     <div class="form-group">
                                         <input type="text" name="fullname" id="fullname" placeholder="Tên đầy đủ" class="fullname">

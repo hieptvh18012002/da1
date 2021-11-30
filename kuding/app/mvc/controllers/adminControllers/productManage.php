@@ -135,7 +135,6 @@ if (isset($_GET['action'])) {
                         pro_img_insert($item, $id_pro);
                     }
                     $msg = "Thêm thành công sản phẩm";
-                    // nếu k có err thì insert
                 }
             }
             viewAdmin("layout", ['page' => 'addProduct', 'list_cate' => $list_cate, 'errImg' => $err, 'errImgs' => $err['imgs'], 'errImg' => $err['img'], 'size_values' => $size_values, 'color_values' => $color_values, 'msg' => $msg]);
@@ -145,18 +144,17 @@ if (isset($_GET['action'])) {
             $pros = product_select_by_id($_GET['id']);
             $id = $_GET['id'];
             // lấy value của thuộc tính sp tương ứng;--> value thuộc tính lấy dc nó trả về kiểu array object
-            $size_id_of_pro = '';
-            $color_id_of_pro = '';
+            $color_id = [];
+            $size_id = [];
             // chuyển mảng 2 chieefu về thành chuỗi
             foreach (color_select_pro($id) as $c) {
-                $color_id_of_pro .= $c['value_id'] . ' ';
+                 array_push($color_id, $c['value_id']);
             }
             foreach (size_select_pro($id) as $s) {
-                $size_id_of_pro .= $s['value_id'] . ' ';
+                array_push($size_id, $s['value_id']);
             }
             // chuyển chuỗi vừa đổi -> mảng 1 chiều để so khớp bằng in_array
-            $color_id = explode(' ', $color_id_of_pro);
-            $size_id = explode(' ', $size_id_of_pro);
+          
             if (isset($_POST['btn_update'])) {
                 extract($_POST);
                 // code update
@@ -179,18 +177,18 @@ if (isset($_GET['action'])) {
                     if ($file['size'] > 0) {
                         move_uploaded_file($file['tmp_name'], './public/images/products/' . $avatar);
                     }
-                    // update attr value
-                    // lặp value 
-                    foreach ($color as $c) {
-                        pro_attr_update($id, 1, $c);
-                    }
-                    echo "xong";
-                    die;
+                    // update attr value(xóa attr vl cũ, insert lại mới :)))
+                    // xóa
+                    pro_attr_del($id);
+                    // lặp insert new attr value
                     foreach ($size as $s) {
-                        pro_attr_update($id, 2, $s);
+                        pro_attr_insert($id, 2, $s);
                     }
-                    header('location: product?action=update&id=' . $id);
-                    $msg = "Cập nhật thành công sản phẩm";
+                    foreach ($color as $c) {
+                        pro_attr_insert($id, 1, $c);
+                    }
+
+                    header('location: product?msg=Cập nhật thành công sản phẩm!&action=update&id=' . $id);
                 }
                 // product_update($id,$name,$category,$price,$discount,$avatar,)
             }

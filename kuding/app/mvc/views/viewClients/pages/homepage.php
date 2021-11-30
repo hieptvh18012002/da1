@@ -37,7 +37,7 @@
                     <?= $item['name'] ?>
                 </div>
                 <span>Bộ sưu tập hàng cao cấp</span>
-                <a href="productClient?action=viewProductDetail&id=<?= $item['id'] ?>" class="btn-theme">Khám phá ngay</a>
+                <a href="productDetail?action=viewDetail&id=<?= $item['id'] ?>" class="btn-theme">Khám phá ngay</a>
             </div>
         <?php endforeach; ?>
     </div>
@@ -59,7 +59,7 @@
         <div class="slick__slider">
             <div class="pro-news-slider responsive">
                 <?php foreach ($data['pro_top10'] as $item) : ?>
-                    <a href="productClient?action=viewProductDetail&id=<?= $item['id'] ?>" class="pro-news-item">
+                    <a href="productDetail?action=viewDetail&id=<?= $item['id'] ?>" class="pro-news-item">
                         <img src="public/images/products/<?= $item['avatar'] ?>" alt="">
                         <div class="">
                             <div class="pro-name bg-white pt-2 text-center">
@@ -140,7 +140,7 @@
         <div class="slick__slider">
             <div class="pro-news-slider responsive">
                 <?php foreach ($data['pro_topview'] as $item) : ?>
-                    <a href="productClient?action=viewProductDetail&id=<?= $item['id'] ?>" class="pro-news-item">
+                    <a href="productDetail?action=viewDetail&id=<?= $item['id'] ?>" class="pro-news-item">
                         <img src="public/images/products/<?= $item['avatar'] ?>" alt="">
                         <div class="pro-name bg-white pt-2 text-center">
                             <?= $item['name'] ?>
