@@ -270,6 +270,16 @@ $("#form_categorys").validate({
         code: {
             required : true,
             minlength : 6,
+            vourcher :true
+        },
+        quantity: {
+            required: true,
+            number: true
+        },
+        expired_date:{
+            required: true,
+            date: true,
+            nghiadz: true
         },
         sale: {
             required : true,
@@ -285,9 +295,18 @@ $("#form_categorys").validate({
             required: "Vui lòng nhập mã code !",
             minlength: "Mã code tối thiểu 6 ký tự",
         },
+        quantity:{
+            required: "Vui lòng nhập số lượng",
+            number: "Vui lòng nhập chữ số",
+            min: "Vui lòng nhập giá trị lớn hơn 0"
+        },
         sale: {
             required: "Vui lòng nhập mệnh giá !",
             maxlength: "Vui lòng nhập giá trị từ 1% -> 99%"
+        },
+        expired_date:{
+            required: "Vui lòng nhập ngày hết hạn",
+            date: "Vui lòng nhập định dạng ngày tháng"
         }
     },
     submitHandler: function(form) {
@@ -298,6 +317,22 @@ $("#form_categorys").validate({
  $.validator.addMethod("valiEmail", function (value, element) {
     return this.optional(element) || /^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/.test(value);
 }, "Nhập đúng định dạng email (VD: Kooding@gmail.com)");
+
+$.validator.addMethod("vourcher", function (value, element) {
+    return this.optional(element) || /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,}$/.test(value);
+}, "Vui lòng nhập Vourcher có cả chữ, số và không chứa ký tự đặc biệt");
+
+var today = new Date();
+var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+// const dateNow = new date();
+$.validator.addMethod("nghiadz", function (value, element) {
+    if(value <= date){
+        return false
+    }
+    return true
+    
+
+}, "Vui lòng nhập ngày lớn hơn hiện tại !");
 
 $("#driveaway").change(function() {
     var selectedCountry = $(this). children("option:selected"). val();  
