@@ -5,9 +5,9 @@
             <p class="card-description">
                 Chỉnh sửa thông tin sản phẩm
             </p>
-            <?php if (!empty($data['msg'])) : ?>
+            <?php if (isset($_GET['msg'])) : ?>
                 <div class="msg bg-success text-light" style="padding: 7px;">
-                    <?php echo $data['msg']; ?>
+                    <?php echo $_GET['msg']; ?>
                 </div>
             <?php endif; ?>
             <form id="update_products" action="" class="forms-sample" method="POST" enctype="multipart/form-data">
@@ -33,7 +33,7 @@
                 </div>
                 <div class="form-group">
                     <label for="price">Giảm giá trực tiếp</label>
-                    <input type="number" name="discount" class="form-control" id="discount" placeholder="Nhập giá giảm">
+                    <input type="number" name="discount" value="<?= $data['pros']['discount'] ?>" class="form-control" id="discount" placeholder="Nhập giá giảm">
                 </div>
                 <div class="form-group" style="display:flex; column-gap:30px; align-items:center;">
                     <label for="">Màu sản phẩm</label>
@@ -60,6 +60,17 @@
                         </div>
                     <?php endforeach; ?>
                     <label for="size[]" class="error"></label>
+                </div>
+                <div class="form-check-inline">
+                    <label for="" class="mr-3"> Có phải sản phẩm đặc biệt?(hiển thị trang chủ)</label>
+                    <input class="form-check-input" <?= $data['pros']['special']==0?'checked':'' ?> value="0" id="special" type="radio" name="special" checked>
+                    <label for="special" class="form-check-label mr-4">
+                        Không
+                    </label>
+                    <input class="form-check-input" <?= $data['pros']['special']==1?'checked':'' ?>  id="special1" type="radio" name="special" value="1">
+                    <label for="special1" class="form-check-label">
+                        Có
+                    </label>
                 </div>
                 <div class="form-group">
                     <label>Ảnh đại diện</label>

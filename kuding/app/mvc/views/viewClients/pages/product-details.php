@@ -34,7 +34,7 @@
             </div>
             <div class="pd-info">
                 <!-- chứa thông tin chi tiết sp -->
-                <form class="pd__right" action="#">
+                <form class="pd__right" action="#" method="POST">
                     <div class="pd-info-head">
                         <div class="pd-brand-sub"><span class="pd-brand-name"><a href="/mind-bridge/b/252">Brand:</a></span></div>
                         <div class="pd-name"><?= $data['pros']['name'] ?></div>
@@ -55,17 +55,23 @@
                     <div class="pd-color">
                         <label for="color">Chọn màu sắc</label> <br>
                         <select border-opacity-50 name="color" id="color">
-                            <option value="" selected> Chọn màu sắc </option>
-                            <option value="red">Kem</option>
-                            <option value="green">Xanh</option>
+                            <option value="" selected disabled> Chọn màu sắc </option>
+                            <?php foreach ($data['color'] as $item) : ?>
+                                <?php foreach ($item as $c) : ?>
+                                    <option value="<?= $c['id'] ?>"><?= $c['value'] ?></option>
+                                <?php endforeach; ?>
+                            <?php endforeach; ?>
                         </select>
                     </div>
                     <div class="pd-color">
                         <div class="size">Kích cỡ</div>
                         <select border-opacity-50 name="size" id="size">
-                            <option value="" selected> Chọn kích cỡ</option>
-                            <option value="red">55</option>
-                            <option value="green">66</option>
+                            <option value="" selected disabled> Chọn kích cỡ</option>
+                            <?php foreach ($data['size'] as $item) : ?>
+                                <?php foreach ($item as $s) : ?>
+                                    <option value="<?= $s['id'] ?>"><?= $s['value'] ?></option>
+                                <?php endforeach; ?>
+                            <?php endforeach; ?>
                         </select> <br>
                         <a class="size-info" href="#">Tôi nên lấy kích cỡ nào?</a>
                     </div>
@@ -81,7 +87,7 @@
                     </div>
                     <div class="fav-forms-wrap">
                         <div class="animate-button-wrap pd-buttons">
-                            <button type="button" id="checkout_0" class="pd-checkout animate black loader  " onclick="return analyticsCartTrackingCode('MNB0001599', '', 'KGE Sleeve Woven Patch Knit', 'Mind Bridge', 'Crewneck', 118.99, 0, 'add')">Add
+                            <button type="submit" id="checkout_0" class="pd-checkout animate black loader  " onclick="return analyticsCartTrackingCode('MNB0001599', '', 'KGE Sleeve Woven Patch Knit', 'Mind Bridge', 'Crewneck', 118.99, 0, 'add')">Add
                                 to Bag</button>
                             <i class="far fa-heart"></i>
                         </div>
@@ -252,11 +258,11 @@
                                         <img src="./public/images/upload/<?= $item['image'] ?>" alt="" width="100%">
                                     </div>
                                     <div class="item__more">
-                                        <?php if(isset($_SESSION['admin'])):?>
-                                        <a href="comment?action=del&cmt_id=<?= $item['id'] ?>&pro_id=<?= $data['pros']['id'] ?>">
-                                        <i class="fas fa-trash-alt"></i>
-                                        </a>
-                                        <?php endif;?>
+                                        <?php if (isset($_SESSION['admin'])) : ?>
+                                            <a href="comment?action=del&cmt_id=<?= $item['id'] ?>&pro_id=<?= $data['pros']['id'] ?>">
+                                                <i class="fas fa-trash-alt"></i>
+                                            </a>
+                                        <?php endif; ?>
                                     </div>
                                 </div>
                             </div>

@@ -77,14 +77,12 @@ if (isset($_GET['action'])) :
             // ktra email đã tồn tại
             $acc_exist = acc_select_by_email($_GET['email']);
             if(is_array($acc_exist)){
-                echo "Email đã đăng kí, nhập email khác";
+                echo "<script>alert('Email đã đăng kí, nhập email khác')</script>";
             }else{
                 //   mh pass
                 $pass = md5($_GET['mk']);
                 acc_insert($_GET['fullname'], $_GET['birthday'], $_GET['email'], $pass, 1, $gender);
                 echo "<script>alert('Đăng kí tài khoản thành công!')</script>";
-                die;
-
             }
             die;
             break;

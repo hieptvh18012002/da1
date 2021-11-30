@@ -58,7 +58,7 @@ function size_select_pro($id_pro)
 // show name value attr
 function select_name_value_pro($id_value)
 {
-    $sql = "SELECT av.value FROM attr_values av WHERE av.id=$id_value;";
+    $sql = "SELECT av.id,av.value FROM attr_values av WHERE av.id=$id_value;";
     return pdo_query($sql);
 }
 
@@ -67,16 +67,8 @@ function product_select_by_category($id)
     $sql = "SELECT * FROM products WHERE cate_id=$id ORDER BY created_at DESC";
     return pdo_query($sql);
 }
-function product_exits($id)
-{
-    $sql = "SELECT count(*) FROM products WHERE product_id=$id";
-    return pdo_query_value($sql, $id) > 0;
-}
-function searchProducts($key)
-{
-    $sql = "SELECT * FROM products pl JOIN product_categories pc ON pl.category_id=pc.category_id WHERE special=0 AND pl.product_name  LIKE '%$key%'  OR pc.category_name LIKE '%$key%' ORDER BY pl.created_at DESC";
-    return pdo_query($sql);
-}
+
+
 // lấy sp đặc biệt;
 function pro_select_special()
 {
@@ -132,12 +124,12 @@ function attr_value_insert($attr_id, $value)
     $sql = "INSERT INTO attr_values (attr_id,value) VALUES($attr_id,'$value')";
     pdo_execute($sql);
 }
-// update pro_attr_value
-function pro_attr_update($pro_id, $attr_id, $value)
-{
-    $sql = "UPDATE pro_attributes SET value_id=$value WHERE pro_id=$pro_id and attr_id=$attr_id)";
-    pdo_execute($sql);
-}
+// // update pro_attr_value
+// function pro_attr_update($pro_id, $attr_id,$value)
+// {
+//     $sql = "UPDATE pro_attributes SET value_id='$value' WHERE pro_id='$pro_id' AND attr_id=$attr_id";
+//     pdo_execute($sql);
+// }
 // add attr
 function attr_insert($value)
 {

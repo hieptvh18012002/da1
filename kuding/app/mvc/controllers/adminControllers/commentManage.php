@@ -35,7 +35,7 @@ if (isset($_GET['action'])) {
             $cmt = pdo_query_one("SELECT * FROM comments WHERE id=" . $cmt_id);
             pdo_execute("DELETE FROM comments WHERE id=$cmt_id");
             unlink("./public/images/upload/" . $cmt['image']);
-            header('location: product?action=viewProductDetail&id=' . $pro_id);
+            header('location: productDetail?action=viewDetail&id=' . $pro_id);
 
             break;
 
