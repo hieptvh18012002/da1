@@ -5,6 +5,9 @@
             <p class="card-description">
                 Basic form elements
             </p>
+            <?php if(isset($data['msg'])){
+                echo $data['msg'];
+            }?>
             <form id="form_news" class="forms-sample" method="POST" enctype="multipart/form-data" >
                 <div class="form-group">
                     <label for="exampleInputName1">Tiêu đề </label>

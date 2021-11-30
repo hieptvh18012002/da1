@@ -59,7 +59,10 @@ if (isset($_GET['action'])) :
         
        
         case "addAccount":
+            if(isset($_POST['btn_add'])){
+               echo "<script>alert('ádasdas')</script>";
 
+            }
             viewAdmin("layout", ['page' => 'addAccount']);
             break;
 

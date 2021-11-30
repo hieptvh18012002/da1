@@ -31,9 +31,8 @@
             </div>
             <div class="search">
                 <form action="productClient" class="form-search" method="GET">
-                    <!-- <input type="hidden" value="action=viewListProduct" name="?"> -->
                     <div class="pop-input">
-                        <select name="filtercate" id="" class="filter-cate">
+                        <select name="filter-cate" id="" class="filter-cate">
                             <option value="all"><a href="">Tất cả</a></option>
                             <?php foreach($data['list_cate'] as $item):?>
                             <option value="<?= $item['id'] ?>"><?= $item['name'] ?></option>
@@ -41,7 +40,7 @@
                         </select>
                         <input type="search" name="keyword" placeholder="Tìm kiếm" required>
                     </div>
-                    <button type="submit" >
+                    <button type="submit" name="action">
                         <i class="fa fa-search" aria-hidden="true"></i>
                     </button>
                 </form>
@@ -201,9 +200,9 @@
         </div>
         <div class="header-menu">
             <ul class="sub-nav m-0">
-                <li><a href="productClient?action=viewListProduct">#ALL</a></li>
+                <li><a href="productClient?action=list">#ALL</a></li>
                 <?php foreach ($data['list_cate'] as $c) : ?>
-                    <li><a href="productClient?action=viewListProduct&filtercate=<?= $c['id'] ?>"><?= $c['name'] ?></a></li>
+                    <li><a href="productClient?action=list&filtercate=<?= $c['id'] ?>"><?= $c['name'] ?></a></li>
                 <?php endforeach; ?>
                 <li><a href="">Làm sạch</a></li>
                 <?php if (isset($_SESSION['admin'])) : ?>
