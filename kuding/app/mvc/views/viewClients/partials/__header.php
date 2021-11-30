@@ -32,7 +32,7 @@
             <div class="search">
                 <form action="productClient" class="form-search" method="GET">
                     <div class="pop-input">
-                        <select name="filter-cate" id="" class="filter-cate">
+                        <select name="filter-cate" class="filter-cate">
                             <option value="all"><a href="">Tất cả</a></option>
                             <?php foreach($data['list_cate'] as $item):?>
                             <option value="<?= $item['id'] ?>"><?= $item['name'] ?></option>
@@ -52,7 +52,7 @@
                     <div class="profile pt-4 pb-4">
                         <span class="title-pop-user">Hồ sơ<i class="fa fa-angle-down ml-2" aria-hidden="true"></i></span>
                         <div class="pop-profile">
-                            <a href="account?action=viewProfileClient">Bảng điều khiển</a>
+                            <a href="accountClient?action=viewProfileClient">Bảng điều khiển</a>
                             <a href="#">Đơn hàng</a>
                             <a href="#">Tài khoản</a>
                             <a href="accountClient?action=logoutClient" onclick="return confirm('Bạn chắc chắn muốn đăng xuất')">Đăng xuất</a>

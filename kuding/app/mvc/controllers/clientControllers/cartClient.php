@@ -28,6 +28,7 @@ if (isset($_GET['action'])) {
                 foreach ($districts as $item) {
                     echo '<option value="' . $item["districtid"] . '">' . $item["name"] . '</option>';
                 }
+                die;
             }
             // lấy xã phường từ quận huyện
             // xử lí address checkout
@@ -38,6 +39,7 @@ if (isset($_GET['action'])) {
                 foreach ($ward as $item) {
                     echo '<option value"' . $item["wardid"] . '">' . $item["name"] . '</option>';
                 }
+                die;
             }
 
             viewClient('layout', ['page' => 'checkout', 'list_cate' => $list_cate, 'list_province' => $province]);

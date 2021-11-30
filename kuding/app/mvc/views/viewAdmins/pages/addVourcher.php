@@ -28,7 +28,7 @@
                 </div>
                 <div class="form-group">
                     <label for="">Số lượng</label>
-                    <input name="quantity" type="number" class="form-control" id="" placeholder="Số lượng ">
+                    <input name="quantity" type="number" class="form-control" min="1" id="" placeholder="Số lượng ">
                     <!-- <label for="code" class="error" style="display: none !important;"></label> -->
                 </div>
                 <div class="form-group">

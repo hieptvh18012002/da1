@@ -22,7 +22,9 @@
 
                     <div class="address">
                         <label for="">Địa chỉ</label>
-                        <label for="xa" class="error" style="display: none; margin: 5px 0px !important;"></label>
+                        <div class="input__auto">
+                            <input name="fakeInput" type="text" placeholder="Tỉnh/ Thành phố, Quận/Huyện, Phường/Xã" disabled>
+                        </div>
                         <div class="auto__address">
                             
                             <div class="select__allAdd">
@@ -34,10 +36,10 @@
                                         <i class="fas fa-times-circle"></i>
                                     </div>
                                 </div>
-                                <div class="itemAll__address">
+                                <div class="itemAll__address ">
                                     <div class="select__address">
                                         <div class="item__address tinh" >
-                                            <select name="tinh" id="tinh">
+                                            <select onchange="innerHTML_tinh()" name="tinh" id="tinh">
                                                 <option value="" disabled selected>Chọn tỉnh</option>
                                                 <?php foreach($data['list_province'] as $item):?>
                                                     <option value="<?= $item['provinceid'] ?>"><?= $item['name'] ?></option>
@@ -45,12 +47,12 @@
                                             </select>
                                         </div>
                                         <div class="item__address">
-                                            <select name="huyen" id="huyen">
+                                            <select onchange="innerHTML_huyen()" name="huyen" id="huyen">
                                                 <option value="" selected disabled>Chưa chọn tỉnh</option>
                                             </select>
                                         </div>
                                         <div class="item__address" >
-                                            <select name="xa" class="xa" id="village">
+                                            <select onchange="innerHTML_xa()" name="xa" class="xa" id="village">
                                                 <option value="" selected disabled>Chưa chọn quận huyện</option>
                                             </select>
                                         </div>
@@ -59,7 +61,7 @@
                                
                             </div>
                         </div>
-    
+                        <label for="village" class="error" style="display: none;"></label>
                     </div>
 
                     <div class="address" >
