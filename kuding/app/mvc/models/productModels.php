@@ -55,6 +55,13 @@ function size_select_pro($id_pro)
     $sql = "SELECT value_id FROM pro_attributes WHERE pro_id=$id_pro AND attr_id=2";
     return pdo_query($sql);
 }
+// lấy value attr từ id
+function attr_value_select_id($id)
+{
+    $sql = "SELECT value FROM attr_values WHERE id=$id ";
+    return pdo_query_value($sql);
+}
+
 // show name value attr
 function select_name_value_pro($id_value)
 {

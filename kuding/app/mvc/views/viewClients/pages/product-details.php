@@ -34,7 +34,8 @@
             </div>
             <div class="pd-info">
                 <!-- chứa thông tin chi tiết sp -->
-                <form class="pd__right" action="#" method="POST">
+                <form class="pd__right" action="cartClient" method="POST" id="form-add-bag">
+                    <input type="hidden" name="id" value="<?= $data['pros']['id'] ?>">
                     <div class="pd-info-head">
                         <div class="pd-brand-sub"><span class="pd-brand-name"><a href="/mind-bridge/b/252">Brand:</a></span></div>
                         <div class="pd-name"><?= $data['pros']['name'] ?></div>
@@ -55,39 +56,38 @@
                     <div class="pd-color">
                         <label for="color">Chọn màu sắc</label> <br>
                         <select border-opacity-50 name="color" id="color">
-                            <option value="" selected disabled> Chọn màu sắc </option>
                             <?php foreach ($data['color'] as $item) : ?>
                                 <?php foreach ($item as $c) : ?>
                                     <option value="<?= $c['id'] ?>"><?= $c['value'] ?></option>
                                 <?php endforeach; ?>
                             <?php endforeach; ?>
                         </select>
+                        <div class="errC text-danger"></div>
                     </div>
                     <div class="pd-color">
                         <div class="size">Kích cỡ</div>
                         <select border-opacity-50 name="size" id="size">
-                            <option value="" selected disabled> Chọn kích cỡ</option>
                             <?php foreach ($data['size'] as $item) : ?>
                                 <?php foreach ($item as $s) : ?>
                                     <option value="<?= $s['id'] ?>"><?= $s['value'] ?></option>
                                 <?php endforeach; ?>
                             <?php endforeach; ?>
                         </select> <br>
+                        <div class="errS text-danger"></div>
+
                         <a class="size-info" href="#">Tôi nên lấy kích cỡ nào?</a>
                     </div>
                     <div class="pd-color">
                         <div class="quantity">Số lượng</div>
-                        <select border-opacity-50 name="quantity" id="quantity">
-                            <option value="" selected aria-label="size 3 select example"> 1</option>
+                        <input type="number" class="quantity" min="1" name="quantity" style="margin-top: 10px;padding: 5px 5px;width: 70px;" value="1" id="quantity">
+                        <div class="errQ text-danger"></div>
 
-                            <option value="1">2</option>
-                            <option value="2">3</option>
-                            <option value="3">4</option>
-                        </select>
                     </div>
+                    <div class="msg"></div>
+                    <div class="er"></div>
                     <div class="fav-forms-wrap">
                         <div class="animate-button-wrap pd-buttons">
-                            <button type="submit" id="checkout_0" class="pd-checkout animate black loader  " onclick="return analyticsCartTrackingCode('MNB0001599', '', 'KGE Sleeve Woven Patch Knit', 'Mind Bridge', 'Crewneck', 118.99, 0, 'add')">Add
+                            <button type="submit" name="action" id="checkout_0" class="pd-checkout animate black loader">Add
                                 to Bag</button>
                             <i class="far fa-heart"></i>
                         </div>
@@ -285,3 +285,41 @@
         </div>
 </main>
 <!-- end main -->
+<!-- <script>
+    $(document).ready(function() {
+        $('#form-add-bag').submit(function(e) {
+            e.preventDefault()
+            var name = <?= $data['pros']['name'] ?>;
+            var avatar = <?= $data['pros']['avatar'] ?>;
+            var price = <?= $data['pros']['price'] ?>;
+            var size = $('#size').val();
+            var color = $('#color').val();
+            var quantity = $('#quantity').val();
+            var action = "add-cart"
+
+            if (quantity == '' || quantity < 0) {
+                $('.error').html("Số lượng không hợp lệ")
+
+            } else {
+                $.ajax({
+                    url: 'cartClient',
+                    method: 'GET',
+                    data:{
+                        action: action,
+                        size: size,
+                        color: color,
+                        avatar: avatar,
+                        price: price,
+                        quantity: quantity
+                    },
+                    success: function(data){
+                        $('.msg').html(data)
+                    },
+                    error: function(data){
+                        $('.er').html(data)
+                    }
+                })
+            }
+        })
+    });
+</script> -->

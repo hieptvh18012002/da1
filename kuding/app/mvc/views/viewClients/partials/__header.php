@@ -156,13 +156,21 @@
                     <a href="productClient?action=viewFavorite" class="favorite-pro">
                         <i class="fa fa-heart" aria-hidden="true"></i>
                     </a>
-                    <div class="notifi">1</div>
+                    <div class="notifi">
+                    <?php if(isset($_SESSION['favorite'])){
+                            echo count($_SESSION['favorite']);
+                        }else{ echo "0";}?>
+                    </div>
                 </div>
                 <div class="box-cart pt-4 pb-4">
                     <a href="cartClient" class="cart">
                         <i class="fa fa-shopping-bag" aria-hidden="true"></i>
                     </a>
-                    <div class="notifi">2</div>
+                    <div class="notifi">
+                        <?php if(isset($_SESSION['cart'])){
+                            echo count($_SESSION['cart']);
+                        }else{ echo "0";}?>
+                    </div>
                     <!-- start popup-cart -->
                     <div class="pop-cart">
                         <div class="pop-cart__top">
