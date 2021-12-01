@@ -47,36 +47,69 @@
 
     <div id="lightgallery">
 
-      <a href="./public/images/album/2fstream-media252f08225b75-434d-4401-9566-027dde2f63d8_17861435846570561_low.jpg"><img src="./public/images/album/2fstream-media252f08225b75-434d-4401-9566-027dde2f63d8_17861435846570561_low.jpg" /></a>
+      <a href="./public/images/album/1.jpg"><img src="./public/images/album/1.jpg" /></a>
 
-      <a href="./public/images/album/2fstream-media252f08225b75-434d-4401-9566-027dde2f63d8_17861435846570561_low.jpg"><img
-            src="./public/images/album/2fstream-media252f08225b75-434d-4401-9566-027dde2f63d8_17861435846570561_low.jpg" /></a>
-            <a href="./public/images/album/2fstream-media252f08225b75-434d-4401-9566-027dde2f63d8_17861435846570561_low.jpg"><img
-            src="./public/images/album/2fstream-media252f08225b75-434d-4401-9566-027dde2f63d8_17861435846570561_low.jpg" /></a>
-            <a href="./public/images/album/2fstream-media252f08225b75-434d-4401-9566-027dde2f63d8_17861435846570561_low.jpg"><img
-            src="./public/images/album/2fstream-media252f08225b75-434d-4401-9566-027dde2f63d8_17861435846570561_low.jpg" /></a>
-            <a href="./public/images/album/2fstream-media252f08225b75-434d-4401-9566-027dde2f63d8_17861435846570561_low.jpg"><img
-            src="./public/images/album/2fstream-media252f08225b75-434d-4401-9566-027dde2f63d8_17861435846570561_low.jpg" /></a>
-            <a href="./public/images/album/2fstream-media252f08225b75-434d-4401-9566-027dde2f63d8_17861435846570561_low.jpg"><img
-            src="./public/images/album/2fstream-media252f08225b75-434d-4401-9566-027dde2f63d8_17861435846570561_low.jpg" /></a>
-            <a href="./public/images/album/2fstream-media252f08225b75-434d-4401-9566-027dde2f63d8_17861435846570561_low.jpg"><img
-            src="./public/images/album/2fstream-media252f08225b75-434d-4401-9566-027dde2f63d8_17861435846570561_low.jpg" /></a>
-            <a href="./public/images/album/2fstream-media252f08225b75-434d-4401-9566-027dde2f63d8_17861435846570561_low.jpg"><img
-            src="./public/images/album/2fstream-media252f08225b75-434d-4401-9566-027dde2f63d8_17861435846570561_low.jpg" /></a>
-            <a href="./public/images/album/2fstream-media252f08225b75-434d-4401-9566-027dde2f63d8_17861435846570561_low.jpg"><img
-            src="./public/images/album/2fstream-media252f08225b75-434d-4401-9566-027dde2f63d8_17861435846570561_low.jpg" /></a>
-            <a href="./public/images/album/2fstream-media252f08225b75-434d-4401-9566-027dde2f63d8_17861435846570561_low.jpg"><img
-            src="./public/images/album/2fstream-media252f08225b75-434d-4401-9566-027dde2f63d8_17861435846570561_low.jpg" /></a>
-            <a href="./public/images/album/2fstream-media252f08225b75-434d-4401-9566-027dde2f63d8_17861435846570561_low.jpg"><img
-            src="./public/images/album/2fstream-media252f08225b75-434d-4401-9566-027dde2f63d8_17861435846570561_low.jpg" /></a>
-            <a href="./public/images/album/2fstream-media252f08225b75-434d-4401-9566-027dde2f63d8_17861435846570561_low.jpg"><img
-            src="./public/images/album/2fstream-media252f08225b75-434d-4401-9566-027dde2f63d8_17861435846570561_low.jpg" /></a>
-            <a href="./public/images/album/2fstream-media252f08225b75-434d-4401-9566-027dde2f63d8_17861435846570561_low.jpg"><img
-            src="./public/images/album/2fstream-media252f08225b75-434d-4401-9566-027dde2f63d8_17861435846570561_low.jpg" /></a>
-            <a href="./public/images/album/2fstream-media252f08225b75-434d-4401-9566-027dde2f63d8_17861435846570561_low.jpg"><img
-            src="./public/images/album/2fstream-media252f08225b75-434d-4401-9566-027dde2f63d8_17861435846570561_low.jpg" /></a>
-            <a href="./public/images/album/2fstream-media252f08225b75-434d-4401-9566-027dde2f63d8_17861435846570561_low.jpg"><img
-            src="./public/images/album/2fstream-media252f08225b75-434d-4401-9566-027dde2f63d8_17861435846570561_low.jpg" /></a>
+      <a href="./public/images/album/2.jpg"><img src="./public/images/album/2.jpg" /></a>
+      
+      <a href="./public/images/album/3.jpg"><img src="./public/images/album/3.jpg" /></a>
+
+      <a href="./public/images/album/4.jpg"><img src="./public/images/album/4.jpg" /></a>
+
+      <a href="./public/images/album/5.jpg"><img src="./public/images/album/5.jpg" /></a>
+
+      <a href="./public/images/album/6.jpg"><img src="./public/images/album/6.jpg" /></a>
+
+      <a href="./public/images/album/7.jpg"><img src="./public/images/album/7.jpg" /></a>
+
+      <a href="./public/images/album/8.jpg"><img src="./public/images/album/8.jpg" /></a>
+
+      <a href="./public/images/album/9.jpg"><img src="./public/images/album/9.jpg" /></a>
+
+      <a href="./public/images/album/10.jpg"><img src="./public/images/album/10.jpg" /></a>
+
+      <a href="./public/images/album/11.jpg"><img src="./public/images/album/11.jpg" /></a>
+
+      <a href="./public/images/album/12.jpg"><img src="./public/images/album/12.jpg" /></a>
+
+      <a href="./public/images/album/13.jpg"><img src="./public/images/album/13.jpg" /></a>
+
+      <a href="./public/images/album/14.jpg"><img src="./public/images/album/14.jpg" /></a>
+
+      <a href="./public/images/album/16.jpg"><img src="./public/images/album/16.jpg" /></a>
+
+      <a href="./public/images/album/17.jpg"><img src="./public/images/album/17.jpg" /></a>
+
+      <a href="./public/images/album/18.jpg"><img src="./public/images/album/18.jpg" /></a>
+
+      <a href="./public/images/album/19.jpg"><img src="./public/images/album/19.jpg" /></a>
+
+      <a href="./public/images/album/20.jpg"><img src="./public/images/album/20.jpg" /></a>
+
+      <a href="./public/images/album/21.jpg"><img src="./public/images/album/21.jpg" /></a>
+
+      <a href="./public/images/album/22.jpg"><img src="./public/images/album/22.jpg" /></a>
+
+      <a href="./public/images/album/23.jpg"><img src="./public/images/album/23.jpg" /></a>
+
+      <a href="./public/images/album/24.jpg"><img src="./public/images/album/24.jpg" /></a>
+
+      <a href="./public/images/album/25.jpg"><img src="./public/images/album/25.jpg" /></a>
+
+      <a href="./public/images/album/26.jpg"><img src="./public/images/album/26.jpg" /></a>
+
+      <a href="./public/images/album/27.jpg"><img src="./public/images/album/27.jpg" /></a>
+
+      <a href="./public/images/album/28.jpg"><img src="./public/images/album/28.jpg" /></a>
+
+      <a href="./public/images/album/29.jpg"><img src="./public/images/album/29.jpg" /></a>
+
+      <a href="./public/images/album/30.jpg"><img src="./public/images/album/30.jpg" /></a>
+
+      <a href="./public/images/album/31.jpg"><img src="./public/images/album/31.jpg" /></a>
+
+
+
+
 
     </div>
 
