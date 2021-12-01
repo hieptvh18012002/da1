@@ -4,14 +4,20 @@ callModel("categoryModels");
 callModel("newsModels");
 callModel("productModels");
 $list_cate = cate_select_all();
+// list news
+$list_news = news_select_all();
+$list_news_new = news_select_created_at();
+
 
 if(isset($_GET['action'])){
     switch($_GET['action']){
         case "viewDetail":
+            $news_detail = news_select_by_id($_GET['id']);
 
-            viewClient('layout',['page'=>'post','list_cate'=>$list_cate]);
+            
+            viewClient('layout',['page'=>'post','list_cate'=>$list_cate,'news_detail'=>$news_detail]);
             break;
     }
 }
 
-viewClient("layout",['page'=>'list-news','list_cate'=>$list_cate]);
+viewClient("layout",['page'=>'list-news','list_cate'=>$list_cate,'list_news'=>$list_news,'list_news_new'=>$list_news_new]);

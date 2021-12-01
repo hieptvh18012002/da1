@@ -94,13 +94,19 @@ function pro_select_view()
     $sql = "SELECT * FROM products ORDER BY view DESC LIMIT 0,10";
     return pdo_query($sql);
 }
-// sp liên quan -> sp cùng danh mục
-function relateProduct($cate_id)
+// 10 sp liên quan đến id
+function pro_select_relateProduct($id)
 {
-    $sql = "SELECT * FROM product_lists pl INNER JOIN products pc ON pl.category_id=pc.category_id WHERE pc.category_id=$cate_id
-    ORDER BY pl.created_at DESC LIMIT 0,5";
+    $sql = "SELECT * FROM products p JOIN categories c ON p.cate_id=c.id WHERE c.id=$id LIMIT 0,10";
     return pdo_query($sql);
 }
+// sp liên quan -> sp cùng danh mục
+// function relateProduct($cate_id)
+// {
+//     $sql = "SELECT * FROM product_lists pl INNER JOIN products pc ON pl.category_id=pc.category_id WHERE pc.category_id=$cate_id
+//     ORDER BY pl.created_at DESC LIMIT 0,5";
+//     return pdo_query($sql);
+// }
 
 
 function pro_img_insert($url, $pro_id)

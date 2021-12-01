@@ -3701,3 +3701,57 @@ label.error{
       margin: 0 auto;
     }
   }
+
+
+  /* điều khoản */
+  .dieuKhoan ::selection {
+    background-color: #82e6dc;
+    color: #fff;
+}
+*{
+    margin: 0;
+    padding: 0;
+}
+.dieuKhoan{
+    padding: 50px 20px;
+    
+}
+.dk_img img{
+    width: 100%;
+    height: 100%;
+}
+.dk_content{
+    background: #fff;
+    color: #444;
+    font-family: 'Open Sans',sans-serif;
+    font-size: 14px;
+    line-height: 26px;
+    font-weight: 400;
+    letter-spacing: .02em;
+    margin: 0;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    touch-action: manipulation;
+    padding-top: 20px;
+}
+.dk_title{
+    font-size: 20px;
+    text-align: center;
+    margin-bottom: 15px;
+    color: #666;
+}
+.dk_content p{
+    margin: 10px 0px;
+}
+.dk_content h3{
+    font-weight: 600;
+    margin: 0;
+    padding: 30px 0 10px;
+    color: #666;
+}
+#dk_title2{
+    padding-top: 20px;
+    font-size: 28px;
+    font-family: 'Calligraffitti', cursive;
+}

@@ -53,7 +53,7 @@
                         <span class="title-pop-user">Hồ sơ<i class="fa fa-angle-down ml-2" aria-hidden="true"></i></span>
                         <div class="pop-profile">
                             <a href="accountClient?action=viewProfileClient">Bảng điều khiển</a>
-                           
+
                             <a href="accountClient?action=logoutClient" onclick="return confirm('Bạn chắc chắn muốn đăng xuất')">Đăng xuất</a>
                         </div>
                     </div>
@@ -176,43 +176,56 @@
                     </div>
                     <!-- start popup-cart -->
                     <div class="pop-cart">
-                        <?php if(isset($_SESSION['cart'])):?>
-                        <div class="pop-cart__top">
-                            <div class="left">
-                                <div class=""> <i class="fa fa-shopping-bag " aria-hidden="true"></i></div>
-                            </div>
-                            <div class="right">
-                                <span class="total">Tổng tiền:</span>
-                                <span class="total-price"></span>
-                            </div>
-                        </div>
-
-                        <?php $tt=0; foreach ($_SESSION['cart'] as $item) :$thanhtien=$item['quantity'] * $item['price']; ?>
-                            <div class="pop-cart__main row p-3">
-                                <div class="col-3 col-md-3">
-                                    <a href="productDetail?action=viewDetail&id=<?= $item['id'] ?>">
-                                        <img src="public/images/products/<?= $item['avatar'] ?>" alt="" width="100%">
-                                    </a>
+                        <?php if (isset($_SESSION['cart'])) : ?>
+                            <div class="pop-cart__top">
+                                <div class="left">
+                                    <div class=""> <i class="fa fa-shopping-bag " aria-hidden="true"></i></div>
                                 </div>
-                                <div class="col-6 col-md-6">
-                                    <div class="pro-name mb-2"><?= $item['name'] ?></div>
-                                    <div class="desc">
-                                        <?= attr_value_select_id($_SESSION['cart'][$item['id']]['color']) ?> | Size <?= attr_value_select_id($_SESSION['cart'][$item['id']]['size']) ?> | SL <?= $item['quantity'] ?>
+                                <div class="right">
+                                    <span class="total">Tổng tiền:</span>
+                                    <span class="total-price"></span>
+                                </div>
+                            </div>
+
+                            <?php $tt = 0;
+                            foreach ($_SESSION['cart'] as $item) : $thanhtien = $item['quantity'] * $item['price']; ?>
+                                <div class="pop-cart__main row p-3">
+                                    <div class="col-3 col-md-3">
+                                        <a href="productDetail?action=viewDetail&id=<?= $item['id'] ?>">
+                                            <img src="public/images/products/<?= $item['avatar'] ?>" alt="" width="100%">
+                                        </a>
+                                    </div>
+                                    <div class="col-6 col-md-6">
+                                        <div class="pro-name mb-2"><?= $item['name'] ?></div>
+                                        <div class="desc">
+                                            <?= attr_value_select_id($_SESSION['cart'][$item['id']]['color']) ?> | Size <?= attr_value_select_id($_SESSION['cart'][$item['id']]['size']) ?> | SL <?= $item['quantity'] ?>
+                                        </div>
+                                    </div>
+                                    <div class="col-3 col-md-3 cart-option">
+                                        <div class="pro-price mb-5"><?= $thanhtien ?>đ</div>
+                                        <a href="cartClient?action=del&id=<?= $item['id'] ?>" class="text-danger">Hủy bỏ</a>
                                     </div>
                                 </div>
-                                <div class="col-3 col-md-3 cart-option">
-                                    <div class="pro-price mb-5"><?= $thanhtien ?>đ</div>
-                                    <a href="cartClient?action=del&id=<?= $item['id'] ?>" class="text-danger">Hủy bỏ</a>
+                            <?php $tt += $thanhtien;
+                            endforeach; ?>
+
+                            <div class="pop-cart__bottom">
+                                <a href="checkoutClient?action=checkout" class="text-white bg-secondary">Thanh toán</a>
+                                <a href="cartClient" class="">Vào giỏ hàng</a>
+
+                            </div>
+                        <?php else : ?>
+                            <div class="DH__content__body">
+                                <div class="">
+                                    <h3 class="" style="color:#FFBC7F;">Giỏ hàng của bạn đang rỗng!</h3>
+                                    <a href="productClient?action=viewListProduct" class="text-primary text-center">Mua sắm ngay</a>
+                                </div>
+                                <div class="">
+                                    <img src="./public/images/layout/empty-orders.jpg" alt="">
                                 </div>
                             </div>
-                        <?php $tt += $thanhtien; endforeach; ?>
 
-                        <div class="pop-cart__bottom">
-                            <a href="checkoutClient?action=checkout" class="text-white bg-secondary">Thanh toán</a>
-                            <a href="cartClient" class="">Vào giỏ hàng</a>
-
-                        </div>
-                        <?php endif;?>
+                        <?php endif; ?>
                     </div>
                 </div>
             </div>
@@ -241,7 +254,7 @@
 
 </header>
 <script>
-    $(document).ready(function(){
+    $(document).ready(function() {
         $('.total-price').html(<?= $tt ?>);
     })
 </script>

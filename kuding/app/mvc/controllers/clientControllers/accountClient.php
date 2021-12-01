@@ -88,8 +88,6 @@ if (isset($_GET['action'])) :
             die;
             break;
         case "viewProfileClient":
-            viewClient('layout', ['page' => 'profile','errPass'=>$er['pass'],'err_pass'=>$err_pass_old,'list_cate'=>$list_cate,'msg'=>$msg]);
-                        die;
             // code update profile cá nhân
             if(isset($_POST['btn_update'])){
                 extract($_POST);
@@ -115,11 +113,12 @@ if (isset($_GET['action'])) :
                     if(empty($err_pass_old) && empty($er['pass'])){
                         $pass_success = md5($password_new);
                         acc_update_pass($_SESSION['customer']['id'],$pass_success);
-                        
                         $msg = "Thay đổi mật khẩu thành công";
                     }
                 }
             }
+            viewClient('layout', ['page' => 'profile','errPass'=>$er['pass'],'err_pass'=>$err_pass_old,'list_cate'=>$list_cate,'msg'=>$msg]);
+            die;
 
             break;
         case "logoutClient":
@@ -127,7 +126,12 @@ if (isset($_GET['action'])) :
             header('location: homepage');
             echo "<script>alert('Bạn đã đăng xuất thành công!')</script>";
             break;
-      
+        // case "logout":
+        //     // admin thêm khách hàng/nv
+        //     session_destroy();
+        //     echo "<script>window.location.replace(\"index?msg=Đăng xuất thành công!\")</script>;";
+        //     die;
+        //     break;
         
     }
 endif;

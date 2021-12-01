@@ -1,22 +1,13 @@
 
     <main class="container">
         <div class="mainheading">
-            <h1 class="sitetitle"><a href="index.html">Blog Kooding</a></h1>
+            <h1 class="sitetitle"><a href="newsClient">Blog Kooding</a></h1>
             <p class="lead">
-                 Cập nhận tin tức mới nhất của chúng tôi để biết thêm nhiều chương trình khuyến mãi
+                 <?= $data['news_detail']['shortdesc'] ?>
             </p>
         </div>
         <div class="conten_news">
-            <p>18 Things You Should Learn Before Moving Into a New Home
-
-                Holy grail funding non-disclosure agreement advisor ramen bootstrapping ecosystem. Beta crowdfunding iteration assets business plan paradigm shift stealth mass market seed money rockstar niche market marketing buzz market.
-                
-                Burn rate release facebook termsheet equity technology. Interaction design rockstar network effects handshake creative startup direct mailing. Technology influencer direct mailing deployment return on investment seed round.
-                
-                Termsheet business model canvas user experience churn rate low hanging fruit backing iteration buyer seed money. Virality release launch party channels validation learning curve paradigm shift hypotheses conversion. Stealth leverage freemium venture startup business-to-business accelerator market.
-                
-                Gen-z strategy long tail churn rate seed money channels user experience incubator startup partner network low hanging fruit direct mailing. Client backing success startup assets responsive web design burn rate A/B testing metrics first mover advantage conversion.
-                Freemium non-disclosure agreement lean startup bootstrapping holy grail ramen MVP iteration accelerator. Strategy market ramen leverage paradigm shift seed round entrepreneur crowdfunding social proof angel investor partner network virality.</p>
+            <p><?= $data['news_detail']['content'] ?></p>
         </div>
         <div class="graybg">
             <div class="container">

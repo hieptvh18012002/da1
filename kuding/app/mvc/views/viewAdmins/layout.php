@@ -2,7 +2,8 @@
 <html lang="en">
 
 <head>
-
+  <!-- ico -->
+  <link rel="shortcut icon" type="image/png" href="./public/images/layout/kooding-app-icon.ico" />
   <!-- fontawesome -->
   <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
   <!-- Required meta tags -->
@@ -242,16 +243,16 @@
   <!-- End custom js for this page-->
   <!-- js -->
   <script src="./public/js/layout/previewImg.js"></script>
-<!-- editor -->
+  <!-- editor -->
   <script src="./public/js/jsadmin/editor.js"></script>
   <!-- handle data php -->
-<script src="./public/js/handle/filter_pro_admin.js"></script>
+  <script src="./public/js/handle/filter_pro_admin.js"></script>
 
-<!-- lib js query validate cdn-->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.3/jquery.validate.min.js" integrity="sha512-37T7leoNS06R80c8Ulq7cdCDU5MNQBwlYoy1TX/WUsLFC2eYNqtKlV0QjH7r8JpG/S0GUMZwebnVFLPd6SU5yg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <!-- lib js query validate cdn-->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.3/jquery.validate.min.js" integrity="sha512-37T7leoNS06R80c8Ulq7cdCDU5MNQBwlYoy1TX/WUsLFC2eYNqtKlV0QjH7r8JpG/S0GUMZwebnVFLPd6SU5yg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
-<!-- validate form -->
-<script src="./public/js/validate/validatorAdmin/validator__cate.js"></script>
+  <!-- validate form -->
+  <script src="./public/js/validate/validatorAdmin/validator__cate.js"></script>
 
 
 </body>
