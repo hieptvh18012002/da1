@@ -202,7 +202,7 @@ $("#form_categorys").validate({
     rules: {
         value: {
             required : true,
-            minlength : 2,
+            minlength : 1,
             maxlength : 26
         }
     },
@@ -210,7 +210,7 @@ $("#form_categorys").validate({
     messages: {
         value: {
             required: "Vui lòng nhập thuộc tính sản phẩm !",
-            minlength: "Nhập tối thiếu 2 ký tự",
+            minlength: "Nhập tối thiếu 1 ký tự",
             maxlength: "Nhập tối đa 26 ký tự"
         },
     },

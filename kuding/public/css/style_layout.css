@@ -585,6 +585,7 @@ main{
 .news-main img{
     width: 100%;
     height: 100%;
+    object-fit: cover;
 }
 .news-main .col-news{
     width: 48%;
@@ -3499,7 +3500,11 @@ a{
 /* New code */
 
 /* Trang 1 */
-
+.box_newsImg{
+    max-width: 600px;
+    height: 400px;
+    object-fit: cover;
+}
 /* Trang 2 */
 .box__slider__ct{
     width: 95%;
@@ -3510,7 +3515,29 @@ a{
 /* Trang 4 */
 
 /* Trang 5 */
-
+table.tb_size{
+    width: 60%;
+}
+.tb_title{
+    padding: 13px 0px;
+    font-size: 15px;
+    color: #555;
+}
+.tb_item{
+    padding: 10px 0px;
+    font-size: 13px;
+    color: #666;
+    font-weight: lighter;
+}
+.item__boxImg img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.item__boxImg{
+    width: 175px;
+    height: 250px;
+}
 /* Trang 6 */
 .cart__items{
     padding: 0 !important;
@@ -3755,3 +3782,9 @@ label.error{
     font-size: 28px;
     font-family: 'Calligraffitti', cursive;
 }
+@media screen and (min-width:1400px) {
+    .dieuKhoan{
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+  }

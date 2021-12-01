@@ -117,11 +117,12 @@
                 </div>
                 <div class="right__content__body">
                     <div class="content__input--vocher" style="border:1px solid #d7d7d7;border-radius: 5px;">
-                        <input id="vocher" type="text" placeholder="Nhập phiếu giảm giá">
+                        <input id="vocher" name="vocher" type="text" placeholder="Nhập phiếu giảm giá">
                         <div class="sub__vorcher">
                             <button type="button">Apply</button>
                         </div>
                     </div>
+                    <label for="vocher" class="error" style="display: none; margin-left: 20px !important;"></label>
                     <div class="content__subtotal">
                         <span>Tổng giá:</span>
                         <p><?= number_format($total,0,',') ?>đ</p>
@@ -149,7 +150,7 @@
                                 <label>Tôi chấp nhận các Điều khoản và Chính sách Bảo mật.</label>
                             </div>
                         </div>
-                        <a class="ml-4 text-primary" href="checkoutClient?action=viewdieukhoan">Điều khoản và Chính sách Bảo mật.</a>
+                        <a style="font-size: 12px;" class="text-primary" href="checkoutClient?action=viewdieukhoan">Điều khoản và Chính sách Bảo mật.</a>
                         <label for="agree" class="error" style="display: none;"></label>
                     </div>
                     <div class="content__submitAll">

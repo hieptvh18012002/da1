@@ -458,3 +458,10 @@ img.img-fluid{
 	height: 200px;
 	object-fit: cover;
 }
+.conten_news{
+	letter-spacing: 0.5px;
+    line-height: 30px;
+    margin: 20px 0;
+    overflow: hidden;
+    text-align: justify;
+}
