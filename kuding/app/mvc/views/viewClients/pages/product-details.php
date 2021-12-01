@@ -113,9 +113,52 @@
                                 </div>
                             </div>
                             <div class="info__body">
-                                <p>Chất liệu vải</p>
-                                <span>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Natus itaque sed
-                                    maiores praesentium aliquam explicabo ipsum eius dolores facere ea!</span>
+                                <div class="info_table_size">
+                                    <table class="tb_size">
+                                        <tbody>
+                                            <tr class="tb_title">
+                                                <th>Khích thước</th>
+                                                <th>inch</th>
+                                                <th>cm</th>
+                                            </tr>
+                                            <tr class="tb_item">
+                                                <td>Vai</td>
+                                                <td>28.4</td>
+                                                <td>124.0</td>
+                                            </tr>
+                                            <tr class="tb_item">
+                                                <td>Ngực</td>
+                                                <td>48.4</td>
+                                                <td>122.0</td>
+                                            </tr>
+                                            <tr class="tb_item">
+                                                <td>Eo</td>
+                                                <td>48.4</td>
+                                                <td>124.0</td>
+                                            </tr>
+                                            <tr class="tb_item">
+                                                <td>Lỗ cánh tay</td>
+                                                <td>18.4</td>
+                                                <td>24.0</td>
+                                            </tr>
+                                            <tr class="tb_item">
+                                                <td>Tay áo</td>
+                                                <td>28.4</td>
+                                                <td>124.0</td>
+                                            </tr>
+                                            <tr class="tb_item">
+                                                <td>Lỗ tay áo</td>
+                                                <td>18.4</td>
+                                                <td>24.0</td>
+                                            </tr>
+                                            <tr class="tb_item">
+                                                <td>Chiều dài</td>
+                                                <td>38.4</td>
+                                                <td>124.0</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
                             </div>
                         </div>
                         <div class="content__detail__info">
@@ -126,9 +169,8 @@
                                 </div>
                             </div>
                             <div class="info__body">
-                                <p>Chất liệu vải</p>
-                                <span>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Natus itaque sed
-                                    maiores praesentium aliquam explicabo ipsum eius dolores facere ea!</span>
+                                <p>Có thể trả lại trong vòng 14 ngày kể từ ngày giao hàng. Chính sách hoàn trả</p>
+                                <span>Miễn phí vận chuyển có sẵn trên toàn thế giới. Kiểm tra chính sách vận chuyển của chúng tôi để xem yêu cầu đặt hàng tối thiểu của quốc gia bạn. Chính sách vận chuyển .</span>
                             </div>
                         </div>
                         <div class="content__detail__info">
@@ -139,9 +181,7 @@
                                 </div>
                             </div>
                             <div class="info__body">
-                                <p>Chất liệu vải</p>
-                                <span>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Natus itaque sed
-                                    maiores praesentium aliquam explicabo ipsum eius dolores facere ea!</span>
+                                <span>Đơn giản và bảo thủ, JUSTONE cung cấp một bộ sưu tập đầy đủ quần áo dành cho phụ nữ, thoải mái và không rắc rối. Từ áo phông cổ điển đến quần short và quần lọt khe dài, lựa chọn quần áo thiết thực của JUSTONE là lý tưởng cho cuộc sống hàng ngày.</span>
                             </div>
                         </div>
 
