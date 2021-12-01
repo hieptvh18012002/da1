@@ -102,6 +102,7 @@
                         </div>
                     <?php $total += $tt;
                     endforeach; ?>
+                    <input type="hidden" name="total_price" value="<?= $total-30000 ?>">
 
                     <div class="order__chage">
                         <a href="cartClient" class="text-primary">Chỉnh sửa giỏ hàng</a>
@@ -118,7 +119,7 @@
                     <div class="content__input--vocher" style="border:1px solid #d7d7d7;border-radius: 5px;">
                         <input id="vocher" type="text" placeholder="Nhập phiếu giảm giá">
                         <div class="sub__vorcher">
-                            <button type="submit">Apply</button>
+                            <button type="button">Apply</button>
                         </div>
                     </div>
                     <div class="content__subtotal">
@@ -138,7 +139,7 @@
                             <p><i class="fas fa-plus"></i> Thêm ghi chú vào đơn hàng này</p>
                         </div>
                         <div id="input_note" class="note__input">
-                            <input type="text" placeholder="Lưu ý của khách hàng">
+                            <input type="text" name="note" placeholder="Lưu ý của khách hàng">
                         </div>
                     </div>
                     <div class="content__ok">
