@@ -153,53 +153,15 @@
             <p class="vclll">Bạn cũng có thể thích</p class="vclll">
             <div class="slider-album__content">
                 <!-- slider ảnh sp liên quan -->
-                <div class="image-item">
-                    <img width="165px" src="public/images/products/4f97afecd5a5104022f8be901e47642a0fea2ce8.jpg" alt="">
-                    <p>chuu Romatic Stripes Knit</p>
-                    <span><b>$36.99</b></span>
-                </div>
-                <div class="image-item">
-                    <img width="165px" src="public/images/products/4f97afecd5a5104022f8be901e47642a0fea2ce8.jpg" alt="">
-                    <p>chuu Romatic Stripes Knit</p>
-                    <span><b>$36.99</b></span>
-                </div>
-                <div class="image-item">
-                    <img width="165px" src="public/images/products/4f97afecd5a5104022f8be901e47642a0fea2ce8.jpg" alt="">
-                    <p>chuu Romatic Stripes Knit</p>
-                    <span><b>$36.99</b></span>
-                </div>
-                <div class="image-item">
-                    <img width="165px" src="public/images/products/4f97afecd5a5104022f8be901e47642a0fea2ce8.jpg" alt="">
-                    <p>chuu Romatic Stripes Knit</p>
-                    <span><b>$36.99</b></span>
-                </div>
-                <div class="image-item">
-                    <img width="165px" src="public/images/products/4f97afecd5a5104022f8be901e47642a0fea2ce8.jpg" alt="">
-                    <p>chuu Romatic Stripes Knit</p>
-                    <span><b>$36.99</b></span>
-                </div>
-                <div class="image-item">
-                    <img width="165px" src="public/images/products/4f97afecd5a5104022f8be901e47642a0fea2ce8.jpg" alt="">
-                    <p>chuu Romatic Stripes Knit</p>
-                    <span><b>$36.99</b></span>
-                </div>
-                <div class="image-item">
-                    <img width="165px" src="public/images/products/4f97afecd5a5104022f8be901e47642a0fea2ce8.jpg" alt="">
-                    <p>chuu Romatic Stripes Knit</p>
-                    <span><b>$36.99</b></span>
-                </div>
-                <div class="image-item">
-                    <img width="165px" src="public/images/products/4f97afecd5a5104022f8be901e47642a0fea2ce8.jpg" alt="">
-                    <p>chuu Romatic Stripes Knit</p>
-                    <span><b>$36.99</b></span>
-                </div>
-                <div class="image-item">
-                    <img width="165px" src="public/images/products/4f97afecd5a5104022f8be901e47642a0fea2ce8.jpg" alt="">
-                    <p>chuu Romatic Stripes Knit</p>
-                    <span><b>$36.99</b></span>
-                </div>
-
-
+                <?php foreach ($data['relate_pros'] as $item) : ?>
+                    <div class="image-item">
+                        <a href="productDetail?action=viewDetail&id=<?= $item['id'] ?>">
+                            <img width="165px" src="./public/images/products/<?= $item['avatar'] ?>" alt="">
+                        </a>
+                        <p><?= $item['name'] ?></p>
+                        <span><b><?= number_format($item['price'],0,',') ?></b></span>
+                    </div>
+                <?php endforeach; ?>
             </div>
         </div>
         <div class="sp-title">

@@ -21,7 +21,8 @@
                                 <div class="ci__wrap__content">
                                     <div class="cart__left">
                                         <div class="cart__left__img">
-                                            <img src="./public/images/products/<?= $item['avatar'] ?>" alt="" width="100%">
+                                            <a href="productDetail?action=viewDetail&id=<?= $item['id'] ?>">
+                                            <img src="./public/images/products/<?= $item['avatar'] ?>" alt="" width="100%"></a>
                                         </div>
                                         <div class="cart__left__info">
                                             <p><?= $item['name'] ?></p>

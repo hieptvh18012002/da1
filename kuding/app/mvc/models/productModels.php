@@ -97,9 +97,15 @@ function pro_select_view()
 // 10 sp liên quan đến id
 function pro_select_relateProduct($id)
 {
-    $sql = "SELECT * FROM products p JOIN categories c ON p.cate_id=c.id WHERE c.id=$id LIMIT 0,10";
+    $sql = "SELECT p.id,p.name,p.avatar,p.price FROM products p JOIN categories c ON p.cate_id=c.id WHERE c.id=$id LIMIT 0,10";
     return pdo_query($sql);
 }
+//
+function pro_select_cate($id)
+{
+    $sql = "SELECT cate_id FROM products WHERE id=$id";
+    return pdo_query_value($sql);
+} 
 // sp liên quan -> sp cùng danh mục
 // function relateProduct($cate_id)
 // {
