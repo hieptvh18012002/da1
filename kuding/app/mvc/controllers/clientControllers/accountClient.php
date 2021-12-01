@@ -3,6 +3,7 @@
 require_once "./app/common/bridge.php";
 callModel("accountModels");
 callModel("categoryModels");
+callModel("productModels");
 $list_acc = acc_select_all();
 $list_cate = category_select_all();
 $err = '';
@@ -87,6 +88,8 @@ if (isset($_GET['action'])) :
             die;
             break;
         case "viewProfileClient":
+            viewClient('layout', ['page' => 'profile','errPass'=>$er['pass'],'err_pass'=>$err_pass_old,'list_cate'=>$list_cate,'msg'=>$msg]);
+                        die;
             // code update profile cá nhân
             if(isset($_POST['btn_update'])){
                 extract($_POST);
@@ -94,7 +97,7 @@ if (isset($_GET['action'])) :
                 session_destroy();
                 header('location: homepage?msg=Cập nhật tài khoản thành công! Vui lòng đăng nhập lại.');
             }
-            if(isset($_POST['btn_change_pass'])){
+            elseif(isset($_POST['btn_change_pass'])){
                 extract($_POST);
                 // check pas confirm
                 $email = $_SESSION['customer']['email'];
@@ -112,25 +115,19 @@ if (isset($_GET['action'])) :
                     if(empty($err_pass_old) && empty($er['pass'])){
                         $pass_success = md5($password_new);
                         acc_update_pass($_SESSION['customer']['id'],$pass_success);
+                        
                         $msg = "Thay đổi mật khẩu thành công";
                     }
                 }
             }
 
-            viewClient('layout', ['page' => 'profile','errPass'=>$er['pass'],'err_pass'=>$err_pass_old,'list_cate'=>$list_cate,'msg'=>$msg]);
-            die;
             break;
         case "logoutClient":
             unset($_SESSION['customer']);
             header('location: homepage');
             echo "<script>alert('Bạn đã đăng xuất thành công!')</script>";
             break;
-        // case "logout":
-        //     // admin thêm khách hàng/nv
-        //     session_destroy();
-        //     echo "<script>window.location.replace(\"index?msg=Đăng xuất thành công!\")</script>;";
-        //     die;
-        //     break;
+      
         
     }
 endif;

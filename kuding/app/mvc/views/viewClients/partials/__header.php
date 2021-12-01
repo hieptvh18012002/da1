@@ -3,16 +3,16 @@
     <div class="header-top swiper mySwiper">
         <div class="swiper-wrapper">
             <a href="#" class="swiper-slide slider-top1">
-                    <!-- nếu có vourcher thì hiển thị nhiều nhất 2 cái -->
-                    <?php if(isset($data['vourchers'])){
-                        echo "Nhanh tay nhập mã giảm giá để giảm giá cho đơn hàng! - ";
-                        foreach($data['vourchers'] as $item){
-                            echo $item['code'].",";
-                        }
-                    }else{
-                     echo "Covid-19";   
-                    }?>
-        </a>
+                <!-- nếu có vourcher thì hiển thị nhiều nhất 2 cái -->
+                <?php if (isset($data['vourchers'])) {
+                    echo "Nhanh tay nhập mã giảm giá để giảm giá cho đơn hàng! - ";
+                    foreach ($data['vourchers'] as $item) {
+                        echo $item['code'] . ",";
+                    }
+                } else {
+                    echo "Covid-19";
+                } ?>
+            </a>
             <a href="#" class="swiper-slide slider-top2">Vận chuyển nhanh chóng và tin cậy 🚛</a>
         </div>
     </div>
@@ -34,9 +34,9 @@
                     <div class="pop-input">
                         <select name="filter-cate" class="filter-cate">
                             <option value="all"><a href="">Tất cả</a></option>
-                            <?php foreach($data['list_cate'] as $item):?>
-                            <option value="<?= $item['id'] ?>"><?= $item['name'] ?></option>
-                           <?php endforeach;?>
+                            <?php foreach ($data['list_cate'] as $item) : ?>
+                                <option value="<?= $item['id'] ?>"><?= $item['name'] ?></option>
+                            <?php endforeach; ?>
                         </select>
                         <input type="search" name="keyword" placeholder="Tìm kiếm" required>
                     </div>
@@ -53,8 +53,7 @@
                         <span class="title-pop-user">Hồ sơ<i class="fa fa-angle-down ml-2" aria-hidden="true"></i></span>
                         <div class="pop-profile">
                             <a href="accountClient?action=viewProfileClient">Bảng điều khiển</a>
-                            <a href="#">Đơn hàng</a>
-                            <a href="#">Tài khoản</a>
+                           
                             <a href="accountClient?action=logoutClient" onclick="return confirm('Bạn chắc chắn muốn đăng xuất')">Đăng xuất</a>
                         </div>
                     </div>
@@ -105,9 +104,9 @@
                                     </div>
                                 </form>
                                 <!-- register -->
-                                <form action="" method="POST" enctype="multipart/form-data" name="form-register" id="register_user" class="p-5" >
+                                <form action="" method="POST" enctype="multipart/form-data" name="form-register" id="register_user" class="p-5">
                                     <div class="errRegister" style="color:red;">
-                        
+
                                     </div>
                                     <div class="form-group">
                                         <input type="text" name="fullname" id="fullname" placeholder="Tên đầy đủ" class="fullname">
@@ -157,9 +156,11 @@
                         <i class="fa fa-heart" aria-hidden="true"></i>
                     </a>
                     <div class="notifi">
-                    <?php if(isset($_SESSION['favorite'])){
+                        <?php if (isset($_SESSION['favorite'])) {
                             echo count($_SESSION['favorite']);
-                        }else{ echo "0";}?>
+                        } else {
+                            echo "0";
+                        } ?>
                     </div>
                 </div>
                 <div class="box-cart pt-4 pb-4">
@@ -167,41 +168,51 @@
                         <i class="fa fa-shopping-bag" aria-hidden="true"></i>
                     </a>
                     <div class="notifi">
-                        <?php if(isset($_SESSION['cart'])){
+                        <?php if (isset($_SESSION['cart'])) {
                             echo count($_SESSION['cart']);
-                        }else{ echo "0";}?>
+                        } else {
+                            echo "0";
+                        } ?>
                     </div>
                     <!-- start popup-cart -->
                     <div class="pop-cart">
+                        <?php if(isset($_SESSION['cart'])):?>
                         <div class="pop-cart__top">
                             <div class="left">
                                 <div class=""> <i class="fa fa-shopping-bag " aria-hidden="true"></i></div>
                             </div>
                             <div class="right">
                                 <span class="total">Tổng tiền:</span>
-                                <span>500.000đ</span>
+                                <span class="total-price"></span>
                             </div>
                         </div>
-                        <div class="pop-cart__main row p-3">
-                            <div class="col-3 col-md-3">
-                                <img src="public/images/products/5cde3d230e25839dd691992b2d3e183ebe69e199.jpg" alt="" width="100%">
-                            </div>
-                            <div class="col-6 col-md-6">
-                                <div class="pro-name mb-2">Quần jeans Hàn Xẻng!</div>
-                                <div class="desc">
-                                    Đen | Size M | SL 1
+
+                        <?php $tt=0; foreach ($_SESSION['cart'] as $item) :$thanhtien=$item['quantity'] * $item['price']; ?>
+                            <div class="pop-cart__main row p-3">
+                                <div class="col-3 col-md-3">
+                                    <a href="productDetail?action=viewDetail&id=<?= $item['id'] ?>">
+                                        <img src="public/images/products/<?= $item['avatar'] ?>" alt="" width="100%">
+                                    </a>
+                                </div>
+                                <div class="col-6 col-md-6">
+                                    <div class="pro-name mb-2"><?= $item['name'] ?></div>
+                                    <div class="desc">
+                                        <?= attr_value_select_id($_SESSION['cart'][$item['id']]['color']) ?> | Size <?= attr_value_select_id($_SESSION['cart'][$item['id']]['size']) ?> | SL <?= $item['quantity'] ?>
+                                    </div>
+                                </div>
+                                <div class="col-3 col-md-3 cart-option">
+                                    <div class="pro-price mb-5"><?= $thanhtien ?>đ</div>
+                                    <a href="cartClient?action=del&id=<?= $item['id'] ?>" class="text-danger">Hủy bỏ</a>
                                 </div>
                             </div>
-                            <div class="col-3 col-md-3 cart-option">
-                                <div class="pro-price mb-5">500.000đ</div>
-                                <a href="#" class="text-danger">Hủy bỏ</a>
-                            </div>
-                        </div>
+                        <?php $tt += $thanhtien; endforeach; ?>
+
                         <div class="pop-cart__bottom">
-                            <a href="cartClient?action=checkout" class="text-white bg-secondary">Thanh toán</a>
-                            <a href="cart" class="">Vào giỏ hàng</a>
+                            <a href="checkoutClient?action=checkout" class="text-white bg-secondary">Thanh toán</a>
+                            <a href="cartClient" class="">Vào giỏ hàng</a>
 
                         </div>
+                        <?php endif;?>
                     </div>
                 </div>
             </div>
@@ -229,3 +240,8 @@
     <!-- end header-main -->
 
 </header>
+<script>
+    $(document).ready(function(){
+        $('.total-price').html(<?= $tt ?>);
+    })
+</script>

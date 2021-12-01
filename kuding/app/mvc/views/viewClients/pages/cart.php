@@ -1,9 +1,9 @@
 <main class="body__cart">
     <div class="body__cart__title">
         <h3>Giỏ hàng mua sắm</h3>
-        <?php if(isset($_GET['msg'])):?>
+        <?php if (isset($_GET['msg'])) : ?>
             <div class="bg-success p-2 text-light"><?= $_GET['msg'] ?></div>
-            <?php endif;?>
+        <?php endif; ?>
     </div>
     <?php if (isset($_SESSION['cart']) && count($_SESSION['cart']) != 0) : ?>
         <div class="cart__content">
@@ -15,7 +15,8 @@
                 </div>
                 <div class="cart__checkout__content">
                     <ul class="cart__items">
-                        <?php foreach ($_SESSION['cart'] as $item) : ?>
+                        <?php $tt = 0;
+                        foreach ($_SESSION['cart'] as $item) : $thanhtien = $item['price'] * $item['quantity'] ?>
                             <li class="ci__wrap">
                                 <div class="ci__wrap__content">
                                     <div class="cart__left">
@@ -26,9 +27,9 @@
                                             <p><?= $item['name'] ?></p>
                                             <span class="db">Thường giao hàng trong 4-8 ngày làm việc</span>
                                             <div class="cart__info__size">
-                                                <span>Màu <?= attr_value_select_id($_SESSION['cart'][$item['id']]['color']) ?></span>
+                                                <span>Màu <?= attr_value_select_id($item['color']) ?></span>
                                                 <span>|</span>
-                                                <span>Size <?= attr_value_select_id($_SESSION['cart'][$item['id']]['size']) ?></span>
+                                                <span>Size <?= attr_value_select_id($item['size']) ?></span>
                                             </div>
                                         </div>
                                     </div>
@@ -36,14 +37,15 @@
                                         <input type="number" name="quantity" value="<?= $item['quantity'] ?>">
                                     </div>
                                     <div class="cart__price">
-                                        <span>$69,69</span>
+                                        <span><?= number_format($thanhtien,0,',') ?>đ</span>
                                     </div>
                                 </div>
                                 <div class="cart__remove">
                                     <a href="cartClient?action=del&id=<?= $item['id'] ?>" class="text-danger">Xóa</a>
                                 </div>
                             </li>
-                        <?php endforeach; ?>
+                        <?php $tt += $thanhtien;
+                        endforeach; ?>
                     </ul>
                 </div>
             </div>
@@ -57,7 +59,7 @@
                             <span>Tổng phụ</span>
                         </div>
                         <div class="sum__price__dola">
-                            <span>$ 69,69</span>
+                            <span><?= number_format($tt,0,',') ?>đ</span>
                         </div>
                     </div>
                     <div class="cart__btn__order">
