@@ -13,7 +13,6 @@ if (isset($_GET['action'])) {
             if (!isset($_SESSION['customer'])) :
                 header('location: cartClient?msg=Vui lòng đăng nhập và tiếp tục trải nghiệm 🥰');
             else :
-
                 // render address
                 if (isset($_GET['provinceId'])) {
                     echo '<option selected disable>-----Quận huyện----</option>';
@@ -36,7 +35,7 @@ if (isset($_GET['action'])) {
                     die;
                 }
                 // xử lí order
-                if(isset($_POST['btn_order'])){
+                if (isset($_POST['btn_order'])) {
                     extract($_POST);
 
                     
@@ -47,7 +46,13 @@ if (isset($_GET['action'])) {
 
             break;
 
-           
+            case "viewdieukhoan":
+
+                viewClient('layout',['page'=>'dieukhoan','list_cate' => $list_cate,]);
+                break;
+
+
+
 
         default:
 

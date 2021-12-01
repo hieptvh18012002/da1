@@ -73,12 +73,13 @@ if (isset($_GET['action'])) {
             //     if (isset($minimum_price, $maximum_price)) {
             //         $qr .= " AND price BETWEEN $minimum_price AND $maximum_price ";
             //     }
+            // lấy count in ra mh
+            $count = count(pdo_query($qr));
             $qr .= " LIMIT $start,$limit";
             $db = get_connection();
             $stmt = $db->prepare($qr);
             $stmt->execute();
             $result = $stmt->fetchAll();
-            $count = $stmt->rowCount();
             if($count <= 0){
                 $msg = "Không tìm thấy sản phẩm phù hợp";
             }

@@ -148,6 +148,7 @@
                                 <label>Tôi chấp nhận các Điều khoản và Chính sách Bảo mật.</label>
                             </div>
                         </div>
+                        <a class="ml-4 text-primary" href="checkoutClient?action=viewdieukhoan">Điều khoản và Chính sách Bảo mật.</a>
                         <label for="agree" class="error" style="display: none;"></label>
                     </div>
                     <div class="content__submitAll">

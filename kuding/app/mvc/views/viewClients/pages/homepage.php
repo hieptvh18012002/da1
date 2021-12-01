@@ -1,3 +1,5 @@
+
+
 <main class="body__index">
 
     <div class="banner single-item">
@@ -233,7 +235,7 @@
                 </a>
             </div>
         </div>
-        <a href="#" class="album-button ">
+        <a href="albumClient" class="album-button ">
             Xem thư viện
         </a>
     </div>

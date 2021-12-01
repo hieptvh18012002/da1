@@ -33,16 +33,18 @@ if (isset($_GET['action'])) {
                 array_push($size_id, $s['value_id']);
             }
             // tạo 2 mảng rỗng để chứa name
-            // lặp và lấy name bỏ vào mảng;
             $color_name = [];
             $size_name = [];
+            // lặp và lấy name bỏ vào mảng;
             foreach ($color_id as $c) {
                 array_push($color_name,select_name_value_pro($c));// lại là mảng 3 chìu
             }
             foreach ($size_id as $s) {
                 array_push($size_name,select_name_value_pro($s));// lại là mảng 3 chìu
             }
-           
+            // render slide bạn cũng thích-> lấy sp cùng danh mục
+            $id_cate = pro_select_cate($id);
+            $relate_pros = pro_select_relateProduct($id_cate);
             // cmt
             if (isset($_POST['btn_cmt'])) {
                 // lấy img
@@ -87,7 +89,7 @@ if (isset($_GET['action'])) {
             }
             // xóa cmt
 
-            viewClient('layout', ['page' => 'product-details', 'list_img' => $pro_imgs, 'list_cate' => $list_cate, 'pros' => $pros, 'errCmt' => $err['cmt'], 'errImg' => $err['img'], 'list_cmt' => $cmts, 'list_vour' => $list_vour,'color'=>$color_name,'size'=>$size_name]);
+            viewClient('layout', ['page' => 'product-details', 'list_img' => $pro_imgs, 'list_cate' => $list_cate, 'pros' => $pros, 'errCmt' => $err['cmt'], 'errImg' => $err['img'], 'list_cmt' => $cmts, 'list_vour' => $list_vour,'color'=>$color_name,'size'=>$size_name,'relate_pros'=>$relate_pros]);
             die;
             break;
         case "del_cmt":
