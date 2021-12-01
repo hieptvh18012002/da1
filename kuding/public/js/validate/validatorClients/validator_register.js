@@ -77,6 +77,10 @@ $("#checkout").validate({
         },
         agree:{
             required: true
+        },
+        vocher:{
+            minlength : 6,
+            vourcher :true
         }
     },
 
@@ -102,6 +106,9 @@ $("#checkout").validate({
         },
         agree:{
             required: "Bạn phải đồng ý điều khoản của chúng tôi"
+        },
+        vocher:{
+            minlength: "Mã code tối thiểu 6 ký tự",
         }
     },
     submitHandler: function(form) {
@@ -112,3 +119,7 @@ $("#checkout").validate({
  $.validator.addMethod("validatePassword", function (value, element) {
     return this.optional(element) || /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,}$/.test(value);
 }, "Mật khẩu không chứa ký đặc biệt ít nhất 1 số và 1 chữ cái");
+
+$.validator.addMethod("vourcher", function (value, element) {
+    return this.optional(element) || /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,}$/.test(value);
+}, "Vui lòng nhập Vourcher có cả chữ, số và không chứa ký tự đặc biệt");

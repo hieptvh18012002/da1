@@ -196,10 +196,12 @@
                 <?php foreach ($data['relate_pros'] as $item) : ?>
                     <div class="image-item">
                         <a href="productDetail?action=viewDetail&id=<?= $item['id'] ?>">
-                            <img width="165px" src="./public/images/products/<?= $item['avatar'] ?>" alt="">
+                            <div class="item__boxImg">
+                                <img src="./public/images/products/<?= $item['avatar'] ?>" alt="">
+                            </div>
                         </a>
                         <p><?= $item['name'] ?></p>
-                        <span><b><?= number_format($item['price'],0,',') ?></b></span>
+                        <span><b><?= number_format($item['price'],0,',') ?> VND</b></span>
                     </div>
                 <?php endforeach; ?>
             </div>
