@@ -3,7 +3,7 @@
         <div class="mainheading">
             <h1 class="sitetitle"><a href="index.html">Blog Kooding</a></h1>
             <p class="lead">
-                 Bootstrap theme, medium style, simply perfect for bloggers
+                 Cập nhận tin tức mới nhất của chúng tôi để biết thêm nhiều chương trình khuyến mãi
             </p>
         </div>
         <div class="conten_news">

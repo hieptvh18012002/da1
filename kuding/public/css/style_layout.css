@@ -2083,9 +2083,6 @@ input.filter__select{
     margin-top: 50px;
 }
 
-.cart__item{
-    width: 200px !important;
-}
 .cart__allItem {
     margin-left: 25px;
     margin-right: 25px;
@@ -2133,7 +2130,7 @@ input.filter__select{
 .slick-next:before{
     position: absolute !important;
     top: -35px !important;
-    right: -10px !important;
+    right: -20px !important;
     font-family: FontAwesome;
     content: '\f105';
     font-size: 65px !important;
@@ -2161,7 +2158,6 @@ input.filter__select{
     width: 114px;
 }
 .cart__item__img{
-    width: 200px;
     object-fit: cover;
     overflow: hidden;
 }
@@ -2619,7 +2615,7 @@ a{
     margin: 0 0 0 30px;
 }
 .slick-initialized .slick-slide{
-    margin-right: 10px;
+    margin-right: 15px;
 }
 .slick-arrow{
     position: absolute;
@@ -3274,6 +3270,8 @@ a{
     display: flex;
     justify-content: center;
     align-items: center;
+    margin: 20px 0px;
+    column-gap: 20px;
 }
 .body__acc__content{
     background-color: #fcfcfc;
@@ -3436,10 +3434,15 @@ a{
         height: 100px;
         background-color: #fbfbfb;
     }
-
+    .DH__content__body{
+        flex-direction: column;
+    }
 }
 /* mobile > 740px*/
 @media only screen and (min-width: 435px) and (max-width: 740px){
+    .DH__content__body{
+        flex-direction: column;
+    }
     .DH__form{
         width: 100%;
     }
@@ -3509,7 +3512,9 @@ a{
 /* Trang 5 */
 
 /* Trang 6 */
-
+.cart__items{
+    padding: 0 !important;
+}
 /* Trang 7 */
 
 /* code validate */
@@ -3527,11 +3532,15 @@ label.error{
     padding: 0px 20px;
   }
   .album__header{
+    margin-top: 50px;
     text-align: center;
   }
   .album__title{
-    font-size: 30px;
     margin-bottom: 20px;
+  }
+  .album__title h3{
+    font-size: 35px;
+    font-weight: 800 !important;
   }
   .album__text{
     font-size: 17px;
