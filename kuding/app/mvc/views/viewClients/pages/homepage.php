@@ -1,5 +1,3 @@
-
-
 <main class="body__index">
 
     <div class="banner single-item">
@@ -68,7 +66,7 @@
                                 <?= $item['name'] ?>
                             </div>
                             <div class="pro-des bg-white">
-                               <span> <?= substr($item['description'], 0, 15) ?></span>
+                                <span> <?= substr($item['description'], 0, 15) ?></span>
                             </div>
                         </div>
                     </a>
@@ -86,7 +84,10 @@
         <div class="col-news left">
             <div class="news-item mb-5">
                 <a href="" class="box-img">
-                    <img src="public/images/layout/017181512579f83672de39d3fe8a2e1ffac5b5f7.jpg" alt="">
+                    <div class="box_newsImg">
+                        <!-- <img src="public/images/layout/017181512579f83672de39d3fe8a2e1ffac5b5f7.jpg" alt=""> -->
+                        <img src="public/images/layout/2604268e6bc21dd71f467ac400ece543e4c0830c.jpg" alt="">
+                    </div>
                 </a>
                 <div class="pro-name">
                     Khám phá son mới
@@ -98,7 +99,11 @@
             </div>
             <div class="news-item">
                 <a href="" class="box-img">
-                    <img src="public/images/layout/188906b2571586bae5d3dd009b56647f019b6145.jpg" alt="">
+                    <div class="box_newsImg">
+                        <!-- <img src="public/images/layout/188906b2571586bae5d3dd009b56647f019b6145.jpg" alt=""> -->
+                        <img src="public/images/layout/2604268e6bc21dd71f467ac400ece543e4c0830c.jpg" alt="">
+                    </div>
+
                 </a>
                 <div class="pro-name">
                     Khám phá son mới
@@ -112,7 +117,11 @@
         <div class="col-news right">
             <div class="news-item">
                 <a href="" class="box-img">
-                    <img src="public/images/layout/261d0a0ba82f5e1c2b6b03fb85b850b687c0e93f.jpg" alt="">
+                    <div class="box_newsImg">
+                        <!-- <img src="public/images/layout/261d0a0ba82f5e1c2b6b03fb85b850b687c0e93f.jpg" alt=""> -->
+                        <img src="public/images/layout/2604268e6bc21dd71f467ac400ece543e4c0830c.jpg" alt="">
+                    </div>
+
                 </a>
                 <div class="pro-name">
                     Khám phá son mới

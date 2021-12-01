@@ -7,7 +7,7 @@
             </p>
         </div>
         <div class="conten_news">
-            <p><?= $data['news_detail']['content'] ?></p>
+            <?= $data['news_detail']['content'] ?>
         </div>
         <div class="graybg">
             <div class="container">
