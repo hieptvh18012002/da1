@@ -24,14 +24,4 @@ function acc_update_pass($id,$pass){
     pdo_execute($sql);
 }
 
-// random quên mật khẩu
-function random_string($length)
-{
-    $str = '';
-    $chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
-    $size = strlen($chars);
-    for ($i = 0; $i < $length; $i++) {
-        $str .= $chars[rand(0, $size - 1)];
-    }
-    return $str;
-}
+

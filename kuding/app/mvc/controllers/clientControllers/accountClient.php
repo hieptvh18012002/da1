@@ -54,6 +54,8 @@ if (isset($_GET['action'])) :
                             $_SESSION['customer'] = $acc_exist;
                             unset($_SESSION['admin']);
                             echo "<script>location.reload()</script>";
+                            echo "<script>alert('Đăng nhập thành công!')</script>";
+                            
                         } else {
                             echo "Mật khẩu không chính xác!";
                         }
@@ -103,17 +105,17 @@ if (isset($_GET['action'])) :
                 $pass = md5($password);
                 if($acc['password'] != $pass ){
                     $er['pass'] = "Mật khẩu cũ không chính xác";
-                }else{
-                    if($password_new == $password_comfim){
-    
-                    }else{
+                }
+                else{
+                    // nếu pass cũ chính xác
+                    if($password_new != $password_comfim){
                         $err_pass_old = "Mật khẩu mới không khớp";
-                    }
-    
-                    if(empty($err_pass_old) && empty($er['pass'])){
-                        $pass_success = md5($password_new);
-                        acc_update_pass($_SESSION['customer']['id'],$pass_success);
-                        $msg = "Thay đổi mật khẩu thành công";
+                    }else{
+                        if(empty($err_pass_old) && empty($er['pass'])){
+                            $pass_success = md5($password_new);
+                            acc_update_pass($_SESSION['customer']['id'],$pass_success);
+                            $msg = "Thay đổi mật khẩu thành công";
+                        }
                     }
                 }
             }

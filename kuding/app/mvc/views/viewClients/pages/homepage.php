@@ -1,5 +1,7 @@
 <main class="body__index">
-
+    <?php if(isset($_GET['msg'])):?>
+        <div class="alert alert-success"><?= $_GET['msg'] ?></div>
+        <?php endif;?>
     <div class="banner single-item">
         <a href="#baner " class="banner-item">
             <img src="public/images/layout/5f3c3ce98d1c4e3e07ab5ebc4126a3cbdb33aadb.jpg" alt="" width="100%">

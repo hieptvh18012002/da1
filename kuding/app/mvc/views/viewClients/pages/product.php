@@ -12,6 +12,7 @@
                 KOODING</p>
         </div>
     </div>
+    <?php if($data['count'] > 0): ?>
     <div class="product__content">
         <div class="proC__fist">
             <div class="proC__title">
@@ -122,5 +123,6 @@
             </div>
         </div>
     </div>
+    <?php endif;?>
 
 </main>

@@ -3788,3 +3788,70 @@ label.error{
       margin: 0 auto;
     }
   }
+  /* ===diều khoản=== */
+  .forgot_password{
+    width: 100%;
+    margin: 0 auto;
+    text-align: center;
+}
+.forgot_content{
+    padding-bottom: 30px;
+    min-height: calc(100% - 524px);
+}
+.forgot_title{
+    text-align: center;
+    padding: 60px 0 8px;
+    line-height: normal;
+    font-size: 26px;
+    cursor: default;
+}
+.forgot_text{
+    text-align: center;
+    margin: 0 auto;
+    max-width: 70%;
+    cursor: default;
+}
+.forgot_input{
+    text-align: center;
+    margin: 20px auto;
+    max-width: 70%;
+    cursor: default;
+}
+.forgot{
+    outline: none;
+    width: 350px;
+    margin: 26px auto;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+    background: #fff;
+    padding: 0 12px;
+    height: 40px;
+    box-sizing: border-box;
+    display: block;
+    margin: 7px auto 18px;
+    border: 1px solid #8b8b8b;
+    font-size: 13px;
+    letter-spacing: .5px;
+    color: #333;
+    font-weight: 400;
+    font-family: 'Open Sans';
+    background: #fdfdfd;
+    -webkit-appearance: none;
+}
+.forgot_btn{
+    border: 1px solid black;
+    outline: none;
+    margin: 0 auto;
+    width: auto;
+    padding: 0 35px;
+    height: 38px;
+    line-height: 38px;
+    background: #fff;
+    font-size: 14px;
+    letter-spacing: 1px;
+    word-spacing: 1px;
+    background: #6b7c88;
+    color: #fff;
+    margin: 0 10px 0 0;
+    user-select: none;
+}

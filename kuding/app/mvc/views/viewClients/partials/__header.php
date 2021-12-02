@@ -7,10 +7,10 @@
                 <?php if (isset($data['vourchers']) && count($data['vourchers']) > 0) {
                     echo "Nhanh tay nhập mã giảm giá để giảm giá cho đơn hàng! - ";
                     echo $data['vourchers']['code'];
-                    if($data['vourchers']['cate_code'] == 0){
-                        echo "- giảm ".number_format($data['vourchers']['discount'],0,','). 'đ cho đơn hàng.';
-                    }else{
-                        echo "- giảm ".$data['vourchers']['discount']. '% cho đơn hàng.';
+                    if ($data['vourchers']['cate_code'] == 0) {
+                        echo "- giảm " . number_format($data['vourchers']['discount'], 0, ',') . 'đ cho đơn hàng.';
+                    } else {
+                        echo "- giảm " . $data['vourchers']['discount'] . '% cho đơn hàng.';
                     }
                 } else {
                     echo "Covid-19";
@@ -38,7 +38,7 @@
                         <select name="filter-cate" class="filter-cate">
                             <option value="all"><a href="">Tất cả</a></option>
                             <?php foreach ($data['list_cate'] as $item) : ?>
-                                <option value="<?= $item['id'] ?>"><?= $item['name'] ?></option>
+                                <option <?= isset($_GET['filter-cate']) && $_GET['filter-cate'] == $item['id'] ? 'selected' : '' ?> value="<?= $item['id'] ?>"><?= $item['name'] ?></option>
                             <?php endforeach; ?>
                         </select>
                         <input type="search" name="keyword" placeholder="Tìm kiếm" required>
@@ -100,7 +100,7 @@
                                     <button type="submit" class="col-md-12 btn btn-secondary p-2" id="btn_login_client">Đăng
                                         nhập</button>
                                     <div class="forgot-pass text-center m-3">
-                                        <a href="#remember">Bạn quên mật khẩu?</a>
+                                        <a href="forgotPass">Bạn quên mật khẩu?</a>
                                     </div>
                                     <div class="err" style="color:red;">
 

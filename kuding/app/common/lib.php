@@ -29,4 +29,16 @@ function count_recored($sql){
     return $count;
 
 }
+// random quên mật khẩu
+function random_string($length)
+{
+    $str = '';
+    $chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+    $size = strlen($chars);
+    // lặp + lấy ngẫu nhiên bằng rand()
+    for ($i = 0; $i < $length; $i++) {
+        $str .= $chars[rand(0, $size - 1)];
+    }
+    return $str;
+}
 
