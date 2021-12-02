@@ -319,8 +319,8 @@ $("#form_categorys").validate({
 }, "Nhập đúng định dạng email (VD: Kooding@gmail.com)");
 
 $.validator.addMethod("vourcher", function (value, element) {
-    return this.optional(element) || /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,}$/.test(value);
-}, "Vui lòng nhập Vourcher có cả chữ, số và không chứa ký tự đặc biệt");
+    return this.optional(element) || /^(?=.*[A-Za-z])[A-Za-z\d]{6,}$/.test(value);
+}, "Vui lòng nhập Vourcher không chứa ký tự đặc biệt");
 
 var today = new Date();
 var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
