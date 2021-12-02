@@ -4,19 +4,17 @@ callModel("productModels");
 callModel("categoryModels");
 
 $list_cate = cate_select_all();
+$msg = '';
 if (isset($_SESSION['cart'])) {
     $count = count($_SESSION['cart']);
-    // $color = ;
-    // $size = attr_value_select_id($_SESSION['cart']['size']);
-    // var_dump($size);die;
 }
 if (isset($_GET['action'])) {
     switch ($_GET['action']) {
+
         case "del":
             $cart_id = $_GET['id'];
             unset($_SESSION['cart'][$cart_id]);
             header('location: cartClient?action=viewList&msg=Hủy thành công 1 sản phẩm ra giỏ hàng!');
-
             die;
             break;
     }
@@ -24,7 +22,11 @@ if (isset($_GET['action'])) {
 // POST
 if (isset($_POST['action'])) {
     switch ($_POST['action']) {
-
+        case 'update_cart':
+            $id = $_POST['product_id'];
+            $_SESSION['cart'][$id]['quantity'] = $_POST['quantity'];
+            $msg = "Cập nhật thành công số lượng sản phẩm";
+            break;
 
         default:
             // thêm mới item
@@ -48,8 +50,9 @@ if (isset($_POST['action'])) {
             }
 
 
-            viewClient('layout', ['page' => 'cart', 'list_cate' => $list_cate]);
+
+            viewClient('layout', ['page' => 'cart', 'list_cate' => $list_cate, 'msg' => $msg]);
             break;
     }
 }
-viewClient('layout', ['page' => 'cart', 'list_cate' => $list_cate]);
+viewClient('layout', ['page' => 'cart', 'list_cate' => $list_cate, 'msg' => $msg]);

@@ -69,7 +69,7 @@ $("#checkout").validate({
         phone:{
             required: true,
             minlength : 10,
-            maxlength : 11,
+            maxlength : 10,
             number: true
         },
         xa:{
@@ -77,10 +77,6 @@ $("#checkout").validate({
         },
         agree:{
             required: true
-        },
-        vocher:{
-            minlength : 6,
-            vourcher :true
         }
     },
 
@@ -97,8 +93,8 @@ $("#checkout").validate({
         },
         phone:{
             required: "Vui lòng nhập số điện thoại liên hệ !",
-            minlength : "Số điện thoại phải là 11 số",
-            maxlength : "Số điện thoại phải là 11 số",
+            minlength : "Số điện thoại phải là 10 số",
+            maxlength : "Số điện thoại phải là 10 số",
             number: "Vui lòng nhập số !"
         },
         xa:{
@@ -106,10 +102,8 @@ $("#checkout").validate({
         },
         agree:{
             required: "Bạn phải đồng ý điều khoản của chúng tôi"
-        },
-        vocher:{
-            minlength: "Mã code tối thiểu 6 ký tự",
         }
+       
     },
     submitHandler: function(form) {
       form.submit();

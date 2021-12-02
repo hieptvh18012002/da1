@@ -21,17 +21,17 @@ function vc_select_all(){
 }
 // lấy 2 vc hiển thị banner
 function vc_select_show(){
-    $sql = "SELECT * FROM vourchers WHERE status=1 ORDER BY active_date DESC LIMIT 0,2";
-
-    return pdo_query($sql);
-}
-
-function vc_select_code($code){
-    $sql = "SELECT * FROM vourchers WHERE code='$code'";
+    $sql = "SELECT code,cate_code,discount FROM vourchers WHERE status=1 ORDER BY active_date DESC LIMIT 0,1";
 
     return pdo_query_one($sql);
 }
+// lấy theo mã code
 
+function vc_select_code($code){
+    $sql = "SELECT * FROM vourchers WHERE code='$code' AND status=1";
+
+    return pdo_query_one($sql);
+}
 // del
 
 function vc_del($id){
