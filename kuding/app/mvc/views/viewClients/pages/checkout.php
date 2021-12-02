@@ -66,12 +66,12 @@
 
                 <div class="address">
                     <label for="">Địa chỉ cụ thể</label>
-                    <textarea name="address_spec" id="" cols="30" rows="3" class="" style="border:1px solid #d7d7d7;border-radius: 5px;"></textarea>
+                    <textarea name="address_spec" id="" cols="30" rows="3" class="" style="border:1px solid #d7d7d7;border-radius: 5px;"><?= save_value("address_spec") ?></textarea>
 
                 </div>
                 <div class="address">
                     <label for="">Số điện thoại</label>
-                    <input name="phone" type="text">
+                    <input name="phone" value="<?= save_value("phone") ?>" type="text">
 
                 </div>
             </div>
@@ -102,8 +102,14 @@
                         </div>
                     <?php $total += $tt;
                     endforeach; ?>
-                    <input type="hidden" name="total_price" value="<?= $total-30000 ?>">
 
+
+                    <!-- tổng giá (check nếu nhập đúng mã vc thì đưa ra giá new)-->
+                    <?php if (!empty($data['price_new'])) : ?>
+                        <input type="hidden" name="total_price" id="total_price" value="<?= $data['price_new'] ?>">
+                    <?php else : ?>
+                        <input type="hidden" name="total_price" id="total_price" value="<?= $total - 30000 ?>">
+                    <?php endif; ?>
                     <div class="order__chage">
                         <a href="cartClient" class="text-primary">Chỉnh sửa giỏ hàng</a>
                     </div>
@@ -117,22 +123,38 @@
                 </div>
                 <div class="right__content__body">
                     <div class="content__input--vocher" style="border:1px solid #d7d7d7;border-radius: 5px;">
-                        <input id="vocher" name="vocher" type="text" placeholder="Nhập phiếu giảm giá">
+                        <input id="vocher" name="vocher" value="<?= save_value("vocher") ?>" type="text" placeholder="Nhập phiếu giảm giá">
+
                         <div class="sub__vorcher">
-                            <button type="button">Apply</button>
+                            <button type="submit" name="btn_apply">Áp dụng</button>
                         </div>
                     </div>
-                    <label for="vocher" class="error" style="display: none; margin-left: 20px !important;"></label>
+                    <?php if (!empty($data['errVc'])) : ?>
+                        <div class="text-danger"><?= $data['errVc'] ?></div>
+                    <?php endif; ?>
+                    <!-- <label for="vocher" class="error" style="display: none; margin-left: 20px !important;"></label> -->
                     <div class="content__subtotal">
                         <span>Tổng giá:</span>
-                        <p><?= number_format($total,0,',') ?>đ</p>
+                        <p><?= number_format($total, 0, ',') ?>đ</p>
                     </div>
                     <div class="content__subtotal">
                         <span>Phí chuyển hàng:</span>
                         <p>30.000đ</p>
                     </div>
+                    <div class="content__subtotal">
+                        <span>Mã giảm giá:</span>
+                        <p>20.000đ</p>
+                    </div>
                     <div class="contnet__all">
-                        <span>Toàn bộ: <?= number_format($total-30000,0,',') ?>đ</span>
+
+                        <span><b>Số tiền phải thanh tóan</b>:
+                            <?php if (!empty($data['price_new'])) : ?>  
+                                <?= number_format($data['price_new'], 0, ',') ?>
+                            <?php else : ?>
+                                <?= number_format($total - 30000, 0, ',') ?>
+                            <?php endif; ?>
+                            đ</span>
+
                         <p></p>
                     </div>
                     <div class="content__note">

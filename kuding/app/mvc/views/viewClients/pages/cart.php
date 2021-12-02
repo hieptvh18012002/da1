@@ -4,6 +4,9 @@
         <?php if (isset($_GET['msg'])) : ?>
             <div class="bg-success p-2 text-light"><?= $_GET['msg'] ?></div>
         <?php endif; ?>
+        <?php if (!empty($data['msg'])) : ?>
+            <div class="bg-success p-2 text-light"><?= $data['msg'] ?></div>
+        <?php endif; ?>
     </div>
     <?php if (isset($_SESSION['cart']) && count($_SESSION['cart']) != 0) : ?>
         <div class="cart__content">
@@ -22,7 +25,7 @@
                                     <div class="cart__left">
                                         <div class="cart__left__img">
                                             <a href="productDetail?action=viewDetail&id=<?= $item['id'] ?>">
-                                            <img src="./public/images/products/<?= $item['avatar'] ?>" alt="" width="100%"></a>
+                                                <img src="./public/images/products/<?= $item['avatar'] ?>" alt="" width="100%"></a>
                                         </div>
                                         <div class="cart__left__info">
                                             <p><?= $item['name'] ?></p>
@@ -35,10 +38,16 @@
                                         </div>
                                     </div>
                                     <div class="cart__quanty">
-                                        <input type="number" name="quantity" value="<?= $item['quantity'] ?>">
+                                        <form action="" method="POST">
+                                            <input type="hidden" name="action" value="update_cart">
+                                            <input type="hidden" name="product_id" value="<?= $item['id'] ?>">
+                                            <input type="number" name="quantity" value="<?= $item['quantity'] ?>">
+                                            <button type="submit" name="btn_update_qty" class="btn btn-info"><i class="fa fa-refresh" aria-hidden="true"></i>
+                                            </button>
+                                        </form>
                                     </div>
                                     <div class="cart__price">
-                                        <span><?= number_format($thanhtien,0,',') ?>đ</span>
+                                        <span><?= number_format($thanhtien, 0, ',') ?>đ</span>
                                     </div>
                                 </div>
                                 <div class="cart__remove">
@@ -60,7 +69,7 @@
                             <span>Tổng phụ</span>
                         </div>
                         <div class="sum__price__dola">
-                            <span><?= number_format($tt,0,',') ?>đ</span>
+                            <span><?= number_format($tt, 0, ',') ?>đ</span>
                         </div>
                     </div>
                     <div class="cart__btn__order">

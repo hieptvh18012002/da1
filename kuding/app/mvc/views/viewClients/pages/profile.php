@@ -1,8 +1,16 @@
 <main class="body__acc">
+<?php if (isset($_GET['msg'])) : ?>
+            <div class="alert alert-success p-2">
+                <?php echo $_GET['msg'] ?>
+            </div>
+        <?php endif; ?>
     <div class="body__acc__header">
+       
         <div class="body__acc__fist">
+
             <div class="body__acc__title">
                 <div class="acc__title__fist active">
+
                     <p>Thông tin tài khoản</p>
                 </div>
                 <div class="acc__title__fist ">
@@ -35,7 +43,7 @@
     </div>
     <div class="body__acc__content">
         <div class="acc__tab__menu active">
-        <div class="acc__menu__content">
+            <div class="acc__menu__content">
                 <div class="acc__donhang">
                     <div class="acc__DH__title">
                         <p>Thông tin tài khoản của bạn</p>
@@ -45,7 +53,8 @@
                             <?php echo $data['msg'] ?>
                         </div>
                     <?php endif; ?>
-                   
+
+
                     <div class="acc__DH__content1">
                         <div class="DH__title">
                             <p>Đăng nhập xã hội: </p>
@@ -106,10 +115,10 @@
                             <form action="" method="post" id="form_pass">
                                 <div class="DH__form1">
                                     <label for="">Mật khẩu cũ</label>
-                                    <input name="password" type="password" value="<?= save_value("password")?>">
-                                    <?php if(isset($data['errPass'])): ?>
+                                    <input name="password" type="password" value="<?= save_value("password") ?>">
+                                    <?php if (isset($data['errPass'])) : ?>
                                         <div class="text-danger"><?php echo $data['errPass'] ?></div>
-                                        <?php endif;?>
+                                    <?php endif; ?>
                                 </div>
                                 <div class="DH__form1">
                                     <label for="">Mật khẩu mới</label>
@@ -119,11 +128,11 @@
                                     <label for="">Xác nhận mật khẩu</label>
                                     <input name="password_comfim" type="password">
                                 </div>
-                                <?php if($data['err_pass']):?>
+                                <?php if ($data['err_pass']) : ?>
                                     <div class="text-danger">
-                                        <?php echo $data['err_pass'];?>
+                                        <?php echo $data['err_pass']; ?>
                                     </div>
-                                    <?php endif;?>
+                                <?php endif; ?>
                                 <div class="DH__submit">
                                     <button type="submit" name="btn_change_pass">Cập nhật mật khẩu</button>
                                 </div>
@@ -154,4 +163,3 @@
     </div>
 
 </main>
-

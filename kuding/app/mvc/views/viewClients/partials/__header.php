@@ -4,10 +4,13 @@
         <div class="swiper-wrapper">
             <a href="#" class="swiper-slide slider-top1">
                 <!-- nếu có vourcher thì hiển thị nhiều nhất 2 cái -->
-                <?php if (isset($data['vourchers'])) {
+                <?php if (isset($data['vourchers']) && count($data['vourchers']) > 0) {
                     echo "Nhanh tay nhập mã giảm giá để giảm giá cho đơn hàng! - ";
-                    foreach ($data['vourchers'] as $item) {
-                        echo $item['code'] . ",";
+                    echo $data['vourchers']['code'];
+                    if($data['vourchers']['cate_code'] == 0){
+                        echo "- giảm ".number_format($data['vourchers']['discount'],0,','). 'đ cho đơn hàng.';
+                    }else{
+                        echo "- giảm ".$data['vourchers']['discount']. '% cho đơn hàng.';
                     }
                 } else {
                     echo "Covid-19";

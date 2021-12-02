@@ -1,75 +1,50 @@
 <div class="card">
-          <div class="card-body">
-            <p class="card-title mb-0">Top Products</p>
-            <div class="table-responsive">
-              <table class="table table-striped table-borderless">
-                <thead>
-                  <tr>
-                    <th>Product</th>
-                    <th>Price</th>
-                    <th>Date</th>
-                    <th>Status</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td>Search Engine Marketing</td>
-                    <td class="font-weight-bold">$362</td>
-                    <td>21 Sep 2018</td>
-                    <td class="font-weight-medium">
-                      <div class="badge badge-success">Completed</div>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>Search Engine Optimization</td>
-                    <td class="font-weight-bold">$116</td>
-                    <td>13 Jun 2018</td>
-                    <td class="font-weight-medium">
-                      <div class="badge badge-success">Completed</div>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>Display Advertising</td>
-                    <td class="font-weight-bold">$551</td>
-                    <td>28 Sep 2018</td>
-                    <td class="font-weight-medium">
-                      <div class="badge badge-warning">Pending</div>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>Pay Per Click Advertising</td>
-                    <td class="font-weight-bold">$523</td>
-                    <td>30 Jun 2018</td>
-                    <td class="font-weight-medium">
-                      <div class="badge badge-warning">Pending</div>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>E-Mail Marketing</td>
-                    <td class="font-weight-bold">$781</td>
-                    <td>01 Nov 2018</td>
-                    <td class="font-weight-medium">
-                      <div class="badge badge-danger">Cancelled</div>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>Referral Marketing</td>
-                    <td class="font-weight-bold">$283</td>
-                    <td>20 Mar 2018</td>
-                    <td class="font-weight-medium">
-                      <div class="badge badge-warning">Pending</div>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>Social media marketing</td>
-                    <td class="font-weight-bold">$897</td>
-                    <td>26 Oct 2018</td>
-                    <td class="font-weight-medium">
-                      <div class="badge badge-success">Completed</div>
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-          </div>
-        </div>
+  <div class="card-body">
+    <p class="card-title mb-0">DANH SÁCH ĐƠN HÀNG</p>
+    <?php if (isset($_GET['msg'])) : ?>
+      <div class="alert alert-danger"><?= $_GET['msg'] ?></div>
+    <?php endif; ?>
+    <div class="table-responsive">
+      <table class="table table-striped table-borderless">
+        <thead>
+          <tr>
+            <th>STT</th>
+            <th>ID </th>
+            <th>Tên khách hàng</th>
+            <th>Tổng tiền hàng</th>
+            <th>Số điện thoại</th>
+            <th>Ngày đặt hàng</th>
+            <th>Tình trạng đơn</th>
+            <th>Xem</th>
+          </tr>
+        </thead>
+        <tbody>
+          <?php $n = 1;
+          foreach ($data['list_order'] as $o) : ?>
+            <tr>
+              <td><?= $n ?></td>
+              <td><?= $o['id'] ?></td>
+              <td><?= $o['fullname'] ?></td>
+              <td class="font-weight-bold"><?= number_format($o['total_price'], 0, ',') ?>đ</td>
+              <td><?= $o['phone'] ?></td>
+              <td><?= $o['created_at'] ?></td>
+              <td class="font-weight-medium">
+                <?php if ($o['status'] == 2) : ?>
+                  <div class="badge badge-success">Đã gửi hàng</div>
+                <?php elseif ($o['status'] == 1) : ?>
+                  <div class="badge badge-warning">Đang xử lí</div>
+                <?php else : ?>
+                  <div class="badge badge-danger">Chưa xác nhận</div>
+                <?php endif; ?>
+              </td>
+              <td>
+                <a href="order?action=viewDetail&id=<?= $o['id'] ?>" class="btn btn-primary">Chi tiết</a>
+              </td>
+            </tr>
+          <?php $n++;
+          endforeach; ?>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

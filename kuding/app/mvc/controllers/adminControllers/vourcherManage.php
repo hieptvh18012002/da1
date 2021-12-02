@@ -5,14 +5,8 @@ callModel("vourcherModels");
 // lấy list
 $list_vour = vc_select_all();
 $err = '';
-// xử lí nếu hết hạn thì update status -> 0
-foreach($list_vour as $vc){
-    // lặp + ktra nêú ngày hết hạn mã >= ngày hiện tại-> update hết hạn
-    if(strtotime($vc['expired_date']) >= date('Y-m-d h:i:s a', time()) ){
-        // update tình trạng về hết hiệu lực
-        vc_update_status($vc['id'],0);
-    }
-}
+
+
 if (isset($_GET['action'])) {
     switch ($_GET['action']) {
         case "add":
@@ -42,7 +36,7 @@ if (isset($_GET['action'])) {
             viewAdmin('layout', ['page' => 'addVourcher', 'err' => $err]);
             break;
         case "list":
-            
+
             viewAdmin('layout', ['page' => 'listVourcher', 'list_vour' => $list_vour]);
             break;
         case "del":
