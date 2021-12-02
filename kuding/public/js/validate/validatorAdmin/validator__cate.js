@@ -323,10 +323,10 @@ $.validator.addMethod("vourcher", function (value, element) {
 }, "Vui lòng nhập Vourcher không chứa ký tự đặc biệt");
 
 var today = new Date();
-var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
 // const dateNow = new date();
-$.validator.addMethod("nghiadz", function (value, element) {
-    if(value <= date){
+$.validator.addMethod("nghiadz", function (value) {
+     var values = new Date(value);
+    if(values < today){
         return false
     }
     return true
