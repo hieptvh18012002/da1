@@ -210,26 +210,98 @@
         </div>
         <div class="slick__slider">
             <div class="slider-album__content pb-3">
-                <a href="#">
-                    <img src="./public/images/products/7274e18d4ab68a79ad42b3ad401c34c1f0bb4b93.jpg" alt="">
+                <a href="#" class="album_link">
+                    <div class="album__overlay">
+                        <div class="album__overlay_icon">
+                            <i class="fab fa-facebook"></i>
+                        </div>
+                        <div class="album__overlay_tim">
+                            ♥ 28
+                        </div>
+                    </div>
+                    <div class="slider_album_boxImg">
+                        <img src="./public/images/products/7274e18d4ab68a79ad42b3ad401c34c1f0bb4b93.jpg" alt="">
+                    </div>
+                    
                 </a>
-                <a href="#">
-                    <img src="./public/images/products/7274e18d4ab68a79ad42b3ad401c34c1f0bb4b93.jpg" alt="">
+                <a href="#" class="album_link">
+                    <div class="album__overlay">
+                    <div class="album__overlay_icon">
+                            <i class="fab fa-facebook"></i>
+                        </div>
+                        <div class="album__overlay_tim">
+                            ♥ 28
+                        </div>
+                    </div>
+                    <div class="slider_album_boxImg">
+                        <img src="./public/images/products/0c7a6702fb366f8e1047ea5b3bd0eda64b812378 - Copy.jpg" alt="">
+                    </div>
+                    
                 </a>
-                <a href="#">
-                    <img src="./public/images/products/7274e18d4ab68a79ad42b3ad401c34c1f0bb4b93.jpg" alt="">
+                <a href="#" class="album_link">
+                    <div class="album__overlay">
+                    <div class="album__overlay_icon">
+                            <i class="fab fa-facebook"></i>
+                        </div>
+                        <div class="album__overlay_tim">
+                            ♥ 28
+                        </div>
+                    </div>
+                    <div class="slider_album_boxImg">
+                        <img src="./public/images/products/1e0da30e806fa8c957244e22bf5e662ce6c165f4.jpg" alt="">
+                    </div>
                 </a>
-                <a href="#">
-                    <img src="./public/images/products/7274e18d4ab68a79ad42b3ad401c34c1f0bb4b93.jpg" alt="">
+                <a href="#" class="album_link">
+                    <div class="album__overlay">
+                    <div class="album__overlay_icon">
+                            <i class="fab fa-facebook"></i>
+                        </div>
+                        <div class="album__overlay_tim">
+                            ♥ 28
+                        </div>
+                    </div>
+                    <div class="slider_album_boxImg">
+                        <img src="./public/images/products/7274e18d4ab68a79ad42b3ad401c34c1f0bb4b93.jpg" alt="">
+                    </div>
                 </a>
-                <a href="#">
-                    <img src="./public/images/products/7274e18d4ab68a79ad42b3ad401c34c1f0bb4b93.jpg" alt="">
+                <a href="#" class="album_link">
+                    <div class="album__overlay">
+                    <div class="album__overlay_icon">
+                            <i class="fab fa-facebook"></i>
+                        </div>
+                        <div class="album__overlay_tim">
+                            ♥ 28
+                        </div>
+                    </div>
+                    <div class="slider_album_boxImg">
+                        <img src="./public/images/products/7274e18d4ab68a79ad42b3ad401c34c1f0bb4b93.jpg" alt="">
+                    </div>
                 </a>
-                <a href="#">
-                    <img src="./public/images/products/7274e18d4ab68a79ad42b3ad401c34c1f0bb4b93.jpg" alt="">
+                <a href="#" class="album_link">
+                    <div class="album__overlay">
+                    <div class="album__overlay_icon">
+                            <i class="fab fa-facebook"></i>
+                        </div>
+                        <div class="album__overlay_tim">
+                            ♥ 28
+                        </div>
+                    </div>
+                    <div class="slider_album_boxImg">
+                        <img src="./public/images/products/7274e18d4ab68a79ad42b3ad401c34c1f0bb4b93.jpg" alt="">
+                    </div>
                 </a>
-                <a href="#">
-                    <img src="./public/images/products/7274e18d4ab68a79ad42b3ad401c34c1f0bb4b93.jpg" alt="">
+                <a href="#" class="album_link">
+                    <div class="album__overlay">
+                    <div class="album__overlay_icon">
+                            <i class="fab fa-facebook"></i>
+                        </div>
+                        <div class="album__overlay_tim">
+                            ♥ 28
+                        </div>
+                    </div>
+                    <div class="slider_album_boxImg">
+                        <img src="./public/images/products/7274e18d4ab68a79ad42b3ad401c34c1f0bb4b93.jpg" alt="">
+                    </div>
                 </a>
             </div>
         </div>

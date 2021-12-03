@@ -35,23 +35,20 @@
                     </div>
                     <div class="footer-item">
                         <div class="footer-title text-title">
-                            Cần hỗ trợ?
+                            Các liên kết khác
                         </div>
-                        <a href="">Kết nối với chúng tôi</a>
-                        <a href="">Mua sắm</a>
-                        <a href="">Hoàn trả</a>
-                        <a href="">FAQs</a>
-                        <a href="">Đặt hàng ngay</a>
+                        <a href="">Thẻ quà tặng</a>
+                        <a href="">Câu chuyện của chúng tôi</a>
+                        <a href="">Blog</a>
+                        <a href="">Chương trình liên kết</a>
+                        
                     </div>
                     <div class="footer-item">
                         <div class="footer-title text-title">
-                            Cần hỗ trợ?
+                            Quốc gia
                         </div>
-                        <a href="">Kết nối với chúng tôi</a>
-                        <a href="">Mua sắm</a>
-                        <a href="">Hoàn trả</a>
-                        <a href="">FAQs</a>
-                        <a href="">Đặt hàng ngay</a>
+                        <a href=""><img src="public/images/layout/vietnam.png" alt="" width="50px"></a>
+                        
                     </div>
                 </div>
                 <div class="footer-bottom">
