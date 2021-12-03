@@ -8,6 +8,7 @@ callModel("vourcherModels");
 // lấy tỉnh
 $province = province_select_all();
 $list_cate = cate_select_all();
+$vour_exist = '';
 
 $err = '';
 $price_new = '';
@@ -97,7 +98,7 @@ if (isset($_GET['action'])) {
                 }
 
 
-                viewClient('layout', ['page' => 'checkout', 'list_cate' => $list_cate, 'list_province' => $province, 'errVc' => $err, 'price_new' => $price_new]);
+                viewClient('layout', ['page' => 'checkout', 'list_cate' => $list_cate, 'list_province' => $province, 'errVc' => $err, 'price_new' => $price_new,'vour_exist'=>$vour_exist]);
             endif;
 
             break;

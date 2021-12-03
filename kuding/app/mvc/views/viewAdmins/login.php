@@ -27,7 +27,9 @@
           <div class="col-lg-4 mx-auto">
             <div class="auth-form-light text-left py-5 px-4 px-sm-5">
               <div class="brand-logo">
+                <a href="homepage">
                 <img src="./public/images/layout/logo-main.png" alt="logo">
+                </a>
               </div>
               <h4>Xin chào? Hãy bắt đầu đăng nhập</h4>
               <h6 class="font-weight-light">Đăng nhập quản trị.</h6>
@@ -53,7 +55,7 @@
                       Ghi nhớ tài khoản
                     </label>
                   </div>
-                  <a href="#" class="auth-link text-black">Quên mật khẩu?</a>
+                  <a href="forgotPass" class="auth-link text-black">Quên mật khẩu?</a>
                 </div>
                
                

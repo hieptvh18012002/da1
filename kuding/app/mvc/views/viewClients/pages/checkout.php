@@ -141,14 +141,20 @@
                         <span>Phí chuyển hàng:</span>
                         <p>30.000đ</p>
                     </div>
-                    <div class="content__subtotal">
-                        <span>Mã giảm giá:</span>
-                        <p>20.000đ</p>
-                    </div>
+                    <?php if (!empty($data['vour_exist'])) : ?>
+                        <div class="content__subtotal">
+                            <span>Mã giảm giá:</span>
+                            <?php if ($data['vour_exist']['cate_code'] == 1) : ?>
+                                <p><?= $data['vour_exist']['discount'] ?>%</p>
+                                <?php else : ?>
+                                    <p><?= number_format($data['vour_exist']['discount'],0,',') ?>đ</p>
+                            <?php endif; ?>
+                        </div>
+                    <?php endif; ?>
                     <div class="contnet__all">
 
                         <span><b>Số tiền phải thanh tóan</b>:
-                            <?php if (!empty($data['price_new'])) : ?>  
+                            <?php if (!empty($data['price_new'])) : ?>
                                 <?= number_format($data['price_new'], 0, ',') ?>
                             <?php else : ?>
                                 <?= number_format($total - 30000, 0, ',') ?>
