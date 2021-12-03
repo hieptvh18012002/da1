@@ -68,6 +68,7 @@
     <script src="./public/js/layout/checkout.js"></script>
     <script src="./public/js/layout/product-details.js"></script>
     <script src="./public/js/layout/profile.js"></script>
+    <script src="./public/js/layout/mess.js"></script>
     <!-- <script src="./public/js/layout/client.js"></script> -->
 
     <!-- validate form -->

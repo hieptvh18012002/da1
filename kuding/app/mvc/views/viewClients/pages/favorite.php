@@ -48,10 +48,10 @@
                             </div>
 
                         </div>
-                        <div class="like__close">
+                        <div onclick="showError();" class="like__close">
                             <i class="fa fa-times" aria-hidden="true"></i>
                         </div>
-                        <div class="like__addCart">
+                        <div onclick="showSuccess();" class="like__addCart">
                             <button type="submit">Thêm vào giỏ hàng</button>
                         </div>
                     </form>
@@ -103,7 +103,7 @@
                         <div class="like__close">
                             <i class="fa fa-times" aria-hidden="true"></i>
                         </div>
-                        <div class="like__addCart">
+                        <div  class="like__addCart">
                             <button type="submit">Thêm vào giỏ hàng</button>
                         </div>
                     </form>
@@ -322,5 +322,7 @@
                     <div class="itemm"></div>
                     
                 </section>
+            </div>
+            <div id="toast">
             </div>
         </main>
