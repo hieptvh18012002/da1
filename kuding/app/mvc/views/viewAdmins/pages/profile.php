@@ -47,7 +47,7 @@
             <div class="card">
                 <!-- Tab panes -->
                 <div class="card-body">
-                    <form action="" class="form-horizontal form-material mx-2">
+                    <form action="" class="form-horizontal form-material mx-2" id="profile_admin">
                         <div class="form-group">
                             <label class="col-md-12">Full Name</label>
                             <div class="col-md-12">
