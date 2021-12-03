@@ -87,6 +87,55 @@ $("#form_categorys").validate({
     }
  });
 
+// validate profile
+$("#profile_admin").validate({
+    rules: {
+        fullname: {
+            required : true,
+            minlength : 6,
+            maxlength : 26
+        },
+        email: {
+            required : true,
+            valiEmail : true
+        },
+        password: {
+            required : true,
+            minlength : 6,
+            maxlength : 22
+        },
+        phone: {
+            number: true,
+            minlength: 10,
+            maxlength: 11,
+        },
+        
+    },
+
+    messages: {
+        fullname: {
+            required: "Vui lòng nhập họ tên !",
+            minlength: "Nhập tối thiếu 6 ký tự",
+            maxlength: "Nhập tối đa 26 ký tự"
+        },
+        email: {
+            required: "Vui lòng nhập email !",
+        },
+        password: {
+            required: "Vui lòng nhập mật khẩu !",
+            minlength: "Nhập tối thiếu 6 ký tự",
+            maxlength: "Nhập tối đa 22 ký tự"
+        },
+        phone: {
+            number: "Số điện thoại phải là số",
+            minlength: "Số điện thoại ít nhất 10 số",
+            maxlength: "Số điện thoại nhiều nhất nhất 11 số",
+        },
+    },
+    submitHandler: function(form) {
+      form.submit();
+    }
+ });
 
  // form add products
  $("#add_products").validate({
@@ -319,7 +368,7 @@ $("#form_categorys").validate({
 }, "Nhập đúng định dạng email (VD: Kooding@gmail.com)");
 
 $.validator.addMethod("vourcher", function (value, element) {
-    return this.optional(element) || /^(?=.*[A-Za-z])[A-Za-z\d]{6,}$/.test(value);
+    return this.optional(element) || /^(?=.*[A-Za-z\d])[A-Za-z\d]{6,}$/.test(value);
 }, "Vui lòng nhập Vourcher không chứa ký tự đặc biệt");
 
 var today = new Date();

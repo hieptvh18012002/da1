@@ -3505,6 +3505,59 @@ a{
     height: 400px;
     object-fit: cover;
 }
+.slider_album_boxImg img{
+    object-position: 30% 0;
+    transition: opacity 0.25s;
+}
+.slider_album_boxImg{
+    width: 235px;
+    height: 220px;
+}
+.album_link:hover .slider_album_boxImg{
+    box-shadow: 5px 5px 10px #999;
+}
+.album_link{
+    position: relative;
+}
+.slider_album_boxImg::before{
+    content: '';
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    pointer-events: none;
+    transition: all 300ms ease-in-out 0s;
+    width: 100%;
+}
+.album_link:hover .slider_album_boxImg::before{
+    box-shadow: 0 0 0 15px rgb(255 255 255 / 30%) inset;
+}
+.album_link:hover .album__overlay{
+    visibility: visible;
+}
+.album__overlay{
+    visibility: hidden;
+    background: rgba(0, 0, 0, 0.3);
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 65px;
+    color: white;
+    line-height: normal;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.album__overlay_icon{
+    margin-left: 10px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    font-size: 55px;
+}
+.album__overlay_tim{
+    margin-right: 10px;
+    font-size: 22px;
+}
 /* Trang 2 */
 .box__slider__ct{
     width: 95%;
