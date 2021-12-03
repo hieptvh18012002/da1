@@ -5,10 +5,24 @@ function news_insert($title,$shortdesc,$desc,$img_cate,$client_id,$special){
     
     pdo_execute($sql);
 }
+function news_update($id,$title,$shortdesc,$desc,$img_cate,$client_id,$special){
+    $sql = "UPDATE news SET title='$title',shortdesc='$shortdesc',content='$desc',image='$img_cate',client_id=$client_id,special=$special WHERE id=$id";
+    pdo_execute($sql);
+}
 
 function news_select_all(){
     $sql = "SELECT * FROM news ORDER BY created_at ASC";
     return pdo_query($sql);
+}
+// đb
+function news_select_special(){
+    $sql = "SELECT * FROM news WHERE special=1 ORDER BY created_at DESC LIMIT 0,2";
+    return pdo_query($sql);
+}
+
+function news_select_special2(){
+    $sql = "SELECT * FROM news WHERE special=1 ORDER BY created_at DESC LIMIT 2,3";
+    return pdo_query_one($sql);
 }
 
 function news_select_created_at(){
@@ -19,6 +33,12 @@ function news_select_created_at(){
 function news_select_by_id($id){
     $sql = "SELECT * FROM news WHERE id=$id ORDER BY created_at DESC LIMIT 0,4";
     return pdo_query_one($sql);
+}
+// del
+
+function news_del($id){
+    $sql = "DELETE FROM news WHERE id=$id";
+    pdo_execute($sql);
 }
 
 

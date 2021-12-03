@@ -41,10 +41,16 @@ function color_select_all()
 }
 function attr_value_select_all()
 {
-    $sql = "SELECT * FROM attr_values";
+    $sql = "SELECT av.value,a.name,av.id FROM attr_values av JOIN attributes a ON a.id=av.attr_id ORDER BY created_at DESC;";
     return pdo_query($sql);
 }
+// del attr vl
+function attr_value_del($id){
+    $sql = "DELETE FROM attr_values WHERE id=$id";
+    pdo_execute($sql);
+}
 // lấy value attr pro
+
 function color_select_pro($id_pro)
 {
     $sql = "SELECT value_id FROM pro_attributes WHERE pro_id=$id_pro AND attr_id=1";

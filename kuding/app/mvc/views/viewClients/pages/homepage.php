@@ -1,7 +1,7 @@
 <main class="body__index">
-    <?php if(isset($_GET['msg'])):?>
+    <?php if (isset($_GET['msg'])) : ?>
         <div class="alert alert-success"><?= $_GET['msg'] ?></div>
-        <?php endif;?>
+    <?php endif; ?>
     <div class="banner single-item">
         <a href="#baner " class="banner-item">
             <img src="public/images/layout/5f3c3ce98d1c4e3e07ab5ebc4126a3cbdb33aadb.jpg" alt="" width="100%">
@@ -84,54 +84,41 @@
     <!--  -->
     <div class="news-main">
         <div class="col-news left">
-            <div class="news-item mb-5">
-                <a href="" class="box-img">
-                    <div class="box_newsImg">
-                        <!-- <img src="public/images/layout/017181512579f83672de39d3fe8a2e1ffac5b5f7.jpg" alt=""> -->
-                        <img src="public/images/layout/2604268e6bc21dd71f467ac400ece543e4c0830c.jpg" alt="">
-                    </div>
-                </a>
-                <div class="pro-name">
-                    Khám phá son mới
-                </div>
-                <span class="">Bộ sưu tập trang điểm RIRE của chúng tôi</span>
-                <a class="btn-discover mt-2">
-                    KHÁM PHÁ
-                </a>
-            </div>
-            <div class="news-item">
-                <a href="" class="box-img">
-                    <div class="box_newsImg">
-                        <!-- <img src="public/images/layout/188906b2571586bae5d3dd009b56647f019b6145.jpg" alt=""> -->
-                        <img src="public/images/layout/2604268e6bc21dd71f467ac400ece543e4c0830c.jpg" alt="">
-                    </div>
+            <?php foreach ($data['news_special'] as $item) : ?>
+                <div class="news-item mb-4">
+                    <a href="" class="box-img">
+                        <div class="box_newsImg">
+                            <!-- <img src="public/images/layout/188906b2571586bae5d3dd009b56647f019b6145.jpg" alt=""> -->
+                            <img src="./public/images/upload/<?= $item['image'] ?>" alt="">
+                        </div>
 
-                </a>
-                <div class="pro-name">
-                    Khám phá son mới
+                    </a>
+                    <div class="pro-name">
+                       <?= $item['title'] ?>
+                    </div>
+                    <span><?= $item['shortdesc'] ?></span>
+                    <a href="newsClient?action=viewDetail&id=<?= $item['id'] ?>" class="btn-discover mt-2">
+                        KHÁM PHÁ
+                    </a>
                 </div>
-                <span>Bộ sưu tập trang điểm RIRE của chúng tôi</span>
-                <a class="btn-discover mt-2">
-                    KHÁM PHÁ
-                </a>
-            </div>
+            <?php endforeach; ?>
         </div>
         <div class="col-news right">
             <div class="news-item">
                 <a href="" class="box-img">
                     <div class="box_newsImg">
                         <!-- <img src="public/images/layout/261d0a0ba82f5e1c2b6b03fb85b850b687c0e93f.jpg" alt=""> -->
-                        <img src="public/images/layout/2604268e6bc21dd71f467ac400ece543e4c0830c.jpg" alt="">
+                        <img src="./public/images/upload/<?= $data['news_special2']['image'] ?>" alt="">
                     </div>
 
                 </a>
                 <div class="pro-name">
-                    Khám phá son mới
+                <?= $data['news_special2']['title'] ?>
                 </div>
-                <span>Bộ sưu tập trang điểm RIRE của chúng tôi</span>
-                <a class="btn-discover mt-2">
-                    KHÁM PHÁ
-                </a>
+                <span><?= $data['news_special2']['shortdesc'] ?></span>
+                <a href="newsClient?action=viewDetail&id=<?= $item['id'] ?>" class="btn-discover mt-2">
+                        KHÁM PHÁ
+                    </a>
             </div>
         </div>
     </div>

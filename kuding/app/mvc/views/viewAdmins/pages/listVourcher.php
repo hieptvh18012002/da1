@@ -10,11 +10,11 @@
             </select>
         </div>
     </div>
-    <?php if(isset($_GET['msg'])):?>
+    <?php if (isset($_GET['msg'])) : ?>
         <div class="bg-success p-2">
-            <?php echo $_GET['msg'];?>
+            <?php echo $_GET['msg']; ?>
         </div>
-    <?php endif;?>  
+    <?php endif; ?>
     <div class="table-responsive">
         <table class="table">
             <thead>
@@ -36,16 +36,26 @@
                     <tr>
                         <td><?php echo $n; ?></td>
                         <td><?= $item['name'] ?></td>
-                        <td><?= $item['code']?></td>
-                        <td><?php if($item['cate_code'] ==1){echo $item['discount']."%";}else{echo $item['discount']."vnd";} ?></td>
-                      
+                        <td><?= $item['code'] ?></td>
+                        <td><?php if ($item['cate_code'] == 1) {
+                                echo $item['discount'] . "%";
+                            } else {
+                                echo $item['discount'] . "vnd";
+                            } ?></td>
+
                         <td><?= $item['quantity'] ?></td>
                         <td><?= $item['active_date'] ?></td>
                         <td><?= $item['expired_date'] ?></td>
-                        <td><?= $item['status']==0?"Hết hiệu lực":"Còn hiệu lực" ?></td>
-                        
                         <td>
-                            <a href="vourcher?action=del&id=<?= $item['id']?>" onclick="return confirm('Bạn chắc chắn muốn xóa sản phẩm?')"><i class="fas fa-trash-alt text-danger fa-2x"></i></a>
+                            <?php if ($item['status'] == 1) : ?>
+                                <div class="badge badge-success">Còn hiệu lực</div>
+                            <?php else : ?>
+                                <div class="badge badge-danger">Hết hiệu lực</div>
+                            <?php endif; ?>
+                        </td>
+
+                        <td>
+                            <a href="vourcher?action=del&id=<?= $item['id'] ?>" onclick="return confirm('Bạn chắc chắn muốn xóa sản phẩm?')"><i class="fas fa-trash-alt text-danger fa-2x"></i></a>
                         </td>
                     </tr>
                 <?php $n++;

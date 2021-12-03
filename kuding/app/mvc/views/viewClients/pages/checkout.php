@@ -42,7 +42,7 @@
                                         <select onchange="innerHTML_tinh()" name="tinh" id="tinh">
                                             <option value="" disabled selected>Chọn tỉnh</option>
                                             <?php foreach ($data['list_province'] as $item) : ?>
-                                                <option value="<?= $item['provinceid'] ?>"><?= $item['name'] ?></option>
+                                                <option <?= isset($_POST['tinh']) && $_POST['tinh'] == $item['provinceid'] ? 'checked' : '' ?> value="<?= $item['provinceid'] ?>"><?= $item['name'] ?></option>
                                             <?php endforeach; ?>
                                         </select>
                                     </div>
@@ -106,6 +106,7 @@
 
                     <!-- tổng giá (check nếu nhập đúng mã vc thì đưa ra giá new)-->
                     <?php if (!empty($data['price_new'])) : ?>
+                        <input type="hidden" name="used_voucher" value="<?= $data['vocher'] != ''? $data['vocher'] :'' ?>">
                         <input type="hidden" name="total_price" id="total_price" value="<?= $data['price_new'] ?>">
                     <?php else : ?>
                         <input type="hidden" name="total_price" id="total_price" value="<?= $total - 30000 ?>">
@@ -146,8 +147,8 @@
                             <span>Mã giảm giá:</span>
                             <?php if ($data['vour_exist']['cate_code'] == 1) : ?>
                                 <p><?= $data['vour_exist']['discount'] ?>%</p>
-                                <?php else : ?>
-                                    <p><?= number_format($data['vour_exist']['discount'],0,',') ?>đ</p>
+                            <?php else : ?>
+                                <p><?= number_format($data['vour_exist']['discount'], 0, ',') ?>đ</p>
                             <?php endif; ?>
                         </div>
                     <?php endif; ?>
@@ -155,9 +156,9 @@
 
                         <span><b>Số tiền phải thanh tóan</b>:
                             <?php if (!empty($data['price_new'])) : ?>
-                                <?= number_format($data['price_new'], 0, ',') ?>
+                                <?= $data['price_new'] < 0 ? 0 : number_format($data['price_new'], 0, ',') ?>
                             <?php else : ?>
-                                <?= number_format($total - 30000, 0, ',') ?>
+                                <?= $total < 0 ? 0 : number_format($total - 30000, 0, ',') ?>
                             <?php endif; ?>
                             đ</span>
 

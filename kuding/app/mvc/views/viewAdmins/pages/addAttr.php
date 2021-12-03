@@ -34,13 +34,9 @@
                 <a href="" btn btn-light>Danh sách</a>
             </form>
             <h4 class="card-title mt-5">Danh sách gía trị của thuộc tính.</h4>
-            <!-- <div class="card-body">
+            <div class="card-body">
                 <h4 class="card-title">Danh sách sản phẩm</h4>
-                <div class="" style="display: flex;">
-                    <a href="category?action=addCategory" class="text-light btn btn-primary">Thêm mới</a>
-
-
-                </div>
+               
 
                 <div class="table-responsive">
                     <table class="table">
@@ -54,14 +50,14 @@
                         </thead>
                         <tbody>
                             <?php $n = 1;
-                            foreach ($data['list_cate'] as $item) : ?>
+                            foreach ($data['list_attr_value'] as $item) : ?>
                                 <tr>
                                     <td><?php echo $n; ?></td>
                                     <td><?= $item['name'] ?></td>
-                                    <td><?= $item['qty'] ?></td>
+                                    <td><?= $item['value'] ?></td>
                                     <td>
                                       
-                                        <a href="#del" onclick="return confirm('Bạn chắc chắn muốn xóa sản phẩm?')"><i class="fas fa-trash-alt text-danger fa-2x"></i></a>
+                                        <a href="product?action=addAttrProduct&del=<?= $item['id'] ?>" onclick="return confirm('Bạn chắc chắn muốn xóa sản phẩm?')"><i class="fas fa-trash-alt text-danger fa-2x"></i></a>
                                     </td>
                                 </tr>
                             <?php $n++;
@@ -70,7 +66,7 @@
                         </tbody>
                     </table>
                 </div>
-            </div> -->
+            </div>
 
 
         </div>

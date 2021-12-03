@@ -4,7 +4,7 @@
         <div class="swiper-wrapper">
             <a href="#" class="swiper-slide slider-top1">
                 <!-- nếu có vourcher thì hiển thị nhiều nhất 2 cái -->
-                <?php if (isset($data['vourchers']) && count($data['vourchers']) > 0) {
+                <?php if (is_array($data['vourchers']) > 0) {
                     echo "Nhanh tay nhập mã giảm giá để giảm giá cho đơn hàng! - ";
                     echo $data['vourchers']['code'];
                     if ($data['vourchers']['cate_code'] == 0) {

@@ -4,8 +4,12 @@ require_once "./app/common/bridge.php";
 callModel("accountModels");
 callModel("categoryModels");
 callModel("productModels");
+callModel("vourcherModels");
+
 $list_acc = acc_select_all();
 $list_cate = category_select_all();
+$vourchers = vc_select_show();
+
 $err = '';
 $er = array();
 $er['pass'] = '';
@@ -119,7 +123,7 @@ if (isset($_GET['action'])) :
                     }
                 }
             }
-            viewClient('layout', ['page' => 'profile','errPass'=>$er['pass'],'err_pass'=>$err_pass_old,'list_cate'=>$list_cate,'msg'=>$msg]);
+            viewClient('layout', ['page' => 'profile','errPass'=>$er['pass'],'err_pass'=>$err_pass_old,'list_cate'=>$list_cate,'msg'=>$msg,'vourchers'=>$vourchers]);
             die;
 
             break;
