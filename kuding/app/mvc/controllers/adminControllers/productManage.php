@@ -208,6 +208,7 @@ if (isset($_GET['action'])) {
             // attr
         case "addAttrProduct":
             $attrs = attr_select_all();
+            $list_attr_value = attr_value_select_all();
             $attr_values = attr_value_select_all();
             // $attr_id = attr_id_select_all();
             $err_at = '';
@@ -240,8 +241,15 @@ if (isset($_GET['action'])) {
                     header("location: product?action=addAttrProduct&msg=Thêm thành công giá trị");
                 }
             }
+            // code del attr_value
+            if(isset($_GET['del'])){
+                $value_id = $_GET['del'];
+                attr_value_del($value_id);
+                header("location: product?action=addAttrProduct&msg=Xóa thành công giá trị");
 
-            viewAdmin('layout', ['page' => 'addAttr', 'attrs' => $attrs, 'msg' => $msg, 'err' => $err_at]);
+            }
+
+            viewAdmin('layout', ['page' => 'addAttr', 'attrs' => $attrs,'list_attr_value'=>$list_attr_value, 'msg' => $msg, 'err' => $err_at]);
             die;
             break;
         

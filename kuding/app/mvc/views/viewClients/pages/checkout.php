@@ -42,7 +42,7 @@
                                         <select onchange="innerHTML_tinh()" name="tinh" id="tinh">
                                             <option value="" disabled selected>Chọn tỉnh</option>
                                             <?php foreach ($data['list_province'] as $item) : ?>
-                                                <option value="<?= $item['provinceid'] ?>"><?= $item['name'] ?></option>
+                                                <option <?= isset($_POST['tinh']) && $_POST['tinh'] == $item['provinceid'] ?'checked':'' ?> value="<?= $item['provinceid'] ?>"><?= $item['name'] ?></option>
                                             <?php endforeach; ?>
                                         </select>
                                     </div>

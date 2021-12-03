@@ -17,10 +17,11 @@
         <ul class="nav flex-column sub-menu">
           <li class="nav-item"> <a class="nav-link" href="product">Danh sách sản phẩm</a></li>
           <li class="nav-item"> <a class="nav-link" href="product?action=addProduct">Thêm sản phẩm</a></li>
-          <li class="nav-item"> <a class="nav-link" href="product?action=addAttrProduct">Thêm giá trị thuộc tính</a></li>
+          <li class="nav-item"> <a class="nav-link" href="product?action=addAttrProduct">Thuộc tính sản phẩm</a></li>
         </ul>
       </div>
     </li>
+    
     <li class="nav-item">
       <a class="nav-link" data-toggle="collapse" href="#cate" aria-expanded="false" aria-controls="ui-basic">
         <i class="icon-layout menu-icon"></i>
@@ -33,6 +34,13 @@
           <li class="nav-item"> <a class="nav-link" href="category?action=addCategory">Thêm danh mục</a></li>
         </ul>
       </div>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="order">
+        <i class="fas fa-shipping-fast menu-icon"></i>
+        <span class="menu-title">Đơn hàng</span>
+      </a>
+
     </li>
     <!-- nếu là quản lý thì ms dc  -->
     <?php if ($_SESSION['admin']['role_id'] == 3) : ?>
@@ -90,13 +98,7 @@
       </div>
     </li>
     <?php endif;?>
-    <li class="nav-item">
-      <a class="nav-link" href="order">
-        <i class="fas fa-shipping-fast menu-icon"></i>
-        <span class="menu-title">Đơn hàng</span>
-      </a>
-
-    </li>
+   
     <?php if ($_SESSION['admin']['role_id'] == 3) : ?>
       <li class="nav-item">
         <a class="nav-link" href="">

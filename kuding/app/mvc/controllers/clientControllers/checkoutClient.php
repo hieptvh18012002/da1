@@ -48,7 +48,8 @@ if (isset($_GET['action'])) {
                     if (is_array($vour_exist)) {
                         // check loại giảm và giam tương ứng
                         if ($vour_exist['cate_code'] == 1) {
-                            $price_new = $total_price * (1 / $vour_exist['discount']);
+                            $price_discount = $total_price * (1 / $vour_exist['discount']);
+                            $price_new = $total_price - $price_discount;
                         } else {
                             // giảm tiền
                             $price_new = $total_price - $vour_exist['discount'];
@@ -92,13 +93,13 @@ if (isset($_GET['action'])) {
                     // ============== xử lí trừ sl mã giảm giá khi ng ta dùng thành công mã===========
                     // code...
 
-                    
+
                     header('location: accountClient?action=viewProfileClient&msg=Bạn đã đặt hàng thành công!');
                     die;
                 }
 
 
-                viewClient('layout', ['page' => 'checkout', 'list_cate' => $list_cate, 'list_province' => $province, 'errVc' => $err, 'price_new' => $price_new,'vour_exist'=>$vour_exist]);
+                viewClient('layout', ['page' => 'checkout', 'list_cate' => $list_cate, 'list_province' => $province, 'errVc' => $err, 'price_new' => $price_new, 'vour_exist' => $vour_exist]);
             endif;
 
             break;
