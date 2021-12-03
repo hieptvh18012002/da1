@@ -5,7 +5,8 @@ callModel("categoryModels");
 callModel("commentModels");
 callModel("vourcherModels");
 // lấy list
-$list_vour = vc_select_all();
+$vourchers = vc_select_show();
+
 $list_cate = cate_select_all();
 $list_pro = product_select_all();
 $size_values = size_select_all();
@@ -23,7 +24,7 @@ if (isset($_GET['action'])) {
             // code sản phẩm yêu thích
             // nếu là khách thì lưu vào session >< đã đang nhập thì lưu db
 
-            viewClient('layout', ['page' => 'favorite', 'list_cate' => $list_cate, 'list_vour' => $list_vour]);
+            viewClient('layout', ['page' => 'favorite', 'list_cate' => $list_cate, 'vourchers' => $vourchers]);
             die;
             break;
 
@@ -98,9 +99,9 @@ if (isset($_GET['action'])) {
             //     die;
             // }
 
-            viewClient('layout', ['page' => 'product', 'list_cate' => $list_cate, 'title' => $title, 'list_vour' => $list_vour, 'list_pro' => $result, 'total_page' => $total_page, 'current_page' => $current_page,'msg'=>$msg,'count'=>$count]);
+            viewClient('layout', ['page' => 'product', 'list_cate' => $list_cate, 'title' => $title, 'vourchers' => $vourchers, 'list_pro' => $result, 'total_page' => $total_page, 'current_page' => $current_page,'msg'=>$msg,'count'=>$count]);
             die;
             break;
     }
 }
-viewClient("layout", ['page' => 'product', 'list_pro' => $list_pro, 'list_cate' => $list_cate]);
+viewClient("layout", ['page' => 'product', 'list_pro' => $list_pro, 'list_cate' => $list_cate,'vourchers' => $vourchers]);

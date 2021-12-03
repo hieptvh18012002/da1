@@ -5,9 +5,9 @@
             <p class="card-description">
                 Basic form elements
             </p>
-            <?php if(!empty($data['msg'])){
-                echo $data['msg'];
-            }?>
+            <?php if(!empty($data['msg'])):?>
+                <div class="alert alert-success"><?php echo $data['msg']; ?></div>
+            <?php endif; ?>
             <form id="form_news" class="forms-sample" method="POST" enctype="multipart/form-data" >
                 <div class="form-group">
                     <label for="exampleInputName1">Tiêu đề </label>

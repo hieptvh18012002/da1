@@ -38,7 +38,7 @@
                 </div>
                 <div class="form-group">
                     <label for="">Ngày hết hạn</label>
-                    <input id="" name="expired_date" type="date" class="form-control" id="" >
+                    <input id="" name="expired_date" type="datetime" class="form-control" id="" >
                     <!-- <label for="sale" class="error" style="display: none !important;"></label> -->
                 </div>
                 
