@@ -11,6 +11,7 @@ $province = province_select_all();
 $vourchers = vc_select_show();
 $list_cate = cate_select_all();
 $vour_exist = '';
+$vocher = '';
 
 $err = '';
 $price_new = '';
@@ -44,25 +45,37 @@ if (isset($_GET['action'])) {
                 }
                 // xử lí vourcher
                 if (isset($_POST['btn_apply'])) {
-                    extract($_POST);
+                    $vocher = $_POST['vocher'];
+                    $total_price = $_POST['total_price'];
                     // so khớp mã code input vs code có hợp lệ
                     $vour_exist = vc_select_code($vocher);
                     if (is_array($vour_exist)) {
-                        // check loại giảm và giam tương ứng
-                        if ($vour_exist['cate_code'] == 1) {
-                            $price_discount = $total_price * (1 / $vour_exist['discount']);
-                            $price_new = $total_price - $price_discount;
+                        // lấy client_id trong vc_detail xem client này đã dùng lần nào chưa?
+                        $voucher_id = pdo_query_value("SELECT id FROM vourchers WHERE code='$vocher'");
+                        $client_used = vc_detail_select_client($voucher_id, $_SESSION['customer']['id']);
+
+                        if (is_array($client_used)) {
+                            $err = "Bạn đã dùng mã giảm giá này rồi!";
                         } else {
-                            // giảm tiền
-                            $price_new = $total_price - $vour_exist['discount'];
+                            // check loại giảm và giam tương ứng
+                            if ($vour_exist['cate_code'] == 1) {
+                                $price_discount = $total_price * (1 / $vour_exist['discount']);
+                                $price_new = $total_price - $price_discount;
+                            } else {
+                                // giảm tiền
+                                $price_new = $total_price - $vour_exist['discount'];
+                            }
                         }
                     } else {
                         $err = 'Mã giảm giá không chính xác hoặc đã hết hiệu lực';
                     }
                 }
+
                 // xử lí order
                 if (isset($_POST['btn_order'])) {
                     extract($_POST);
+                    // nếu tổng tìn trừ giá giảm < 0 thì cho về 0
+                    $total_price < 0 ? $total_price = 0 : $total_price;
 
                     // lấy id ng mua
                     if (isset($_SESSION['admin'])) {
@@ -90,10 +103,18 @@ if (isset($_GET['action'])) {
                     foreach ($_SESSION['cart'] as $item) {
                         orderDetail_insert($order_id, $item['id'], attr_value_select_id($item['color']), attr_value_select_id($item['size']), $item['quantity'], $item['price']);
                     }
+
+                    // ============== xử lí trừ sl mã giảm giá khi ng ta dùng thành công mã===========
+
+                    if (isset($used_voucher)) {
+                        $vour_exist = vc_select_code($used_voucher);
+                        // nếu dùng vc để mua hàng thành công-> trừ sl vc -1, lưu tt ng dùng vô db
+                        vc_update_qty($used_voucher);
+                        // insert info user to vc_detali
+                        vc_detail_insert($vour_exist['id'], $_SESSION['customer']['id'], date('Y-m-d H:i:s'));
+                    }
                     // hủy ss cart sau khi đã đặt hàng tc
                     unset($_SESSION['cart']);
-                    // ============== xử lí trừ sl mã giảm giá khi ng ta dùng thành công mã===========
-                    // code...
 
 
                     header('location: accountClient?action=viewProfileClient&msg=Bạn đã đặt hàng thành công!');
@@ -101,14 +122,14 @@ if (isset($_GET['action'])) {
                 }
 
 
-                viewClient('layout', ['page' => 'checkout', 'list_cate' => $list_cate, 'list_province' => $province,'vourchers'=>$vourchers, 'errVc' => $err, 'price_new' => $price_new, 'vour_exist' => $vour_exist]);
+                viewClient('layout', ['page' => 'checkout', 'list_cate' => $list_cate, 'list_province' => $province, 'vourchers' => $vourchers, 'errVc' => $err, 'price_new' => $price_new, 'vour_exist' => $vour_exist, 'vocher' => $vocher]);
             endif;
 
             break;
 
         case "viewdieukhoan":
 
-            viewClient('layout', ['page' => 'dieukhoan','vourchers'=>$vourchers, 'list_cate' => $list_cate,]);
+            viewClient('layout', ['page' => 'dieukhoan', 'vourchers' => $vourchers, 'list_cate' => $list_cate,]);
             break;
 
 
@@ -119,4 +140,4 @@ if (isset($_GET['action'])) {
             break;
     }
 }
-viewClient('layout', ['page' => 'checkout','vourchers'=>$vourchers]);
+viewClient('layout', ['page' => 'checkout', 'vourchers' => $vourchers]);
