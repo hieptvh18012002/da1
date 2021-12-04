@@ -59,6 +59,7 @@ if (isset($_GET['action'])) {
                         } else {
                             // check loại giảm và giam tương ứng
                             if ($vour_exist['cate_code'] == 1) {
+                                // ct giá sau khi giảm= tổng tiền * (100% - %dc giảm )/100%
                                 $price_new = $total_price * ((100-  $vour_exist['discount'])/100);
                             } else {
                                 // giảm tiền

@@ -16,6 +16,7 @@ if (isset($_GET['action'])) {
         case "add":
             if (isset($_POST['btn_add'])) {
                 extract($_POST);
+                echo $special;die;
                 $ext_img = ['jpg', 'png', 'jpeg'];
                 $file = $_FILES['avatar'];
                 if ($file['size'] != 0) {

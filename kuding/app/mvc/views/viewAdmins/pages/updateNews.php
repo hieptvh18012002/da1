@@ -30,13 +30,16 @@
                     <label for="">Avatar cũ:</label>
                     <img src="./public/images/upload/<?= $data['newsDetail']['image'] ?>" width="200px" alt="">
                     <p>Upload avatar mới</p>
-                    <input name="avatar" type="file" class="form-control file-upload-info" placeholder="Upload Image">
+                    <input name="avatar" id="upload" onchange="previewImg()" type="file" class="form-control file-upload-info" placeholder="Upload Image">
                     <input type="hidden" name="avatar" value="<?= $data['newsDetail']['image'] ?>">
                     <?php
                     if (!empty($data['err'])) {
                         echo '<label class="text-danger">' . $data['err'] . '</label>';
                     }
                     ?>
+                    <div id="displayImg" class="" style="width: 200px;">
+
+                    </div>
                 </div>
                 <div class="form-group">
                     <label for="">Mô tả ngắn</label>

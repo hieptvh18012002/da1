@@ -239,7 +239,6 @@
                 <?php foreach ($data['list_cate'] as $c) : ?>
                     <li><a href="productClient?action=list&filtercate=<?= $c['id'] ?>"><?= $c['name'] ?></a></li>
                 <?php endforeach; ?>
-                <li><a href="">Làm sạch</a></li>
                 <?php if (isset($_SESSION['admin'])) : ?>
                     <li class="view_admin">
                         <a href="admin">Vào trang quản trị<i class="fa fa-arrow-right ml-2" aria-hidden="true"></i>
