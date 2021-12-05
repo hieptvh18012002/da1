@@ -7,6 +7,7 @@ $err = '';
 $er = array();
 $er['pass'] = '';
 $err_pass = '';
+$er['email'] = '';
 $err_pass_old = '';
 $msg = '';
 if (isset($_GET['action'])) :
@@ -55,22 +56,42 @@ if (isset($_GET['action'])) :
             viewAdmin('login', ['err' => $err]);
             die;
             break;
-        
-        
-       
-        case "addAccount":
-            if(isset($_POST['btn_add'])){
-               echo "<script>alert('ádasdas')</script>";
 
+
+
+        case "add":
+            if (isset($_POST['btn_add'])) {
+                extract($_POST);
+                // check acc exist;
+                $acc_exsits = acc_select_by_email($email);
+                if (is_array($acc_exsits)) {
+                    $er['email'] = "Email đã được đăng kí, vui lòng nhập email mới";
+                } else {
+                    // md5 pass
+                    $pass = md5($password);
+                    acc_insert($fullname, $birthday, $email, $pass, $role, $gender);
+                    header('location: account?action=addAccount&msg=Tạo thành công tài khoản!');
+                }
             }
-            viewAdmin("layout", ['page' => 'addAccount']);
+            viewAdmin("layout", ['page' => 'addAccount', 'errMail' => $er['email']]);
             break;
 
-        case "updateAccount":
-
+        case "update":
+            $id = $_GET['id'];
+            $acc_detail = acc_select_by_id($id);
+            if (isset($_POST['btn_update'])) {
+                extract($_POST);
+                // check acc exist;
+                // md5 pass
+                $pass = md5($password);
+                acc_update($id,$fullname, $birthday, $pass, $role, $gender,$phone);
+                header('location: account?action=updateAccount&msg=Cập nhật thành công tài khoản!');
+            }
+            viewAdmin("layout", ['page' => 'updateAccount', 'errMail' => $er['email'], 'accDetail' => $acc_detail]);
             break;
-        case "delAccount":
-
+        case "del":
+            acc_delete($_GET['id']);
+            header('location: account?msg=Xóa thành công 1 tài khoản!');
             break;
         case "logout":
             // admin thêm khách hàng/nv

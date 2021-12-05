@@ -79,6 +79,9 @@ if (isset($_GET['action'])) {
 
         case "del":
             category_delete($_GET['id']);
+             if(file_exists("./public/images/categories/" . $cate_detail['avatar'])){
+                        unlink("./public/images/categories/" . $cate_detail['avatar']);
+                    }
             header('location: category?msg=Xóa thành công 1 danh mục!');
 
             break;

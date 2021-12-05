@@ -58,6 +58,12 @@ function vc_del($id)
     $sql = "DELETE FROM vourchers WHERE id=$id";
     pdo_execute($sql);
 }
+// vc detail del
+function vc_detail_del($vc_id)
+{
+    $sql = "DELETE FROM voucher_detail WHERE vourcher_id=$vc_id";
+    pdo_execute($sql);
+}
 // trừ sl vc 
 function vc_update_qty($code)
 {
