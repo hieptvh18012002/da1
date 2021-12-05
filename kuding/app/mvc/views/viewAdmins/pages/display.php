@@ -6,7 +6,7 @@
                 Basic form elements
             </p>
            
-            <form id="" class="forms-sample" method="POST" enctype="multipart/form-data">
+            <form id="form_display" class="forms-sample" method="POST" enctype="multipart/form-data">
             <div class="form-group">
                     <label for="">Tên website </label>
                     <input type="text" placeholder="Nhập tên website" class="form-control" name="name">

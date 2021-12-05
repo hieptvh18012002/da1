@@ -26,7 +26,27 @@ $("#form_categorys").validate({
       form.submit();
     }
  });
+// form update cate
+$("#form_Ucategorys").validate({
+    rules: {
+        name_cate: {
+            required : true,
+            minlength : 6,
+            maxlength : 26
+        },
+    },
 
+    messages: {
+        name_cate: {
+            required: "Vui lòng nhập tên loại hàng !",
+            minlength: "Nhập tối thiếu 6 ký tự",
+            maxlength: "Nhập tối đa 26 ký tự"
+        },
+    },
+    submitHandler: function(form) {
+      form.submit();
+    }
+ });
 
  $("#register_user").validate({
     rules: {
@@ -41,6 +61,7 @@ $("#form_categorys").validate({
         },
         password: {
             required : true,
+            validatePassword: true,
             minlength : 6,
             maxlength : 12
         },
@@ -86,7 +107,67 @@ $("#form_categorys").validate({
       form.submit();
     }
  });
+// update user
 
+$("#update_user").validate({
+    rules: {
+        fullname: {
+            required : true,
+            minlength : 6,
+            maxlength : 26
+        },
+        email: {
+            required : true,
+            valiEmail : true
+        },
+        password: {
+            required : true,
+            validatePassword: true,
+            minlength : 6,
+            maxlength : 12
+        },
+        birthday: {
+            required : true,
+            date: true
+        },
+        phone: {
+            required : true,
+            number: true,
+            minlength: 10,
+            maxlength: 11,
+        },
+        
+    },
+
+    messages: {
+        fullname: {
+            required: "Vui lòng nhập họ tên !",
+            minlength: "Nhập tối thiếu 6 ký tự",
+            maxlength: "Nhập tối đa 26 ký tự"
+        },
+        email: {
+            required: "Vui lòng nhập email !",
+        },
+        password: {
+            required: "Vui lòng nhập mật khẩu !",
+            minlength: "Nhập tối thiếu 6 ký tự",
+            maxlength: "Nhập tối đa 12 ký tự"
+        },
+        birthday: {
+            required: "Vui lòng nhập ngày sinh !",
+            date: "Nhập đúng định dạng ngày",
+        },
+        phone: {
+            required : "Vui lòng nhập số điện thoại",
+            number: "Số điện thoại phải là số",
+            minlength: "Số điện thoại ít nhất 10 số",
+            maxlength: "Số điện thoại nhiều nhất nhất 11 số",
+        },
+    },
+    submitHandler: function(form) {
+      form.submit();
+    }
+ });
 // validate profile
 $("#profile_admin").validate({
     rules: {
@@ -102,6 +183,7 @@ $("#profile_admin").validate({
         password: {
             required : true,
             minlength : 6,
+            validatePassword: true,
             maxlength : 22
         },
         phone: {
@@ -130,6 +212,51 @@ $("#profile_admin").validate({
             number: "Số điện thoại phải là số",
             minlength: "Số điện thoại ít nhất 10 số",
             maxlength: "Số điện thoại nhiều nhất nhất 11 số",
+        },
+    },
+    submitHandler: function(form) {
+      form.submit();
+    }
+ });
+
+// validate pass
+$("#admin_pass").validate({
+    rules: {
+        password: {
+            required : true,
+            minlength : 6,
+            validatePassword: true,
+            maxlength : 22
+        },
+        new_password: {
+            required : true,
+            minlength : 6,
+            validatePassword: true,
+            maxlength : 22
+        },
+        confirm_password: {
+            required : true,
+            minlength : 6,
+            validatePassword: true,
+            maxlength : 22
+        },
+    },
+
+    messages: {
+        password: {
+            required: "Vui lòng nhập mật khẩu !",
+            minlength: "Nhập tối thiếu 6 ký tự",
+            maxlength: "Nhập tối đa 22 ký tự"
+        },
+        new_password: {
+            required: "Vui lòng nhập mật khẩu mới!",
+            minlength: "Nhập tối thiếu 6 ký tự",
+            maxlength: "Nhập tối đa 22 ký tự"
+        },
+        confirm_password: {
+            required: "Vui lòng xác nhập mật khẩu !",
+            minlength: "Nhập tối thiếu 6 ký tự",
+            maxlength: "Nhập tối đa 22 ký tự"
         },
     },
     submitHandler: function(form) {
@@ -363,9 +490,57 @@ $("#profile_admin").validate({
     }
  });
 
+// form display
+$("#form_display").validate({
+    rules: {
+        name:{
+            minlength : 10
+        },
+        title_intro:{
+            minlength : 20
+        },
+        fb_url:{
+            valiUrl: true
+        },
+        insta_url:{
+            valiUrl: true
+
+        },
+        twitter_url:{
+            valiUrl: true
+
+        },
+        pinterest_url:{
+            valiUrl: true
+
+        },
+    },
+
+    messages: {
+        name:{
+            minlength : "Vui lòng nhập tối thiểu 10 ký tự"
+        },
+        title_intro:{
+            minlength : "Vui lòng nhập tối thiểu 20 ký tự"
+        },
+        
+    },
+    submitHandler: function(form) {
+      form.submit();
+    }
+ });
+
  $.validator.addMethod("valiEmail", function (value, element) {
     return this.optional(element) || /^([a-z0-9_\.-]+)@([\da-z\.-]+)\.([a-z\.]{2,6})$/.test(value);
 }, "Nhập đúng định dạng email (VD: Kooding@gmail.com)");
+$.validator.addMethod("valiUrl", function (value, element) {
+    return this.optional(element) || 	
+    /^(https?:\/\/)?([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?$/.test(value);
+}, "Vui lòng nhập đúng URL !");
+
+$.validator.addMethod("validatePassword", function (value, element) {
+    return this.optional(element) || /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,}$/.test(value);
+}, "Mật khẩu không chứa ký đặc biệt ít nhất 1 số và 1 chữ cái");
 
 $.validator.addMethod("vourcher", function (value, element) {
     return this.optional(element) || /^(?=.*[A-Za-z\d])[A-Za-z\d]{6,}$/.test(value);
