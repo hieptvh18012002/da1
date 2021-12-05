@@ -5,7 +5,9 @@
     <div class="banner single-item">
         <?php foreach ($data['cate_banner'] as $item) : ?>
             <a href="productClient?action=list&filtercate=<?= $item['id'] ?>" class="banner-item">
+            <div class="banner_imgBox">
                 <img src="public/images/categories/<?= $item['avatar'] ?>" alt="" width="100%">
+            </div>  
             </a>
         <?php endforeach; ?>
     </div>

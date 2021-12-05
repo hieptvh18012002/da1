@@ -8,7 +8,7 @@
             <?php if (isset($_GET['msg'])) : ?>
                 <div class="alert alert-success"><?php echo $_GET['msg']; ?></div>
             <?php endif; ?>
-            <form id="form_categorys" class="forms-sample" method="POST" enctype="multipart/form-data" >
+            <form id="form_Ucategorys" class="forms-sample" method="POST" enctype="multipart/form-data" >
                 <div class="form-group">
                     <label for="exampleInputName1">Name</label>
                     <input name="name_cate" value="<?= $data['cate_detail']['name'] ?><?= save_value("name_cate") ?>" type="text" class="form-control" id="exampleInputName1" placeholder="Name">

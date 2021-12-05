@@ -93,7 +93,7 @@
                     </form>
 
                     <!-- change pass -->
-                    <form action="" class="form-horizontal form-material mx-2 mt-5" id="profile_admin">
+                    <form action="" class="form-horizontal form-material mx-2 mt-5" id="admin_pass">
                         
                         <div class="form-group">
                             <label class="col-md-12">Mật khẩu cũ</label>
