@@ -5,6 +5,10 @@ callModel("productModels");
 callModel("addressModels");
 callModel("orderModels");
 callModel("vourcherModels");
+callModel("displayModels");
+
+// dd
+$display = display_select_all();
 // lấy tỉnh
 $province = province_select_all();
 // vc
@@ -122,14 +126,14 @@ if (isset($_GET['action'])) {
                 }
 
 
-                viewClient('layout', ['page' => 'checkout', 'list_cate' => $list_cate, 'list_province' => $province, 'vourchers' => $vourchers, 'errVc' => $err, 'price_new' => $price_new, 'vour_exist' => $vour_exist, 'vocher' => $vocher]);
+                viewClient('layout', ['page' => 'checkout','display'=>$display, 'list_cate' => $list_cate, 'list_province' => $province, 'vourchers' => $vourchers, 'errVc' => $err, 'price_new' => $price_new, 'vour_exist' => $vour_exist, 'vocher' => $vocher]);
             endif;
 
             break;
 
         case "viewdieukhoan":
 
-            viewClient('layout', ['page' => 'dieukhoan', 'vourchers' => $vourchers, 'list_cate' => $list_cate,]);
+            viewClient('layout', ['page' => 'dieukhoan','display'=>$display, 'vourchers' => $vourchers, 'list_cate' => $list_cate,]);
             break;
 
 

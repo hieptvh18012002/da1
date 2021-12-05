@@ -4,6 +4,10 @@ callModel("productModels");
 callModel("categoryModels");
 callModel("commentModels");
 callModel("vourcherModels");
+callModel("displayModels");
+
+// dd
+$display = display_select_all();
 // lấy list
 $vourchers = vc_select_show();
 $list_cate = cate_select_all();
@@ -89,7 +93,7 @@ if (isset($_GET['action'])) {
             }
             // xóa cmt
 
-            viewClient('layout', ['page' => 'product-details', 'list_img' => $pro_imgs, 'list_cate' => $list_cate, 'pros' => $pros, 'errCmt' => $err['cmt'], 'errImg' => $err['img'], 'list_cmt' => $cmts, 'vourchers' => $vourchers,'color'=>$color_name,'size'=>$size_name,'relate_pros'=>$relate_pros]);
+            viewClient('layout', ['page' => 'product-details','display'=>$display, 'list_img' => $pro_imgs, 'list_cate' => $list_cate, 'pros' => $pros, 'errCmt' => $err['cmt'], 'errImg' => $err['img'], 'list_cmt' => $cmts, 'vourchers' => $vourchers,'color'=>$color_name,'size'=>$size_name,'relate_pros'=>$relate_pros]);
             die;
             break;
         case "del_cmt":
@@ -98,7 +102,7 @@ if (isset($_GET['action'])) {
 
             pdo_execute("DELETE FROM comments WHERE id='$id'");
             header('location: ');
-            viewClient("master", ['page' => 'productDetails','vourchers' => $vourchers,'color'=>$color_name,'size'=>$size_name]);
+            viewClient("master", ['page' => 'productDetails','display'=>$display,'vourchers' => $vourchers,'color'=>$color_name,'size'=>$size_name]);
             break;
     }
 }

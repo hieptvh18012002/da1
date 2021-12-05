@@ -4,6 +4,10 @@ callModel("categoryModels");
 callModel("newsModels");
 callModel("productModels");
 callModel("vourcherModels");
+callModel("displayModels");
+
+// dd
+$display = display_select_all();
 $list_cate = cate_select_all();
 $vourchers = vc_select_show();
 // list news
@@ -17,9 +21,9 @@ if(isset($_GET['action'])){
             $news_detail = news_select_by_id($_GET['id']);
 
             
-            viewClient('layout',['page'=>'post','vourchers'=>$vourchers,'list_cate'=>$list_cate,'news_detail'=>$news_detail]);
+            viewClient('layout',['page'=>'post','display'=>$display,'vourchers'=>$vourchers,'list_cate'=>$list_cate,'news_detail'=>$news_detail]);
             break;
     }
 }
 
-viewClient("layout",['page'=>'list-news','list_cate'=>$list_cate,'list_news'=>$list_news,'list_news_new'=>$list_news_new,'vourchers'=>$vourchers]);
+viewClient("layout",['page'=>'list-news','display'=>$display,'list_cate'=>$list_cate,'list_news'=>$list_news,'list_news_new'=>$list_news_new,'vourchers'=>$vourchers]);

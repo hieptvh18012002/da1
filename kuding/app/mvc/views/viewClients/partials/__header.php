@@ -29,7 +29,7 @@
                     </div>
                 </div>
                 <a href="index" class="logo">
-                    <img src="public/images/layout/logo-main.png" alt="" class="logo-img">
+                    <img src="public/images/layout/<?= $data['display']['logo'] ?>" alt="" class="logo-img">
                 </a>
             </div>
             <div class="search">
@@ -158,7 +158,7 @@
                     <img src="public/images/layout/vietnam.png" alt="">
                 </a>
                 <div class="box-favorite-pro pt-4 pb-4">
-                    <a href="productClient?action=viewFavorite" class="favorite-pro">
+                    <a href="productFavoriteClient" class="favorite-pro">
                         <i class="fa fa-heart" aria-hidden="true"></i>
                     </a>
                     <div class="notifi">

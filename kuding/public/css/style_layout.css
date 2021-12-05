@@ -724,6 +724,7 @@ main{
 .slide-title h3{
     font-weight: 600;
     font-size: 24px;
+    text-transform: uppercase;
 }
 .slide-title p{
     letter-spacing: 0.5px;

@@ -50,7 +50,10 @@
                     <?php if(isset($_GET['msg'])):?>
                         <div class="alert alert-success"><?= $_GET['msg'] ?></div>
                         <?php endif;?>
-                    <form action="" class="form-horizontal form-material mx-2" id="profile_admin">
+                        <?php if(!empty($data['msg'])):?>
+                        <div class="alert alert-success"><?= $data['msg'] ?></div>
+                        <?php endif;?>
+                    <form action="" class="form-horizontal form-material mx-2" method="POST" id="profile_admin">
                         <div class="form-group">
                             <label class="col-md-12">Full Name</label>
                             <div class="col-md-12">
@@ -83,7 +86,7 @@
                         <div class="form-group">
                             <label class="col-md-12">Phone No</label>
                             <div class="col-md-12">
-                                <input type="text" name="phone" value="<?= $_SESSION['admin']['phone'] ?>" class="form-control form-control-line">
+                                <input type="text" name="phone" value="<?= save_value("phone") ?><?= $_SESSION['admin']['phone'] ?>" class="form-control form-control-line">
                             </div>
                         </div>
 
@@ -96,24 +99,30 @@
                     </form>
 
                     <!-- change pass -->
-                    <form action="" class="form-horizontal form-material mx-2 mt-5" id="profile_admin">
+                    <form action="" class="form-horizontal form-material mx-2 mt-5" method="POST" id="profile_admin">
 
                         <div class="form-group">
                             <label class="col-md-12">Mật khẩu cũ</label>
                             <div class="col-md-12">
-                                <input type="password" name="password" value="" class="form-control form-control-line">
+                                <input type="password"  name="password" value="<?= save_value("password") ?>" class="form-control form-control-line" placeholder="Mật khẩu cũ">
+                                <?php if(!empty($data['errPass'])):?>
+                                    <div class="text-danger"><?= $data['errPass'] ?></div>
+                                    <?php endif;?>
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="col-md-12">Mật mới</label>
                             <div class="col-md-12">
-                                <input type="password" name="new_password" value="" class="form-control form-control-line">
+                                <input type="password" name="new_password" value="<?= save_value("new_password") ?>" placeholder="Nhập mật khẩu mới" class="form-control form-control-line">
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="col-md-12">Xác nhận mật khẩu mới</label>
                             <div class="col-md-12">
-                                <input type="password" name="confirm_password" value="" class="form-control form-control-line">
+                                <input type="password" placeholder="Xác nhận mật khẩu mới" name="confirm_password" value="<?= save_value("confirm_password") ?>" class="form-control form-control-line">
+                                <?php if(!empty($data['errPassNew'])):?>
+                                    <div class="text-danger"><?= $data['errPassNew'] ?></div>
+                                    <?php endif;?>
                             </div>
                         </div>
 

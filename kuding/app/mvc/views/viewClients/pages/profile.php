@@ -1,11 +1,11 @@
 <main class="body__acc">
-<?php if (isset($_GET['msg'])) : ?>
-            <div class="alert alert-success p-2">
-                <?php echo $_GET['msg'] ?>
-            </div>
-        <?php endif; ?>
+    <?php if (isset($_GET['msg'])) : ?>
+        <div class="alert alert-success p-2">
+            <?php echo $_GET['msg'] ?>
+        </div>
+    <?php endif; ?>
     <div class="body__acc__header">
-       
+
         <div class="body__acc__fist">
 
             <div class="body__acc__title">
@@ -89,7 +89,7 @@
                                     <div class="DH__checkBox">
 
                                         <div class="pretty p-default">
-                                            <input <?= $_SESSION['customer']['gender'] == 0 ? 'checked' : '' ?> type="radio" id="nam" name="gender" value="0"/>
+                                            <input <?= $_SESSION['customer']['gender'] == 0 ? 'checked' : '' ?> type="radio" id="nam" name="gender" value="0" />
                                             <div class="state p-info">
                                                 <label for="nam">Nam</label>
                                             </div>
@@ -153,14 +153,59 @@
                     <div class="acc__DH__title">
                         <p>Lịch sử đơn hàng</p>
                     </div>
-                    <div class="acc__DH__content">
-                        <div class="DH__content__title">
-                            <p>Không tìm thấy đơn hàng</p>
+                    <?php if (count($data['my_orders']) <= 0) : ?>
+                        <div class="acc__DH__content">
+                            <div class="DH__content__title">
+                                <p>Không tìm thấy đơn hàng</p>
+                            </div>
+                            <div class="DH__content__body">
+                                <img src="public/images/layout/empty-orders.jpg" alt="">
+                            </div>
                         </div>
-                        <div class="DH__content__body">
-                            <img src="public/images/layout/empty-orders.jpg" alt="">
+                    <?php else : ?>
+                        <div class="acc__DH__content">
+                            <div class="table-responsive">
+                                <table class="table table-striped table-borderless">
+                                    <thead>
+                                        <tr>
+                                            <th>STT</th>
+                                            <th>ID </th>
+                                            <th>Tổng tiền hàng</th>
+                                            <th>Số điện thoại</th>
+                                            <th>Ngày đặt hàng</th>
+                                            <th>Tình trạng đơn</th>
+                                            <th>Chức năng</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <?php $n = 1;
+                                        foreach ($data['my_orders'] as $o) : ?>
+                                            <tr>
+                                                <td><?= $n ?></td>
+                                                <td><?= $o['id'] ?></td>
+                                                <td class="font-weight-bold"><?= number_format($o['total_price'], 0, ',') ?>đ</td>
+                                                <td><?= $o['phone'] ?></td>
+                                                <td><?= $o['created_at'] ?></td>
+                                                <td class="font-weight-medium">
+                                                    <?php if ($o['status'] == 2) : ?>
+                                                        <div class="badge badge-success">Đã gửi hàng</div>
+                                                    <?php elseif ($o['status'] == 1) : ?>
+                                                        <div class="badge badge-warning">Đang xử lí</div>
+                                                    <?php else : ?>
+                                                        <div class="badge badge-danger">Chưa xác nhận</div>
+                                                    <?php endif; ?>
+                                                </td>
+                                                <td>
+                                                    <a href="order?action=viewDetail&id=<?= $o['id'] ?>" class="btn btn-primary text-light">Đã nhận được hàng</a>
+                                                </td>
+                                            </tr>
+                                        <?php $n++;
+                                        endforeach; ?>
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
-                    </div>
+                    <?php endif; ?>
                 </div>
             </div>
         </div>

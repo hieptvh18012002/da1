@@ -155,7 +155,7 @@
     <!-- end trending -->
     <div class="about-us">
         <div class="title text-center">
-            <h5>KOODING kết nối thời trang Hàn Quốc với bạn</h5>
+            <h5><?= $data['display']['title_intro'] ?></h5>
         </div>
         <div id="times" class="btn__times">+</div>
         <div id="minus" class="btn__minus none">-</div>
@@ -199,7 +199,7 @@
 
     <div class="slider-album pb-4">
         <div class="slide-title text-center pt-4 pb-2 text-light">
-            <h3>#KOODING</h3>
+            <h3>#<?= $data['display']['web_name'] ?></h3>
             <p>Chia sẽ khoảnh khắc của bạn với KOODING TRÊN <i class="fab fa-instagram text-light" aria-hidden="true"></i> hoặc <i class="fab fa-twitter text-light" aria-hidden="true"></i>
 
             </p>
