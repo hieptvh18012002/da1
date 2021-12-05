@@ -123,6 +123,9 @@
                                     <div class="form-group">
                                         <input type="date" name="birthday" id="birthday" placeholder="Ngày sinh của bạn" class="birthday">
                                     </div>
+                                    <div class="form-group">
+                                        <input type="text" name="phone" id="phone" placeholder="Số điện thoại của bạn" class="phone">
+                                    </div>
                                     <div class="gender col-md-12 mb-4 mt-4">
                                         <div class="form-check-inline">
                                             <input class="form-check-input" value="0" id="gender" type="radio" name="gender" checked>

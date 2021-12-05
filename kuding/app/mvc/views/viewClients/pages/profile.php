@@ -77,6 +77,10 @@
 
                                 </div>
                                 <div class="DH__form1">
+                                    <label for="">Số điện thoại</label>
+                                    <input type="text" name="phone" value="<?= $_SESSION['customer']['phone'] ?>">
+                                </div>
+                                <div class="DH__form1">
                                     <label for="">Ngày sinh</label>
                                     <input type="date" name="birthday" value="<?= $_SESSION['customer']['birthday'] ?>">
                                 </div>
@@ -85,13 +89,13 @@
                                     <div class="DH__checkBox">
 
                                         <div class="pretty p-default">
-                                            <input <?= $_SESSION['customer']['gender'] == 0 ? 'checked' : '' ?> type="radio" id="nam" name="gender" />
+                                            <input <?= $_SESSION['customer']['gender'] == 0 ? 'checked' : '' ?> type="radio" id="nam" name="gender" value="0"/>
                                             <div class="state p-info">
                                                 <label for="nam">Nam</label>
                                             </div>
                                         </div>
                                         <div class="pretty p-default">
-                                            <input <?= $_SESSION['customer']['gender'] == 1 ? 'checked' : '' ?> type="radio" id="nu" name="gender" />
+                                            <input <?= $_SESSION['customer']['gender'] == 1 ? 'checked' : '' ?> type="radio" id="nu" name="gender" value="1" />
                                             <div class="state p-info">
                                                 <label for="nu">Nữ</label>
                                             </div>

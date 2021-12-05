@@ -131,6 +131,7 @@
             var birthday = $('#birthday').val()
             var email = $('#email_register').val();
             var password = $('#pass_register').val();
+            var phone = $('#phone').val();
             var gender = $('#gender')
             var male = '';
             var female = '';
@@ -158,7 +159,8 @@
                         email: email,
                         mk: password,
                         male: male,
-                        female: female
+                        female: female,
+                        phone: phone
 
                     },
                     success: function(data) {
