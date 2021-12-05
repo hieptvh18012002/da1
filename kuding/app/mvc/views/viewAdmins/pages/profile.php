@@ -57,15 +57,26 @@
                         <div class="form-group">
                             <label for="example-email" class="col-md-12">Email</label>
                             <div class="col-md-12">
-                                <input type="email" value="<?= $_SESSION['admin']['email'] ?>"  class="form-control form-control-line" name="email" id="example-email">
+                                <input disabled type="email" value="<?= $_SESSION['admin']['email'] ?>"  class="form-control form-control-line" name="email" id="example-email">
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="col-md-12">Password</label>
-                            <div class="col-md-12">
-                                <input type="password" name="password" value="<?= $_SESSION['admin']['password'] ?>"class="form-control form-control-line">
-                            </div>
-                        </div>
+                    <label for="">Ngày sinh</label>
+                    <input type="date" value="<?= $_SESSION['admin']['birthday'] ?>" name="birthday" id="birthday" placeholder="Ngày sinh của bạn" class="form-control">
+                </div>
+                <div class="gender col-md-12 mb-4 mt-4">
+                    <label for="">Giới tính</label>
+                    <div class="form-check-inline">
+                        <input class="form-check-input" <?= $_SESSION['admin']['gender'] == 0?'checked':''  ?> value="0" id="gender" type="radio" name="gender" >
+                        <label for="gender" class="form-check-label mr-4">
+                            Nam
+                        </label>
+                        <input class="form-check-input" <?= $_SESSION['admin']['gender'] == 1?'checked':''  ?> id="gender2" value="1" type="radio" name="gender">
+                        <label for="gender2" class="form-check-label">
+                            Nữ
+                        </label>
+                    </div>
+                </div>
                         <div class="form-group">
                             <label class="col-md-12">Phone No</label>
                             <div class="col-md-12">
@@ -77,6 +88,36 @@
                         <div class="form-group">
                             <div class="col-sm-12">
                                 <button type="submit" name="btnUpdate" class="btn btn-success">Update Profile</button>
+                            </div>
+                        </div>
+                    </form>
+
+                    <!-- change pass -->
+                    <form action="" class="form-horizontal form-material mx-2 mt-5" id="profile_admin">
+                        
+                        <div class="form-group">
+                            <label class="col-md-12">Mật khẩu cũ</label>
+                            <div class="col-md-12">
+                                <input type="password" name="password" value=""class="form-control form-control-line">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-12">Mật mới</label>
+                            <div class="col-md-12">
+                                <input type="password" name="new_password" value=""class="form-control form-control-line">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-12">Xác nhận mật khẩu mới</label>
+                            <div class="col-md-12">
+                                <input type="password" name="confirm_password" value=""class="form-control form-control-line">
+                            </div>
+                        </div>
+                        
+                        
+                        <div class="form-group">
+                            <div class="col-sm-12">
+                                <button type="submit" name="btnChangePass" class="btn btn-success">Thay đổi</button>
                             </div>
                         </div>
                     </form>

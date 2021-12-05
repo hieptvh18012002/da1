@@ -101,7 +101,7 @@
    
     <?php if ($_SESSION['admin']['role_id'] == 3) : ?>
       <li class="nav-item">
-        <a class="nav-link" href="">
+        <a class="nav-link" href="display">
           <i class="fas fa-tv menu-icon"></i>
           <span class="menu-title">Giao diện</span>
         </a>
