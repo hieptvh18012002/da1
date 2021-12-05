@@ -53,7 +53,7 @@
         <div class="collapse" id="account">
           <ul class="nav flex-column sub-menu">
             <li class="nav-item"> <a class="nav-link" href="account">Danh sách</a></li>
-            <li class="nav-item"> <a class="nav-link" href="account?action=addAccount">Thêm tài khoản</a></li>
+            <li class="nav-item"> <a class="nav-link" href="account?action=add">Thêm tài khoản</a></li>
           </ul>
         </div>
       </li>
@@ -101,7 +101,7 @@
    
     <?php if ($_SESSION['admin']['role_id'] == 3) : ?>
       <li class="nav-item">
-        <a class="nav-link" href="">
+        <a class="nav-link" href="display">
           <i class="fas fa-tv menu-icon"></i>
           <span class="menu-title">Giao diện</span>
         </a>

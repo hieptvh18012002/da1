@@ -40,8 +40,10 @@ if (isset($_GET['action'])) {
             viewAdmin('layout', ['page' => 'listVourcher', 'list_vour' => $list_vour]);
             break;
         case "del":
-
+            // xóa ở vc
             vc_del($_GET['id']);
+            // xóa ở vc detail
+            vc_detail_del($_GET['id']);
             header('location: vourcher?msg=Xóa thành công 1 mã giảm giá!');
             break;
     }

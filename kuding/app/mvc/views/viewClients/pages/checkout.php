@@ -109,7 +109,7 @@
                         <input type="hidden" name="used_voucher" value="<?= $data['vocher'] != ''? $data['vocher'] :'' ?>">
                         <input type="hidden" name="total_price" id="total_price" value="<?= $data['price_new'] ?>">
                     <?php else : ?>
-                        <input type="hidden" name="total_price" id="total_price" value="<?= $total - 30000 ?>">
+                        <input type="hidden" name="total_price" id="total_price" value="<?= $total + 30000 ?>">
                     <?php endif; ?>
                     <div class="order__chage">
                         <a href="cartClient" class="text-primary">Chỉnh sửa giỏ hàng</a>
@@ -158,7 +158,7 @@
                             <?php if (!empty($data['price_new'])) : ?>
                                 <?= $data['price_new'] < 0 ? 0 : number_format($data['price_new'], 0, ',') ?>
                             <?php else : ?>
-                                <?= $total < 0 ? 0 : number_format($total - 30000, 0, ',') ?>
+                                <?= $total < 0 ? 0 : number_format($total + 30000, 0, ',') ?>
                             <?php endif; ?>
                             đ</span>
 

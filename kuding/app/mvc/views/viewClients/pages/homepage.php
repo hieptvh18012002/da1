@@ -3,15 +3,11 @@
         <div class="alert alert-success"><?= $_GET['msg'] ?></div>
     <?php endif; ?>
     <div class="banner single-item">
-        <a href="#baner " class="banner-item">
-            <img src="public/images/layout/5f3c3ce98d1c4e3e07ab5ebc4126a3cbdb33aadb.jpg" alt="" width="100%">
-        </a>
-        <a href="#baner " class="banner-item">
-            <img src="public/images/layout/5f3c3ce98d1c4e3e07ab5ebc4126a3cbdb33aadb.jpg" alt="" width="100%">
-        </a>
-        <a href="#baner " class="banner-item">
-            <img src="public/images/layout/5f3c3ce98d1c4e3e07ab5ebc4126a3cbdb33aadb.jpg" alt="" width="100%">
-        </a>
+        <?php foreach ($data['cate_banner'] as $item) : ?>
+            <a href="productClient?action=list&filtercate=<?= $item['id'] ?>" class="banner-item">
+                <img src="public/images/categories/<?= $item['avatar'] ?>" alt="" width="100%">
+            </a>
+        <?php endforeach; ?>
     </div>
     <!-- end banner -->
     <div class="category-banner">
@@ -94,7 +90,7 @@
 
                     </a>
                     <div class="pro-name">
-                       <?= $item['title'] ?>
+                        <?= $item['title'] ?>
                     </div>
                     <span><?= $item['shortdesc'] ?></span>
                     <a href="newsClient?action=viewDetail&id=<?= $item['id'] ?>" class="btn-discover mt-2">
@@ -113,12 +109,12 @@
 
                 </a>
                 <div class="pro-name">
-                <?= $data['news_special2']['title'] ?>
+                    <?= $data['news_special2']['title'] ?>
                 </div>
                 <span><?= $data['news_special2']['shortdesc'] ?></span>
                 <a href="newsClient?action=viewDetail&id=<?= $item['id'] ?>" class="btn-discover mt-2">
-                        KHÁM PHÁ
-                    </a>
+                    KHÁM PHÁ
+                </a>
             </div>
         </div>
     </div>
@@ -222,11 +218,11 @@
                     <div class="slider_album_boxImg">
                         <img src="./public/images/products/7274e18d4ab68a79ad42b3ad401c34c1f0bb4b93.jpg" alt="">
                     </div>
-                    
+
                 </a>
                 <a href="#" class="album_link">
                     <div class="album__overlay">
-                    <div class="album__overlay_icon">
+                        <div class="album__overlay_icon">
                             <i class="fab fa-facebook"></i>
                         </div>
                         <div class="album__overlay_tim">
@@ -236,11 +232,11 @@
                     <div class="slider_album_boxImg">
                         <img src="./public/images/products/0c7a6702fb366f8e1047ea5b3bd0eda64b812378 - Copy.jpg" alt="">
                     </div>
-                    
+
                 </a>
                 <a href="#" class="album_link">
                     <div class="album__overlay">
-                    <div class="album__overlay_icon">
+                        <div class="album__overlay_icon">
                             <i class="fab fa-facebook"></i>
                         </div>
                         <div class="album__overlay_tim">
@@ -253,7 +249,7 @@
                 </a>
                 <a href="#" class="album_link">
                     <div class="album__overlay">
-                    <div class="album__overlay_icon">
+                        <div class="album__overlay_icon">
                             <i class="fab fa-facebook"></i>
                         </div>
                         <div class="album__overlay_tim">
@@ -266,7 +262,7 @@
                 </a>
                 <a href="#" class="album_link">
                     <div class="album__overlay">
-                    <div class="album__overlay_icon">
+                        <div class="album__overlay_icon">
                             <i class="fab fa-facebook"></i>
                         </div>
                         <div class="album__overlay_tim">
@@ -279,7 +275,7 @@
                 </a>
                 <a href="#" class="album_link">
                     <div class="album__overlay">
-                    <div class="album__overlay_icon">
+                        <div class="album__overlay_icon">
                             <i class="fab fa-facebook"></i>
                         </div>
                         <div class="album__overlay_tim">
@@ -292,7 +288,7 @@
                 </a>
                 <a href="#" class="album_link">
                     <div class="album__overlay">
-                    <div class="album__overlay_icon">
+                        <div class="album__overlay_icon">
                             <i class="fab fa-facebook"></i>
                         </div>
                         <div class="album__overlay_tim">
