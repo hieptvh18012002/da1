@@ -42,10 +42,10 @@
                     </div>
                     <div class="pd-price ">
                         <div id="price-observer">
-                            <div class="default-price"><span class="currency lc"></span><span class="number"><?= number_format($data['pros']['price']) ?> vnđ</span></div>
+                            <div class="default-price"><span class="currency lc"></span><span class="number"> <?= number_format($data['pros']['price'] - $data['pros']['discount']) ?>đ</span></div>
                             <div class="price__sale">
-                                <span class="price__sale--fist">69,69 vnđ</span>
-                                <span class="price__sale--off">Giảm 99%</span>
+                                <span class="price__sale--fist"><?= number_format($data['pros']['price']) ?>đ</span>
+                                <span class="price__sale--off"><?= number_format($data['pros']['discount']/$data['pros']['price'] *100,0,',','.') ?>%</span>
                             </div>
                         </div>
                         <div class="pd-sku">
