@@ -3511,7 +3511,7 @@ a{
     transition: opacity 0.25s;
 }
 .slider_album_boxImg{
-    width: 235px;
+    width: 100%;
     height: 220px;
 }
 .album_link:hover .slider_album_boxImg{
@@ -3558,6 +3558,13 @@ a{
 .album__overlay_tim{
     margin-right: 10px;
     font-size: 22px;
+}
+.banner_imgBox img{
+    object-fit: cover;
+}
+.banner_imgBox{
+    width: 100%;
+    height: 540px;
 }
 /* Trang 2 */
 .box__slider__ct{

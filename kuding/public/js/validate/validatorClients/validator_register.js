@@ -111,7 +111,7 @@ $("#checkout").validate({
  });
 
  $.validator.addMethod("validatePassword", function (value, element) {
-    return this.optional(element) || /^(?=.*[A-Za-z])[A-Za-z\d]{6,}$/.test(value);
+    return this.optional(element) || /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/.test(value);
 }, "Mật khẩu không chứa ký đặc biệt ít nhất 1 số và 1 chữ cái");
 
 $.validator.addMethod("vourcher", function (value, element) {

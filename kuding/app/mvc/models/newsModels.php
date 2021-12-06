@@ -11,7 +11,7 @@ function news_update($id,$title,$shortdesc,$desc,$img_cate,$client_id,$special){
 }
 
 function news_select_all(){
-    $sql = "SELECT * FROM news ORDER BY created_at ASC";
+    $sql = "SELECT a.fullname,n.id,n.title,n.shortdesc,n.content,n.image,n.created_at,n.update_at FROM news n JOIN accounts a ON a.id=n.client_id ORDER BY created_at ASC";
     return pdo_query($sql);
 }
 // đb
@@ -26,7 +26,7 @@ function news_select_special2(){
 }
 
 function news_select_created_at(){
-    $sql = "SELECT * FROM news ORDER BY created_at DESC LIMIT 0,4";
+    $sql = "SELECT a.fullname,n.id,n.title,n.shortdesc,n.content,n.image,n.created_at,n.update_at FROM news n JOIN accounts a ON a.id=n.client_id ORDER BY created_at DESC LIMIT 0,4";
     return pdo_query($sql);
 }
 

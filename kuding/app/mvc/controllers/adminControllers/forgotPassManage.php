@@ -3,7 +3,11 @@ require_once "./app/common/bridge.php";
 callModel('accountModels');
 callModel('categoryModels');
 callModel('productModels');
+callModel('displayModels');
+callModel('vourcherModels');
 
+$display = display_select_all();
+$vourchers = vc_select_show();
 $list_cate = cate_select_all();
 
 // handle
@@ -32,4 +36,4 @@ if (isset($_POST['forgot_btn'])) {
     }
 }
 // call view
-viewClient('layout', ['page' => 'forgot-pass', 'list_cate' => $list_cate, 'err' => $err['email'], 'output' => $output]);
+viewClient('layout', ['page' => 'forgot-pass','display'=>$display, 'list_cate' => $list_cate, 'err' => $err['email'], 'output' => $output,'vourchers'=>$vourchers]);

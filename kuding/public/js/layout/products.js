@@ -1,7 +1,7 @@
 $(document).ready(function () {
 
     // javascript lọc giá
-    $('#price').click(function (e) { 
+    $('#price').click(function (e) {
         e.preventDefault();
         $('.box__filter__price').toggleClass('none');
     });
@@ -12,9 +12,11 @@ $(document).ready(function () {
     // });  
 
     // javascript thêm sản phẩm yêu thích
+
     $(document).on('click', '.proC__love__icon i', function () {
-            $(this).toggleClass('far');
-            $(this).toggleClass('fas');
-            $(this).toggleClass('proC__icon__color')
+        $(this).toggleClass('far');
+        $(this).toggleClass('fas');
+        $(this).toggleClass('proC__icon__color')
+  
     });
 });

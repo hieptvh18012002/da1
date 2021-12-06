@@ -24,7 +24,17 @@ $msg = '';
 if (isset($_GET['action'])) {
     switch ($_GET['action']) {      
 
-        
+        case "addFavorite":
+            $pro_id = $_GET['pro_id'];
+            die;
+            echo "<script>alert(".$pro_id.")</script>";
+            if(!isset($_SESSION['customer'])){
+                // chưa login thì lưu ss
+
+            }else{
+                // lưu db
+            }
+            break;
 
         default:
             // show list
@@ -56,7 +66,7 @@ if (isset($_GET['action'])) {
             //  search
             // phân trang
             $current_page = isset($_GET['page']) ? $_GET['page'] : 1;
-            $limit = 5;
+            $limit = 10;
             $total_page = ceil($total_records / $limit);
             // Giới hạn current_page trong khoảng 1 đến total_page
             // if ($current_page > $total_page) {
@@ -79,9 +89,7 @@ if (isset($_GET['action'])) {
             $stmt = $db->prepare($qr);
             $stmt->execute();
             $result = $stmt->fetchAll();
-            if($count <= 0){
-                $msg = "Không tìm thấy sản phẩm phù hợp";
-            }
+           
 
             //     $output = '';
 

@@ -1,15 +1,17 @@
 $(document).ready(function () {
-    //   hàm xử lí data + ajax
+    // add favorite
+    
+
+    //   hàm xử lí data + ajax của bộ lọc giá
     // alert('haha');
     // filter_data();
     // function filter_data() {
     //     var filter = "price";
     //     var minimum_price = $('#hidden_minimum_price').val();
     //     var maximum_price = $('#hidden_maximum_price').val();
-       
     //     // dùng ajax đẩy data từ client-> server
     //     $.ajax({
-    //         url: "product?action=viewListProduct",
+    //         url: "productClient?action=filer_price",
     //         method: "GET",
     //         data: {
     //             filter: filter,
@@ -35,7 +37,7 @@ $(document).ready(function () {
             $('#price_show').html('Từ :' + ui.values[0] + '-' + ui.values[1])
             $('#hidden_minimum_price').val(ui.values[0])
             $('#hidden_maximum_price').val(ui.values[1])
-            filter_data();
+            // filter_data();
         }
     })
 });

@@ -71,7 +71,7 @@
                 </div>
                 <div class="address">
                     <label for="">Số điện thoại</label>
-                    <input name="phone" value="<?= save_value("phone") ?>" type="text">
+                    <input name="phone" value="<?= $_SESSION['customer']['phone'] ?><?= save_value("phone") ?>" type="text">
 
                 </div>
             </div>

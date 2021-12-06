@@ -2,6 +2,7 @@
 require_once "./app/common/bridge.php";
 
 callModel("displayModels");
+    
 $er= '';
 $display = display_select_all();
 if(isset($_POST['btn_update'])){
@@ -9,13 +10,13 @@ if(isset($_POST['btn_update'])){
     $ext_img = ['png'];
     $file = $_FILES['logo'];
     if ($file['size'] != 0) {
-        if ($file['size'] > 2097152) {
-            $er = 'Chỉ cho phép tải ảnh dưới 2mb!';
+        if ($file['size'] > 3097152) {
+            $er = 'Chỉ cho phép tải ảnh dưới 3mb!';
         } else {
             $logo = $file['name'];
             $ext = pathinfo($logo, PATHINFO_EXTENSION);
             if (!in_array($ext, $ext_img)) {
-                $er = 'Ảnh tải lên phải là jpg, png hoặc jpeg';
+                $er = 'Ảnh tải lên phải là png';
             }
         }
     }

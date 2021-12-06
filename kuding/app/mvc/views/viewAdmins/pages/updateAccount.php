@@ -5,7 +5,7 @@
             <p class="card-description">
                 Thêm tài khoản tào lao cho vui
             </p>
-            <form action="" method="POST" enctype="multipart/form-data" name="form-register" id="register_user" class="p-5">
+            <form action="" method="POST" enctype="multipart/form-data" name="form-register" id="update_user" class="p-5">
                 <div class="form-group">
                     <label for="">Tên</label>
                     <input type="text" id="fullname" name="fullname" value="<?= $data['accDetail']['fullname'] ?>" placeholder="Tên đầy đủ" class="form-control">
