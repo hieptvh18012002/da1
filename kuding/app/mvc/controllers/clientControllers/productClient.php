@@ -58,7 +58,7 @@ if (isset($_GET['action'])) {
             //  search
             // phân trang
             $current_page = isset($_GET['page']) ? $_GET['page'] : 1;
-            $limit = 5;
+            $limit = 10;
             $total_page = ceil($total_records / $limit);
             // Giới hạn current_page trong khoảng 1 đến total_page
             // if ($current_page > $total_page) {

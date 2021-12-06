@@ -1,11 +1,9 @@
 <?php
 require_once "./app/common/bridge.php";
-callModel('categoryModels');
-callModel('productModels');
-callModel('vourcherModels');
-callModel("vourcherModels");
-callModel("newsModels");
-//  xử lý tìm kiếm, ...
+
+
+// dd
+$display = display_select_all();
 $list_cate = cate_select_all();
 // img cate banner
 $cate_banner = category_select_special();
@@ -42,4 +40,4 @@ if (isset($_GET['action'])) {
             break;
     }
 } else
-    viewClient('layout', ['page' => 'homepage', 'list_cate' => $list_cate, 'pro_special' => $pro_special, 'vourchers' => $vourchers, 'pro_top10' => $pro_top10, 'pro_topview' => $pro_topview, 'news_special' => $news_special, 'news_special2' => $news_special2, 'cate_banner' => $cate_banner]);
+    viewClient('layout', ['page' => 'homepage', 'list_cate' => $list_cate, 'pro_special' => $pro_special, 'vourchers' => $vourchers, 'pro_top10' => $pro_top10, 'pro_topview' => $pro_topview, 'news_special' => $news_special, 'news_special2' => $news_special2, 'cate_banner' => $cate_banner,'display'=>$display]);
