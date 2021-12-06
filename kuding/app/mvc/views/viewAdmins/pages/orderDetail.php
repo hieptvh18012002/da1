@@ -83,7 +83,7 @@
                 <input type="radio"  <?= $data['receiver']['status']==1?'checked':'' ?> name="status" id="st2" class="mr-2" value="1"><label for="st2">Đang xử lý</label>
             </p>
             <p class="">
-                <input type="radio" name="status"  <?= $data['receiver']['status']==2?'checked':'' ?> id="st3" class="mr-2" value="2"><label for="st3">Đã xử lý</label>
+                <input type="radio" name="status"  <?= $data['receiver']['status']==2?'checked':'' ?> id="st3" class="mr-2" value="2"><label for="st3">Đã gửi hàng</label>
             </p>
             <p class="">
                 <input type="radio"  <?= $data['receiver']['status']==3?'checked':'' ?> name="status" id="st4" class="mr-2" value="3"><label for="st4">Hủy đơn</label>

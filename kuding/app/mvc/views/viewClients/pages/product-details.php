@@ -37,155 +37,162 @@
                 <form class="pd__right" action="cartClient" method="POST" id="form-add-bag">
                     <input type="hidden" name="id" value="<?= $data['pros']['id'] ?>">
                     <div class="pd-info-head">
-                        <div class="pd-brand-sub"><span class="pd-brand-name"><a href="/mind-bridge/b/252">Brand:</a></span></div>
+                        <div class="pd-brand-sub"><span class="pd-brand-name">Brand:</span></div>
                         <div class="pd-name"><?= $data['pros']['name'] ?></div>
                     </div>
                     <div class="pd-price ">
                         <div id="price-observer">
-                            <div class="default-price"><span class="currency lc"></span><span class="number"><?= number_format($data['pros']['price']) ?>vnd</span></div>
+                            <div class="default-price"><span class="currency lc"></span><span class="number"><?= number_format($data['pros']['price'] - $data['pros']['discount'], 0, ',') ?> vnđ</span></div>
+
+                            <?php if ($data['pros']['discount'] > 0) : ?>
+                                <div class="price__sale">
+                                    <span class="price__sale--fist"><?= number_format($data['pros']['price']) ?>đ</span>
+                                    <span class="price__sale--off">Giảm <?= number_format($data['pros']['discount'] / $data['pros']['price'] * 100) ?>%</span>
+                                </div>
+
+                            <?php endif; ?>
                         </div>
                         <div class="pd-sku">
                             <p>SKU# MNB0001599</p>
                         </div>
                     </div>
                     <div class="pd-processing-time" data-nosnippet="">
-                        <div class="rewards-wrap"><a href="#">Sign up</a> to earn <span class="rewards-currency">$</span><span class="rewards-amount-total">2.36</span>
-                            in rewards on this item!</div>
-                        Usually ships in <span>2 - 5</span> business days.
-                    </div>
-                    <div class="pd-color">
-                        <label for="color">Chọn màu sắc</label> <br>
-                        <select border-opacity-50 name="color" id="color">
-                            <?php foreach ($data['color'] as $item) : ?>
-                                <?php foreach ($item as $c) : ?>
-                                    <option value="<?= $c['id'] ?>"><?= $c['value'] ?></option>
+                        <div class="rewards-wrap">
+                            Giao hàng nhanh chỉ từ 3-7 ngày nhận và thanh toán hàng trực tiếp.
+                        </div>
+                        <div class="pd-color">
+                            <label for="color">Chọn màu sắc</label> <br>
+                            <select border-opacity-50 name="color" id="color">
+                                <?php foreach ($data['color'] as $item) : ?>
+                                    <?php foreach ($item as $c) : ?>
+                                        <option value="<?= $c['id'] ?>"><?= $c['value'] ?></option>
+                                    <?php endforeach; ?>
                                 <?php endforeach; ?>
-                            <?php endforeach; ?>
-                        </select>
-                        <div class="errC text-danger"></div>
-                    </div>
-                    <div class="pd-color">
-                        <div class="size">Kích cỡ</div>
-                        <select border-opacity-50 name="size" id="size">
-                            <?php foreach ($data['size'] as $item) : ?>
-                                <?php foreach ($item as $s) : ?>
-                                    <option value="<?= $s['id'] ?>"><?= $s['value'] ?></option>
+                            </select>
+                            <div class="errC text-danger"></div>
+                        </div>
+                        <div class="pd-color">
+                            <div class="size">Kích cỡ</div>
+                            <select border-opacity-50 name="size" id="size">
+                                <?php foreach ($data['size'] as $item) : ?>
+                                    <?php foreach ($item as $s) : ?>
+                                        <option value="<?= $s['id'] ?>"><?= $s['value'] ?></option>
+                                    <?php endforeach; ?>
                                 <?php endforeach; ?>
-                            <?php endforeach; ?>
-                        </select> <br>
-                        <div class="errS text-danger"></div>
+                            </select> <br>
+                            <div class="errS text-danger"></div>
 
-                        <a class="size-info" href="#">Tôi nên lấy kích cỡ nào?</a>
-                    </div>
-                    <div class="pd-color">
-                        <div class="quantity">Số lượng</div>
-                        <input type="number" class="quantity" min="1" name="quantity" style="margin-top: 10px;padding: 5px 5px;width: 70px;" value="1" id="quantity">
-                        <div class="errQ text-danger"></div>
+                            <a style="color: #64abd6 !important;" class="size-info" href="#2">Tôi nên lấy kích cỡ nào?</a>
+                        </div>
+                        <div class="pd-color">
+                            <div class="quantity">Số lượng</div>
+                            <input type="number" class="quantity" min="1" name="quantity" style="margin-top: 10px;padding: 5px 5px;width: 70px;" value="1" id="quantity">
+                            <div class="errQ text-danger"></div>
 
-                    </div>
-                    <div class="msg"></div>
-                    <div class="er"></div>
-                    <div class="fav-forms-wrap">
-                        <div class="animate-button-wrap pd-buttons">
-                            <button type="submit" name="action" id="checkout_0" class="pd-checkout animate black loader">Add
-                                to Bag</button>
-                            <i class="far fa-heart"></i>
                         </div>
-                    </div>
-                    <div class="body__content__detail">
-                        <div class="content__detail__info">
-                            <div id="1" class="info__title">
-                                <p>Thông tin chi tiết</p>
-                                <div class="info__icon">
-                                    <i class="fas fa-plus"></i>
-                                </div>
-                            </div>
-                            <div class="info__body">
-                                <p>Mô tả</p>
-                                <span><?= $data['pros']['description'] ?></span>
+                        <div class="msg"></div>
+                        <div class="er"></div>
+                        <div class="fav-forms-wrap">
+                            <div class="animate-button-wrap pd-buttons">
+                                <button type="submit" name="action" id="checkout_0" class="pd-checkout animate black loader">Add
+                                    to Bag</button>
+                                <i class="far fa-heart"></i>
                             </div>
                         </div>
-                        <div class="content__detail__info">
-                            <div id="2" class="info__title">
-                                <p>Kích thước & phù hợp</p>
-                                <div class="info__icon">
-                                    <i class="fas fa-plus minus"></i>
+                        <div class="body__content__detail">
+                            <div class="content__detail__info">
+                                <div id="1" class="info__title">
+                                    <p>Thông tin chi tiết</p>
+                                    <div class="info__icon">
+                                        <i class="fas fa-plus"></i>
+                                    </div>
+                                </div>
+                                <div class="info__body">
+                                    <p>Mô tả</p>
+                                    <span><?= $data['pros']['description'] ?></span>
                                 </div>
                             </div>
-                            <div class="info__body">
-                                <div class="info_table_size">
-                                    <table class="tb_size">
-                                        <tbody>
-                                            <tr class="tb_title">
-                                                <th>Khích thước</th>
-                                                <th>inch</th>
-                                                <th>cm</th>
-                                            </tr>
-                                            <tr class="tb_item">
-                                                <td>Vai</td>
-                                                <td>28.4</td>
-                                                <td>124.0</td>
-                                            </tr>
-                                            <tr class="tb_item">
-                                                <td>Ngực</td>
-                                                <td>48.4</td>
-                                                <td>122.0</td>
-                                            </tr>
-                                            <tr class="tb_item">
-                                                <td>Eo</td>
-                                                <td>48.4</td>
-                                                <td>124.0</td>
-                                            </tr>
-                                            <tr class="tb_item">
-                                                <td>Lỗ cánh tay</td>
-                                                <td>18.4</td>
-                                                <td>24.0</td>
-                                            </tr>
-                                            <tr class="tb_item">
-                                                <td>Tay áo</td>
-                                                <td>28.4</td>
-                                                <td>124.0</td>
-                                            </tr>
-                                            <tr class="tb_item">
-                                                <td>Lỗ tay áo</td>
-                                                <td>18.4</td>
-                                                <td>24.0</td>
-                                            </tr>
-                                            <tr class="tb_item">
-                                                <td>Chiều dài</td>
-                                                <td>38.4</td>
-                                                <td>124.0</td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
+                            <div class="content__detail__info">
+                                <div id="2" class="info__title">
+                                    <p>Kích thước & phù hợp</p>
+                                    <div class="info__icon">
+                                        <i class="fas fa-plus minus"></i>
+                                    </div>
+                                </div>
+                                <div class="info__body">
+                                    <div class="info_table_size">
+                                        <table class="tb_size">
+                                            <tbody>
+                                                <tr class="tb_title">
+                                                    <th>Khích thước</th>
+                                                    <th>inch</th>
+                                                    <th>cm</th>
+                                                </tr>
+                                                <tr class="tb_item">
+                                                    <td>Vai</td>
+                                                    <td>28.4</td>
+                                                    <td>124.0</td>
+                                                </tr>
+                                                <tr class="tb_item">
+                                                    <td>Ngực</td>
+                                                    <td>48.4</td>
+                                                    <td>122.0</td>
+                                                </tr>
+                                                <tr class="tb_item">
+                                                    <td>Eo</td>
+                                                    <td>48.4</td>
+                                                    <td>124.0</td>
+                                                </tr>
+                                                <tr class="tb_item">
+                                                    <td>Lỗ cánh tay</td>
+                                                    <td>18.4</td>
+                                                    <td>24.0</td>
+                                                </tr>
+                                                <tr class="tb_item">
+                                                    <td>Tay áo</td>
+                                                    <td>28.4</td>
+                                                    <td>124.0</td>
+                                                </tr>
+                                                <tr class="tb_item">
+                                                    <td>Lỗ tay áo</td>
+                                                    <td>18.4</td>
+                                                    <td>24.0</td>
+                                                </tr>
+                                                <tr class="tb_item">
+                                                    <td>Chiều dài</td>
+                                                    <td>38.4</td>
+                                                    <td>124.0</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="content__detail__info">
-                            <div id="3" class="info__title">
-                                <p>Vật chuyển và trả hàng</p>
-                                <div class="info__icon">
-                                    <i class="fas fa-plus"></i>
+                            <div class="content__detail__info">
+                                <div id="3" class="info__title">
+                                    <p>Vật chuyển và trả hàng</p>
+                                    <div class="info__icon">
+                                        <i class="fas fa-plus"></i>
+                                    </div>
+                                </div>
+                                <div class="info__body">
+                                    <p>Có thể trả lại trong vòng 14 ngày kể từ ngày giao hàng. Chính sách hoàn trả</p>
+                                    <span>Miễn phí vận chuyển có sẵn trên toàn thế giới. Kiểm tra chính sách vận chuyển của chúng tôi để xem yêu cầu đặt hàng tối thiểu của quốc gia bạn. Chính sách vận chuyển .</span>
                                 </div>
                             </div>
-                            <div class="info__body">
-                                <p>Có thể trả lại trong vòng 14 ngày kể từ ngày giao hàng. Chính sách hoàn trả</p>
-                                <span>Miễn phí vận chuyển có sẵn trên toàn thế giới. Kiểm tra chính sách vận chuyển của chúng tôi để xem yêu cầu đặt hàng tối thiểu của quốc gia bạn. Chính sách vận chuyển .</span>
-                            </div>
-                        </div>
-                        <div class="content__detail__info">
-                            <div id="4" class="info__title">
-                                <p>Giới thiệu Kooding</p>
-                                <div class="info__icon">
-                                    <i class="fas fa-plus"></i>
+                            <div class="content__detail__info">
+                                <div id="4" class="info__title">
+                                    <p>Giới thiệu Kooding</p>
+                                    <div class="info__icon">
+                                        <i class="fas fa-plus"></i>
+                                    </div>
+                                </div>
+                                <div class="info__body">
+                                    <span>Đơn giản và bảo thủ, JUSTONE cung cấp một bộ sưu tập đầy đủ quần áo dành cho phụ nữ, thoải mái và không rắc rối. Từ áo phông cổ điển đến quần short và quần lọt khe dài, lựa chọn quần áo thiết thực của JUSTONE là lý tưởng cho cuộc sống hàng ngày.</span>
                                 </div>
                             </div>
-                            <div class="info__body">
-                                <span>Đơn giản và bảo thủ, JUSTONE cung cấp một bộ sưu tập đầy đủ quần áo dành cho phụ nữ, thoải mái và không rắc rối. Từ áo phông cổ điển đến quần short và quần lọt khe dài, lựa chọn quần áo thiết thực của JUSTONE là lý tưởng cho cuộc sống hàng ngày.</span>
-                            </div>
-                        </div>
 
-                    </div>
+                        </div>
                 </form>
             </div>
         </div>
@@ -201,7 +208,7 @@
                             </div>
                         </a>
                         <p><?= $item['name'] ?></p>
-                        <span><b><?= number_format($item['price'],0,',') ?> VND</b></span>
+                        <span><b><?= number_format($item['price'], 0, ',') ?> VND</b></span>
                     </div>
                 <?php endforeach; ?>
             </div>

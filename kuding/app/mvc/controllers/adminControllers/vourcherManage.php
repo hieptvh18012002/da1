@@ -1,7 +1,5 @@
 <?php
-
 require_once "./app/common/bridge.php";
-callModel("vourcherModels");
 // lấy list
 $list_vour = vc_select_all();
 $err = '';

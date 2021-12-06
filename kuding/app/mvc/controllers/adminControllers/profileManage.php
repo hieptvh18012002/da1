@@ -1,9 +1,7 @@
 <?php
 // prf admin
 require_once './app/common/bridge.php';
-callModel("productModels");
-callModel("categoryModels");
-callModel("accountModels");
+
 
 $list_cate = cate_select_all();
 $msg = '';

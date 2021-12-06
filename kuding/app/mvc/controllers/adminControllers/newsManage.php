@@ -1,7 +1,5 @@
 <?php
-
 require_once "./app/common/bridge.php";
-callModel("newsModels");
 $err = array();
 $err['img'] = '';
 $msg = '';

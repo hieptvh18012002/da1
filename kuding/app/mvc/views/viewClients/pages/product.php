@@ -78,7 +78,7 @@
                                 </div>
                                 <div class="proC__item__PC">
                                     <div class="proC__item__price">
-                                        <p><?= number_format($item['price'], 0, ',', '.') ?> vnd</p>
+                                        <p><?= number_format($item['price']-$item['discount'], 0, ',', '.') ?> vnd</p>
                                     </div>
                                     <div class="proC__item__color">
                                         <p>3</p>
@@ -89,10 +89,16 @@
                                     <div class="proC__love__icon">
                                         <input type="hidden" id="pro_id" value="<?= $item['id'] ?>">
                                         <!-- <button type="submit" style="border: none;background:none;"> -->
-                                            <i class="far fa-heart"></i>
+                                        <i class="far fa-heart"></i>
                                         <!-- </button> -->
                                     </div>
+
                                 </div>
+                                <?php if ($item['discount'] > 0) : ?>
+                                    <div class="proC__sale">
+                                        <p class="item__sale"><?= number_format($item['discount'] / $item['price'] * 100, 0, ',', '.') ?>%</p>
+                                    </div>
+                                <?php endif; ?>
                             </div>
                         </form>
 

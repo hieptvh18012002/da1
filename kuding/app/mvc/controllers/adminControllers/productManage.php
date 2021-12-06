@@ -1,7 +1,5 @@
 <?php
 require_once './app/common/bridge.php';
-callModel("productModels");
-callModel("categoryModels");
 // lấy list
 $list_pro = product_select_all();
 $size_values = size_select_all();

@@ -1,10 +1,6 @@
 <?php
 require_once "./app/common/bridge.php";
-callModel('accountModels');
-callModel('categoryModels');
-callModel('productModels');
-callModel('displayModels');
-callModel('vourcherModels');
+
 
 $display = display_select_all();
 $vourchers = vc_select_show();

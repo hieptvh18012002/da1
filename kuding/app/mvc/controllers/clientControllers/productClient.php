@@ -1,16 +1,10 @@
 <?php
 require_once './app/common/bridge.php';
-callModel("productModels");
-callModel("categoryModels");
-callModel("commentModels");
-callModel("vourcherModels");
-callModel("displayModels");
 
 // dd
 $display = display_select_all();
 // lấy list
 $vourchers = vc_select_show();
-
 $list_cate = cate_select_all();
 $list_pro = product_select_all();
 $size_values = size_select_all();

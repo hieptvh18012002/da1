@@ -1,9 +1,5 @@
 <?php
 require_once "./app/common/bridge.php";
-callModel("productModels");
-callModel("categoryModels");
-callModel("vourcherModels");
-callModel("displayModels");
 
 // dd
 $display = display_select_all();
@@ -45,7 +41,7 @@ if (isset($_POST['action'])) {
                 $item = [
                     'id' => $pros['id'],
                     'name' => $pros['name'],
-                    'price' => $pros['price'],
+                    'price' => $pros['price']-$pros['discount'],
                     'avatar' => $pros['avatar'],
                     'color' => $_POST['color'],
                     'size' => $_POST['size'],

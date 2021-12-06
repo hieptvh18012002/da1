@@ -1,6 +1,5 @@
 <?php
 require_once "./app/common/bridge.php";
-callModel('categoryModels');
 $list_cate = category_select_all();
 $err = array();
 $er = '';

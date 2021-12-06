@@ -1,7 +1,6 @@
 <!-- handle -->
 <?php
 require_once "./app/common/bridge.php";
-callModel("accountModels");
 $list_acc = acc_select_all();
 $err = '';
 $er = array();

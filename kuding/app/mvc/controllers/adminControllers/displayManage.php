@@ -1,8 +1,6 @@
 <?php
 require_once "./app/common/bridge.php";
 
-callModel("displayModels");
-    
 $er= '';
 $display = display_select_all();
 if(isset($_POST['btn_update'])){
