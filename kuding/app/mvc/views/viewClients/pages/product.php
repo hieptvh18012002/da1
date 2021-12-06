@@ -91,6 +91,9 @@
                                 <i class="far fa-heart"></i>
                             </div>
                         </div>
+                        <div class="proC__sale">
+                            <p class="item__sale">-99%</p>
+                        </div>
                     </div>
 
                 <?php endforeach; ?>

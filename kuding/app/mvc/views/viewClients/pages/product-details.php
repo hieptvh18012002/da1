@@ -42,7 +42,11 @@
                     </div>
                     <div class="pd-price ">
                         <div id="price-observer">
-                            <div class="default-price"><span class="currency lc"></span><span class="number"><?= number_format($data['pros']['price']) ?>vnd</span></div>
+                            <div class="default-price"><span class="currency lc"></span><span class="number"><?= number_format($data['pros']['price']) ?> vnđ</span></div>
+                            <div class="price__sale">
+                                <span class="price__sale--fist">69,69 vnđ</span>
+                                <span class="price__sale--off">Giảm 99%</span>
+                            </div>
                         </div>
                         <div class="pd-sku">
                             <p>SKU# MNB0001599</p>
@@ -75,7 +79,7 @@
                         </select> <br>
                         <div class="errS text-danger"></div>
 
-                        <a class="size-info" href="#">Tôi nên lấy kích cỡ nào?</a>
+                        <a style="color: #64abd6 !important;" class="size-info" href="#2">Tôi nên lấy kích cỡ nào?</a>
                     </div>
                     <div class="pd-color">
                         <div class="quantity">Số lượng</div>
@@ -201,7 +205,7 @@
                             </div>
                         </a>
                         <p><?= $item['name'] ?></p>
-                        <span><b><?= number_format($item['price'],0,',') ?> VND</b></span>
+                        <span><b><?= number_format($item['price'], 0, ',') ?> VND</b></span>
                     </div>
                 <?php endforeach; ?>
             </div>
