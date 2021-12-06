@@ -19,6 +19,11 @@ function order_select_client($id)
     ";
     return pdo_query_one($sql);
 }
+// lấy đơn hàng của khách:))
+function get_my_order($client_id){
+    $sql = "SELECT * FROM orders where client_id=$client_id";
+   return  pdo_query($sql);
+}
 
 function order_insert($client_id,$receiver, $total, $phone, $address,$note, $created_at)
 {

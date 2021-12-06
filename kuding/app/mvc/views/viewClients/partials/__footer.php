@@ -12,13 +12,13 @@
                         </form>
                     </div>
                     <div class="footer-social">
-                        <a href=""><i class="fa fa-facebook" aria-hidden="true"></i>
+                        <a href="<?= $data['display']['fb_url'] ?>"><i class="fa fa-facebook" aria-hidden="true"></i>
                         </a>
-                        <a href=""><i class="fa fa-instagram" aria-hidden="true"></i>
+                        <a href="<?= $data['display']['fb_url'] ?>"><i class="fa fa-instagram" aria-hidden="true"></i>
                         </a>
-                        <a href=""><i class="fa fa-twitter" aria-hidden="true"></i>
+                        <a href="<?= $data['display']['fb_url'] ?>"><i class="fa fa-twitter" aria-hidden="true"></i>
                         </a>
-                        <a href=""><i class="fa fa-pinterest" aria-hidden="true"></i>
+                        <a href="<?= $data['display']['fb_url'] ?>"><i class="fa fa-pinterest" aria-hidden="true"></i>
                         </a>
                     </div>
                 </div>
@@ -56,9 +56,9 @@
                         KOODING.com &copy; 2021 . All rights reserved
                     </div>
                     <div class="right">
-                        <a href="">Điều khoản sử dụng</a>
-                        <a href="">Chính sách bảo mật</a>
-                        <a href="">
+                        <a href="checkoutClient?action=viewdieukhoan">Điều khoản sử dụng</a>
+                        <a href="checkoutClient?action=viewdieukhoan">Chính sách bảo mật</a>
+                        <a href="checkoutClient?action=viewdieukhoan">
                             <i class="fa fa-universal-access" aria-hidden="true"></i>
                             Hiển thị Công cụ Hỗ trợ Tiếp cận</a>
                     </div>
