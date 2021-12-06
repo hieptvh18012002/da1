@@ -284,7 +284,20 @@
                         </div>
                     <?php endforeach; ?>
                 </div>
-
+                <div class="gallery_pros">
+                    <div class="control_pros_close">
+                        <i class="fas fa-times"></i>
+                    </div>
+                    <div class="gallery_pros_img">
+                        <img src="./public/images/products/0c7a6702fb366f8e1047ea5b3bd0eda64b812378 - Copy.jpg" alt="">
+                    </div>
+                    <div class="control_pros prev">
+                        <i class="fas fa-chevron-left"></i>
+                    </div>
+                    <div class="control_pros next">
+                        <i class="fas fa-chevron-right"></i>
+                    </div>
+                </div>
             </div>
         </div>
 </main>
