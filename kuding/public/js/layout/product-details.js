@@ -10,6 +10,62 @@ $(document).ready(function () {
             imgIndex.setAttribute("src", attr);
         }
     })
+    // code xem ảnh chi tiết
+    const gallery = document.querySelector('.gallery_pros')
+    const image = document.querySelectorAll('.pd__item__img img')
+    const prev = document.querySelector('.prev')
+    const next = document.querySelector('.next')
+    const close = document.querySelector('.control_pros_close')
+    const galleryImg = document.querySelector('.gallery_pros_img img')
+    var crunrenIndex = 0;
+    function showGallerly(){
+        if(crunrenIndex == 0){
+            prev.classList.add('gallery_hiden')
+        }else{
+            prev.classList.remove('gallery_hiden')
+        }
+
+        if(crunrenIndex == image.length - 1){
+            next.classList.add('gallery_hiden')
+        }else{
+            next.classList.remove('gallery_hiden')
+        }
+        galleryImg.src = image[crunrenIndex].src
+        gallery.classList.add('gallery_show')
+    }
+
+    image.forEach((item, index) =>{
+        item.addEventListener('click', function(){
+            crunrenIndex = index;
+            showGallerly();
+        })
+    })
+    close.addEventListener('click', function(){
+        gallery.classList.remove('gallery_show')
+    })
+    document.addEventListener('keydown', function(e){
+        if(e.keyCode == 27){
+            gallery.classList.remove('gallery_show')
+        }
+    })
+    prev.addEventListener('click', function(){
+        if(crunrenIndex > 0){
+            crunrenIndex--
+            showGallerly()
+        }
+    })
+    next.addEventListener('click', function(){
+        if(crunrenIndex < image.length - 1){
+            crunrenIndex++
+            showGallerly()
+        }
+    })
+
+    gallery.onclick = function(e){
+        if(!e.target.closest('.control_pros_close, .gallery_pros_img, .control_pros')){
+            gallery.classList.remove('gallery_show')
+        }
+    }
     // code javascript tim
     $('.animate-button-wrap i').click(function (e) { 
         e.preventDefault();
