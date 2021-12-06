@@ -1,7 +1,6 @@
 <!-- handle -->
 <?php
 require_once "./app/common/bridge.php";
-callModel("accountModels");
 $list_acc = acc_select_all();
 $err = '';
 $er = array();
@@ -69,7 +68,7 @@ if (isset($_GET['action'])) :
                 } else {
                     // md5 pass
                     $pass = md5($password);
-                    acc_insert($fullname, $birthday, $email, $pass, $role, $gender);
+                    acc_insert($fullname, $birthday, $email, $pass, $role, $gender,$phone);
                     header('location: account?action=addAccount&msg=Tạo thành công tài khoản!');
                 }
             }
@@ -87,7 +86,7 @@ if (isset($_GET['action'])) :
                 acc_update($id,$fullname, $birthday, $pass, $role, $gender,$phone);
                 header('location: account?action=updateAccount&msg=Cập nhật thành công tài khoản!');
             }
-            viewAdmin("layout", ['page' => 'updateAccount', 'errMail' => $er['email'], 'accDetail' => $acc_detail]);
+            viewAdmin("layout", ['page' => 'updateAccount',  'accDetail' => $acc_detail]);
             break;
         case "del":
             acc_delete($_GET['id']);
