@@ -91,9 +91,11 @@
                                 <i class="far fa-heart"></i>
                             </div>
                         </div>
+                        <?php if($item['discount']>0):?>
                         <div class="proC__sale">
-                            <p class="item__sale">-99%</p>
+                            <p class="item__sale">-<?= number_format($item['discount']/$item['price']*100,0,',','.') ?>%</p>
                         </div>
+                        <?php endif;?>
                     </div>
 
                 <?php endforeach; ?>

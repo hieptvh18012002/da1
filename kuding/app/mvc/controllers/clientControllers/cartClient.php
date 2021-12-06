@@ -42,7 +42,7 @@ if (isset($_POST['action'])) {
                 $item = [
                     'id' => $pros['id'],
                     'name' => $pros['name'],
-                    'price' => $pros['price'],
+                    'price' => $pros['price'] - $pros['discount'],
                     'avatar' => $pros['avatar'],
                     'color' => $_POST['color'],
                     'size' => $_POST['size'],

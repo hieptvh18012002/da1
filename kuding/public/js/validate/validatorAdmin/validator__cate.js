@@ -494,34 +494,48 @@ $("#admin_pass").validate({
 $("#form_display").validate({
     rules: {
         name:{
-            minlength : 10
+            minlength : 4,
+            required: true
         },
         title_intro:{
-            minlength : 20
+            minlength : 20,
+            required: true
+
         },
         fb_url:{
-            valiUrl: true
+            valiUrl: true,
+            required: true
+
         },
         insta_url:{
-            valiUrl: true
+            valiUrl: true,
+            required: true
+
 
         },
         twitter_url:{
-            valiUrl: true
+            valiUrl: true,
+            required: true
+
 
         },
         pinterest_url:{
-            valiUrl: true
+            valiUrl: true,
+            required: true
+
 
         },
     },
 
     messages: {
         name:{
-            minlength : "Vui lòng nhập tối thiểu 10 ký tự"
+            minlength : "Vui lòng nhập tối thiểu 10 ký tự",
+            required: "Vui lòng nhập tên web"
         },
         title_intro:{
-            minlength : "Vui lòng nhập tối thiểu 20 ký tự"
+            minlength : "Vui lòng nhập tối thiểu 20 ký tự",
+            required: "Vui lòng nhập tên tiêu đề giới thiệu"
+
         },
         
     },
