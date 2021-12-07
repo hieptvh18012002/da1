@@ -15,6 +15,10 @@ body {
     /* margin: 0;
     padding: 0; */
 }
+body ::selection {
+    background-color: #82e6dc;
+    color: #fff;
+}
 
 /* Trang 1 */
 /* Code css layout trang chủ */
@@ -1009,6 +1013,9 @@ bottom: 0;
 .body__details .slider-album__content {
     width: auto !important;
 }
+.icon__account{
+    display: none;
+}
 /* ===========responsive =====*/
 @media screen and (max-width:350px) {
     .wrapper{
@@ -1100,8 +1107,19 @@ bottom: 0;
     .form-search input{
             width: auto;
     }
-    .account{
-            display: none;
+    .account span{
+        display: none;
+    }
+    .account .icon__account{
+            display: block;
+            font-size: 22px;
+            color: #777;
+    }
+    .lang{
+        display: none;
+    }
+    .box_newsImg{
+        margin: 0 auto;
     }
     .logo img{
             width: 140px;
@@ -1222,7 +1240,9 @@ bottom: 0;
             max-width: 100%;
             margin: 0 auto;
     }
-    
+    .box_newsImg{
+        margin: 0 auto;
+    }
     /* cate banner */
     .category-banner{
             width: 650px;
@@ -1351,6 +1371,7 @@ bottom: 0;
     font-family: 'Open Sans', sans-serif;
     max-width: 100%;
     margin: 0 auto;
+    padding-top: 20px;
     padding-bottom: 50px;
 }
 .proH__title{
@@ -2198,8 +2219,7 @@ input.filter__select{
     width: 114px;
 }
 .cart__item__img{
-    width: 156px;
-    height: 250px;
+    height: 280px;
 }
 .cart__item__img img{
     width: 100%;

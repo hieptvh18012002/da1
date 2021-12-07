@@ -107,7 +107,7 @@
                             <p><?= number_format($item['price']-$item['discount'],0,',') ?>đ</p>
                         </div>
                         <div class="cart__item__color">
-                            <p>3</p>
+                            
                             <img src="public/images/layout/colorwheel-2.png" alt="">
                         </div>
                     </div>
