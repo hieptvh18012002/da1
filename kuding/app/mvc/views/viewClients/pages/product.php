@@ -79,7 +79,7 @@
                         </div>
                         <div class="proC__item__PC">
                             <div class="proC__item__price">
-                                <p><?= number_format($item['price'], 0, ',', '.') ?> vnd</p>
+                                <p><?= number_format($item['price']-$item['discount'], 0, ',', '.') ?>đ</p>
                             </div>
                             <div class="proC__item__color">
                                 <p>3</p>
