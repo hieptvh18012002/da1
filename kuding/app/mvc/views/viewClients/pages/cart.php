@@ -95,7 +95,9 @@
                 <?php foreach($data['recommened'] as $item):?>
                 <div class="cart__item">
                     <div class="cart__item__img">
-                        <img src="./public/images/products/<?= $item['avatar'] ?>" alt="" width="100%">
+                        <a href="">
+                            <img src="./public/images/products/<?= $item['avatar'] ?>" alt="" width="100%">
+                        </a>
                     </div>
                     <div class="cart__item__Name">
                         <p><?= substr($item['description'],0,18) ?></p>

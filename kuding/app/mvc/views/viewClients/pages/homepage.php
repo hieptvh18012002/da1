@@ -97,7 +97,7 @@
         <div class="col-news right">
             <div class="news-item">
                 <a href="" class="box-img">
-                    <div class="box_newsImg">
+                    <div class="box_newsImg ss2">
                         <!-- <img src="public/images/layout/261d0a0ba82f5e1c2b6b03fb85b850b687c0e93f.jpg" alt=""> -->
                         <img src="./public/images/upload/<?= $data['news_special2']['image'] ?>" alt="">
                     </div>

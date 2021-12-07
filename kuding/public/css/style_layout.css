@@ -594,6 +594,7 @@ main{
 .news-item{
     text-align: center;
     line-height: 30px;
+    margin-bottom: 100px;
 }
 .news-item span{
     font-size: 14px;
@@ -2197,8 +2198,13 @@ input.filter__select{
     width: 114px;
 }
 .cart__item__img{
+    width: 156px;
+    height: 250px;
+}
+.cart__item__img img{
+    width: 100%;
+    height: 100%;
     object-fit: cover;
-    overflow: hidden;
 }
 
 /* responsive */
@@ -3595,6 +3601,9 @@ a{
     max-width: 600px;
     height: 400px;
     object-fit: cover;
+}
+.box_newsImg.ss2{
+    height: 600px;
 }
 .slider_album_boxImg img{
     object-position: 30% 0;

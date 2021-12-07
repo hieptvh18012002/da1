@@ -15,7 +15,7 @@
                     <!-- begin post -->
                     <div class="col-md-4">
                         <div class="card">
-                            <a href="post.html">
+                            <a class="post_link_img" href="post.html">
                                 <img class="img-fluid img-thumb" src="./public/images/upload/<?= $item['image'] ?>" alt="">
                             </a>
                             <div class="card-block">
