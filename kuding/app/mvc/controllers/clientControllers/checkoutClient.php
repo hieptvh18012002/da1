@@ -3,6 +3,7 @@ require_once "./app/common/bridge.php";
 
 // lấy tỉnh
 $province = province_select_all();
+$display = display_select_all();
 // vc
 $vourchers = vc_select_show();
 $list_cate = cate_select_all();
@@ -124,14 +125,14 @@ if (isset($_GET['action'])) {
                 }
 
 
-                viewClient('layout', ['page' => 'checkout', 'list_cate' => $list_cate, 'list_province' => $province, 'vourchers' => $vourchers, 'errVc' => $err, 'price_new' => $price_new, 'vour_exist' => $vour_exist, 'vocher' => $vocher]);
+                viewClient('layout', ['page' => 'checkout', 'list_cate' => $list_cate, 'list_province' => $province, 'vourchers' => $vourchers, 'errVc' => $err, 'price_new' => $price_new, 'vour_exist' => $vour_exist, 'vocher' => $vocher,'display'=>$display]);
             endif;
 
             break;
 
         case "viewdieukhoan":
 
-            viewClient('layout', ['page' => 'dieukhoan', 'vourchers' => $vourchers, 'list_cate' => $list_cate,]);
+            viewClient('layout', ['page' => 'dieukhoan', 'vourchers' => $vourchers, 'list_cate' => $list_cate,'display'=>$display]);
             break;
 
 
@@ -142,4 +143,4 @@ if (isset($_GET['action'])) {
             break;
     }
 }
-viewClient('layout', ['page' => 'checkout', 'vourchers' => $vourchers]);
+viewClient('layout', ['page' => 'checkout', 'vourchers' => $vourchers,'display'=>$display]);
