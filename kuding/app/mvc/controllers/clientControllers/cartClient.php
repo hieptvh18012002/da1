@@ -4,6 +4,8 @@ require_once "./app/common/bridge.php";
 $display = display_select_all();
 $list_cate = cate_select_all();
 $vourchers = vc_select_show();
+// lấy sp đề xuất
+$recommended = pdo_query("SELECT * FROM products ORDER BY RAND() LIMIT 0,10");
 $msg = '';
 if (isset($_SESSION['cart'])) {
     $count = count($_SESSION['cart']);
@@ -51,8 +53,8 @@ if (isset($_POST['action'])) {
 
 
 
-            viewClient('layout', ['page' => 'cart','vourchers'=>$vourchers ,'list_cate' => $list_cate, 'msg' => $msg,'display'=>$display]);
+            viewClient('layout', ['page' => 'cart','vourchers'=>$vourchers ,'list_cate' => $list_cate, 'msg' => $msg,'display'=>$display,'recommened'=>$recommended]);
             break;
     }
 }
-viewClient('layout', ['page' => 'cart', 'list_cate' => $list_cate, 'msg' => $msg,'vourchers'=>$vourchers,'display'=>$display]);
+viewClient('layout', ['page' => 'cart', 'list_cate' => $list_cate, 'msg' => $msg,'vourchers'=>$vourchers,'display'=>$display,'recommened'=>$recommended]);

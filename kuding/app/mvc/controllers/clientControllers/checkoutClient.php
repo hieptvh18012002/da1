@@ -9,6 +9,7 @@ $vourchers = vc_select_show();
 $list_cate = cate_select_all();
 $vour_exist = '';
 $vocher = '';
+$toggle_modal = '';
 
 $err = '';
 $price_new = '';
@@ -18,6 +19,9 @@ if (isset($_GET['action'])) {
             // nếu chưa login thì bắt login
             if (!isset($_SESSION['customer'])) :
                 header('location: cartClient?msg=Vui lòng đăng nhập và tiếp tục trải nghiệm 🥰');
+                // $toggle_modal = "<script>document.getElementById('box-login-register').addEventListener('click',function(){
+                //     alert('adasda')
+                // });</script>";
             else :
                 // render address
                 if (isset($_GET['provinceId'])) {
@@ -125,7 +129,7 @@ if (isset($_GET['action'])) {
                 }
 
 
-                viewClient('layout', ['page' => 'checkout', 'list_cate' => $list_cate, 'list_province' => $province, 'vourchers' => $vourchers, 'errVc' => $err, 'price_new' => $price_new, 'vour_exist' => $vour_exist, 'vocher' => $vocher,'display'=>$display]);
+                viewClient('layout', ['page' => 'checkout', 'list_cate' => $list_cate, 'list_province' => $province, 'vourchers' => $vourchers, 'errVc' => $err, 'price_new' => $price_new, 'vour_exist' => $vour_exist, 'vocher' => $vocher,'display'=>$display,'toggle_modal'=>$toggle_modal]);
             endif;
 
             break;

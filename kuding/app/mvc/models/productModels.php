@@ -85,7 +85,7 @@ function product_select_by_category($id)
 // lấy sp đặc biệt;
 function pro_select_special()
 {
-    $sql = "SELECT * FROM products WHERE special=1 ORDER BY created_at DESC LIMIT 0,3";
+    $sql = "SELECT * FROM products WHERE special=1 ORDER BY RAND() LIMIT 0,3";
     return pdo_query($sql);
 }
 // lấy 10 sp mới nhât

@@ -163,6 +163,7 @@
                             </div>
                         </div>
                     <?php else : ?>
+                        
                         <div class="acc__DH__content">
                             <div class="table-responsive">
                                 <table class="table table-striped table-borderless">

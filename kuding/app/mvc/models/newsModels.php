@@ -16,12 +16,12 @@ function news_select_all(){
 }
 // đb
 function news_select_special(){
-    $sql = "SELECT * FROM news WHERE special=1 ORDER BY created_at DESC LIMIT 0,2";
+    $sql = "SELECT * FROM news WHERE special=1 ORDER BY RAND() LIMIT 0,2";
     return pdo_query($sql);
 }
 
 function news_select_special2(){
-    $sql = "SELECT * FROM news WHERE special=1 ORDER BY created_at DESC LIMIT 2,3";
+    $sql = "SELECT * FROM news WHERE special=1 ORDER BY RAND() LIMIT 2,3";
     return pdo_query_one($sql);
 }
 
