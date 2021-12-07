@@ -7,6 +7,8 @@ $vourchers = vc_select_show();
 // list news
 $list_news = news_select_all();
 $list_news_new = news_select_created_at();
+// tin liên quan
+$list_news_relate = pdo_query("SELECT * FROM news ORDER BY RAND() LIMIT 3");
 
 
 if(isset($_GET['action'])){
@@ -15,7 +17,7 @@ if(isset($_GET['action'])){
             $news_detail = news_select_by_id($_GET['id']);
 
             
-            viewClient('layout',['page'=>'post','vourchers'=>$vourchers,'list_cate'=>$list_cate,'news_detail'=>$news_detail,'display'=>$display]);
+            viewClient('layout',['page'=>'post','vourchers'=>$vourchers,'list_cate'=>$list_cate,'news_detail'=>$news_detail,'display'=>$display,'list_news_relate'=>$list_news_relate]);
             break;
     }
 }
