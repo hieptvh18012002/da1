@@ -24,6 +24,10 @@
                     </select>
                 </div>
                 <div class="form-group">
+                    <label for="" class="">Số lượng</label>
+                   <input type="number" name="quantity" class="form-control" value="<?= isset($quantity)?$quantity:1 ?>" placeholder="Số lượng sản phẩm">
+                </div>
+                <div class="form-group">
                     <label for="price">Giá</label>
                     <input type="number" value="<?= save_value("price") ?>" name="price" class="form-control" id="price" placeholder="Giá sản phẩm">
                 </div>

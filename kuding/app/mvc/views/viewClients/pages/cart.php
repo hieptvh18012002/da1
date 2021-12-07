@@ -129,4 +129,5 @@
         </div>
     <?php endif; ?>
 </main>
+<?php if(!empty($data['toggle_modal'])){echo $data['toggle_modal'];}?>
 <!-- end main -->

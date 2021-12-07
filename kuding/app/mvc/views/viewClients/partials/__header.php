@@ -82,6 +82,9 @@
                                 <div class="welcome">
                                     Chào mừng bạn!
                                 </div>
+                                <?php if(!empty($data['msg_login'])): ?>
+                                    <div class="bg-danger"><?= $data['msg_login'] ?></div>
+                                    <?php endif;?>
                                 <form method="POST" name="form-login" class="p-5" id="login_user">
                                     <div class="form-group">
                                         <input type="text" name="email" placeholder="Nhập email" value="<?= isset($_COOKIE['emailClient']) ? $_COOKIE['emailClient'] : '' ?>" class=" email" id="email_login" required>
