@@ -87,7 +87,7 @@
                     <div class="pro-name">
                         <?= $item['title'] ?>
                     </div>
-                    <span><?= $item['shortdesc'] ?></span>
+                    <span><?= substr($item['shortdesc'],0,200) ?></span>
                     <a href="newsClient?action=viewDetail&id=<?= $item['id'] ?>" class="btn-discover mt-2">
                         KHÁM PHÁ
                     </a>
@@ -97,7 +97,7 @@
         <div class="col-news right">
             <div class="news-item">
                 <a href="" class="box-img">
-                    <div class="box_newsImg">
+                    <div class="box_newsImg ss2">
                         <!-- <img src="public/images/layout/261d0a0ba82f5e1c2b6b03fb85b850b687c0e93f.jpg" alt=""> -->
                         <img src="./public/images/upload/<?= $data['news_special2']['image'] ?>" alt="">
                     </div>
@@ -106,7 +106,7 @@
                 <div class="pro-name">
                     <?= $data['news_special2']['title'] ?>
                 </div>
-                <span><?= $data['news_special2']['shortdesc'] ?></span>
+                <span><?= substr($data['news_special2']['shortdesc'],0,200) ?></span>
                 <a href="newsClient?action=viewDetail&id=<?= $item['id'] ?>" class="btn-discover mt-2">
                     KHÁM PHÁ
                 </a>
@@ -156,37 +156,7 @@
         <div id="minus" class="btn__minus none">-</div>
         <div class="background__overlay"></div>
         <div class="site__intro show1">
-            <p>Chào mừng đến với KOODING.com, thị trường toàn cầu trực tuyến hàng đầu. Mục tiêu của chúng tôi là
-                để mọi người không chỉ kết nối trên toàn cầu thông qua tình yêu của họ về phong cách Hàn Quốc,
-                mà còn để cung cấp truy cập nhanh đến mới nhất thời trang phụ nữ Hàn Quốc , thời trang nam Hàn
-                Quốc , và Hàn Quốc vẻ đẹp sản phẩm và thương hiệu trên toàn thế giới với chi phí thấp nhất và
-                với không rắc rối vận chuyển trên toàn thế giới. Trên tất cả, chúng tôi cố gắng cung cấp cho
-                cộng đồng KOODING những sản phẩm cao cấp được tìm thấy tại các cửa hàng Hàn Quốc với giá cả phải
-                chăng nhất.</p>
-            <p>KOODING cung cấp những mặt hàng quần áo châu Á trực tuyến tốt nhất và là nơi có thể mua sắm bất
-                cứ thứ gì liên quan đến thời trang Hàn Quốc. Từ thời trang đường phố đến quần áo hàng hiệu cao
-                cấp, chúng tôi giúp việc mua sắm trực tuyến của người Hàn Quốc trở nên dễ dàng hơn bao giờ hết.
-                Tại đây, bạn có thể tìm thấy mọi thứ, từ áo hoodie và áo nỉ thoải mái, những chiếc váy đáng yêu,
-                áo khoác và áo len cổ lọ sành điệu và ấm áp, cùng những chiếc quần jean và quần âu mới yêu thích
-                của bạn. Chúng tôi mang các thương hiệu quần áo Hàn Quốc đích thực như Chuu , NANING9 ,
-                Cherrykoko , BASIC HOUSE , MIND BRIDGE , OPEN THE DOOR , REDHOMME , v.v. Bất kể phong cách ưa
-                thích của bạn là gì, bạn chắc chắn có thể tìm thấy trang phục mơ ước của mình với những bộ quần
-                áo đến từ Hàn Quốc này.</p>
-            <p>KOODING không chỉ là một cửa hàng thời trang trực tuyến của Hàn Quốc; trên thực tế, chúng tôi
-                không chỉ là quần áo theo phong cách Hàn Quốc và còn cung cấp những sản phẩm làm đẹp tuyệt vời
-                nhất , album K-pop , đồ trang sức và phụ kiện hoàn thiện và bổ sung cho mọi khía cạnh trong lối
-                sống của bạn.</p>
-            <p>Chúng tôi mỹ phẩm Hàn Quốc , trang điểm , và chăm sóc da sản phẩm cho phép bạn đặt khuôn mặt tốt
-                nhất của bạn về phía trước. Các thương hiệu như SNP , Ariul , RiRe , Evercell by Chaum , XYZ và
-                MILLION RED là nhà sản xuất công thức cải tiến trong trang điểm và chăm sóc da sử dụng những gì
-                tốt nhất trong bí quyết làm đẹp của Hàn Quốc. Ở đây, bạn có thể mua sắm mặt nạ tấm mặt , chất
-                tẩy rửa , toner , huyết thanh , kem lên mặt , Hàn Quốc phong cách sắc thái màu môi , đệm hiệp
-                ước, và mọi thứ khác bạn cần để có được vẻ ngoài trang điểm tự nhiên, hoàn thành quy trình chăm
-                sóc da 10 bước , duyệt theo loại da của bạn hoặc điều trị các vấn đề về da của bạn .</p>
-            <p>Hãy đến để tìm ra nơi cuộc sống của bạn đưa bạn đến tại KOODING! Vui lòng duyệt qua trang web của
-                chúng tôi và xem các phong cách thời trang Hàn Quốc mới nhất và tuyệt vời nhất từ ​​cửa hàng
-                thời trang trực tuyến yêu thích mới của bạn. Với khả năng phục vụ hơn 100 quốc gia, chúng tôi
-                đảm bảo bạn sẽ có trải nghiệm mua sắm dễ dàng.</p>
+        <?= $data['display']['content_intro'] ?>
         </div>
     </div>
 

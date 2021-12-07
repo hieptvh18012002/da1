@@ -102,7 +102,7 @@ if (isset($_GET['action'])) {
                     $err['imgs'] = "Tải ít nhất 1 ảnh chi tiết";
                 } elseif (count($_FILES['avatars']['name']) > 5) {
 
-                    $err['img'] = "Chỉ được tải tối đa 5 ảnh chi tiết";
+                    $err['imgs'] = "Chỉ được tải tối đa 5 ảnh chi tiết";
                 }
 
                 // thêm sp

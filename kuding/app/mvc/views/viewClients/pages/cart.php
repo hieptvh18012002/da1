@@ -95,17 +95,19 @@
                 <?php foreach($data['recommened'] as $item):?>
                 <div class="cart__item">
                     <div class="cart__item__img">
-                        <img src="./public/images/products/<?= $item['avatar'] ?>" alt="" width="100%">
+                        <a href="">
+                            <img src="./public/images/products/<?= $item['avatar'] ?>" alt="" width="100%">
+                        </a>
                     </div>
                     <div class="cart__item__Name">
-                        <p><?= substr($item['description'],0,18) ?></p>
+                        <p><?= $item['name'] ?></p>
                     </div>
                     <div class="cart__item__PC">
                         <div class="cart__item__price">
                             <p><?= number_format($item['price']-$item['discount'],0,',') ?>đ</p>
                         </div>
                         <div class="cart__item__color">
-                            <p>3</p>
+                            
                             <img src="public/images/layout/colorwheel-2.png" alt="">
                         </div>
                     </div>

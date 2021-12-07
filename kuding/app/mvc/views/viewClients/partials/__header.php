@@ -63,6 +63,7 @@
                 <?php else : ?>
                     <div class="account pt-4 pb-4" id="popup-user" data-toggle="modal" data-target="#box-login-register">
                         <span class="title-pop-user">Đăng nhập / Đăng ký</span>
+                        <span class="icon__account"><i class="fas fa-user-circle"></i></span>
                     </div>
                 <?php endif; ?>
                 <!-- pops up login -->
