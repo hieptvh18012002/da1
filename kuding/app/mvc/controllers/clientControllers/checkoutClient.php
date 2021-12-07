@@ -1,17 +1,15 @@
 <?php
 require_once "./app/common/bridge.php";
-callModel("categoryModels");
-callModel("productModels");
-callModel("addressModels");
-callModel("orderModels");
-callModel("vourcherModels");
+
 // lấy tỉnh
 $province = province_select_all();
+$display = display_select_all();
 // vc
 $vourchers = vc_select_show();
 $list_cate = cate_select_all();
 $vour_exist = '';
 $vocher = '';
+$toggle_modal = '';
 
 $err = '';
 $price_new = '';
@@ -21,6 +19,9 @@ if (isset($_GET['action'])) {
             // nếu chưa login thì bắt login
             if (!isset($_SESSION['customer'])) :
                 header('location: cartClient?msg=Vui lòng đăng nhập và tiếp tục trải nghiệm 🥰');
+                // $toggle_modal = "<script>document.getElementById('box-login-register').addEventListener('click',function(){
+                //     alert('adasda')
+                // });</script>";
             else :
                 // render address
                 if (isset($_GET['provinceId'])) {
@@ -43,8 +44,9 @@ if (isset($_GET['action'])) {
                     }
                     die;
                 }
-                // xử lí vourcher
+                // xử lí vourcher   
                 if (isset($_POST['btn_apply'])) {
+                    extract($_POST);
                     $vocher = $_POST['vocher'];
                     $total_price = $_POST['total_price'];
                     // so khớp mã code input vs code có hợp lệ
@@ -57,13 +59,18 @@ if (isset($_GET['action'])) {
                         if (is_array($client_used)) {
                             $err = "Bạn đã dùng mã giảm giá này rồi!";
                         } else {
-                            // check loại giảm và giam tương ứng
-                            if ($vour_exist['cate_code'] == 1) {
-                                // ct giá sau khi giảm= tổng tiền * (100% - %dc giảm )/100%
-                                $price_new = $total_price * ((100-  $vour_exist['discount'])/100);
-                            } else {
-                                // giảm tiền
-                                $price_new = $total_price - $vour_exist['discount'];
+                            // nếu đã ấn giảm giá 1 lần rồi thì lần 2 ko tiếp tục giảm
+                            if(!isset($used_voucher)){
+                                // check loại giảm và giam tương ứng
+                                if ($vour_exist['cate_code'] == 1) {
+                                    // ct giá sau khi giảm= tổng tiền * (100% - %dc giảm )/100%
+                                    $price_new = $total_price * ((100-  $vour_exist['discount'])/100);
+                                } else {
+                                    // giảm tiền
+                                    $price_new = $total_price - $vour_exist['discount'];
+                                }
+                            }else{
+                                $price_new = $total_price;
                             }
                         }
                     } else {
@@ -122,14 +129,14 @@ if (isset($_GET['action'])) {
                 }
 
 
-                viewClient('layout', ['page' => 'checkout', 'list_cate' => $list_cate, 'list_province' => $province, 'vourchers' => $vourchers, 'errVc' => $err, 'price_new' => $price_new, 'vour_exist' => $vour_exist, 'vocher' => $vocher]);
+                viewClient('layout', ['page' => 'checkout', 'list_cate' => $list_cate, 'list_province' => $province, 'vourchers' => $vourchers, 'errVc' => $err, 'price_new' => $price_new, 'vour_exist' => $vour_exist, 'vocher' => $vocher,'display'=>$display,'toggle_modal'=>$toggle_modal]);
             endif;
 
             break;
 
         case "viewdieukhoan":
 
-            viewClient('layout', ['page' => 'dieukhoan', 'vourchers' => $vourchers, 'list_cate' => $list_cate,]);
+            viewClient('layout', ['page' => 'dieukhoan', 'vourchers' => $vourchers, 'list_cate' => $list_cate,'display'=>$display]);
             break;
 
 
@@ -140,4 +147,4 @@ if (isset($_GET['action'])) {
             break;
     }
 }
-viewClient('layout', ['page' => 'checkout', 'vourchers' => $vourchers]);
+viewClient('layout', ['page' => 'checkout', 'vourchers' => $vourchers,'display'=>$display]);

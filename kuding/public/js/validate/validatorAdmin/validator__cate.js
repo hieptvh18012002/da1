@@ -332,7 +332,12 @@ $("#admin_pass").validate({
             maxlength : 26
         },
         price: {
+            number: true,
             required : true,
+        },
+        discount: {
+            discount_price : true,
+            number: true
         },
         'color[]': {
             required : true,
@@ -354,7 +359,12 @@ $("#admin_pass").validate({
             maxlength: "Nhập tối đa 26 ký tự"
         },
         price: {
+            number: "Vui lòng nhập giá là số",
             required: "Vui lòng nhập giá sản phẩm !",
+        },
+        discount: {
+            number: "Vui lòng nhập giá là số",
+            
         },
         'color[]':{
             required: "Vui lòng màu cho sản phẩm !",
@@ -571,6 +581,14 @@ $.validator.addMethod("nghiadz", function (value) {
     
 
 }, "Vui lòng nhập ngày lớn hơn hiện tại !");
+
+$.validator.addMethod("discount_price", function (value) {
+    var price = $('#price').val();
+    if(Number(value) > Number(price)){
+        return false
+    }
+    return true
+}, "Giảm giá phải nhỏ hơn giá ! !");
 
 $("#driveaway").change(function() {
     var selectedCountry = $(this). children("option:selected"). val();  

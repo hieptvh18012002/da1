@@ -92,16 +92,17 @@
         </div>
         <div class="slick__slider">
             <div class="cart__allItem responsive">
+                <?php foreach($data['recommened'] as $item):?>
                 <div class="cart__item">
                     <div class="cart__item__img">
-                        <img src="./public/images/products/b7eabade3883532fc7d491f4f5fc5b1988d88ae5.jpg" alt="" width="100%">
+                        <img src="./public/images/products/<?= $item['avatar'] ?>" alt="" width="100%">
                     </div>
                     <div class="cart__item__Name">
-                        <p>Envy Look Lovely Half Turtleneck Long Sleeve Tee Shirt</p>
+                        <p><?= substr($item['description'],0,18) ?></p>
                     </div>
                     <div class="cart__item__PC">
                         <div class="cart__item__price">
-                            <p>$ 69,69</p>
+                            <p><?= number_format($item['price']-$item['discount'],0,',') ?>đ</p>
                         </div>
                         <div class="cart__item__color">
                             <p>3</p>
@@ -109,152 +110,11 @@
                         </div>
                     </div>
                 </div>
-
-                <div class="cart__item">
-                    <div class="cart__item__img">
-                        <img src="./public/images/products/b7eabade3883532fc7d491f4f5fc5b1988d88ae5.jpg" alt="" width="100%">
-                    </div>
-                    <div class="cart__item__Name">
-                        <p>Envy Look Lovely Half Turtleneck Long Sleeve Tee Shirt</p>
-                    </div>
-                    <div class="cart__item__PC">
-                        <div class="cart__item__price">
-                            <p>$ 69,69</p>
-                        </div>
-                        <div class="cart__item__color">
-                            <p>3</p>
-                            <img src="public/images/layout/colorwheel-2.png" alt="">
-                        </div>
-                    </div>
-                </div>
-
-                <div class="cart__item">
-                    <div class="cart__item__img">
-                        <img src="./public/images/products/b7eabade3883532fc7d491f4f5fc5b1988d88ae5.jpg" alt="" width="100%">
-                    </div>
-                    <div class="cart__item__Name">
-                        <p>Envy Look Lovely Half Turtleneck Long Sleeve Tee Shirt</p>
-                    </div>
-                    <div class="cart__item__PC">
-                        <div class="cart__item__price">
-                            <p>$ 69,69</p>
-                        </div>
-                        <div class="cart__item__color">
-                            <p>3</p>
-                            <img src="public/images/layout/colorwheel-2.png" alt="">
-                        </div>
-                    </div>
-                </div>
-
-                <div class="cart__item">
-                    <div class="cart__item__img">
-                        <img src="./public/images/products/b7eabade3883532fc7d491f4f5fc5b1988d88ae5.jpg" alt="" width="100%">
-                    </div>
-                    <div class="cart__item__Name">
-                        <p>Envy Look Lovely Half Turtleneck Long Sleeve Tee Shirt</p>
-                    </div>
-                    <div class="cart__item__PC">
-                        <div class="cart__item__price">
-                            <p>$ 69,69</p>
-                        </div>
-                        <div class="cart__item__color">
-                            <p>3</p>
-                            <img src="public/images/layout/colorwheel-2.png" alt="">
-                        </div>
-                    </div>
-                </div>
-
-                <div class="cart__item">
-                    <div class="cart__item__img">
-                        <img src="./public/images/products/b7eabade3883532fc7d491f4f5fc5b1988d88ae5.jpg" alt="" width="100%">
-                    </div>
-                    <div class="cart__item__Name">
-                        <p>Envy Look Lovely Half Turtleneck Long Sleeve Tee Shirt</p>
-                    </div>
-                    <div class="cart__item__PC">
-                        <div class="cart__item__price">
-                            <p>$ 69,69</p>
-                        </div>
-                        <div class="cart__item__color">
-                            <p>3</p>
-                            <img src="public/images/layout/colorwheel-2.png" alt="">
-                        </div>
-                    </div>
-                </div>
-
-                <div class="cart__item">
-                    <div class="cart__item__img">
-                        <img src="./public/images/products/b7eabade3883532fc7d491f4f5fc5b1988d88ae5.jpg" alt="" width="100%">
-                    </div>
-                    <div class="cart__item__Name">
-                        <p>Envy Look Lovely Half Turtleneck Long Sleeve Tee Shirt</p>
-                    </div>
-                    <div class="cart__item__PC">
-                        <div class="cart__item__price">
-                            <p>$ 69,69</p>
-                        </div>
-                        <div class="cart__item__color">
-                            <p>3</p>
-                            <img src="public/images/layout/colorwheel-2.png" alt="">
-                        </div>
-                    </div>
-                </div>
-
-                <div class="cart__item">
-                    <div class="cart__item__img">
-                        <img src="./public/images/products/b7eabade3883532fc7d491f4f5fc5b1988d88ae5.jpg" alt="" width="100%">
-                    </div>
-                    <div class="cart__item__Name">
-                        <p>Envy Look Lovely Half Turtleneck Long Sleeve Tee Shirt</p>
-                    </div>
-                    <div class="cart__item__PC">
-                        <div class="cart__item__price">
-                            <p>$ 69,69</p>
-                        </div>
-                        <div class="cart__item__color">
-                            <p>3</p>
-                            <img src="public/images/layout/colorwheel-2.png" alt="">
-                        </div>
-                    </div>
-                </div>
-
-                <div class="cart__item">
-                    <div class="cart__item__img">
-                        <img src="./public/images/products/b7eabade3883532fc7d491f4f5fc5b1988d88ae5.jpg" alt="" width="100%">
-                    </div>
-                    <div class="cart__item__Name">
-                        <p>Envy Look Lovely Half Turtleneck Long Sleeve Tee Shirt</p>
-                    </div>
-                    <div class="cart__item__PC">
-                        <div class="cart__item__price">
-                            <p>$ 69,69</p>
-                        </div>
-                        <div class="cart__item__color">
-                            <p>3</p>
-                            <img src="public/images/layout/colorwheel-2.png" alt="">
-                        </div>
-                    </div>
-                </div>
-
-                <div class="cart__item">
-                    <div class="cart__item__img">
-                        <img src="./public/images/products/b7eabade3883532fc7d491f4f5fc5b1988d88ae5.jpg" alt="" width="100%">
-                    </div>
-                    <div class="cart__item__Name">
-                        <p>Envy Look Lovely Half Turtleneck Long Sleeve Tee Shirt</p>
-                    </div>
-                    <div class="cart__item__PC">
-                        <div class="cart__item__price">
-                            <p>$ 69,69</p>
-                        </div>
-                        <div class="cart__item__color">
-                            <p>3</p>
-                            <img src="public/images/layout/colorwheel-2.png" alt="">
-                        </div>
-                    </div>
-                </div>
+                    <?php endforeach;?>
+                
             </div>
         </div>
+        
     <?php else : ?>
         <div class="DH__content__body">
             <div class="">

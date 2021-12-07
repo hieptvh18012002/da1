@@ -43,10 +43,13 @@
                     <div class="pd-price ">
                         <div id="price-observer">
                             <div class="default-price"><span class="currency lc"></span><span class="number"> <?= number_format($data['pros']['price'] - $data['pros']['discount']) ?>đ</span></div>
+
+                            <?php if($data['pros']['discount']>0):?>
                             <div class="price__sale">
                                 <span class="price__sale--fist"><?= number_format($data['pros']['price']) ?>đ</span>
                                 <span class="price__sale--off"><?= number_format($data['pros']['discount']/$data['pros']['price'] *100,0,',','.') ?>%</span>
                             </div>
+                            <?php endif;?>
                         </div>
                         <div class="pd-sku">
                             <p>SKU# MNB0001599</p>

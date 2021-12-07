@@ -42,7 +42,7 @@
                                         <select onchange="innerHTML_tinh()" name="tinh" id="tinh">
                                             <option value="" disabled selected>Chọn tỉnh</option>
                                             <?php foreach ($data['list_province'] as $item) : ?>
-                                                <option <?= isset($_POST['tinh']) && $_POST['tinh'] == $item['provinceid'] ? 'checked' : '' ?> value="<?= $item['provinceid'] ?>"><?= $item['name'] ?></option>
+                                                <option <?= isset($tinh) && $tinh == $item['provinceid'] ? 'checked' : '' ?> value="<?= $item['provinceid'] ?>"><?= $item['name'] ?></option>
                                             <?php endforeach; ?>
                                         </select>
                                     </div>
@@ -106,6 +106,7 @@
 
                     <!-- tổng giá (check nếu nhập đúng mã vc thì đưa ra giá new)-->
                     <?php if (!empty($data['price_new'])) : ?>
+                        <!-- used lưu info client mua và dùng 1 loại vc -->
                         <input type="hidden" name="used_voucher" value="<?= $data['vocher'] != ''? $data['vocher'] :'' ?>">
                         <input type="hidden" name="total_price" id="total_price" value="<?= $data['price_new'] ?>">
                     <?php else : ?>
@@ -189,6 +190,7 @@
             </div>
         </div>
     </form>
+    <?php if(!empty($data['toggle_modal'])){echo $data['toggle_modal'];}?>
 </main>
 <!-- gửi value address -->
 <script>

@@ -163,6 +163,7 @@
                             </div>
                         </div>
                     <?php else : ?>
+                        
                         <div class="acc__DH__content">
                             <div class="table-responsive">
                                 <table class="table table-striped table-borderless">
@@ -174,7 +175,7 @@
                                             <th>Số điện thoại</th>
                                             <th>Ngày đặt hàng</th>
                                             <th>Tình trạng đơn</th>
-                                            <th>Chức năng</th>
+                                            <!-- <th>Chức năng</th> -->
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -195,9 +196,9 @@
                                                         <div class="badge badge-danger">Chưa xác nhận</div>
                                                     <?php endif; ?>
                                                 </td>
-                                                <td>
+                                                <!-- <td>
                                                     <a href="order?action=viewDetail&id=<?= $o['id'] ?>" class="btn btn-primary text-light">Đã nhận được hàng</a>
-                                                </td>
+                                                </td> -->
                                             </tr>
                                         <?php $n++;
                                         endforeach; ?>
