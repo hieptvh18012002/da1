@@ -100,7 +100,7 @@
                         </a>
                     </div>
                     <div class="cart__item__Name">
-                        <p><?= substr($item['description'],0,18) ?></p>
+                        <p><?= $item['name'] ?></p>
                     </div>
                     <div class="cart__item__PC">
                         <div class="cart__item__price">

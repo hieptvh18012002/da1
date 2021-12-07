@@ -44,7 +44,7 @@
       <!-- partial:partials/_settings-panel.html -->
       <?php include_once "./app/mvc/views/viewAdmins/partials/_settings-panel.php" ?>
       <?php include_once "./app/mvc/views/viewAdmins/partials/_right-sidebar.php" ?>
-   
+
       <!-- partial -->
       <!-- partial:partials/_sidebar.html -->
       <?php include_once "./app/mvc/views/viewAdmins/partials/_sidebar.php" ?>
@@ -103,8 +103,173 @@
 
   <!-- validate form -->
   <script src="./public/js/validate/validatorAdmin/validator__cate.js"></script>
+  <!-- thống kê -->
+  <script>
+    // doanh thu theo từng tháng
+    const ctx = document.getElementById('doanhthu').getContext('2d');
+    const myChart = new Chart(ctx, {
+      type: 'line',
+      data: {
+        labels: [<?php foreach($data['doanh_thu_thang'] as $t){
+          echo "'".'Tháng '.$t['thang']."'".',';
+        } ?>],
+        datasets: [{
+          label: 'Doanh thu',
+          data: [<?php foreach($data['doanh_thu_thang'] as $t){
+              echo $t['doanhthu'].',';
+          } ?>],
+          backgroundColor: [
+            'rgba(255, 99, 132, 0.2)',
+            'rgba(54, 162, 235, 0.2)',
+            'rgba(255, 206, 86, 0.2)',
+            'rgba(75, 192, 192, 0.2)',
+            'rgba(153, 102, 255, 0.2)',
+            'rgba(255, 159, 64, 0.2)'
+          ],
+          borderColor: [
+            'rgba(255, 99, 132, 1)',
+            'rgba(54, 162, 235, 1)',
+            'rgba(255, 206, 86, 1)',
+            'rgba(75, 192, 192, 1)',
+            'rgba(153, 102, 255, 1)',
+            'rgba(255, 159, 64, 1)'
+          ],
+          borderWidth: 1
+        }]
+      },
+      options: {
+        scales: {
+          y: {
+            beginAtZero: true
+          }
+        }
+      }
+    });
+  </script>
 
-
+  <!-- số lg hàng theo danh mục -->
+  <script>
+    
+    const slhang = document.getElementById('soluonghang').getContext('2d');
+    const myChart_slhang = new Chart(slhang, {
+      type: 'bar',
+      data: {
+        labels: [<?php foreach($data['qty_product_cate'] as $item){
+            echo "'".$item['name']."'".',';
+        } ?>],
+        datasets: [{
+          label: 'Số lượng',
+          data: [<?php foreach($data['qty_product_cate'] as $item){
+              echo $item['quantity'].',';
+          } ?>],
+          backgroundColor: [
+            'rgba(255, 99, 132, 0.2)',
+            'rgba(54, 162, 235, 0.2)',
+            'rgba(255, 206, 86, 0.2)',
+            'rgba(75, 192, 192, 0.2)',
+            'rgba(153, 102, 255, 0.2)',
+            'rgba(255, 159, 64, 0.2)'
+          ],
+          borderColor: [
+            'rgba(255, 99, 132, 1)',
+            'rgba(54, 162, 235, 1)',
+            'rgba(255, 206, 86, 1)',
+            'rgba(75, 192, 192, 1)',
+            'rgba(153, 102, 255, 1)',
+            'rgba(255, 159, 64, 1)'
+          ],
+          borderWidth: 1
+        }]
+      },
+      options: {
+        scales: {
+          y: {
+            beginAtZero: true
+          }
+        }
+      }
+    });
+  </script>
+  <script>
+    //<!-- sp bán ra hàng tháng -->
+    const spbanra = document.getElementById('spbanra').getContext('2d');
+    const myChart_spbanra = new Chart(spbanra, {
+      type: 'bar',
+      data: {
+        labels: [<?php foreach($data['dh_ban_ra'] as $item){
+            echo "'".$item['month']."'".',';
+        } ?>],
+        datasets: [{
+          label: 'Số lượng đơn',
+          data: [<?php foreach($data['dh_ban_ra'] as $item){
+            echo $item['qty'].',';
+        } ?>],
+          backgroundColor: [
+            'rgba(255, 99, 132, 0.2)',
+            'rgba(54, 162, 235, 0.2)',
+            'rgba(255, 206, 86, 0.2)',
+            'rgba(75, 192, 192, 0.2)',
+            'rgba(153, 102, 255, 0.2)',
+            'rgba(255, 159, 64, 0.2)'
+          ],
+          borderColor: [
+            'rgba(255, 99, 132, 1)',
+            'rgba(54, 162, 235, 1)',
+            'rgba(255, 206, 86, 1)',
+            'rgba(75, 192, 192, 1)',
+            'rgba(153, 102, 255, 1)',
+            'rgba(255, 159, 64, 1)'
+          ],
+          borderWidth: 1
+        }]
+      },
+      options: {
+        scales: {
+          y: {
+            beginAtZero: true
+          }
+        }
+      }
+    });
+  </script>
+  <!-- tk đơn hàng -->
+  <script>
+    const donhang = document.getElementById('donhang').getContext('2d');
+    const myChart_donhang = new Chart(donhang, {
+      type: 'pie',
+      data: {
+        labels: ['Đơn đã hủy','Đơn chưa xác nhận','Đơn đang xử lí','Đơn đã gửi đi'],
+        datasets: [{
+          label: 'Số sản phẩm',
+          data: [<?= $data['cancel_order'] ?>,<?= $data['unprocess_order'] ?>,<?= $data['processing_order'] ?>,<?= $data['sent_order'] ?>],
+          backgroundColor: [
+            'rgba(255, 99, 132, 0.2)',
+            'rgba(54, 162, 235, 0.2)',
+            'rgba(255, 206, 86, 0.2)',
+            'rgba(75, 192, 192, 0.2)',
+            'rgba(153, 102, 255, 0.2)',
+            'rgba(255, 159, 64, 0.2)'
+          ],
+          borderColor: [
+            'rgba(255, 99, 132, 1)',
+            'rgba(54, 162, 235, 1)',
+            'rgba(255, 206, 86, 1)',
+            'rgba(75, 192, 192, 1)',
+            'rgba(153, 102, 255, 1)',
+            'rgba(255, 159, 64, 1)'
+          ],
+          borderWidth: 1
+        }]
+      },
+      options: {
+        scales: {
+          y: {
+            beginAtZero: true
+          }
+        }
+      }
+    });
+  </script>
 </body>
 
 </html>

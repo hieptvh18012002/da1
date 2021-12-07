@@ -1,381 +1,211 @@
 <div class="content-wrapper">
-    <div class="row">
-      <div class="col-md-12 grid-margin">
-        <div class="row">
-          <div class="col-12 col-xl-8 mb-4 mb-xl-0">
-            <h3 class="font-weight-bold">Welcome <?= $_SESSION['admin']['fullname'] ?></h3>
-            <h6 class="font-weight-normal mb-0">Chào mừng admin quay lại!<span class="text-primary">!</span></h6>
-          </div>
-          <div class="col-12 col-xl-4">
-            <div class="justify-content-end d-flex">
-              <div class="dropdown flex-md-grow-1 flex-xl-grow-0">
-                <button class="btn btn-sm btn-light bg-white dropdown-toggle" type="button" id="dropdownMenuDate2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                  <i class="mdi mdi-calendar"></i> Today (10 Jan 2021)
-                </button>
-                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuDate2">
-                  <a class="dropdown-item" href="#">January - March</a>
-                  <a class="dropdown-item" href="#">March - June</a>
-                  <a class="dropdown-item" href="#">June - August</a>
-                  <a class="dropdown-item" href="#">August - November</a>
-                </div>
+  <div class="row">
+    <div class="col-md-12 grid-margin">
+      <div class="row">
+        <div class="col-12 col-xl-8 mb-4 mb-xl-0">
+          <h3 class="font-weight-bold">Welcome <?= $_SESSION['admin']['fullname'] ?></h3>
+          <h6 class="font-weight-normal mb-0">Chào mừng admin quay lại!<span class="text-primary">!</span></h6>
+        </div>
+        <div class="col-12 col-xl-4">
+          <div class="justify-content-end d-flex">
+            <div class="dropdown flex-md-grow-1 flex-xl-grow-0">
+              <button class="btn btn-sm btn-light bg-white dropdown-toggle" type="button" id="dropdownMenuDate2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                <i class="mdi mdi-calendar"></i> Today (10 Jan 2021)
+              </button>
+              <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuDate2">
+                <a class="dropdown-item" href="#">January - March</a>
+                <a class="dropdown-item" href="#">March - June</a>
+                <a class="dropdown-item" href="#">June - August</a>
+                <a class="dropdown-item" href="#">August - November</a>
               </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-    <div class="row">
-      <div class="col-md-6 grid-margin stretch-card">
-        <div class="card tale-bg">
-          <div class="card-people mt-auto">
-            <img src="./public/images/admin/mua_ha_noi.jpg" alt="people">
-            <div class="weather-info">
-              <div class="d-flex">
-                <div>
-                  <h2 class="mb-0 font-weight-normal"><i class="icon-sun mr-2"></i>18<sup>C</sup></h2>
-                </div>
-                <div class="ml-2">
-                  <h4 class="location font-weight-normal">Ha Noi</h4>
-                  <h6 class="font-weight-normal">VietNam</h6>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-6 grid-margin transparent">
-        <div class="row">
-          <div class="col-md-6 mb-4 stretch-card transparent">
-            <div class="card card-tale">
-              <div class="card-body">
-                <p class="mb-4">Tổng đơn hàng</p>
-                <p class="fs-30 mb-2"><?= $data['total_orders'] ?></p>
-                <!-- <p>10.00% (30 days)</p> -->
-              </div>
-            </div>
-          </div>
-          <div class="col-md-6 mb-4 stretch-card transparent">
-            <div class="card card-dark-blue">
-              <div class="card-body">
-                <p class="mb-4">Đơn hàng chưa xử lí</p>
-                <p class="fs-30 mb-2"><?= $data['unprocess_order'] ?></p>
-                <p><?= $data['percent_un_order'] ?>% (Tổng đơn hàng)</p>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-md-6 mb-4 mb-lg-0 stretch-card transparent">
-            <div class="card card-light-blue">
-              <div class="card-body">
-                <p class="mb-4">Tổng doanh thu</p>
-                <p class="fs-30 mb-2">34040</p>
-                <p>2.00% (30 days)</p>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-6 stretch-card transparent">
-            <div class="card card-light-danger">
-              <div class="card-body">
-                <p class="mb-4">Số lượng sản phẩm</p>
-                <p class="fs-30 mb-2">47033</p>
-                <p>0.22% (30 days)</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-md-6 grid-margin stretch-card">
-        <div class="card">
-          <div class="card-body">
-            <p class="card-title">Order Details</p>
-            <p class="font-weight-500">The total number of sessions within the date range. It is the period time a
-              user is actively engaged with your website, page or app, etc</p>
-            <div class="d-flex flex-wrap mb-5">
-              <div class="mr-5 mt-3">
-                <p class="text-muted">Order value</p>
-                <h3 class="text-primary fs-30 font-weight-medium">12.3k</h3>
-              </div>
-              <div class="mr-5 mt-3">
-                <p class="text-muted">Orders</p>
-                <h3 class="text-primary fs-30 font-weight-medium">14k</h3>
-              </div>
-              <div class="mr-5 mt-3">
-                <p class="text-muted">Users</p>
-                <h3 class="text-primary fs-30 font-weight-medium">71.56%</h3>
-              </div>
-              <div class="mt-3">
-                <p class="text-muted">Downloads</p>
-                <h3 class="text-primary fs-30 font-weight-medium">34040</h3>
-              </div>
-            </div>
-            <canvas id="order-chart"></canvas>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-6 grid-margin stretch-card">
-        <div class="card">
-          <div class="card-body">
-            <div class="d-flex justify-content-between">
-              <p class="card-title">Sales Report</p>
-              <a href="#" class="text-info">View all</a>
-            </div>
-            <p class="font-weight-500">The total number of sessions within the date range. It is the period time a
-              user is actively engaged with your website, page or app, etc</p>
-            <div id="sales-legend" class="chartjs-legend mt-4 mb-2"></div>
-            <canvas id="sales-chart"></canvas>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="row">
-      <div class="col-md-12 grid-margin stretch-card">
-        <div class="card position-relative">
-          <div class="card-body">
-            <div id="detailedReports" class="carousel slide detailed-report-carousel position-static pt-2" data-ride="carousel">
-              <div class="carousel-inner">
-                <div class="carousel-item active">
-                  <div class="row">
-                    <div class="col-md-12 col-xl-3 d-flex flex-column justify-content-start">
-                      <div class="ml-xl-4 mt-3">
-                        <p class="card-title">Detailed Reports</p>
-                        <h1 class="text-primary">$34040</h1>
-                        <h3 class="font-weight-500 mb-xl-4 text-primary">North America</h3>
-                        <p class="mb-2 mb-xl-0">The total number of sessions within the date range. It is the
-                          period time a user is actively engaged with your website, page or app, etc</p>
-                      </div>
-                    </div>
-                    <div class="col-md-12 col-xl-9">
-                      <div class="row">
-                        <div class="col-md-6 border-right">
-                          <div class="table-responsive mb-3 mb-md-0 mt-3">
-                            <table class="table table-borderless report-table">
-                              <tr>
-                                <td class="text-muted">Illinois</td>
-                                <td class="w-100 px-0">
-                                  <div class="progress progress-md mx-4">
-                                    <div class="progress-bar bg-primary" role="progressbar" style="width: 70%" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
-                                  </div>
-                                </td>
-                                <td>
-                                  <h5 class="font-weight-bold mb-0">713</h5>
-                                </td>
-                              </tr>
-                              <tr>
-                                <td class="text-muted">Washington</td>
-                                <td class="w-100 px-0">
-                                  <div class="progress progress-md mx-4">
-                                    <div class="progress-bar bg-warning" role="progressbar" style="width: 30%" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100"></div>
-                                  </div>
-                                </td>
-                                <td>
-                                  <h5 class="font-weight-bold mb-0">583</h5>
-                                </td>
-                              </tr>
-                              <tr>
-                                <td class="text-muted">Mississippi</td>
-                                <td class="w-100 px-0">
-                                  <div class="progress progress-md mx-4">
-                                    <div class="progress-bar bg-danger" role="progressbar" style="width: 95%" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100"></div>
-                                  </div>
-                                </td>
-                                <td>
-                                  <h5 class="font-weight-bold mb-0">924</h5>
-                                </td>
-                              </tr>
-                              <tr>
-                                <td class="text-muted">California</td>
-                                <td class="w-100 px-0">
-                                  <div class="progress progress-md mx-4">
-                                    <div class="progress-bar bg-info" role="progressbar" style="width: 60%" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
-                                  </div>
-                                </td>
-                                <td>
-                                  <h5 class="font-weight-bold mb-0">664</h5>
-                                </td>
-                              </tr>
-                              <tr>
-                                <td class="text-muted">Maryland</td>
-                                <td class="w-100 px-0">
-                                  <div class="progress progress-md mx-4">
-                                    <div class="progress-bar bg-primary" role="progressbar" style="width: 40%" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"></div>
-                                  </div>
-                                </td>
-                                <td>
-                                  <h5 class="font-weight-bold mb-0">560</h5>
-                                </td>
-                              </tr>
-                              <tr>
-                                <td class="text-muted">Alaska</td>
-                                <td class="w-100 px-0">
-                                  <div class="progress progress-md mx-4">
-                                    <div class="progress-bar bg-danger" role="progressbar" style="width: 75%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
-                                  </div>
-                                </td>
-                                <td>
-                                  <h5 class="font-weight-bold mb-0">793</h5>
-                                </td>
-                              </tr>
-                            </table>
-                          </div>
-                        </div>
-                        <div class="col-md-6 mt-3">
-                          <canvas id="north-america-chart"></canvas>
-                          <div id="north-america-legend"></div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="carousel-item">
-                  <div class="row">
-                    <div class="col-md-12 col-xl-3 d-flex flex-column justify-content-start">
-                      <div class="ml-xl-4 mt-3">
-                        <p class="card-title">Detailed Reports</p>
-                        <h1 class="text-primary">$34040</h1>
-                        <h3 class="font-weight-500 mb-xl-4 text-primary">North America</h3>
-                        <p class="mb-2 mb-xl-0">The total number of sessions within the date range. It is the
-                          period time a user is actively engaged with your website, page or app, etc</p>
-                      </div>
-                    </div>
-                    <div class="col-md-12 col-xl-9">
-                      <div class="row">
-                        <div class="col-md-6 border-right">
-                          <div class="table-responsive mb-3 mb-md-0 mt-3">
-                            <table class="table table-borderless report-table">
-                              <tr>
-                                <td class="text-muted">Illinois</td>
-                                <td class="w-100 px-0">
-                                  <div class="progress progress-md mx-4">
-                                    <div class="progress-bar bg-primary" role="progressbar" style="width: 70%" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
-                                  </div>
-                                </td>
-                                <td>
-                                  <h5 class="font-weight-bold mb-0">713</h5>
-                                </td>
-                              </tr>
-                              <tr>
-                                <td class="text-muted">Washington</td>
-                                <td class="w-100 px-0">
-                                  <div class="progress progress-md mx-4">
-                                    <div class="progress-bar bg-warning" role="progressbar" style="width: 30%" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100"></div>
-                                  </div>
-                                </td>
-                                <td>
-                                  <h5 class="font-weight-bold mb-0">583</h5>
-                                </td>
-                              </tr>
-                              <tr>
-                                <td class="text-muted">Mississippi</td>
-                                <td class="w-100 px-0">
-                                  <div class="progress progress-md mx-4">
-                                    <div class="progress-bar bg-danger" role="progressbar" style="width: 95%" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100"></div>
-                                  </div>
-                                </td>
-                                <td>
-                                  <h5 class="font-weight-bold mb-0">924</h5>
-                                </td>
-                              </tr>
-                              <tr>
-                                <td class="text-muted">California</td>
-                                <td class="w-100 px-0">
-                                  <div class="progress progress-md mx-4">
-                                    <div class="progress-bar bg-info" role="progressbar" style="width: 60%" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
-                                  </div>
-                                </td>
-                                <td>
-                                  <h5 class="font-weight-bold mb-0">664</h5>
-                                </td>
-                              </tr>
-                              <tr>
-                                <td class="text-muted">Maryland</td>
-                                <td class="w-100 px-0">
-                                  <div class="progress progress-md mx-4">
-                                    <div class="progress-bar bg-primary" role="progressbar" style="width: 40%" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100"></div>
-                                  </div>
-                                </td>
-                                <td>
-                                  <h5 class="font-weight-bold mb-0">560</h5>
-                                </td>
-                              </tr>
-                              <tr>
-                                <td class="text-muted">Alaska</td>
-                                <td class="w-100 px-0">
-                                  <div class="progress progress-md mx-4">
-                                    <div class="progress-bar bg-danger" role="progressbar" style="width: 75%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
-                                  </div>
-                                </td>
-                                <td>
-                                  <h5 class="font-weight-bold mb-0">793</h5>
-                                </td>
-                              </tr>
-                            </table>
-                          </div>
-                        </div>
-                        <div class="col-md-6 mt-3">
-                          <canvas id="south-america-chart"></canvas>
-                          <div id="south-america-legend"></div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <a class="carousel-control-prev" href="#detailedReports" role="button" data-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="sr-only">Previous</span>
-              </a>
-              <a class="carousel-control-next" href="#detailedReports" role="button" data-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="sr-only">Next</span>
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    
-    
-    <div class="row">
-      <div class="col-md-12 grid-margin stretch-card">
-        <div class="card">
-          <div class="card-body">
-            <p class="card-title">Advanced Table</p>
-            <div class="row">
-              <div class="col-12">
-                <div class="table-responsive">
-                  <table id="example" class="display expandable-table" style="width:100%">
-                    <thead>
-                      <tr>
-                        <th>Quote#</th>
-                        <th>Product</th>
-                        <th>Business type</th>
-                        <th>Policy holder</th>
-                        <th>Premium</th>
-                        <th>Status</th>
-                        <th>Updated at</th>
-                        <th></th>
-                      </tr>
-                    </thead>
-                  </table>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!-- content-wrapper ends -->
-    <!-- partial:partials/_footer.html -->
-    <footer class="footer">
-      <div class="d-sm-flex justify-content-center justify-content-sm-between">
-        <span class="text-muted text-center text-sm-left d-block d-sm-inline-block">Copyright © 2021. Premium <a href="https://www.bootstrapdash.com/" target="_blank">Bootstrap admin template</a> from BootstrapDash.
-          All rights reserved.</span>
-        <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center">Hand-crafted & made with <i class="ti-heart text-danger ml-1"></i></span>
-      </div>
-    </footer>
-    <!-- partial -->
   </div>
-  <!-- main-panel ends -->
+  <div class="row">
+    <div class="col-md-6 grid-margin stretch-card">
+      <div class="card tale-bg">
+        <div class="card-people mt-auto">
+          <img src="./public/images/admin/mua_ha_noi.jpg" alt="people">
+          <div class="weather-info">
+            <div class="d-flex">
+              <div>
+                <h2 class="mb-0 font-weight-normal"><i class="icon-sun mr-2"></i>18<sup>C</sup></h2>
+              </div>
+              <div class="ml-2">
+                <h4 class="location font-weight-normal">Ha Noi</h4>
+                <h6 class="font-weight-normal">VietNam</h6>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6 grid-margin transparent">
+      <div class="row">
+        <div class="col-md-6 mb-4 stretch-card transparent">
+          <div class="card card-tale">
+            <div class="card-body">
+              <p class="mb-4">Tổng đơn hàng</p>
+              <p class="fs-30 mb-2"><?= $data['total_orders'] ?></p>
+              <!-- <p>10.00% (30 days)</p> -->
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 mb-4 stretch-card transparent">
+          <div class="card card-dark-blue">
+            <div class="card-body">
+              <p class="mb-4">Đơn hàng chưa xử lí</p>
+              <p class="fs-30 mb-2"><?= $data['unprocess_order'] ?></p>
+              <p><?= $data['percent_un_order'] ?>% (Tổng đơn hàng)</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6 mb-4 mb-lg-0 stretch-card transparent">
+          <div class="card card-light-blue">
+            <div class="card-body">
+              <p class="mb-4">Tổng doanh thu (năm <?= date('Y') ?>)</p>
+              <p class="fs-30 mb-2"><?= number_format($data['doanh_thu_nam'], 0, ',') ?>đ</p>
+              <!-- <p>2.00% (30 days)</p> -->
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 stretch-card transparent">
+          <div class="card card-light-danger">
+            <div class="card-body">
+              <p class="mb-4">Số lượng sản phẩm</p>
+              <p class="fs-30 mb-2"><?= $data['qty_all_pros']; ?></p>
+              <!-- <p>0.22% (30 days)</p> -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- chart -->
+  <div class="col-md-12 mb-5">
+    <div class="card">
+      <div class="card-body">
+        <p class="card-title">Doanh thu bán hàng</p>
+        <p class="font-weight-500">Tổng số doanh thu bán ra theo từng tháng trong năm <?= date('Y') ?></p>
+        
+        <canvas id="doanhthu" width="400" height="150"></canvas>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-6 grid-margin stretch-card">
+      <div class="card">
+        <div class="card-body">
+          <p class="card-title">Tổng đơn hàng bán ra trong năm </p>
+          <p class="font-weight-500">Tổng đơn hàng bán ra trong năm <?= date('Y') ?></p>
+          <!-- <div class="d-flex flex-wrap mb-5">
+            <div class="mr-5 mt-3">
+              <p class="text-muted">Order value</p>
+              <h3 class="text-primary fs-30 font-weight-medium">12.3k</h3>
+            </div>
+            <div class="mr-5 mt-3">
+              <p class="text-muted">Orders</p>
+              <h3 class="text-primary fs-30 font-weight-medium">14k</h3>
+            </div>
+            <div class="mr-5 mt-3">
+              <p class="text-muted">Users</p>
+              <h3 class="text-primary fs-30 font-weight-medium">71.56%</h3>
+            </div>
+            <div class="mt-3">
+              <p class="text-muted">Downloads</p>
+              <h3 class="text-primary fs-30 font-weight-medium">34040</h3>
+            </div>
+          </div> -->
+          <canvas id="spbanra" width="400" height="250"></canvas>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6 grid-margin stretch-card">
+      <div class="card">
+        <div class="card-body">
+          <div class="d-flex justify-content-between">
+            <p class="card-title">Số lượng hàng hóa theo danh mục</p>
+            <a href="#" class="text-info"></a>
+          </div>
+          <p class="font-weight-500">Tất cả số lượng hàng hóa theo danh mục hiện có </p>
+          <div id="sales-legend" class="chartjs-legend mt-4 mb-2"></div>
+          <canvas id="soluonghang" width="400" height="235"></canvas>
+
+        </div>
+      </div>
+    </div>
+  </div>
+ 
+  <!-- thống kê đơn hàng -->
+  <div class="col-md-12 ">
+      <div class="card">
+        <div class="card-body">
+          <p class="card-title">Thống kê đơn hàng</p>
+          <p class="font-weight-500">Thống kê đơn hàng trong năm <?= date('Y') ?></p>
+          <div class="d-flex flex-wrap mb-5">
+          <div class="mr-5 mt-3">
+            <p class="text-muted">Tổng đơn hàng</p>
+            <h3 class="text-primary fs-30 font-weight-medium"><?= $data['total_orders_year'] ?></h3>
+          </div>
+          <div class="mr-5 mt-3">
+            <p class="text-muted">Đơn đã hủy</p>
+            <h3 class="text-primary fs-30 font-weight-medium"><?= $data['cancel_order'] ?></h3>
+          </div>
+          <div class="mr-5 mt-3">
+            <p class="text-muted">Đơn chờ xác nhận</p>
+            <h3 class="text-primary fs-30 font-weight-medium"><?= $data['unprocess_order'] ?></h3>
+          </div>
+          <div class="mr-5 mt-3">
+            <p class="text-muted">Đơn đang xử lí</p>
+            <h3 class="text-primary fs-30 font-weight-medium"><?= $data['processing_order'] ?></h3>
+          </div>
+          <div class="mt-3">
+            <p class="text-muted">Đơn đã gửi đi</p>
+            <h3 class="text-primary fs-30 font-weight-medium"><?= $data['sent_order'] ?></h3>
+          </div>
+        </div>
+          <canvas id="donhang" width="400" height="100"></canvas>
+        </div>
+      </div>
+    </div>
+  
+
+
+  <div class="row">
+    <div class="col-md-12 grid-margin stretch-card">
+      <div class="card">
+        <div class="card-body">
+          <p class="card-title">Advanced Table</p>
+          <div class="row">
+            <div class="col-12">
+              <div class="table-responsive">
+                <table id="example" class="display expandable-table" style="width:100%">
+                  <thead>
+                    <tr>
+                      <th>Quote#</th>
+                      <th>Product</th>
+                      <th>Business type</th>
+                      <th>Policy holder</th>
+                      <th>Premium</th>
+                      <th>Status</th>
+                      <th>Updated at</th>
+                      <th></th>
+                    </tr>
+                  </thead>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- content-wrapper ends -->
+  <!-- partial:partials/_footer.html -->
