@@ -42,22 +42,28 @@ $qty_all_pros = pdo_query_value("SELECT COUNT(id) FROM products");
 $dh_ban_ra = pdo_query("SELECT COUNT(o.id) as qty,MONTH(o.created_at) as 'month' FROM orders o WHERE o.status=2 AND YEAR(o.created_at)=2021 GROUP BY MONTH(o.created_at);
 ");
 
+// nếu là nv 
+if($_SESSION['admin']['role_id'] == 2){
+    header('location: order');
+}else{
+    viewAdmin("layout", [
+        'page' => 'index',
+        'total_orders' => $total_order,
+        'total_orders_year' => $total_order_year,
+        'unprocess_order' => $unprocess_order,
+        'percent_un_order' => $percent_un_order,
+        'doanh_thu_nam' => $doanh_thu_nam,
+        'doanh_thu_thang' => $doanh_thu_thang,
+        'qty_all_pros' => $qty_all_pros,
+        'cancel_order' => $cancel_order,
+        'processing_order' => $processing_order,
+        'sent_order' => $sent_order,
+        'qty_product_cate'=>$qty_product_cate,
+        'dh_ban_ra'=>$dh_ban_ra,
+    
+    
+    ]);
+}
 
 
-viewAdmin("layout", [
-    'page' => 'index',
-    'total_orders' => $total_order,
-    'total_orders_year' => $total_order_year,
-    'unprocess_order' => $unprocess_order,
-    'percent_un_order' => $percent_un_order,
-    'doanh_thu_nam' => $doanh_thu_nam,
-    'doanh_thu_thang' => $doanh_thu_thang,
-    'qty_all_pros' => $qty_all_pros,
-    'cancel_order' => $cancel_order,
-    'processing_order' => $processing_order,
-    'sent_order' => $sent_order,
-    'qty_product_cate'=>$qty_product_cate,
-    'dh_ban_ra'=>$dh_ban_ra,
 
-
-]);

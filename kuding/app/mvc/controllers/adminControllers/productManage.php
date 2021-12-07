@@ -111,7 +111,7 @@ if (isset($_GET['action'])) {
                     // insert tbl products
                     move_uploaded_file($file['tmp_name'], "./public/images/products/" . $avatar);
                     $conn = get_connection();
-                    $stmt = $conn->prepare("INSERT INTO products (name,cate_id,price,avatar,description,created_at) VALUES('$name',$category,$price,'$avatar','$desc','$created_at')");
+                    $stmt = $conn->prepare("INSERT INTO products (name,cate_id,price,avatar,description,quantity,created_at) VALUES('$name',$category,$price,'$avatar','$desc',$quantity,'$created_at')");
                     $stmt->execute();
                     // lấy id vừa insert
                     $id_pro = $conn->lastInsertId();
@@ -173,7 +173,7 @@ if (isset($_GET['action'])) {
                 }
                 if (empty($err['img'])) {
                     // update pro
-                    product_update($id, $name, $category, $price, $discount, $avatar, $desc, $special);
+                    product_update($id, $name, $category, $price, $discount, $avatar, $desc,$quantity, $special);
                     if ($file['size'] > 0) {
                         move_uploaded_file($file['tmp_name'], './public/images/products/' . $avatar);
                     }

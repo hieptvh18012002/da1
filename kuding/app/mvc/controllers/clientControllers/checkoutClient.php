@@ -7,21 +7,26 @@ $display = display_select_all();
 // vc
 $vourchers = vc_select_show();
 $list_cate = cate_select_all();
+$recommended = pdo_query("SELECT * FROM products ORDER BY RAND() LIMIT 0,10");
+
 $vour_exist = '';
 $vocher = '';
 $toggle_modal = '';
 
 $err = '';
+$msg = '';
+$msg_login = '';
 $price_new = '';
 if (isset($_GET['action'])) {
     switch ($_GET['action']) {
         case "checkout":
             // nếu chưa login thì bắt login
             if (!isset($_SESSION['customer'])) :
-                header('location: cartClient?msg=Vui lòng đăng nhập và tiếp tục trải nghiệm 🥰');
-                // $toggle_modal = "<script>document.getElementById('box-login-register').addEventListener('click',function(){
-                //     alert('adasda')
-                // });</script>";
+                // header('location: cartClient?msg=Vui lòng đăng nhập và tiếp tục trải nghiệm 🥰');
+                $toggle_modal = "<script>$(document).ready(function(){
+                    $('#box-login-register').modal('show')})</script>";
+
+                viewClient('layout',['page'=>'cart','toggle_modal'=>$toggle_modal,'list_cate' => $list_cate, 'msg' => $msg,'vourchers'=>$vourchers,'display'=>$display,'recommened'=>$recommended,'msg_login'=>$msg_login]);
             else :
                 // render address
                 if (isset($_GET['provinceId'])) {

@@ -1,12 +1,12 @@
 <nav class="sidebar sidebar-offcanvas" id="sidebar">
   <ul class="nav">
-    <li class="nav-item">
-      <a class="nav-link" href="admin">
-        <i class="far fa-chart-bar menu-icon"></i>
-        <span class="menu-title">Thống kê</span>
-      </a>
-    </li>
-
+    <?php if ($_SESSION['admin']['role_id'] == 3) : ?>
+      <li class="nav-item">
+        <a class="nav-link" href="admin">
+          <i class="far fa-chart-bar menu-icon"></i>
+          <span class="menu-title">Thống kê</span>
+        </a>
+      </li>
     <li class="nav-item">
       <a class="nav-link" data-toggle="collapse" href="#products" aria-expanded="false" aria-controls="ui-basic">
         <i class="icon-layout menu-icon"></i>
@@ -21,7 +21,7 @@
         </ul>
       </div>
     </li>
-    
+
     <li class="nav-item">
       <a class="nav-link" data-toggle="collapse" href="#cate" aria-expanded="false" aria-controls="ui-basic">
         <i class="icon-layout menu-icon"></i>
@@ -35,6 +35,8 @@
         </ul>
       </div>
     </li>
+    <?php endif; ?>
+
     <li class="nav-item">
       <a class="nav-link" href="order">
         <i class="fas fa-shipping-fast menu-icon"></i>
@@ -84,21 +86,21 @@
       </div>
     </li>
     <?php if ($_SESSION['admin']['role_id'] == 3) : ?>
-    <li class="nav-item">
-      <a class="nav-link" data-toggle="collapse" href="#voucher" aria-expanded="false" aria-controls="ui-basic">
-        <i class="icon-layout menu-icon"></i>
-        <span class="menu-title">Mã giảm giá</span>
-        <i class="menu-arrow"></i>
-      </a>
-      <div class="collapse" id="voucher">
-        <ul class="nav flex-column sub-menu">
-          <li class="nav-item"> <a class="nav-link" href="vourcher?action=list">Tổng hợp</a></li>
-          <li class="nav-item"> <a class="nav-link" href="vourcher?action=add">Thêm mã</a></li>
-        </ul>
-      </div>
-    </li>
-    <?php endif;?>
-   
+      <li class="nav-item">
+        <a class="nav-link" data-toggle="collapse" href="#voucher" aria-expanded="false" aria-controls="ui-basic">
+          <i class="icon-layout menu-icon"></i>
+          <span class="menu-title">Mã giảm giá</span>
+          <i class="menu-arrow"></i>
+        </a>
+        <div class="collapse" id="voucher">
+          <ul class="nav flex-column sub-menu">
+            <li class="nav-item"> <a class="nav-link" href="vourcher?action=list">Tổng hợp</a></li>
+            <li class="nav-item"> <a class="nav-link" href="vourcher?action=add">Thêm mã</a></li>
+          </ul>
+        </div>
+      </li>
+    <?php endif; ?>
+
     <?php if ($_SESSION['admin']['role_id'] == 3) : ?>
       <li class="nav-item">
         <a class="nav-link" href="display">

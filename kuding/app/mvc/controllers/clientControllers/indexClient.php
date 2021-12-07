@@ -1,7 +1,6 @@
 <?php
 require_once "./app/common/bridge.php";
 
-
 // dd
 $display = display_select_all();
 $list_cate = cate_select_all();
@@ -18,6 +17,7 @@ $vourchers = vc_select_show();
 // lấy new special
 $news_special = news_select_special();
 $news_special2 = news_select_special2();
+
 // xử lí nếu hết hạn thì update status -> 0
 if (is_array($list_vour)) {
     foreach ($list_vour as $vc) {

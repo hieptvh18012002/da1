@@ -28,6 +28,10 @@
                     </select>
                 </div>
                 <div class="form-group">
+                    <label for="" class="">Số lượng</label>
+                   <input type="number" name="quantity" class="form-control" value="<?= $data['pros']['quantity'] ?>" placeholder="Số lượng sản phẩm">
+                </div>
+                <div class="form-group">
                     <label for="price">Giá</label>
                     <input type="number" name="price" class="form-control" id="price" value="<?= $data['pros']['price'] ?>">
                 </div>

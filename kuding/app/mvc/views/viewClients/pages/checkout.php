@@ -190,7 +190,7 @@
             </div>
         </div>
     </form>
-    <?php if(!empty($data['toggle_modal'])){echo $data['toggle_modal'];}?>
+    
 </main>
 <!-- gửi value address -->
 <script>

@@ -126,9 +126,9 @@ function pro_img_insert($url, $pro_id)
     $sql = "INSERT INTO pro_imgs (url,pro_id) VALUES('$url','$pro_id')";
     pdo_execute($sql);
 }
-function product_insert($name, $cate, $price, $avatar, $description)
+function product_insert($name, $cate, $price, $avatar, $description,$qty)
 {
-    $sql = "INSERT INTO products (name,cate_id,price,avatar,description) VALUES('$name',$cate,$price,'$avatar','$description')";
+    $sql = "INSERT INTO products (name,cate_id,price,avatar,description,quantity) VALUES('$name',$cate,$price,'$avatar','$description',$qty)";
     pdo_execute($sql);
 }
 // add view
@@ -167,9 +167,9 @@ function get_value_pro()
 {
 }
 
-function product_update($id, $name, $cate, $price, $discount, $image, $description, $special)
+function product_update($id, $name, $cate, $price, $discount, $image, $description,$qty, $special)
 {
-    $sql = "UPDATE products SET name='$name',cate_id='$cate',price='$price',discount='$discount',avatar='$image',description='$description',special=$special WHERE id=$id ";
+    $sql = "UPDATE products SET name='$name',cate_id='$cate',price='$price',discount='$discount',avatar='$image',description='$description',quantity=$qty,special=$special WHERE id=$id ";
     pdo_execute($sql);
 }
 function product_delete($id)
