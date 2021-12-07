@@ -5,19 +5,19 @@
     <div class="banner single-item">
         <?php foreach ($data['cate_banner'] as $item) : ?>
             <a href="productClient?action=list&filtercate=<?= $item['id'] ?>" class="banner-item">
-            <div class="banner_imgBox">
-                <img src="public/images/categories/<?= $item['avatar'] ?>" alt="" width="100%">
-            </div>  
+                <div class="banner_imgBox">
+                    <img src="public/images/categories/<?= $item['avatar'] ?>" alt="" width="100%">
+                </div>
             </a>
         <?php endforeach; ?>
     </div>
     <!-- end banner -->
     <div class="category-banner">
-        <?php foreach($data['cate_banner'] as $item):?>
-        <a href="productClient?action=list&filtercate=<?= $item['id'] ?>" class="box-cate">
-            <?= $item['name'] ?>
-        </a>
-       <?php endforeach;?>
+        <?php foreach ($data['cate_banner'] as $item) : ?>
+            <a href="productClient?action=list&filtercate=<?= $item['id'] ?>" class="box-cate">
+                <?= $item['name'] ?>
+            </a>
+        <?php endforeach; ?>
     </div>
     <!-- end category-banner -->
     <div class="theme-hot">
@@ -171,87 +171,100 @@
         </div>
         <div class="slick__slider">
             <div class="slider-album__content pb-3">
-                <a href="#" class="album_link">
+                <a href="albumClient#lg=1&slide=0" class="album_link">
                     <div class="album__overlay">
                         <div class="album__overlay_icon">
-                            <i class="fab fa-facebook"></i>
+                            <i class="fab fa-twitter"></i>
                         </div>
                         <div class="album__overlay_tim">
-                            ♥ 28
+                            ♥ 282
                         </div>
                     </div>
                     <div class="slider_album_boxImg">
-                        <img src="./public/images/products/7274e18d4ab68a79ad42b3ad401c34c1f0bb4b93.jpg" alt="">
+                        <img src="./public/images/album/1.jpg" alt="">
                     </div>
 
                 </a>
-                <a href="#" class="album_link">
+                <a href="albumClient#lg=1&slide=2" class="album_link">
                     <div class="album__overlay">
                         <div class="album__overlay_icon">
-                            <i class="fab fa-facebook"></i>
+                            <i class="fab fa-instagram"></i>
                         </div>
                         <div class="album__overlay_tim">
-                            ♥ 28
+                            ♥ 228
                         </div>
                     </div>
                     <div class="slider_album_boxImg">
-                        <img src="./public/images/products/0c7a6702fb366f8e1047ea5b3bd0eda64b812378 - Copy.jpg" alt="">
+                        <img src="./public/images/album/3.jpg" alt="">
                     </div>
 
                 </a>
-                <a href="#" class="album_link">
+                <a href="albumClient#lg=1&slide=3" class="album_link">
                     <div class="album__overlay">
                         <div class="album__overlay_icon">
                             <i class="fab fa-facebook"></i>
                         </div>
                         <div class="album__overlay_tim">
-                            ♥ 28
+                            ♥ 18
                         </div>
                     </div>
                     <div class="slider_album_boxImg">
-                        <img src="./public/images/products/1e0da30e806fa8c957244e22bf5e662ce6c165f4.jpg" alt="">
+                        <img src="./public/images/album/4.jpg" alt="">
                     </div>
                 </a>
-                <a href="#" class="album_link">
+                <a href="albumClient#lg=1&slide=11" class="album_link">
                     <div class="album__overlay">
                         <div class="album__overlay_icon">
                             <i class="fab fa-facebook"></i>
                         </div>
                         <div class="album__overlay_tim">
-                            ♥ 28
+                            ♥ 338
                         </div>
                     </div>
                     <div class="slider_album_boxImg">
-                        <img src="./public/images/products/7274e18d4ab68a79ad42b3ad401c34c1f0bb4b93.jpg" alt="">
+                        <img src="./public/images/album/12.jpg" alt="">
                     </div>
                 </a>
-                <a href="#" class="album_link">
+                <a href="albumClient#lg=1&slide=1" class="album_link">
                     <div class="album__overlay">
                         <div class="album__overlay_icon">
-                            <i class="fab fa-facebook"></i>
+                            <i class="fab fa-twitter"></i>
                         </div>
                         <div class="album__overlay_tim">
-                            ♥ 28
+                            ♥ 48
                         </div>
                     </div>
                     <div class="slider_album_boxImg">
-                        <img src="./public/images/products/7274e18d4ab68a79ad42b3ad401c34c1f0bb4b93.jpg" alt="">
+                        <img src="./public/images/album/2.jpg" alt="">
                     </div>
                 </a>
-                <a href="#" class="album_link">
+                <a href="albumClient#lg=1&slide=8" class="album_link">
                     <div class="album__overlay">
                         <div class="album__overlay_icon">
                             <i class="fab fa-facebook"></i>
                         </div>
                         <div class="album__overlay_tim">
-                            ♥ 28
+                            ♥ 298
                         </div>
                     </div>
                     <div class="slider_album_boxImg">
-                        <img src="./public/images/products/7274e18d4ab68a79ad42b3ad401c34c1f0bb4b93.jpg" alt="">
+                        <img src="./public/images/album/15.jpg" alt="">
                     </div>
                 </a>
-                <a href="#" class="album_link">
+                <a href="albumClient#lg=1&slide=15" class="album_link">
+                    <div class="album__overlay">
+                        <div class="album__overlay_icon">
+                            <i class="fab fa-twitter"></i>
+                        </div>
+                        <div class="album__overlay_tim">
+                            ♥ 280
+                        </div>
+                    </div>
+                    <div class="slider_album_boxImg">
+                        <img src="./public/images/album/17.jpg" alt="">
+                    </div>
+                </a>
+                <a href="albumClient#lg=1&slide=17" class="album_link">
                     <div class="album__overlay">
                         <div class="album__overlay_icon">
                             <i class="fab fa-facebook"></i>
@@ -261,7 +274,33 @@
                         </div>
                     </div>
                     <div class="slider_album_boxImg">
-                        <img src="./public/images/products/7274e18d4ab68a79ad42b3ad401c34c1f0bb4b93.jpg" alt="">
+                        <img src="./public/images/album/19.jpg" alt="">
+                    </div>
+                </a>
+                <a href="albumClient#lg=1&slide=16" class="album_link">
+                    <div class="album__overlay">
+                        <div class="album__overlay_icon">
+                            <i class="fab fa-instagram"></i>
+                        </div>
+                        <div class="album__overlay_tim">
+                            ♥ 21
+                        </div>
+                    </div>
+                    <div class="slider_album_boxImg">
+                        <img src="./public/images/album/18.jpg" alt="">
+                    </div>
+                </a>
+                <a href="albumClient#lg=1&slide=10" class="album_link">
+                    <div class="album__overlay">
+                        <div class="album__overlay_icon">
+                            <i class="fab fa-instagram"></i>
+                        </div>
+                        <div class="album__overlay_tim">
+                            ♥ 58
+                        </div>
+                    </div>
+                    <div class="slider_album_boxImg">
+                        <img src="./public/images/album/11.jpg" alt="">
                     </div>
                 </a>
             </div>
