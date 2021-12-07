@@ -32,10 +32,12 @@
                 <?php if ($o['status'] == 2) : ?>
                   <div class="badge badge-success">Đã gửi hàng</div>
                 <?php elseif ($o['status'] == 1) : ?>
-                  <div class="badge badge-warning">Đang xử lí</div>
-                <?php else : ?>
-                  <div class="badge badge-danger">Chưa xác nhận</div>
-                <?php endif; ?>
+                  <div class="badge badge-info">Đang xử lí</div>
+                <?php elseif($o['status'] == 0) : ?>
+                  <div class="badge badge-warning">Chưa xác nhận</div>
+                  <?php else: ?>
+                    <div class="badge badge-danger">Đã hủy đơn</div>
+                  <?php endif;?>
               </td>
               <td>
                 <a href="order?action=viewDetail&id=<?= $o['id'] ?>" class="btn btn-primary">Chi tiết</a>

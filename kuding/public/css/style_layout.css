@@ -3650,11 +3650,12 @@ a{
     font-size: 22px;
 }
 .banner_imgBox img{
+    width: 100%;
     object-fit: cover;
 }
 .banner_imgBox{
     width: 100%;
-    height: 500px;
+    height: 550px;
 }
 /* Trang 2 */
 .box__slider__ct{

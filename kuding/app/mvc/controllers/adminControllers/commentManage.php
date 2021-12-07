@@ -1,7 +1,6 @@
 <?php
 require_once "./app/common/bridge.php";
-callModel("commentModels");
-callModel("productModels");
+
 
 // lấy tổng hợp cmt
 $syn_cmts = syn_comments();

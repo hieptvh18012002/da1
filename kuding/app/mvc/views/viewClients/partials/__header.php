@@ -29,7 +29,7 @@
                     </div>
                 </div>
                 <a href="index" class="logo">
-                    <img src="public/images/layout/logo-main.png" alt="" class="logo-img">
+                    <img src="public/images/layout/<?= $data['display']['logo'] ?>" alt="" class="logo-img">
                 </a>
             </div>
             <div class="search">
@@ -123,6 +123,9 @@
                                     <div class="form-group">
                                         <input type="date" name="birthday" id="birthday" placeholder="Ngày sinh của bạn" class="birthday">
                                     </div>
+                                    <div class="form-group">
+                                        <input type="text" name="phone" id="phone" placeholder="Số điện thoại của bạn" class="phone">
+                                    </div>
                                     <div class="gender col-md-12 mb-4 mt-4">
                                         <div class="form-check-inline">
                                             <input class="form-check-input" value="0" id="gender" type="radio" name="gender" checked>
@@ -155,7 +158,7 @@
                     <img src="public/images/layout/vietnam.png" alt="">
                 </a>
                 <div class="box-favorite-pro pt-4 pb-4">
-                    <a href="productClient?action=viewFavorite" class="favorite-pro">
+                    <a href="productFavoriteClient" class="favorite-pro">
                         <i class="fa fa-heart" aria-hidden="true"></i>
                     </a>
                     <div class="notifi">
