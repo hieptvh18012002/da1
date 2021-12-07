@@ -13,6 +13,10 @@ $controller = 'indexClient';
 $action = "show";
 $params = [];
 $url = urlProcess();
+if(isset($url[1])){
+    include_once "./app/mvc/views/viewClients/404-err.php";
+    die;
+}
 // kiểm tra và require controller phù hợp
 if (isset($url[0])) {
     // admin
@@ -31,3 +35,5 @@ if (isset($url[0])) {
 } else {
     require_once "./app/mvc/controllers/clientControllers/" . $controller . ".php";
 }
+// 2 
+
