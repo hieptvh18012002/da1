@@ -1,10 +1,9 @@
 <?php
 require_once "./app/common/bridge.php";
-callModel('accountModels');
-callModel('categoryModels');
-callModel('productModels');
 
 $list_cate = cate_select_all();
+$display = display_select_all();
+$vourchers = vc_select_show();
 
 // handle
 $err = array();
@@ -32,4 +31,4 @@ if (isset($_POST['forgot_btn'])) {
     }
 }
 // call view
-viewClient('layout', ['page' => 'forgot-pass', 'list_cate' => $list_cate, 'err' => $err['email'], 'output' => $output]);
+viewClient('layout', ['page' => 'forgot-pass', 'list_cate' => $list_cate, 'err' => $err['email'], 'output' => $output,'display'=>$display,'vourchers'=>$vourchers]);

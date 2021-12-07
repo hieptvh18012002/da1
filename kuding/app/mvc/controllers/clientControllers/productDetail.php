@@ -1,10 +1,8 @@
 <?php
 require_once "./app/common/bridge.php";
-callModel("productModels");
-callModel("categoryModels");
-callModel("commentModels");
-callModel("vourcherModels");
+
 // lấy list
+$display = display_select_all();
 $vourchers = vc_select_show();
 $list_cate = cate_select_all();
 $role = '';
@@ -89,7 +87,7 @@ if (isset($_GET['action'])) {
             }
             // xóa cmt
 
-            viewClient('layout', ['page' => 'product-details', 'list_img' => $pro_imgs, 'list_cate' => $list_cate, 'pros' => $pros, 'errCmt' => $err['cmt'], 'errImg' => $err['img'], 'list_cmt' => $cmts, 'vourchers' => $vourchers,'color'=>$color_name,'size'=>$size_name,'relate_pros'=>$relate_pros]);
+            viewClient('layout', ['page' => 'product-details', 'list_img' => $pro_imgs, 'list_cate' => $list_cate, 'pros' => $pros, 'errCmt' => $err['cmt'], 'errImg' => $err['img'], 'list_cmt' => $cmts, 'vourchers' => $vourchers,'color'=>$color_name,'size'=>$size_name,'relate_pros'=>$relate_pros,'display'=>$display]);
             die;
             break;
         case "del_cmt":
@@ -98,10 +96,10 @@ if (isset($_GET['action'])) {
 
             pdo_execute("DELETE FROM comments WHERE id='$id'");
             header('location: ');
-            viewClient("master", ['page' => 'productDetails','vourchers' => $vourchers,'color'=>$color_name,'size'=>$size_name]);
+            viewClient("master", ['page' => 'productDetails','vourchers' => $vourchers,'color'=>$color_name,'size'=>$size_name,'display'=>$display]);
             break;
     }
 }
 
 // gọi view
-viewClient('layout', ['page' => 'product-details', 'list_img' => $pro_imgs, 'list_cate' => $list_cate, 'pros' => $pros, 'errCmt' => $err['cmt'], 'errImg' => $err['img'], 'list_cmt' => $cmts, 'vourchers' => $vourchers,'color'=>$color_name,'size'=>$size_name]);
+viewClient('layout', ['page' => 'product-details', 'list_img' => $pro_imgs, 'list_cate' => $list_cate, 'pros' => $pros, 'errCmt' => $err['cmt'], 'errImg' => $err['img'], 'list_cmt' => $cmts, 'vourchers' => $vourchers,'color'=>$color_name,'size'=>$size_name,'display'=>$display]);

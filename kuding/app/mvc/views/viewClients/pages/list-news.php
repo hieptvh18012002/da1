@@ -23,12 +23,12 @@
                         <div class="col-md-7">
                             <div class="card-block">
                                 <h2 class="card-title"><a href="newsClient?action=viewDetail&id=<?= $item['id'] ?>"><?= $item['title'] ?></a></h2>
-                                <h4 class="card-text"><?= $item['shortdesc'] ?></h4>
+                                <h4 class="card-text"><?= substr($item['shortdesc'],0,100) ?>...</h4>
                                 <div class="metafooter">
                                     <div class="wrapfooter">
                                         <span class="author-meta">
-                                            <span class="post-name"><a href="author.html">Steve</a></span><br />
-                                            <span class="post-date">22 July 2017</span><span class="dot"></span><span class="post-read">6 min read</span>
+                                            <span class="post-name"><?= $item['fullname'] ?></span><br />
+                                            <span class="post-date"><?= $item['created_at'] ?></span><span class="dot"></span><span class="post-read"></span>
                                         </span>
                                     </div>
                                 </div>
@@ -55,14 +55,14 @@
                         </div>
                     </a>
                     <div class="card-block">
-                        <h2 class="card-title"><a href="post.html"><?= $item['title'] ?></a>
+                        <h2 class="card-title"><a href="newsClient?action=viewDetail&id=<?= $item['id'] ?>"><?= $item['title'] ?></a>
                         </h2>
-                        <h4 class="card-text"><?= $item['shortdesc'] ?></h4>
+                        <h4 class="card-text"><?= substr($item['shortdesc'],0,100) ?>...</h4>
                         <div class="metafooter">
                             <div class="wrapfooter">
                                 <span class="author-meta">
-                                    <span class="post-name"><a href="newsClient?action=viewDetail&id=<?= $item['id'] ?>">Steve</a></span><br />
-                                    <span class="post-date">22 July 2017</span><span class="dot"></span><span class="post-read">6 min read</span>
+                                    <span class="post-name"><?= $item['fullname'] ?></span><br />
+                                    <span class="post-date"><?= $item['created_at'] ?></span><span class="dot"></span><span class="post-read"></span>
                                 </span>
                             </div>
                         </div>

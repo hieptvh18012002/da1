@@ -1,9 +1,7 @@
 <?php
 require_once "./app/common/bridge.php";
-callModel("productModels");
-callModel("categoryModels");
-callModel("vourcherModels");
 
+$display = display_select_all();
 $list_cate = cate_select_all();
 $vourchers = vc_select_show();
 $msg = '';
@@ -53,8 +51,8 @@ if (isset($_POST['action'])) {
 
 
 
-            viewClient('layout', ['page' => 'cart','vourchers'=>$vourchers ,'list_cate' => $list_cate, 'msg' => $msg]);
+            viewClient('layout', ['page' => 'cart','vourchers'=>$vourchers ,'list_cate' => $list_cate, 'msg' => $msg,'display'=>$display]);
             break;
     }
 }
-viewClient('layout', ['page' => 'cart', 'list_cate' => $list_cate, 'msg' => $msg,'vourchers'=>$vourchers]);
+viewClient('layout', ['page' => 'cart', 'list_cate' => $list_cate, 'msg' => $msg,'vourchers'=>$vourchers,'display'=>$display]);
