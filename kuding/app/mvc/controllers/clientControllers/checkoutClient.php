@@ -26,6 +26,7 @@ if (isset($_GET['action'])) {
                 $toggle_modal = "<script>$(document).ready(function(){
                     $('#box-login-register').modal('show')})</script>";
 
+                $msg = "Vui lòng đăng nhập trước khi thanh toán 🔄";
                 viewClient('layout',['page'=>'cart','toggle_modal'=>$toggle_modal,'list_cate' => $list_cate, 'msg' => $msg,'vourchers'=>$vourchers,'display'=>$display,'recommened'=>$recommended,'msg_login'=>$msg_login]);
             else :
                 // render address

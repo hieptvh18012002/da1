@@ -29,7 +29,7 @@ if (isset($_POST['action'])) {
             $_SESSION['cart'][$id]['quantity'] = $_POST['quantity'];
             $msg = "Cập nhật thành công số lượng sản phẩm";
             break;
-
+            
         default:
             // thêm mới item
             $id = $_POST['id'];
