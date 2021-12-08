@@ -139,10 +139,11 @@
                         <span>Tổng giá:</span>
                         <p><?= number_format($total, 0, ',') ?>đ</p>
                     </div>
-                    <div class="content__subtotal">
+                    <div style="display: none;" id="shiping" class="content__subtotal">
                         <span>Phí chuyển hàng:</span>
                         <p>30.000đ</p>
                     </div>
+                    <input type="number" hidden id="input_shiping" name="shiping" value="0">
                     <?php if (!empty($data['vour_exist'])) : ?>
                         <div class="content__subtotal">
                             <span>Mã giảm giá:</span>

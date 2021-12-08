@@ -4,7 +4,7 @@ $(document).ready(function () {
     });
     $('#note').click(function (e) {
         e.preventDefault();
-        $('.note__input').show();
+        $('.note__input').toggle('none');
     });
     // $('.body__order__content').scroll(function () {
     //     var pos_body = $(window).scrollTop();
@@ -36,6 +36,14 @@ function innerHTML_tinh() {
     const opValue = opList.options[opList.selectedIndex].text;
     const spanSlec = document.querySelector('.tinhAdd')
     spanSlec.innerText = opValue + ` /`;
+    if(opList.value != '01TTT'){
+        $('#shiping').show();
+        $('#input_shiping').attr('value', 30000);
+    }
+    if(opList.value == '01TTT'){
+        $('#shiping').hide();
+        $('#input_shiping').attr('value', 0);
+    }
 
 }
 function innerHTML_huyen() {
