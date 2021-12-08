@@ -40,14 +40,14 @@
             <div class="title-text">
                 mới: 100+ sản phẩm mới hàng ngày
             </div>
-            <div class="toggle-filter " style="display: flex;align-items: center;">
+            <!-- <div class="toggle-filter " style="display: flex;align-items: center;">
                 <span class="pb-2 pr-3">Nam</span>
                 <div class="ckbx-style-8">
                     <input type="checkbox" id="filter_new" value="0" name="ckbx-style-8">
                     <label for="filter_new"></label>
                 </div>
                 <span class="pb-2 pl-4">Nữ</span>
-            </div>
+            </div> -->
         </div>
         <div class="slick__slider">
             <div class="pro-news-slider responsive">
@@ -101,7 +101,6 @@
                         <!-- <img src="public/images/layout/261d0a0ba82f5e1c2b6b03fb85b850b687c0e93f.jpg" alt=""> -->
                         <img src="./public/images/upload/<?= $data['news_special2']['image'] ?>" alt="">
                     </div>
-
                 </a>
                 <div class="pro-name">
                     <?= $data['news_special2']['title'] ?>
@@ -119,14 +118,14 @@
             <div class="title-text">
                 Đang là xu hướng
             </div>
-            <div class="toggle-filter " style="display: flex;align-items: center;">
+            <!-- <div class="toggle-filter " style="display: flex;align-items: center;">
                 <span class="pb-2 pr-3">Nam</span>
                 <div class="ckbx-style-8">
                     <input type="checkbox" id="trending" value="0" name="ckbx-style-8">
                     <label for="trending"></label>
                 </div>
                 <span class="pb-2 pl-4">Nữ</span>
-            </div>
+            </div> -->
         </div>
         <div class="slick__slider">
             <div class="pro-news-slider responsive">

@@ -110,6 +110,43 @@ $("#checkout").validate({
     }
  });
 
+
+// validate yêu thích
+$("#favorite").validate({
+    rules: {
+        color: {
+            required: true,
+        },
+        size: {
+            required: true,
+        },
+        quantity:{
+            required: true,
+            min: 1,
+            number: true
+        }
+    },
+
+    messages: {
+        color: {
+            required: "Vui lòng chọn màu sắc !",
+        },
+        size: {
+            required: "Vui lòng chọn kích cỡ !",
+        },
+        quantity:{
+            required: "Vui lòng chọn số lượng !",
+            min: "Số lượng phải lớn hơn 0",
+            number: "Vui lòng nhập số !"
+        }
+       
+    },
+    submitHandler: function(form) {
+      form.submit();
+    }
+ });
+
+
  $.validator.addMethod("validatePassword", function (value, element) {
     return this.optional(element) || /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,}$/.test(value);
 }, "Mật khẩu không chứa ký đặc biệt ít nhất 1 số và 1 chữ cái");

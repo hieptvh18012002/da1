@@ -86,9 +86,9 @@
                             </div>
                         </div>
                         <div class="proC__love">
-                            <div class="proC__love__icon">
+                            <a href="productFavoriteClient?action=addFavorite&id=<?= $item['id'] ?>" class="proC__love__icon">
                                 <i class="far fa-heart"></i>
-                            </div>
+                            </a>
                         </div>
                         <?php if($item['discount']>0):?>
                         <div class="proC__sale">
