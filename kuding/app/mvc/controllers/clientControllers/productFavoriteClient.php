@@ -7,12 +7,15 @@ $display = display_select_all();
 $vourchers = vc_select_show();
 // list favorite da luu db
 $list_favo = '';
-if(isset($_SESSION['admin'])){
-    $client_id = $_SESSION['admin']['id'];
-}else if(isset($_SESSION['admin'])){
-    $client_id = $_SESSION['customer']['id'];
+// if(isset($_SESSION['admin'])){
+//     $client_id = $_SESSION['admin']['id'];
+//     $list_favo = favo_select_client($client_id);
+// }else if(isset($_SESSION['customer'])){
+//     $client_id = $_SESSION['customer']['id'];
+//     $list_favo = favo_select_client($client_id);
+// }
 
-}
+
 $list_cate = cate_select_all();
 $size_values = size_select_all();
 $color_values = color_select_all();
@@ -72,7 +75,7 @@ if (isset($_GET['action'])) {
                 // huyr ss favo
                 unset($_SESSION['favorite']);
                 // da login luu database
-                favo_insert($id,$client_id);
+                // favo_insert($id,$client_id);
 
             }
 
