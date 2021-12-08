@@ -270,7 +270,7 @@ $("#admin_pass").validate({
         name: {
             required : true,
             minlength : 6,
-            maxlength : 26
+            maxlength : 46
         },
         price: {
             required : true,
@@ -297,7 +297,7 @@ $("#admin_pass").validate({
         name: {
             required: "Vui lòng nhập tên sản phẩm !",
             minlength: "Nhập tối thiếu 6 ký tự",
-            maxlength: "Nhập tối đa 26 ký tự"
+            maxlength: "Nhập tối đa 46 ký tự"
         },
         price: {
             required: "Vui lòng nhập giá sản phẩm !",
