@@ -5,7 +5,14 @@ require_once './app/common/bridge.php';
 $display = display_select_all();
 // lấy list
 $vourchers = vc_select_show();
+// list favorite da luu db
+$list_favo = '';
+if(isset($_SESSION['admin'])){
+    $client_id = $_SESSION['admin']['id'];
+}else if(isset($_SESSION['admin'])){
+    $client_id = $_SESSION['customer']['id'];
 
+}
 $list_cate = cate_select_all();
 $size_values = size_select_all();
 $color_values = color_select_all();
@@ -42,7 +49,7 @@ if (isset($_GET['action'])) {
             }
 
             // neeus chua login thi luu ss
-            if (!isset($_SESSION['customer'])) {
+            if (!isset($_SESSION['customer']) && !isset($_SESSION['admin'])) {
                 $quantity = 1;
                 if (isset($_SESSION['favorite'][$id]) && $_SESSION['favorite'][$id] == $pros['id']) {
                     $_SESSION['favorite'][$id]['quantity'] += 1;
@@ -61,7 +68,11 @@ if (isset($_GET['action'])) {
                 // var_dump($_SESSION['favorite']);
                 // die;
             } else {
+               
+                // huyr ss favo
+                unset($_SESSION['favorite']);
                 // da login luu database
+                favo_insert($id,$client_id);
 
             }
 
@@ -81,4 +92,4 @@ if (isset($_GET['action'])) {
             break;
     }
 }
-viewClient("layout", ['page' => 'favorite', 'display' => $display, 'list_cate' => $list_cate, 'vourchers' => $vourchers, 'color_name' => $color_name, 'size_name' => $size_name]);
+viewClient("layout", ['page' => 'favorite', 'display' => $display, 'list_cate' => $list_cate, 'vourchers' => $vourchers, 'color_name' => $color_name, 'size_name' => $size_name,'list_favo'=>$list_favo]);

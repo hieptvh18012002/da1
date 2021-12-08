@@ -11,3 +11,4 @@ callModel("displayModels");
 callModel("orderModels");
 callModel("addressModels");
 callModel("accountModels");
+callModel("favoriteModels");

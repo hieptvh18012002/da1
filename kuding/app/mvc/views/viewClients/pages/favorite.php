@@ -3,7 +3,7 @@
         <p>Các mặt hàng yêu thích của bạn!</p>
     </div>
     <div class="content__like">
-        <?php if(isset($_SESSION['favorite'])):?>
+        <?php if(isset($_SESSION['favorite']) && (count($_SESSION['favorite'])>0)):?>
         <section class="like__Allitem">
             <?php foreach ($_SESSION['favorite'] as $item) : ?>
                 <form action="cartClient" class="like__item" method="POST">
