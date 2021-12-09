@@ -3,7 +3,7 @@ $(document).ready(function () {
     const thumbImg = document.querySelectorAll('.thunb__img');
     const ImgAttr = document.querySelectorAll('.thunb__img img');
     const imgIndex = document.querySelector('.img__right img');
-    console.log(thumbImg);
+    // console.log(thumbImg);
     thumbImg.forEach((thumb, index) =>{
         const attr = ImgAttr[index].getAttribute("src");
         thumb.onclick = function (){

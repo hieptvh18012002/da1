@@ -18,10 +18,11 @@
                 <div class="proC__title">
                     <p>Chọn mua những gì phù hợp với bạn</p>
                 </div>
+                <!-- pagination -->
                 <div id="paging1" class="proC__paging">
                     <nav class="pages">
                         <?php if ($data['current_page'] > 1 && $data['total_page'] > 1) : ?>
-                            <a href="productClient?action=viewListProduct&page=<?= ($data['current_page'] - 1) ?>" class="pageLeft"><i class="far fa-chevron-left"></i></a>
+                            <a href="productClient?action=viewListProduct&page=<?= ($data['current_page'] - 1) ?><?= $data['filter'] . $data['keys'] ?>" class="pageLeft"><i class="far fa-chevron-left"></i></a>
                         <?php endif; ?>
                         <li class="number__paging">
                             <?php for ($i = 1; $i <= $data['total_page']; $i++) {
@@ -30,12 +31,12 @@
                                 if ($i == $data['current_page']) {
                                     echo '<span class="numB numB__active">' . $i . '</span>';
                                 } else {
-                                    echo '<a href="productClient?action=viewListProduct&page=' . $i . '" class="numB">' . $i . '</a>';
+                                    echo '<a href="productClient?action=viewListProduct&page=' . $i . $data['filter'] . '' . $data['keys'] . '" class="numB">' . $i . '</a>';
                                 }
                             } ?>
                         </li>
                         <?php if ($data['current_page'] < $data['total_page'] && $data['total_page'] > 1) : ?>
-                            <a href="productClient?action=viewListProduct&page=<?= ($data['current_page'] + 1) ?>" class="pageRight"><i class="far fa-chevron-right"></i></a>
+                            <a href="productClient?action=viewListProduct&page=<?= ($data['current_page'] + 1) ?><?= $data['filter'] . $data['keys'] ?>" class="pageRight"><i class="far fa-chevron-right"></i></a>
                         <?php endif; ?>
                     </nav>
                 </div>
@@ -108,7 +109,7 @@
                     <div id="paging2" class="proC__paging">
                         <nav class="pages">
                             <?php if ($data['current_page'] > 1 && $data['total_page'] > 1) : ?>
-                                <a href="productClient?action=viewListProduct&page=<?= ($data['current_page'] - 1) ?>" class="pageLeft"><i class="far fa-chevron-left"></i></a>
+                                <a href="productClient?action=viewListProduct&page=<?= ($data['current_page'] - 1) ?><?= $data['filter'] . $data['keys'] ?>" class="pageLeft"><i class="far fa-chevron-left"></i></a>
                             <?php endif; ?>
                             <li class="number__paging">
                                 <?php for ($i = 1; $i <= $data['total_page']; $i++) {
@@ -117,12 +118,12 @@
                                     if ($i == $data['current_page']) {
                                         echo '<span class="numB numB__active">' . $i . '</span>';
                                     } else {
-                                        echo '<a href="productClient?action=viewListProduct&page=' . $i . '" class="numB">' . $i . '</a>';
+                                        echo '<a href="productClient?action=viewListProduct&page=' . $i . $data['filter'] . '' . $data['keys'] . '" class="numB">' . $i . '</a>';
                                     }
                                 } ?>
                             </li>
                             <?php if ($data['current_page'] < $data['total_page'] && $data['total_page'] > 1) : ?>
-                                <a href="productClient?action=viewListProduct&page=<?= ($data['current_page'] + 1) ?>" class="pageRight"><i class="far fa-chevron-right"></i></a>
+                                <a href="productClient?action=viewListProduct&page=<?= ($data['current_page'] + 1) ?><?= $data['filter'] . $data['keys'] ?>" class="pageRight"><i class="far fa-chevron-right"></i></a>
                             <?php endif; ?>
                         </nav>
                     </div>
@@ -134,23 +135,22 @@
 </main>
 <!-- js -->
 <script>
-        // lấy all class id
-        var pro_ids = document.querySelectorAll('.pro_id')
-        console.log(pro_ids)
-        // function show(pro_id){
-        //     pro_id.addEventListener('click',function(){
-        //         console.log(pro_id.value)
-        //     })
-        // }   
+    // lấy all class id
+    var pro_ids = document.querySelectorAll('.pro_id')
+    console.log(pro_ids)
+    // function show(pro_id){
+    //     pro_id.addEventListener('click',function(){
+    //         console.log(pro_id.value)
+    //     })
+    // }   
 
-        // for(const pro_id of pro_ids){
-        //     pro_id.addEventListener('click',show(pro_id))
-        // }
+    // for(const pro_id of pro_ids){
+    //     pro_id.addEventListener('click',show(pro_id))
+    // }
 
-        pro_ids.forEach((item,index) =>{
-            item.addEventListener('click', function(){
+    pro_ids.forEach((item, index) => {
+        item.addEventListener('click', function() {
             console.log(item.value);
         })
     })
-
 </script>
