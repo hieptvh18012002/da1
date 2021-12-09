@@ -1,10 +1,24 @@
 <?php
 require_once "./app/common/bridge.php";
-
 // lấy list
 $display = display_select_all();
 $vourchers = vc_select_show();
 $list_cate = cate_select_all();
+// favo
+if(isset($_SESSION['customer'])){
+    $client_id = $_SESSION['customer']['id'];
+    $favo = favo_select_client($client_id);
+    $count_favo = count($favo);
+}elseif(isset($_SESSION['admin'])){
+    $client_id = $_SESSION['admin']['id'];
+    $favo = favo_select_client($client_id);
+    $count_favo = count($favo);
+}elseif(isset($_SESSION['favorite'])){
+    $count_favo = count($_SESSION['favorite']);
+}else{
+    $count_favo = 0;
+}
+
 $role = '';
 $err = array();
 $err['img'] = '';
@@ -87,7 +101,7 @@ if (isset($_GET['action'])) {
             }
             // xóa cmt
 
-            viewClient('layout', ['page' => 'product-details', 'list_img' => $pro_imgs, 'list_cate' => $list_cate, 'pros' => $pros, 'errCmt' => $err['cmt'], 'errImg' => $err['img'], 'list_cmt' => $cmts, 'vourchers' => $vourchers,'color'=>$color_name,'size'=>$size_name,'relate_pros'=>$relate_pros,'display'=>$display]);
+            viewClient('layout', ['page' => 'product-details', 'list_img' => $pro_imgs, 'list_cate' => $list_cate, 'pros' => $pros, 'errCmt' => $err['cmt'], 'errImg' => $err['img'], 'list_cmt' => $cmts, 'vourchers' => $vourchers,'color'=>$color_name,'size'=>$size_name,'relate_pros'=>$relate_pros,'display'=>$display,'count_favo'=>$count_favo]);
             die;
             break;
         case "del_cmt":
@@ -96,10 +110,10 @@ if (isset($_GET['action'])) {
 
             pdo_execute("DELETE FROM comments WHERE id='$id'");
             header('location: ');
-            viewClient("master", ['page' => 'productDetails','vourchers' => $vourchers,'color'=>$color_name,'size'=>$size_name,'display'=>$display]);
+            viewClient("master", ['page' => 'productDetails','vourchers' => $vourchers,'color'=>$color_name,'size'=>$size_name,'display'=>$display,'count_favo'=>$count_favo]);
             break;
     }
 }
 
 // gọi view
-viewClient('layout', ['page' => 'product-details', 'list_img' => $pro_imgs, 'list_cate' => $list_cate, 'pros' => $pros, 'errCmt' => $err['cmt'], 'errImg' => $err['img'], 'list_cmt' => $cmts, 'vourchers' => $vourchers,'color'=>$color_name,'size'=>$size_name,'display'=>$display]);
+viewClient('layout', ['page' => 'product-details', 'list_img' => $pro_imgs, 'list_cate' => $list_cate, 'pros' => $pros, 'errCmt' => $err['cmt'], 'errImg' => $err['img'], 'list_cmt' => $cmts, 'vourchers' => $vourchers,'color'=>$color_name,'size'=>$size_name,'display'=>$display,'count_favo'=>$count_favo]);

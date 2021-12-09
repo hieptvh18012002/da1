@@ -11,6 +11,7 @@
             <span class="divider">/</span>
             <a href="#">Jade View Print Cotton Sweatshit</a>
         </div>
+        <div class="" id="test"></div>
 
     </div>
     <div class="product-display">
@@ -44,12 +45,12 @@
                         <div id="price-observer">
                             <div class="default-price"><span class="currency lc"></span><span class="number"> <?= number_format($data['pros']['price'] - $data['pros']['discount']) ?>đ</span></div>
 
-                            <?php if($data['pros']['discount']>0):?>
-                            <div class="price__sale">
-                                <span class="price__sale--fist"><?= number_format($data['pros']['price']) ?>đ</span>
-                                <span class="price__sale--off"><?= number_format($data['pros']['discount']/$data['pros']['price'] *100,0,',','.') ?>%</span>
-                            </div>
-                            <?php endif;?>
+                            <?php if ($data['pros']['discount'] > 0) : ?>
+                                <div class="price__sale">
+                                    <span class="price__sale--fist"><?= number_format($data['pros']['price']) ?>đ</span>
+                                    <span class="price__sale--off"><?= number_format($data['pros']['discount'] / $data['pros']['price'] * 100, 0, ',', '.') ?>%</span>
+                                </div>
+                            <?php endif; ?>
                         </div>
                         <div class="pd-sku">
                             <p>SKU# MNB0001599</p>
@@ -96,7 +97,10 @@
                         <div class="animate-button-wrap pd-buttons">
                             <button type="submit" name="action" id="checkout_0" class="pd-checkout animate black loader">Add
                                 to Bag</button>
-                            <button type="submit" style="border:none;background:none;"><i class="far fa-heart"></i></button>
+                            <span class=" btn_add_fa">
+                                <i class="far fa-heart"></i>
+                                <input type="hidden" class="pro_id" name="pro_id" value="<?= $data['pros']['id'] ?>">
+                            </span>
                         </div>
                     </div>
                     <div class="body__content__detail">
@@ -309,41 +313,28 @@
         </div>
 </main>
 <!-- end main -->
-<!-- <script>
-    $(document).ready(function() {
-        $('#form-add-bag').submit(function(e) {
-            e.preventDefault()
-            var name = <?= $data['pros']['name'] ?>;
-            var avatar = <?= $data['pros']['avatar'] ?>;
-            var price = <?= $data['pros']['price'] ?>;
-            var size = $('#size').val();
-            var color = $('#color').val();
-            var quantity = $('#quantity').val();
-            var action = "add-cart"
-
-            if (quantity == '' || quantity < 0) {
-                $('.error').html("Số lượng không hợp lệ")
-
-            } else {
-                $.ajax({
-                    url: 'cartClient',
-                    method: 'GET',
-                    data:{
-                        action: action,
-                        size: size,
-                        color: color,
-                        avatar: avatar,
-                        price: price,
-                        quantity: quantity
-                    },
-                    success: function(data){
-                        $('.msg').html(data)
-                    },
-                    error: function(data){
-                        $('.er').html(data)
-                    }
-                })
+<script>
+    const proIds = document.querySelector('.pro_id')
+    const btn = document.querySelector('.btn_add_fa')
+    btn.addEventListener('click', function() {
+        var id = proIds.value
+        var action = "add";
+        // gửi value -> php qua ajax (module favorite product)
+        $.ajax({
+            url: 'productFavoriteClient',
+            method: 'GET',
+            data: {
+                action: "add",
+                pro_id: id,
+            },
+            success: function(data) {
+                $('#test').html(data)
+            },
+            error: function(data){
+                $('#test').html(data)
             }
         })
-    });
-</script> -->
+
+
+    })
+</script>

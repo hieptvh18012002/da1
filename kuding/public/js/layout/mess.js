@@ -44,7 +44,7 @@ function toast({
 function showSuccess(){
     toast({
     title: '',
-    mess: 'Thêm giỏ hàng thành công !',
+    mess: 'Thêm thành công!',
     type: 'success',
     duration: 3000
     });
@@ -52,7 +52,7 @@ function showSuccess(){
 function showError(){
     toast({
     title: '',
-    mess: 'Bạn đã xóa 1 sản phẩm khỏi giỏ hàng!',
+    mess: 'Xóa thành công!',
     type: 'error',
     duration: 3000
     });

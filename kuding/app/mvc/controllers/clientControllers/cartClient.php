@@ -4,6 +4,21 @@ require_once "./app/common/bridge.php";
 $display = display_select_all();
 $list_cate = cate_select_all();
 $vourchers = vc_select_show();
+// favo
+if(isset($_SESSION['customer'])){
+    $client_id = $_SESSION['customer']['id'];
+    $favo = favo_select_client($client_id);
+    $count_favo = count($favo);
+}elseif(isset($_SESSION['admin'])){
+    $client_id = $_SESSION['admin']['id'];
+    $favo = favo_select_client($client_id);
+    $count_favo = count($favo);
+}elseif(isset($_SESSION['favorite'])){
+    $count_favo = count($_SESSION['favorite']);
+}else{
+    $count_favo = 0;
+}
+
 // lấy sp đề xuất
 $recommended = pdo_query("SELECT * FROM products ORDER BY RAND() LIMIT 0,10");
 $msg = '';
@@ -53,8 +68,8 @@ if (isset($_POST['action'])) {
 
 
 
-            viewClient('layout', ['page' => 'cart','vourchers'=>$vourchers ,'list_cate' => $list_cate, 'msg' => $msg,'display'=>$display,'recommened'=>$recommended]);
+            viewClient('layout', ['page' => 'cart','vourchers'=>$vourchers ,'list_cate' => $list_cate, 'msg' => $msg,'display'=>$display,'recommened'=>$recommended,'count_favo'=>$count_favo]);
             break;
     }
 }
-viewClient('layout', ['page' => 'cart', 'list_cate' => $list_cate, 'msg' => $msg,'vourchers'=>$vourchers,'display'=>$display,'recommened'=>$recommended]);
+viewClient('layout', ['page' => 'cart', 'list_cate' => $list_cate, 'msg' => $msg,'vourchers'=>$vourchers,'display'=>$display,'recommened'=>$recommended,'count_favo'=>$count_favo]);

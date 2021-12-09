@@ -4,6 +4,20 @@ require_once "./app/common/bridge.php";
 // lấy tỉnh
 $province = province_select_all();
 $display = display_select_all();
+// favo
+if(isset($_SESSION['customer'])){
+    $client_id = $_SESSION['customer']['id'];
+    $favo = favo_select_client($client_id);
+    $count_favo = count($favo);
+}elseif(isset($_SESSION['admin'])){
+    $client_id = $_SESSION['admin']['id'];
+    $favo = favo_select_client($client_id);
+    $count_favo = count($favo);
+}elseif(isset($_SESSION['favorite'])){
+    $count_favo = count($_SESSION['favorite']);
+}else{
+    $count_favo = 0;
+}
 // vc
 $vourchers = vc_select_show();
 $list_cate = cate_select_all();
@@ -27,7 +41,7 @@ if (isset($_GET['action'])) {
                     $('#box-login-register').modal('show')})</script>";
 
                 $msg = "Vui lòng đăng nhập trước khi thanh toán 🔄";
-                viewClient('layout', ['page' => 'cart', 'toggle_modal' => $toggle_modal, 'list_cate' => $list_cate, 'msg' => $msg, 'vourchers' => $vourchers, 'display' => $display, 'recommened' => $recommended, 'msg_login' => $msg_login]);
+                viewClient('layout', ['page' => 'cart', 'toggle_modal' => $toggle_modal, 'list_cate' => $list_cate, 'msg' => $msg, 'vourchers' => $vourchers, 'display' => $display, 'recommened' => $recommended, 'msg_login' => $msg_login,'count_favo'=>$count_favo]);
             else :
                 // render address
                 if (isset($_GET['provinceId'])) {
@@ -136,14 +150,14 @@ if (isset($_GET['action'])) {
                 }
 
 
-                viewClient('layout', ['page' => 'checkout', 'list_cate' => $list_cate, 'list_province' => $province, 'vourchers' => $vourchers, 'errVc' => $err, 'price_new' => $price_new, 'vour_exist' => $vour_exist, 'vocher' => $vocher, 'display' => $display, 'toggle_modal' => $toggle_modal]);
+                viewClient('layout', ['page' => 'checkout', 'list_cate' => $list_cate, 'list_province' => $province, 'vourchers' => $vourchers, 'errVc' => $err, 'price_new' => $price_new, 'vour_exist' => $vour_exist, 'vocher' => $vocher, 'display' => $display, 'toggle_modal' => $toggle_modal,'count_favo'=>$count_favo]);
             endif;
 
             break;
 
         case "viewdieukhoan":
 
-            viewClient('layout', ['page' => 'dieukhoan', 'vourchers' => $vourchers, 'list_cate' => $list_cate, 'display' => $display]);
+            viewClient('layout', ['page' => 'dieukhoan', 'vourchers' => $vourchers, 'list_cate' => $list_cate, 'display' => $display,'count_favo'=>$count_favo]);
             break;
 
 
@@ -154,4 +168,4 @@ if (isset($_GET['action'])) {
             break;
     }
 }
-viewClient('layout', ['page' => 'checkout', 'vourchers' => $vourchers, 'display' => $display]);
+viewClient('layout', ['page' => 'checkout', 'vourchers' => $vourchers, 'display' => $display,'count_favo'=>$count_favo]);

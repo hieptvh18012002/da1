@@ -62,6 +62,7 @@
                     </div>
                 </form>
             </div>
+            <div class="" id="test"></div>
 
             <div class="proC__show">
                 <div class="proC__allItem">
@@ -88,10 +89,12 @@
                             </div>
                             <div class="proC__love">
                                 <span class="proC__love__icon btn_add_fa">
+                                   
                                     <i class="far fa-heart"></i>
+                                    <input type="hidden" class="pro_id" name="pro_id" value="<?= $item['id'] ?>">
                                 </span>
 
-                                <input type="hidden" class="pro_id" name="pro_id" value="<?= $item['id'] ?>">
+
                             </div>
                             <?php if ($item['discount'] > 0) : ?>
                                 <div class="proC__sale">
@@ -135,22 +138,27 @@
 </main>
 <!-- js -->
 <script>
-    // lấy all class id
-    var pro_ids = document.querySelectorAll('.pro_id')
-    console.log(pro_ids)
-    // function show(pro_id){
-    //     pro_id.addEventListener('click',function(){
-    //         console.log(pro_id.value)
-    //     })
-    // }   
+    const proIds = document.querySelectorAll('.pro_id')
+    const btn = document.querySelectorAll('.btn_add_fa')
 
-    // for(const pro_id of pro_ids){
-    //     pro_id.addEventListener('click',show(pro_id))
-    // }
+    btn.forEach((index, e) => {
+        index.addEventListener('click', function() {
+            var toilanghia = proIds[e].value
+            var action = "add";
+            // gửi value -> php qua ajax (module favorite product)
+            $.ajax({
+                url: 'productFavoriteClient',
+                method: 'GET',
+                data: {
+                    action: action,
+                    pro_id: toilanghia,
+                },
+                success: function(data) {
+                    $('#test').html(data)
+                }
+            })
 
-    pro_ids.forEach((item, index) => {
-        item.addEventListener('click', function() {
-            console.log(item.value);
+
         })
     })
 </script>

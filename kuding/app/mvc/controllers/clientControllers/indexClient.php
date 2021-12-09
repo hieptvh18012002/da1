@@ -1,6 +1,7 @@
 <?php
 require_once "./app/common/bridge.php";
 // dd
+
 $display = display_select_all();
 $list_cate = cate_select_all();
 // img cate banner
@@ -16,6 +17,20 @@ $vourchers = vc_select_show();
 // lấy new special
 $news_special = news_select_special();
 $news_special2 = news_select_special2();
+// notifi favorite
+if(isset($_SESSION['customer'])){
+    $client_id = $_SESSION['customer']['id'];
+    $favo = favo_select_client($client_id);
+    $count_favo = count($favo);
+}elseif(isset($_SESSION['admin'])){
+    $client_id = $_SESSION['admin']['id'];
+    $favo = favo_select_client($client_id);
+    $count_favo = count($favo);
+}elseif(isset($_SESSION['favorite'])){
+    $count_favo = count($_SESSION['favorite']);
+}else{
+    $count_favo = 0;
+}
 
 // xử lí nếu hết hạn thì update status -> 0
 if (is_array($list_vour)) {
@@ -35,8 +50,8 @@ if (isset($_GET['action'])) {
     switch ($_GET['action']) {
 
         default:
-        viewClient('layout', ['page' => 'homepage', 'list_cate' => $list_cate, 'pro_special' => $pro_special, 'vourchers' => $vourchers, 'pro_top10' => $pro_top10, 'pro_topview' => $pro_topview, 'news_special' => $news_special, 'news_special2' => $news_special2, 'cate_banner' => $cate_banner]);
+        viewClient('layout', ['page' => 'homepage', 'list_cate' => $list_cate, 'pro_special' => $pro_special, 'vourchers' => $vourchers, 'pro_top10' => $pro_top10, 'pro_topview' => $pro_topview, 'news_special' => $news_special, 'news_special2' => $news_special2, 'cate_banner' => $cate_banner,'count_favo'=>$count_favo]);
             break;
     }
 } else
-    viewClient('layout', ['page' => 'homepage', 'list_cate' => $list_cate, 'pro_special' => $pro_special, 'vourchers' => $vourchers, 'pro_top10' => $pro_top10, 'pro_topview' => $pro_topview, 'news_special' => $news_special, 'news_special2' => $news_special2, 'cate_banner' => $cate_banner,'display'=>$display]);
+    viewClient('layout', ['page' => 'homepage', 'list_cate' => $list_cate, 'pro_special' => $pro_special, 'vourchers' => $vourchers, 'pro_top10' => $pro_top10, 'pro_topview' => $pro_topview, 'news_special' => $news_special, 'news_special2' => $news_special2, 'cate_banner' => $cate_banner,'display'=>$display,'count_favo'=>$count_favo]);
