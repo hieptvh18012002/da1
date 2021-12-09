@@ -21,10 +21,11 @@ if (isset($_GET['action'])) {
                     $code_exist = vc_select_code($code);
                     if (is_array($code_exist)) {
                         $err = "Mã code đã tồn tại, vui lòng nhập mã khác!";
-                    }
-                    if (empty($err)) {
-                        vc_insert($name_vour, $code, $sale, $quantity, 1, date('Y-m-d h:i:s a', time()), $expired_date);
-                        header('location: vourcher?msg=Thêm thành công 1 mã giảm giá');
+                    }else{
+                        if (empty($err)) {
+                            vc_insert($name_vour, $code, $sale, $quantity, 1, date('Y-m-d h:i:s a', time()), $expired_date);
+                            header('location: vourcher?msg=Thêm thành công 1 mã giảm giá');
+                        }
                     }
                 } else {
                     // tiền 0

@@ -29,23 +29,24 @@ $(document).ready(function () {
     });
 
 });
-function innerHTML_tinh() {
-    $('.input__address').removeClass('none');
-    $('.input__auto').addClass('none');
-    const opList = document.querySelector('#tinh');
-    const opValue = opList.options[opList.selectedIndex].text;
-    const spanSlec = document.querySelector('.tinhAdd')
-    spanSlec.innerText = opValue + ` /`;
-    if(opList.value != '01TTT'){
-        $('#shiping').show();
-        $('#input_shiping').attr('value', 30000);
-    }
-    if(opList.value == '01TTT'){
-        $('#shiping').hide();
-        $('#input_shiping').attr('value', 0);
-    }
 
-}
+// function innerHTML_tinh() {
+//     $('.input__address').removeClass('none');
+//     $('.input__auto').addClass('none');
+//     const opList = document.querySelector('#tinh');
+//     const opValue = opList.options[opList.selectedIndex].text;
+//     const spanSlec = document.querySelector('.tinhAdd')
+//     spanSlec.innerText = opValue + ` /`;
+//     if(opList.value != '01TTT'){
+//         $('#shiping').show();
+//         $('#input_shiping').attr('value', 30000);
+//     }
+//     if(opList.value == '01TTT'){
+//         $('#shiping').hide();
+//         $('#input_shiping').attr('value', 0);
+//     }
+
+// }
 function innerHTML_huyen() {
     const opList = document.querySelector('#huyen');
     const opValue = opList.options[opList.selectedIndex].text;

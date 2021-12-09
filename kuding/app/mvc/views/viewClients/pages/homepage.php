@@ -40,14 +40,14 @@
             <div class="title-text">
                 mới: 100+ sản phẩm mới hàng ngày
             </div>
-            <!-- <div class="toggle-filter " style="display: flex;align-items: center;">
+            <div class="toggle-filter " style="display: flex;align-items: center;">
                 <span class="pb-2 pr-3">Nam</span>
                 <div class="ckbx-style-8">
                     <input type="checkbox" id="filter_new" value="0" name="ckbx-style-8">
                     <label for="filter_new"></label>
                 </div>
                 <span class="pb-2 pl-4">Nữ</span>
-            </div> -->
+            </div>
         </div>
         <div class="slick__slider">
             <div class="pro-news-slider responsive">
@@ -118,14 +118,14 @@
             <div class="title-text">
                 Đang là xu hướng
             </div>
-            <!-- <div class="toggle-filter " style="display: flex;align-items: center;">
+            <div class="toggle-filter " style="display: flex;align-items: center;">
                 <span class="pb-2 pr-3">Nam</span>
                 <div class="ckbx-style-8">
                     <input type="checkbox" id="trending" value="0" name="ckbx-style-8">
                     <label for="trending"></label>
                 </div>
                 <span class="pb-2 pl-4">Nữ</span>
-            </div> -->
+            </div>
         </div>
         <div class="slick__slider">
             <div class="pro-news-slider responsive">
