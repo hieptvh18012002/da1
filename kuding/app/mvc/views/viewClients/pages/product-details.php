@@ -221,7 +221,7 @@
                         <form action="" method="POST" enctype="multipart/form-data">
                             <div class="input__comment">
                                 <div class="avatar__comment">
-                                    <img src="./public/images/products/ong1.jpg" alt="" width="100%">
+                                    <img src="./public/images/album/ong1.jpg" alt="" width="100%">
                                 </div>
                                 <div class="input__keys">
                                     <input type="text" name="content" placeholder="Bình luận của bạn">
@@ -253,7 +253,7 @@
                         <?php foreach ($data['list_cmt'] as $item) : ?>
                             <div class="item__comment">
                                 <div class="item__ava">
-                                    <img src="./public/images/products/ong1.jpg" alt="" width="100%">
+                                    <img src="./public/images/album/ong1.jpg" alt="" width="100%">
                                 </div>
                                 <div class="item__right">
                                     <div class="item__name">
