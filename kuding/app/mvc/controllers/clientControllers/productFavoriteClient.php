@@ -29,7 +29,17 @@ $msg = '';
 // var_dump($_SESSION['favorite']);die;
 if (isset($_GET['action'])) {
     switch ($_GET['action']) {
-        case "addFavorite":
+        
+        
+        case "del":
+            $id = $_GET['id'];
+            
+            unset($_SESSION['favorite'][$id]);
+            header('location: productFavoriteClient');
+            break;
+        default:
+        // thu thập data từ ajax gửi vào
+            // show
             $id = $_GET['id'];
             $pros = product_select_by_id($id);
             // laasy attr value sp
@@ -78,19 +88,6 @@ if (isset($_GET['action'])) {
                 // favo_insert($id,$client_id);
 
             }
-
-
-            break;
-        
-        case "del":
-            $id = $_GET['id'];
-            
-            unset($_SESSION['favorite'][$id]);
-            header('location: productFavoriteClient');
-            break;
-        default:
-            // show
-
 
             break;
     }

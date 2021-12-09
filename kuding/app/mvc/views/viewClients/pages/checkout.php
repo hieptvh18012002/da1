@@ -103,14 +103,20 @@
                     <?php $total += $tt;
                     endforeach; ?>
 
-
                     <!-- tổng giá (check nếu nhập đúng mã vc thì đưa ra giá new)-->
                     <?php if (!empty($data['price_new'])) : ?>
+                        <!-- ktra nếu trong hà nội thì phí ship = 0  -->
+                        <input type="number" hidden id="input_shiping" name="shiping" value="0">
+
                         <!-- used lưu info client mua và dùng 1 loại vc -->
-                        <input type="hidden" name="used_voucher" value="<?= $data['vocher'] != ''? $data['vocher'] :'' ?>">
+                        <input type="hidden" name="used_voucher" value="<?= $data['vocher'] != '' ? $data['vocher'] : '' ?>">
+
                         <input type="hidden" name="total_price" id="total_price" value="<?= $data['price_new'] ?>">
                     <?php else : ?>
-                        <input type="hidden" name="total_price" id="total_price" value="<?= $total + 30000 ?>">
+                        <!-- ktra nếu trong hà nội thì phí ship = 0  -->
+                        <input type="number" hidden id="input_shiping" name="shiping" value="0">
+                        <!-- tổng tiền -->
+                        <input type="hidden" name="total_price" id="total_price" value="<?= $total ?>">
                     <?php endif; ?>
                     <div class="order__chage">
                         <a href="cartClient" class="text-primary">Chỉnh sửa giỏ hàng</a>
@@ -143,7 +149,6 @@
                         <span>Phí chuyển hàng:</span>
                         <p>30.000đ</p>
                     </div>
-                    <input type="number" hidden id="input_shiping" name="shiping" value="0">
                     <?php if (!empty($data['vour_exist'])) : ?>
                         <div class="content__subtotal">
                             <span>Mã giảm giá:</span>
@@ -160,7 +165,7 @@
                             <?php if (!empty($data['price_new'])) : ?>
                                 <?= $data['price_new'] < 0 ? 0 : number_format($data['price_new'], 0, ',') ?>
                             <?php else : ?>
-                                <?= $total < 0 ? 0 : number_format($total + 30000, 0, ',') ?>
+                                <?= $total < 0 ? 0 : "<span id=tongthanhtien></span>" ?>
                             <?php endif; ?>
                             đ</span>
 
@@ -191,7 +196,7 @@
             </div>
         </div>
     </form>
-    
+
 </main>
 <!-- gửi value address -->
 <script>
@@ -228,4 +233,25 @@
             })
         })
     })
+
+    function innerHTML_tinh() {
+        $('.input__address').removeClass('none');
+        $('.input__auto').addClass('none');
+        const opList = document.querySelector('#tinh');
+        const opValue = opList.options[opList.selectedIndex].text;
+        const spanSlec = document.querySelector('.tinhAdd')
+        spanSlec.innerText = opValue + ` /`;
+        if (opList.value != '01TTT') {
+            $('#shiping').show();
+            $('#input_shiping').attr('value', 30000);
+            $('#tongthanhtien').html(<?= $data['price_new'] ?>)
+        }
+        if (opList.value == '01TTT') {
+            $('#shiping').hide();
+            $('#input_shiping').attr('value', 0);
+            $('#tongthanhtien').html(<?= $data['price_new'] + 30000 ?>)
+
+        }
+
+    }
 </script>

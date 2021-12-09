@@ -6,8 +6,9 @@ function get_connection()
     $dbname = 'da1_kooding';
     $username = 'root';
     $password = '';
+    $url = "mysql:host=$host;dbname=$dbname;charset=utf8";
     try {
-        $pdo = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
+        $pdo = new PDO($url, $username, $password);
         // set các thuộc tính 1: báo cáo lỗi, ngoại lệ.
         $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     } catch (PDOException $e) {

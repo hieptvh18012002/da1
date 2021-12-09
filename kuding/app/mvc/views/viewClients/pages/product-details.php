@@ -96,7 +96,7 @@
                         <div class="animate-button-wrap pd-buttons">
                             <button type="submit" name="action" id="checkout_0" class="pd-checkout animate black loader">Add
                                 to Bag</button>
-                            <i class="far fa-heart"></i>
+                            <button type="submit" style="border:none;background:none;"><i class="far fa-heart"></i></button>
                         </div>
                     </div>
                     <div class="body__content__detail">
