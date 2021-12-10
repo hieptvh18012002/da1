@@ -87,7 +87,7 @@
                                     <img src="public/images/layout/colorwheel-2.png" alt="">
                                 </div>
                             </div>
-                            <div class="proC__love">
+                            <div onclick="showLove();" class="proC__love">
                                 <span class="proC__love__icon btn_add_fa">
                                    
                                     <i class="far fa-heart"></i>
@@ -134,7 +134,8 @@
             </div>
         </div>
     <?php endif; ?>
-
+    <div id="toast">
+    </div>
 </main>
 <!-- js -->
 <script>

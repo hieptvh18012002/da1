@@ -57,3 +57,11 @@ function showError(){
     duration: 3000
     });
 }
+function showLove(){
+    toast({
+    title: '',
+    mess: 'Thêm sản sản phẩm yêu thích thành công!',
+    type: 'success',
+    duration: 3000
+    });
+}
