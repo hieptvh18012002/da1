@@ -70,7 +70,7 @@
       </li>
       <li class="nav-item nav-profile dropdown">
         <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" id="profileDropdown">
-          <img src="./public/images/upload/bbb3ca852a037b921bd07e62404589b24dc7473c.jpg" alt="profile" />
+          <img src="./public/images/upload/a.jpg" alt="profile" />
         </a>
         <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="profileDropdown">
           <a href="profile" class="dropdown-item">

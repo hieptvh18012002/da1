@@ -3,18 +3,30 @@ require_once './app/common/bridge.php';
 
 // dd
 $display = display_select_all();
-// lấy list
 $vourchers = vc_select_show();
-// list favorite da luu db
-$list_favo = '';
-// if(isset($_SESSION['admin'])){
-//     $client_id = $_SESSION['admin']['id'];
-//     $list_favo = favo_select_client($client_id);
-// }else if(isset($_SESSION['customer'])){
-//     $client_id = $_SESSION['customer']['id'];
-//     $list_favo = favo_select_client($client_id);
-// }
 
+// lấy list favorite
+$list_favo = [];
+if (isset($_SESSION['admin'])) {
+    unset($_SESSION['favorite']);
+    $client_id = $_SESSION['admin']['id'];
+    $list_favo = favo_select_client($client_id);
+    $count_favo = count($list_favo);
+} else if (isset($_SESSION['customer'])) {
+    unset($_SESSION['favorite']);
+    $client_id = $_SESSION['customer']['id'];
+    $list_favo = favo_select_client($client_id);
+    $count_favo = count($list_favo);
+} elseif (isset($_SESSION['favorite'])) {
+    $list_favo = $_SESSION['favorite'];
+    $count_favo = count($list_favo);
+}else{
+    $count_favo = 0;
+
+}
+
+// echo "<pre>";
+// print_r($list_favo);die;
 
 $list_cate = cate_select_all();
 $size_values = size_select_all();
@@ -29,8 +41,21 @@ $msg = '';
 // var_dump($_SESSION['favorite']);die;
 if (isset($_GET['action'])) {
     switch ($_GET['action']) {
-        case "addFavorite":
+
+        case "del":
             $id = $_GET['id'];
+            // ktra lưu ss hay db
+            if (isset($_SESSION['favorite'])) {
+                unset($_SESSION['favorite'][$id]);
+            } else {
+                favo_del($client_id, $id);
+            }
+            header('location: productFavoriteClient?msg=Xóa thành công');
+            break;
+        case 'add':
+            // thu thập data từ ajax gửi vào
+            $id = $_GET['pro_id'];
+            // show
             $pros = product_select_by_id($id);
             // laasy attr value sp
             $color_id = [];
@@ -54,11 +79,11 @@ if (isset($_GET['action'])) {
             // neeus chua login thi luu ss
             if (!isset($_SESSION['customer']) && !isset($_SESSION['admin'])) {
                 $quantity = 1;
-                if (isset($_SESSION['favorite'][$id]) && $_SESSION['favorite'][$id] == $pros['id']) {
-                    $_SESSION['favorite'][$id]['quantity'] += 1;
+                if (isset($_SESSION['favorite'][$id])) {
+                    $msg = "<div class='alert alert-success'>Sản phẩm đã được bạn lưu trước đó</div>";
                 } else {
                     $item = [
-                        'id' => $pros['id'],
+                        'pro_id' => $pros['id'],
                         'name' => $pros['name'],
                         'price' => $pros['price'] - $pros['discount'],
                         'avatar' => $pros['avatar'],
@@ -66,33 +91,28 @@ if (isset($_GET['action'])) {
                         'size_name' => $size_name,
                     ];
                     $_SESSION['favorite'][$id] = $item;
+                    $msg = "<div class='alert alert-success'>Thêm thành công sản phẩm yêu thích</div>";
+
                 }
-                // echo "<pre>";
-                // var_dump($_SESSION['favorite']);
-                // die;
+              
             } else {
-               
                 // huyr ss favo
                 unset($_SESSION['favorite']);
-                // da login luu database
-                // favo_insert($id,$client_id);
-
+                $favo_exist = favo_select_by_pro($id);
+                $msg = "<div class='alert alert-success'>Sản phẩm đã được bạn lưu trước đó</div>";
+                if (count($favo_exist) != 0) {
+                    // đã tồn tại, méo thêm nữa
+                } else {
+                    // da login luu database
+                    favo_insert($id, $client_id);
+                    $msg = "<div class='alert alert-success'>Thêm thành công sản phẩm yêu thích</div>";
+                }
             }
 
-
-            break;
-        
-        case "del":
-            $id = $_GET['id'];
-            
-            unset($_SESSION['favorite'][$id]);
-            header('location: productFavoriteClient');
-            break;
-        default:
-            // show
-
+            echo $msg;
+            die;
 
             break;
     }
 }
-viewClient("layout", ['page' => 'favorite', 'display' => $display, 'list_cate' => $list_cate, 'vourchers' => $vourchers, 'color_name' => $color_name, 'size_name' => $size_name,'list_favo'=>$list_favo]);
+viewClient("layout", ['page' => 'favorite', 'display' => $display, 'list_cate' => $list_cate, 'vourchers' => $vourchers, 'color_name' => $color_name, 'size_name' => $size_name, 'list_favo' => $list_favo,'count_favo'=>$count_favo,'count_favo'=>$count_favo]);

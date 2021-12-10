@@ -166,11 +166,7 @@
                         <i class="fa fa-heart" aria-hidden="true"></i>
                     </a>
                     <div class="notifi">
-                        <?php if (isset($_SESSION['favorite'])) {
-                            echo count($_SESSION['favorite']);
-                        } else {
-                            echo "0";
-                        } ?>
+                        <?= $data['count_favo']; ?>
                     </div>
                 </div>
                 <div class="box-cart pt-4 pb-4">

@@ -4,12 +4,12 @@
     </div>
     <div class="content__like">
 
-        <?php if (isset($_SESSION['favorite']) && (count($_SESSION['favorite']) > 0)) : ?>
+        <?php if (isset($data['list_favo']) && (count($data['list_favo']) > 0)) : ?>
             <section class="like__Allitem">
-                <?php foreach ($_SESSION['favorite'] as $item) : ?>
+                <?php foreach ($data['list_favo'] as $item) : ?>
                     <form id="favorite" action="cartClient" class="like__item" method="POST">
                         <div class="c">
-                            <a href="productDetail?action=viewDetail&id=<?= $item['id'] ?>" class="like__img">
+                            <a href="productDetail?action=viewDetail&id=<?= $item['pro_id'] ?>" class="like__img">
                                 <img src="public/images/products/<?= $item['avatar'] ?>" alt="" width="100%">
                             </a>
                         </div>
@@ -42,12 +42,12 @@
                             </div>
                             <div class="like__filter__color">
                                 <input type="number" name="quantity" class="filter__select" value="1" name="" id="">
-                                <input type="hidden" name="id" value="<?= $item['id'] ?>">
+                                <input type="hidden" name="id" value="<?= $item['pro_id'] ?>">
                             </div>
 
 
                         </div>
-                        <a href="productFavoriteClient?action=del&id=<?= $item['id'] ?>" onclick="showError();" class="like__close">
+                        <a href="productFavoriteClient?action=del&id=<?= $item['pro_id'] ?>" onclick="showError();" class="like__close">
                             <i class="fa fa-times" aria-hidden="true"></i>
                         </a>
                         <div onclick="showSuccess();" class="like__addCart">

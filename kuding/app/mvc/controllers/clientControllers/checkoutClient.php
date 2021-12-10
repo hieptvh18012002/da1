@@ -4,6 +4,20 @@ require_once "./app/common/bridge.php";
 // lấy tỉnh
 $province = province_select_all();
 $display = display_select_all();
+// favo
+if(isset($_SESSION['customer'])){
+    $client_id = $_SESSION['customer']['id'];
+    $favo = favo_select_client($client_id);
+    $count_favo = count($favo);
+}elseif(isset($_SESSION['admin'])){
+    $client_id = $_SESSION['admin']['id'];
+    $favo = favo_select_client($client_id);
+    $count_favo = count($favo);
+}elseif(isset($_SESSION['favorite'])){
+    $count_favo = count($_SESSION['favorite']);
+}else{
+    $count_favo = 0;
+}
 // vc
 $vourchers = vc_select_show();
 $list_cate = cate_select_all();
@@ -27,7 +41,7 @@ if (isset($_GET['action'])) {
                     $('#box-login-register').modal('show')})</script>";
 
                 $msg = "Vui lòng đăng nhập trước khi thanh toán 🔄";
-                viewClient('layout',['page'=>'cart','toggle_modal'=>$toggle_modal,'list_cate' => $list_cate, 'msg' => $msg,'vourchers'=>$vourchers,'display'=>$display,'recommened'=>$recommended,'msg_login'=>$msg_login]);
+                viewClient('layout', ['page' => 'cart', 'toggle_modal' => $toggle_modal, 'list_cate' => $list_cate, 'msg' => $msg, 'vourchers' => $vourchers, 'display' => $display, 'recommened' => $recommended, 'msg_login' => $msg_login,'count_favo'=>$count_favo]);
             else :
                 // render address
                 if (isset($_GET['provinceId'])) {
@@ -66,16 +80,17 @@ if (isset($_GET['action'])) {
                             $err = "Bạn đã dùng mã giảm giá này rồi!";
                         } else {
                             // nếu đã ấn giảm giá 1 lần rồi thì lần 2 ko tiếp tục giảm
-                            if(!isset($used_voucher)){
+                            if (!isset($used_voucher)) {
                                 // check loại giảm và giam tương ứng
                                 if ($vour_exist['cate_code'] == 1) {
                                     // ct giá sau khi giảm= tổng tiền * (100% - %dc giảm )/100%
-                                    $price_new = $total_price * ((100-  $vour_exist['discount'])/100);
+                                    // + phí ship
+                                    $price_new = ($total_price + $shiping) * ((100 -  $vour_exist['discount']) / 100);
                                 } else {
                                     // giảm tiền
-                                    $price_new = $total_price - $vour_exist['discount'];
+                                    $price_new = ($total_price + $shiping) - $vour_exist['discount'];
                                 }
-                            }else{
+                            } else {
                                 $price_new = $total_price;
                             }
                         }
@@ -135,14 +150,14 @@ if (isset($_GET['action'])) {
                 }
 
 
-                viewClient('layout', ['page' => 'checkout', 'list_cate' => $list_cate, 'list_province' => $province, 'vourchers' => $vourchers, 'errVc' => $err, 'price_new' => $price_new, 'vour_exist' => $vour_exist, 'vocher' => $vocher,'display'=>$display,'toggle_modal'=>$toggle_modal]);
+                viewClient('layout', ['page' => 'checkout', 'list_cate' => $list_cate, 'list_province' => $province, 'vourchers' => $vourchers, 'errVc' => $err, 'price_new' => $price_new, 'vour_exist' => $vour_exist, 'vocher' => $vocher, 'display' => $display, 'toggle_modal' => $toggle_modal,'count_favo'=>$count_favo]);
             endif;
 
             break;
 
         case "viewdieukhoan":
 
-            viewClient('layout', ['page' => 'dieukhoan', 'vourchers' => $vourchers, 'list_cate' => $list_cate,'display'=>$display]);
+            viewClient('layout', ['page' => 'dieukhoan', 'vourchers' => $vourchers, 'list_cate' => $list_cate, 'display' => $display,'count_favo'=>$count_favo]);
             break;
 
 
@@ -153,4 +168,4 @@ if (isset($_GET['action'])) {
             break;
     }
 }
-viewClient('layout', ['page' => 'checkout', 'vourchers' => $vourchers,'display'=>$display]);
+viewClient('layout', ['page' => 'checkout', 'vourchers' => $vourchers, 'display' => $display,'count_favo'=>$count_favo]);

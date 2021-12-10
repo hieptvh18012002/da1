@@ -12,9 +12,18 @@ $(document).ready(function () {
     // });  
 
     // javascript thêm sản phẩm yêu thích
-    $(document).on('click', '.proC__love__icon i', function () {
-            $(this).toggleClass('far');
-            $(this).toggleClass('fas');
-            $(this).toggleClass('proC__icon__color')
-    });
+    // $(document).on('click', '.proC__love__icon i', function () {
+    //         $(this).toggleClass('far');
+    //         $(this).toggleClass('fas');
+    //         $(this).toggleClass('proC__icon__color')
+    // });
+    const love = document.querySelectorAll('.proC__love')
+    const icon_love = document.querySelectorAll('.proC__love__icon i')
+    love.forEach((e, index) =>{
+        e.addEventListener('click', function(){
+            icon_love[index].classList.toggle('far')
+            icon_love[index].classList.toggle('fas')
+            icon_love[index].classList.toggle('proC__icon__color')
+        })
+    })
 });

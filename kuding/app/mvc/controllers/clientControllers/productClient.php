@@ -8,23 +8,33 @@ $list_pro = product_select_all();
 $size_values = size_select_all();
 $color_values = color_select_all();
 $display = display_select_all();
-
+// favo
+if(isset($_SESSION['customer'])){
+    $client_id = $_SESSION['customer']['id'];
+    $favo = favo_select_client($client_id);
+    $count_favo = count($favo);
+}elseif(isset($_SESSION['admin'])){
+    $client_id = $_SESSION['admin']['id'];
+    $favo = favo_select_client($client_id);
+    $count_favo = count($favo);
+}elseif(isset($_SESSION['favorite'])){
+    $count_favo = count($_SESSION['favorite']);
+}else{
+    $count_favo = 0;
+}
 
 $err = array();
 $err['img'] = '';
 $err['cmt'] = '';
 $err['imgs'] = '';
 $msg = '';
+$filter='';
+$keys='';
+
 if (isset($_GET['action'])) {
     switch ($_GET['action']) {      
 
-        case "viewFavorite":
-            // code sản phẩm yêu thích
-            // nếu là khách thì lưu vào session >< đã đang nhập thì lưu db
-
-            viewClient('layout', ['page' => 'favorite', 'list_cate' => $list_cate, 'vourchers' => $vourchers,'display'=>$display]);
-            die;
-            break;
+       
 
         default:
             // show list
@@ -34,14 +44,19 @@ if (isset($_GET['action'])) {
             $total_records = count_recored("SELECT * FROM products WHERE status=1 ");
             //  cate
             if (isset($_GET['filtercate'])) {
+                $filter = '&filtercate='.$_GET['filtercate'];
                 $id_cate = $_GET['filtercate'];
                 $total_records = pro_count_recored_cate($id_cate);
                 $qr .= " AND cate_id='$id_cate'";
                 $title = category_select_by_id($_GET['filtercate'])['name'];
+
             } elseif (isset($_GET['keyword']) && isset($_GET['filter-cate'])) {
+
+                $keys = '&filter-cate='.$_GET['filter-cate'].'&keyword='.$_GET['keyword'];
                 $keyword = $_GET['keyword'];
                 $id_cate = $_GET['filter-cate'];
                 $title = "Kết quả tìm kiếm '$keyword'";
+
                 if($id_cate == 'all'){
                     $total_records = count_recored("SELECT * FROM products WHERE status=1 AND name LIKE '%$keyword%' ");
                     $qr .= " AND name LIKE '%$keyword%' ";
@@ -97,9 +112,10 @@ if (isset($_GET['action'])) {
             //     die;
             // }
 
-            viewClient('layout', ['page' => 'product', 'list_cate' => $list_cate, 'title' => $title, 'vourchers' => $vourchers, 'list_pro' => $result, 'total_page' => $total_page, 'current_page' => $current_page,'msg'=>$msg,'count'=>$count,'display'=>$display]);
+            viewClient('layout', ['page' => 'product', 'list_cate' => $list_cate, 'title' => $title, 'vourchers' => $vourchers, 'list_pro' => $result, 'total_page' => $total_page, 'current_page' => $current_page,'msg'=>$msg,'count'=>$count,'display'=>$display,
+        'keys'=>$keys,'filter'=>$filter,'count_favo'=>$count_favo]);
             die;
             break;
     }
 }
-viewClient("layout", ['page' => 'product', 'list_pro' => $list_pro, 'list_cate' => $list_cate,'vourchers' => $vourchers,'display'=>$display]);
+viewClient("layout", ['page' => 'product', 'list_pro' => $list_pro, 'list_cate' => $list_cate,'vourchers' => $vourchers,'display'=>$display,'count_favo'=>$count_favo]);

@@ -7,6 +7,20 @@ $display = display_select_all();
 $list_acc = acc_select_all();
 $list_cate = category_select_all();
 $vourchers = vc_select_show();
+// favo
+if(isset($_SESSION['customer'])){
+    $client_id = $_SESSION['customer']['id'];
+    $favo = favo_select_client($client_id);
+    $count_favo = count($favo);
+}elseif(isset($_SESSION['admin'])){
+    $client_id = $_SESSION['admin']['id'];
+    $favo = favo_select_client($client_id);
+    $count_favo = count($favo);
+}elseif(isset($_SESSION['favorite'])){
+    $count_favo = count($_SESSION['favorite']);
+}else{
+    $count_favo = 0;
+}
 
 $err = '';
 $er = array();
@@ -120,7 +134,7 @@ if (isset($_GET['action'])) :
             }
             // fllow đơn hàng 
             $my_orders = get_my_order($_SESSION['customer']['id']);
-            viewClient('layout', ['page' => 'profile','display'=>$display, 'errPass' => $er['pass'], 'err_pass' => $err_pass_old, 'list_cate' => $list_cate, 'msg' => $msg, 'vourchers' => $vourchers,'my_orders'=>$my_orders]);
+            viewClient('layout', ['page' => 'profile','display'=>$display, 'errPass' => $er['pass'], 'err_pass' => $err_pass_old, 'list_cate' => $list_cate, 'msg' => $msg, 'vourchers' => $vourchers,'my_orders'=>$my_orders,'count_favo'=>$count_favo]);
             die;
 
             break;
