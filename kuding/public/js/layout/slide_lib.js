@@ -16,7 +16,8 @@ $(document).ready(function () {
         autoplay: true,
         autoplaySpeed: 4000,
     });
-    $('.responsive').slick({
+
+    $('.slide-news').slick({
         dots: true,
         infinite: false,
         speed: 500,

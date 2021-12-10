@@ -97,7 +97,7 @@
                         <div class="animate-button-wrap pd-buttons">
                             <button type="submit" name="action" id="checkout_0" class="pd-checkout animate black loader">Add
                                 to Bag</button>
-                            <span class=" btn_add_fa">
+                            <span class=" btn_add_fa" >
                                 <i class="far fa-heart"></i>
                                 <input type="hidden" class="pro_id" name="pro_id" value="<?= $data['pros']['id'] ?>">
                             </span>

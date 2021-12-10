@@ -50,25 +50,11 @@
             </div>
         </div>
         <div class="slick__slider">
-            <div class="pro-news-slider responsive">
-                <?php foreach ($data['pro_top10'] as $item) : ?>
-                    <a href="productDetail?action=viewDetail&id=<?= $item['id'] ?>" class="pro-news-item">
-                        <img src="public/images/products/<?= $item['avatar'] ?>" alt="">
-                        <div class="">
-                            <div class="pro-name bg-white pt-2 text-center">
-                                <?= $item['name'] ?>
-                            </div>
-                            <div class="pro-des bg-white">
-                                <span> <?= substr($item['description'], 0, 15) ?></span>
-                            </div>
-                        </div>
-                    </a>
-                <?php endforeach; ?>
 
-
-                <!-- <div class="slick-prev btn-prev"></div>
-                            <div class="slick-next btn-next"></div> -->
+            <div class="pro-news-slider slide-news" id="slide-top-pros">
+                <!-- render bằng ajax -->
             </div>
+
         </div>
     </div>
     <!-- end pro-news -->
@@ -87,7 +73,7 @@
                     <div class="pro-name">
                         <?= $item['title'] ?>
                     </div>
-                    <span><?= substr($item['shortdesc'],0,200) ?></span>
+                    <span><?= substr($item['shortdesc'], 0, 200) ?></span>
                     <a href="newsClient?action=viewDetail&id=<?= $item['id'] ?>" class="btn-discover mt-2">
                         KHÁM PHÁ
                     </a>
@@ -105,7 +91,7 @@
                 <div class="pro-name">
                     <?= $data['news_special2']['title'] ?>
                 </div>
-                <span><?= substr($data['news_special2']['shortdesc'],0,200) ?></span>
+                <span><?= substr($data['news_special2']['shortdesc'], 0, 200) ?></span>
                 <a href="newsClient?action=viewDetail&id=<?= $item['id'] ?>" class="btn-discover mt-2">
                     KHÁM PHÁ
                 </a>
@@ -127,8 +113,10 @@
                 <span class="pb-2 pl-4">Nữ</span>
             </div>
         </div>
+        <!-- xu hướng -->
         <div class="slick__slider">
-            <div class="pro-news-slider responsive">
+            <div class="pro-news-slider slide-news" id="slide-trending">
+
                 <?php foreach ($data['pro_topview'] as $item) : ?>
                     <a href="productDetail?action=viewDetail&id=<?= $item['id'] ?>" class="pro-news-item">
                         <img src="public/images/products/<?= $item['avatar'] ?>" alt="">
@@ -141,8 +129,6 @@
                     </a>
                 <?php endforeach; ?>
 
-                <!-- <div class="slick-prev btn-prev"></div>
-                            <div class="slick-next btn-next"></div> -->
             </div>
         </div>
     </div>
@@ -155,7 +141,7 @@
         <div id="minus" class="btn__minus none">-</div>
         <div class="background__overlay"></div>
         <div class="site__intro show1">
-        <?= $data['display']['content_intro'] ?>
+            <?= $data['display']['content_intro'] ?>
         </div>
     </div>
 
@@ -168,6 +154,7 @@
 
             </p>
         </div>
+        <!-- album -->
         <div class="slick__slider">
             <div class="slider-album__content pb-3">
                 <a href="albumClient#lg=1&slide=0" class="album_link">
@@ -326,3 +313,45 @@
     <!-- end press -->
 </main>
 <!-- end main -->
+
+<!-- js -->
+<script>
+    // var action = "filterTrending";
+    $(document).ready(function() {
+        filterData()
+
+        // bắt sk click nút checkbox
+        $('#filter_new').click(function(){
+            filterData()
+        })
+
+        function filterData() {
+            var action = "filterTopPros";
+            // default là lọc nam
+            if ($('#filter_new').prop('checked')) {
+                // nếu check thì lọc sp nữ =2
+                genderTop = 2;
+            } else {
+                // lọc sp nam =1
+                genderTop = 1;
+            }
+            // console.log(check)
+
+            $.ajax({
+                url: "indexClient",
+                method: 'GET',
+                data: {
+                    action: action,
+                    genderTop: genderTop
+                },
+                success: function(data) {
+                    $('#slide-top-pros').html(data)
+                }
+            })
+
+
+        }
+       
+
+    })
+</script>

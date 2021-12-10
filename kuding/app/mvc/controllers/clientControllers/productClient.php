@@ -8,7 +8,7 @@ $list_pro = product_select_all();
 $size_values = size_select_all();
 $color_values = color_select_all();
 $display = display_select_all();
-// favo
+// get notifi favorite
 if(isset($_SESSION['customer'])){
     $client_id = $_SESSION['customer']['id'];
     $favo = favo_select_client($client_id);
@@ -22,6 +22,7 @@ if(isset($_SESSION['customer'])){
 }else{
     $count_favo = 0;
 }
+// xử lí nếu sp đã tồn tại favo thì cho icon heart màu đỏ
 
 $err = array();
 $err['img'] = '';
