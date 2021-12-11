@@ -1,7 +1,6 @@
 <div class="card-body">
     <h4 class="card-title">Danh sách Bình luận</h4>
     <div class="" style="display: flex;">
-        <a href="product?action=addProduct" class="text-light btn btn-primary">Thêm mới</a>
         <!-- <select name="categories" id="categories" style="border-radius: 15px;">
             <option value="" disabled selected>Lọc theo danh mục</option>
             <option value="">Tất cả sản phẩm</option>

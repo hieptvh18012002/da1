@@ -85,10 +85,10 @@ if (isset($_GET['action'])) {
                                 if ($vour_exist['cate_code'] == 1) {
                                     // ct giá sau khi giảm= tổng tiền * (100% - %dc giảm )/100%
                                     // + phí ship
-                                    $price_new = ($total_price + $shiping) * ((100 -  $vour_exist['discount']) / 100);
+                                    $price_new = ($total_price) * ((100 -  $vour_exist['discount']) / 100);
                                 } else {
                                     // giảm tiền
-                                    $price_new = ($total_price + $shiping) - $vour_exist['discount'];
+                                    $price_new = ($total_price) - $vour_exist['discount'];
                                 }
                             } else {
                                 $price_new = $total_price;

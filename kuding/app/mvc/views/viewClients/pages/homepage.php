@@ -38,24 +38,38 @@
     <div class="product-news">
         <div class="product-news__title mb-3">
             <div class="title-text">
-                mới: 100+ sản phẩm mới hàng ngày
+                mới: 10+ sản phẩm mới hàng ngày
             </div>
-            <div class="toggle-filter " style="display: flex;align-items: center;">
+            <!-- <div class="toggle-filter " style="display: flex;align-items: center;">
                 <span class="pb-2 pr-3">Nam</span>
                 <div class="ckbx-style-8">
                     <input type="checkbox" id="filter_new" value="0" name="ckbx-style-8">
                     <label for="filter_new"></label>
                 </div>
                 <span class="pb-2 pl-4">Nữ</span>
-            </div>
+            </div> -->
         </div>
         <div class="slick__slider">
 
             <div class="pro-news-slider slide-news" id="slide-top-pros">
                 <!-- render bằng ajax -->
+                <?php foreach($data['pro_top10'] as $item): ?>
+                    <a href="productDetail?action=viewDetail&id=<?= $item['id'] ?>" class="pro-news-item">
+                        <img src="public/images/products/<?= $item['avatar'] ?>" alt="">
+                        <div class="">
+                            <div class="pro-name bg-white pt-2 text-center">
+                                <?= $item['name'] ?>
+                            </div>
+                            <div class="pro-des bg-white">
+                                <span> <?= substr($item['description'], 0, 15) ?></span>
+                            </div>
+                        </div>
+                    </a>
+                <?php endforeach;?>
             </div>
 
         </div>
+        
     </div>
     <!-- end pro-news -->
     <!--  -->
@@ -104,14 +118,14 @@
             <div class="title-text">
                 Đang là xu hướng
             </div>
-            <div class="toggle-filter " style="display: flex;align-items: center;">
+            <!-- <div class="toggle-filter " style="display: flex;align-items: center;">
                 <span class="pb-2 pr-3">Nam</span>
                 <div class="ckbx-style-8">
                     <input type="checkbox" id="trending" value="0" name="ckbx-style-8">
                     <label for="trending"></label>
                 </div>
                 <span class="pb-2 pl-4">Nữ</span>
-            </div>
+            </div> -->
         </div>
         <!-- xu hướng -->
         <div class="slick__slider">
@@ -334,20 +348,21 @@
             } else {
                 // lọc sp nam =1
                 genderTop = 1;
+
             }
             // console.log(check)
 
-            $.ajax({
-                url: "indexClient",
-                method: 'GET',
-                data: {
-                    action: action,
-                    genderTop: genderTop
-                },
-                success: function(data) {
-                    $('#slide-top-pros').html(data)
-                }
-            })
+            // $.ajax({
+            //     url: "indexClient",
+            //     method: 'GET',
+            //     data: {
+            //         action: action,
+            //         genderTop: genderTop
+            //     },
+            //     success: function(data) {
+            //         $('#slide-top-pros').html(data)
+            //     }
+            // })
 
 
         }

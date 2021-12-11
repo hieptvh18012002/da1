@@ -35,8 +35,6 @@ $keys='';
 if (isset($_GET['action'])) {
     switch ($_GET['action']) {      
 
-       
-
         default:
             // show list
             //    tiêu đề 
@@ -51,7 +49,9 @@ if (isset($_GET['action'])) {
                 $qr .= " AND cate_id='$id_cate'";
                 $title = category_select_by_id($_GET['filtercate'])['name'];
 
-            } elseif (isset($_GET['keyword']) && isset($_GET['filter-cate'])) {
+            } 
+            // nếu tìm kiếm
+            elseif (isset($_GET['keyword']) && isset($_GET['filter-cate'])) {
 
                 $keys = '&filter-cate='.$_GET['filter-cate'].'&keyword='.$_GET['keyword'];
                 $keyword = $_GET['keyword'];
@@ -67,6 +67,7 @@ if (isset($_GET['action'])) {
 
                 }
             } else {
+                // default
                 $title = "Tất cả sản phẩm";
             }
             //  search
