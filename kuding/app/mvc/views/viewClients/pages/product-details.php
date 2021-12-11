@@ -11,7 +11,7 @@
             <span class="divider">/</span>
             <a href="#">Jade View Print Cotton Sweatshit</a>
         </div>
-        <div class="" id="test"></div>
+        <!-- <div class="" id="test"></div> -->
 
     </div>
     <div class="product-display">
@@ -36,7 +36,7 @@
             <div class="pd-info">
                 <!-- chứa thông tin chi tiết sp -->
                 <form class="pd__right" action="cartClient" method="POST" id="form-add-bag">
-                    <input type="hidden" name="id" value="<?= $data['pros']['id'] ?>">
+                    <input type="hidden" id="pro_id" name="id" value="<?= $data['pros']['id'] ?>">
                     <div class="pd-info-head">
                         <div class="pd-brand-sub"><span class="pd-brand-name"><a href="/mind-bridge/b/252">Brand:</a></span></div>
                         <div class="pd-name"><?= $data['pros']['name'] ?></div>
@@ -57,9 +57,10 @@
                         </div>
                     </div>
                     <div class="pd-processing-time" data-nosnippet="">
-                        <div class="rewards-wrap"><a href="#">Sign up</a> to earn <span class="rewards-currency">$</span><span class="rewards-amount-total">2.36</span>
-                            in rewards on this item!</div>
-                        Usually ships in <span>2 - 5</span> business days.
+                        <div class="rewards-wrap"><span class="rewards-amount-total">
+                                Đặt hàng thuận tiện, sản phẩm đa dạng, chất lượng cao cấp và nhận hàng cực kì nhanh chóng!
+                            </span></div>
+
                     </div>
                     <div class="pd-color">
                         <label for="color">Chọn màu sắc</label> <br>
@@ -95,9 +96,8 @@
                     <div class="er"></div>
                     <div class="fav-forms-wrap">
                         <div class="animate-button-wrap pd-buttons">
-                            <button type="submit" name="action" id="checkout_0" class="pd-checkout animate black loader">Add
-                                to Bag</button>
-                            <span class=" btn_add_fa">
+                            <button onclick="showSuccess()" type="submit" id="checkout_0" class="pd-checkout animate black loader">Thêm vào giỏ hàng</button>
+                            <span onclick="showLove()" class=" btn_add_fa">
                                 <i class="far fa-heart"></i>
                                 <input type="hidden" class="pro_id" name="pro_id" value="<?= $data['pros']['id'] ?>">
                             </span>
@@ -311,6 +311,8 @@
                 </div>
             </div>
         </div>
+        <!-- <div class="" id="test"></div> -->
+        <div id="toast"></div>
 </main>
 <!-- end main -->
 <script>
@@ -330,11 +332,41 @@
             success: function(data) {
                 $('#test').html(data)
             },
-            error: function(data){
+            error: function(data) {
                 $('#test').html(data)
             }
         })
 
 
+    })
+</script>
+<!-- add to bag -->
+<script>
+    $(document).ready(function() {
+        $('#form-add-bag').submit(function(e) {
+            e.preventDefault()
+            var action = "addBag";
+            var pro_id = $('#pro_id').val()
+            var color = $('#color').val()
+            var size = $('#size').val()
+            var quantity = $('#quantity').val()
+
+            $.ajax({
+                url: 'cartClient',
+                method: 'POST',
+                data: {
+                    action: action,
+                    pro_id: pro_id,
+                    color:color,
+                    size:size,
+                    quantity:quantity
+                },
+                success: function(data){
+                    $('#test').html(data)
+                }
+
+
+            })
+        })
     })
 </script>

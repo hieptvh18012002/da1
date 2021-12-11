@@ -69,9 +69,19 @@ $(document).ready(function () {
     // code javascript tim
     $('.animate-button-wrap i').click(function (e) { 
         e.preventDefault();
-        $(this).toggleClass('far');
-        $(this).toggleClass('fas');
-        $(this).toggleClass('favorite')
+        $(this).addClass('far');
+        $(this).addClass('fas');
+        $(this).addClass('favorite')
+    });
+    $('.pd-buttons button').click(function (e) { 
+        e.preventDefault();
+        $(this).removeAttr("onclick")
+        $(this).css({'opacity' : '0.4', 'cursor' : 'no-drop'})
+    });
+    $('span.btn_add_fa').click(function (e) { 
+        e.preventDefault();
+        $(this).removeAttr("onclick")
+        $(this).css('cursor', 'default')
     });
     // code javascript cho product details
     $('#1').click(function (e) { 

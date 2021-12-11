@@ -21,9 +21,10 @@ $(document).ready(function () {
     const icon_love = document.querySelectorAll('.proC__love__icon i')
     love.forEach((e, index) =>{
         e.addEventListener('click', function(){
-            icon_love[index].classList.toggle('far')
-            icon_love[index].classList.toggle('fas')
-            icon_love[index].classList.toggle('proC__icon__color')
+            icon_love[index].classList.add('far')
+            icon_love[index].classList.add('fas')
+            icon_love[index].classList.add('proC__icon__color')
+            e.removeAttribute("onclick")
         })
     })
 });

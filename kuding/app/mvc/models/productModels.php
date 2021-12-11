@@ -4,6 +4,11 @@ function product_select_all()
     $sql = "SELECT p.id pro_id,p.name as pr_name,p.price,p.discount,p.avatar,p.description,p.status,c.name as ca_name FROM products p INNER JOIN categories c ON p.cate_id = c.id ORDER BY p.created_at DESC";
     return pdo_query($sql);
 }
+// select top 10 pro  by category
+function pro_select_top10_cate($id){
+    $sql = "SELECT * FROM products WHERE cate_id=$id";
+    pdo_query($sql);
+}
 function product_select_by_id($id)
 {
     $sql = "SELECT * FROM products WHERE id=$id";
@@ -15,7 +20,7 @@ function pro_img_select_by_id($id)
     return pdo_query($sql);
 }
 
-// attr
+//  get attr
 function attr_select_all()
 {
     $sql = "SELECT * FROM attributes";

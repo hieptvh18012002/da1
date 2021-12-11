@@ -44,7 +44,7 @@ function toast({
 function showSuccess(){
     toast({
     title: '',
-    mess: 'Thêm thành công!',
+    mess: 'Thêm giỏ hàng thành công !',
     type: 'success',
     duration: 3000
     });

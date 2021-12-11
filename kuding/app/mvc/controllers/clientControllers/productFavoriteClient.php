@@ -61,6 +61,8 @@ if (isset($_GET['action'])) {
             $color_id = [];
             $size_id = [];
             // chuyển mảng 2 chieefu về thành chuỗi
+
+           
             foreach (color_select_pro($id) as $c) {
                 array_push($color_id, $c['value_id']);
             }
@@ -80,7 +82,7 @@ if (isset($_GET['action'])) {
             if (!isset($_SESSION['customer']) && !isset($_SESSION['admin'])) {
                 $quantity = 1;
                 if (isset($_SESSION['favorite'][$id])) {
-                    $msg = "<div class='alert alert-success'>Sản phẩm đã được bạn lưu trước đó</div>";
+                    $msg = "Sản phẩm đã được bạn lưu trước đó!";
                 } else {
                     $item = [
                         'pro_id' => $pros['id'],
@@ -91,7 +93,7 @@ if (isset($_GET['action'])) {
                         'size_name' => $size_name,
                     ];
                     $_SESSION['favorite'][$id] = $item;
-                    $msg = "<div class='alert alert-success'>Thêm thành công sản phẩm yêu thích</div>";
+                    $msg = "Thêm thành công sản phẩm yêu thích!";
 
                 }
               
@@ -99,13 +101,13 @@ if (isset($_GET['action'])) {
                 // huyr ss favo
                 unset($_SESSION['favorite']);
                 $favo_exist = favo_select_by_pro($id);
-                $msg = "<div class='alert alert-success'>Sản phẩm đã được bạn lưu trước đó</div>";
+                $msg = "Sản phẩm đã được bạn lưu trước đó!";
                 if (count($favo_exist) != 0) {
                     // đã tồn tại, méo thêm nữa
                 } else {
                     // da login luu database
                     favo_insert($id, $client_id);
-                    $msg = "<div class='alert alert-success'>Thêm thành công sản phẩm yêu thích</div>";
+                    $msg =  "Thêm thành công sản phẩm yêu thích!";
                 }
             }
 
@@ -115,4 +117,4 @@ if (isset($_GET['action'])) {
             break;
     }
 }
-viewClient("layout", ['page' => 'favorite', 'display' => $display, 'list_cate' => $list_cate, 'vourchers' => $vourchers, 'color_name' => $color_name, 'size_name' => $size_name, 'list_favo' => $list_favo,'count_favo'=>$count_favo,'count_favo'=>$count_favo]);
+viewClient("layout", ['page' => 'favorite', 'display' => $display, 'list_cate' => $list_cate, 'vourchers' => $vourchers, 'color_name' => $color_name, 'size_name' => $size_name, 'list_favo' => $list_favo,'count_favo'=>$count_favo,'count_favo'=>$count_favo,'msg'=>$msg]);

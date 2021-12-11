@@ -71,7 +71,7 @@
                 </div>
                 <div class="address">
                     <label for="">Số điện thoại</label>
-                    <input name="phone" value="<?= save_value("phone") ?>" type="text">
+                    <input name="phone" value="<?= $_SESSION['customer']['phone'] ?>" type="text">
 
                 </div>
             </div>
@@ -105,18 +105,13 @@
 
                     <!-- tổng giá (check nếu nhập đúng mã vc thì đưa ra giá new)-->
                     <?php if (!empty($data['price_new'])) : ?>
-                        <!-- ktra nếu trong hà nội thì phí ship = 0  -->
-                        <input type="number" hidden id="input_shiping" name="shiping" value="0">
-
                         <!-- used lưu info client mua và dùng 1 loại vc -->
                         <input type="hidden" name="used_voucher" value="<?= $data['vocher'] != '' ? $data['vocher'] : '' ?>">
 
-                        <input type="hidden" name="total_price" id="total_price" value="<?= $data['price_new'] ?>">
+                        <input type="hidden" name="total_price" id="total_price" value="<?= $data['price_new'] + 30000 ?>">
                     <?php else : ?>
-                        <!-- ktra nếu trong hà nội thì phí ship = 0  -->
-                        <input type="number" hidden id="input_shiping" name="shiping" value="0">
                         <!-- tổng tiền -->
-                        <input type="hidden" name="total_price" id="total_price" value="<?= $total ?>">
+                        <input type="hidden" name="total_price" id="total_price" value="<?= $total + 30000 ?>">
                     <?php endif; ?>
                     <div class="order__chage">
                         <a href="cartClient" class="text-primary">Chỉnh sửa giỏ hàng</a>
@@ -145,7 +140,7 @@
                         <span>Tổng giá:</span>
                         <p><?= number_format($total, 0, ',') ?>đ</p>
                     </div>
-                    <div style="display: none;" id="shiping" class="content__subtotal">
+                    <div /*style="display: none;"*/ id="shiping" class="content__subtotal">
                         <span>Phí chuyển hàng:</span>
                         <p>30.000đ</p>
                     </div>
@@ -165,7 +160,7 @@
                             <?php if (!empty($data['price_new'])) : ?>
                                 <?= $data['price_new'] < 0 ? 0 : number_format($data['price_new'], 0, ',') ?>
                             <?php else : ?>
-                                <?= $total < 0 ? 0 : "<span id=tongthanhtien></span>" ?>
+                                <?= $total < 0 ? 0 : $total + 30000 ?>
                             <?php endif; ?>
                             đ</span>
 

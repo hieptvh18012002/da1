@@ -91,7 +91,7 @@
             <h3>Đề xuất cho bạn</h3>
         </div>
         <div class="slick__slider">
-            <div class="cart__allItem responsive">
+            <div class="cart__allItem slide-news">
                 <?php foreach($data['recommened'] as $item):?>
                 <div class="cart__item">
                     <div class="cart__item__img">

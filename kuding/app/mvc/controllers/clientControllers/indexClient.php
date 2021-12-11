@@ -7,6 +7,10 @@ $list_cate = cate_select_all();
 // img cate banner
 $cate_banner = category_select_special();
 $pro_top10 = pro_select_top10();
+// sp nam
+$pros_male = pdo_query("SELECT * FROM products WHERE cate_id=1 ORDER BY created_at DESC LIMIT 0,10");
+$pros_female = pdo_query("SELECT * FROM products WHERE cate_id=2 ORDER BY created_at DESC LIMIT 0,10");
+
 $pro_topview = pro_select_view();
 // lấy list
 $list_vour = vc_select_all();
@@ -18,17 +22,17 @@ $vourchers = vc_select_show();
 $news_special = news_select_special();
 $news_special2 = news_select_special2();
 // notifi favorite
-if(isset($_SESSION['customer'])){
+if (isset($_SESSION['customer'])) {
     $client_id = $_SESSION['customer']['id'];
     $favo = favo_select_client($client_id);
     $count_favo = count($favo);
-}elseif(isset($_SESSION['admin'])){
+} elseif (isset($_SESSION['admin'])) {
     $client_id = $_SESSION['admin']['id'];
     $favo = favo_select_client($client_id);
     $count_favo = count($favo);
-}elseif(isset($_SESSION['favorite'])){
+} elseif (isset($_SESSION['favorite'])) {
     $count_favo = count($_SESSION['favorite']);
-}else{
+} else {
     $count_favo = 0;
 }
 
@@ -49,9 +53,21 @@ if (is_array($list_vour)) {
 if (isset($_GET['action'])) {
     switch ($_GET['action']) {
 
+        case 'filterTopPros':
+            // $gender = $_GET['genderTop'];
+            // // default = nam
+            // $result = pdo_query("SELECT * FROM products WHERE cate_id=$gender ORDER BY created_at DESC LIMIT 0,10");
+            // $output = '';
+
+          
+
+            // echo $output;
+            // // die;
+            break;
+
         default:
-        viewClient('layout', ['page' => 'homepage', 'list_cate' => $list_cate, 'pro_special' => $pro_special, 'vourchers' => $vourchers, 'pro_top10' => $pro_top10, 'pro_topview' => $pro_topview, 'news_special' => $news_special, 'news_special2' => $news_special2, 'cate_banner' => $cate_banner,'count_favo'=>$count_favo]);
+            viewClient('layout', ['page' => 'homepage', 'list_cate' => $list_cate, 'pro_special' => $pro_special, 'vourchers' => $vourchers, 'pro_top10' => $pro_top10, 'pro_topview' => $pro_topview, 'news_special' => $news_special, 'news_special2' => $news_special2, 'cate_banner' => $cate_banner, 'count_favo' => $count_favo]);
             break;
     }
 } else
-    viewClient('layout', ['page' => 'homepage', 'list_cate' => $list_cate, 'pro_special' => $pro_special, 'vourchers' => $vourchers, 'pro_top10' => $pro_top10, 'pro_topview' => $pro_topview, 'news_special' => $news_special, 'news_special2' => $news_special2, 'cate_banner' => $cate_banner,'display'=>$display,'count_favo'=>$count_favo]);
+    viewClient('layout', ['page' => 'homepage', 'list_cate' => $list_cate, 'pro_special' => $pro_special, 'vourchers' => $vourchers, 'pro_top10' => $pro_top10, 'pro_topview' => $pro_topview, 'news_special' => $news_special, 'news_special2' => $news_special2, 'cate_banner' => $cate_banner, 'display' => $display, 'count_favo' => $count_favo,'pros_female'=>$pros_male,'pros_male'=>$pros_female]);

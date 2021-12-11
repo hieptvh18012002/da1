@@ -62,7 +62,7 @@
                     </div>
                 </form>
             </div>
-            <div class="" id="test"></div>
+            <!-- <div class="" id="test"></div> -->
 
             <div class="proC__show">
                 <div class="proC__allItem">
@@ -87,14 +87,12 @@
                                     <img src="public/images/layout/colorwheel-2.png" alt="">
                                 </div>
                             </div>
-                            <div onclick="showLove();" class="proC__love">
+                            <div onclick="showSuccess('Thêm thành công sản phẩm yêu thích!');" class="proC__love">
                                 <span class="proC__love__icon btn_add_fa">
-                                   
-                                    <i class="far fa-heart"></i>
+                                    <!-- // xử lí nếu sp đã tồn tại favo thì cho icon heart màu đỏ -->
+                                    <i class='far fa-heart'></i>
                                     <input type="hidden" class="pro_id" name="pro_id" value="<?= $item['id'] ?>">
                                 </span>
-
-
                             </div>
                             <?php if ($item['discount'] > 0) : ?>
                                 <div class="proC__sale">
