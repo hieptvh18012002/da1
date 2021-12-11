@@ -24,6 +24,7 @@ if (isset($_SESSION['admin'])) {
     $count_favo = 0;
 
 }
+
 // echo "<pre>";
 // print_r($list_favo);die;
 
@@ -60,6 +61,8 @@ if (isset($_GET['action'])) {
             $color_id = [];
             $size_id = [];
             // chuyển mảng 2 chieefu về thành chuỗi
+
+           
             foreach (color_select_pro($id) as $c) {
                 array_push($color_id, $c['value_id']);
             }

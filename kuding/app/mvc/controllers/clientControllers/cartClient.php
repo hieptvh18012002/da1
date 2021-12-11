@@ -47,7 +47,7 @@ if (isset($_POST['action'])) {
             
         default:
             // thêm mới item
-            $id = $_POST['id'];
+            $id = $_POST['pro_id'];
             $pros = product_select_by_id($id);
             // nếu sp đã tồn tại thì +1 qty
             $quantity = $_POST['quantity'];
@@ -68,7 +68,7 @@ if (isset($_POST['action'])) {
 
 
 
-            viewClient('layout', ['page' => 'cart','vourchers'=>$vourchers ,'list_cate' => $list_cate, 'msg' => $msg,'display'=>$display,'recommened'=>$recommended,'count_favo'=>$count_favo]);
+            // viewClient('layout', ['page' => 'cart','vourchers'=>$vourchers ,'list_cate' => $list_cate, 'msg' => $msg,'display'=>$display,'recommened'=>$recommended,'count_favo'=>$count_favo]);
             break;
     }
 }

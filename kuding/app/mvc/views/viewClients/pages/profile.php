@@ -17,7 +17,11 @@
                     <p>Đơn hàng</p>
                 </div>
                 <div class="acc__title__text mt-3">
-                    <p>Chào mừng bạn trở lại Nghĩa</p>
+                    <p>Chào mừng bạn trở lại <?php if(isset($_SESSION['admin'])){
+                        echo $_SESSION['admin']['fullname'];
+                    }else{
+                        echo $_SESSION['customer']['fullname'];
+                    } ?></p>
                 </div>
             </div>
             <div class="body__acc__menu">

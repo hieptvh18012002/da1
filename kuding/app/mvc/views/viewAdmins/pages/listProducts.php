@@ -25,7 +25,7 @@
                     <th>Giá.</th>
                     <th>Ảnh</th>
                     <th>Giá giảm</th>
-                    <th>Mô tả</th>
+                    <!-- <th>Mô tả</th> -->
                     <th>Tình trạng</th>
                     <th>Chức năng</th>
                 </tr>
@@ -41,7 +41,6 @@
                             <td><?= number_format($item['price'], 0, ',', '.') ?> vnd</td>
                             <td><img src="./public/images/products/<?= $item['avatar'] ?>" alt=""> </td>
                             <td><?= $item['discount'] ?>vnd</td>
-                            <td><?= substr($item['description'], 0, 100) ?></td>
                             <td>
                                 <?php if ($item['status']  == 0) : ?>
                                     <label class="badge badge-danger">Hết hàng</label>

@@ -21,7 +21,7 @@ function order_select_client($id)
 }
 // lấy đơn hàng của khách:))
 function get_my_order($client_id){
-    $sql = "SELECT * FROM orders where client_id=$client_id";
+    $sql = "SELECT * FROM orders where client_id=$client_id ORDER BY created_at DESC";
    return  pdo_query($sql);
 }
 
