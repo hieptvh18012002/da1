@@ -1,6 +1,6 @@
 <main class="container">
     <div class="mainheading">
-        <h1 class="sitetitle"><a href="newsClient">Blog Kooding</a></h1>
+        <h1 class="sitetitle concax"><a href="newsClient">Blog Kooding</a></h1>
         <p class="lead">
             <?= $data['news_detail']['shortdesc'] ?>
         </p>

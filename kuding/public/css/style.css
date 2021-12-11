@@ -304,7 +304,10 @@ blockquote {
 }
 .card {
 	border-radius:4px;
-	max-height: 500px !important;
+	min-height: 100% !important;
+}
+.recent-posts .card{
+	min-height: 450px !important;
 }
 .card .img-thumb {
 	border-top-right-radius:4px;
@@ -456,8 +459,9 @@ main.container{
 	height: 180px;
 }
 .lead{
-	font-size: 14px;
+	font-size: 17px;
 	color: #444;
+	margin: 0;
 }
 img.img-fluid{
 	width: 100% !important;
@@ -475,4 +479,8 @@ img.img-fluid{
     margin: 20px 0;
     overflow: hidden;
     text-align: justify;
+}
+.concax{
+	text-align: center;
+	margin-bottom: 30px;
 }
