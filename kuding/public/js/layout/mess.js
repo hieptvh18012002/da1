@@ -41,10 +41,10 @@ function toast({
     };
 };
 
-function showSuccess(msg){
+function showSuccess(){
     toast({
     title: '',
-    mess: msg,
+    mess: 'Thêm giỏ hàng thành công !',
     type: 'success',
     duration: 3000
     });

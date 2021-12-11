@@ -96,9 +96,8 @@
                     <div class="er"></div>
                     <div class="fav-forms-wrap">
                         <div class="animate-button-wrap pd-buttons">
-                            <button type="submit" id="checkout_0" class="pd-checkout animate black loader" onclick="showSuccess('Thêm giỏ hàng thành công!')">Add
-                                to Bag</button>
-                            <span class=" btn_add_fa">
+                            <button onclick="showSuccess()" type="submit" id="checkout_0" class="pd-checkout animate black loader">Thêm vào giỏ hàng</button>
+                            <span onclick="showLove()" class=" btn_add_fa">
                                 <i class="far fa-heart"></i>
                                 <input type="hidden" class="pro_id" name="pro_id" value="<?= $data['pros']['id'] ?>">
                             </span>
@@ -313,6 +312,7 @@
             </div>
         </div>
         <!-- <div class="" id="test"></div> -->
+        <div id="toast"></div>
 </main>
 <!-- end main -->
 <script>
