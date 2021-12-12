@@ -42,7 +42,7 @@
                             </div>
                             <div class="like__filter__color">
                                 <input type="number" name="quantity" class="filter__select" value="1" name="" id="">
-                                <input type="hidden" name="id" value="<?= $item['pro_id'] ?>">
+                                <input type="hidden" name="pro_id" value="<?= $item['pro_id'] ?>">
                             </div>
 
 

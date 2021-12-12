@@ -1,15 +1,13 @@
 <main class="body__details">
     <div class="product-page pt-4">
         <div class="subnav-trail">
-            <a href="#">Phụ nữ</a>
+            <a href="productClient?action=list">Mặt hàng</a>
             <span class="divider">/</span>
             <a href="#">Quần áo</a>
             <span class="divider">/</span>
-            <a href="#">Áo sơ mi</a>
+            <a href="#">Chi tiết sản phẩm</a>
             <span class="divider">/</span>
-            <a href="#">Đồ họa tiết</a>
-            <span class="divider">/</span>
-            <a href="#">Jade View Print Cotton Sweatshit</a>
+            <a href="#pd-info"><?= $data['pros']['name'] ?></a>
         </div>
         <!-- <div class="" id="test"></div> -->
 
@@ -33,7 +31,7 @@
                     </div>
                 </div>
             </div>
-            <div class="pd-info">
+            <div class="pd-info" id="pd-info">
                 <!-- chứa thông tin chi tiết sp -->
                 <form class="pd__right" action="cartClient" method="POST" id="form-add-bag">
                     <input type="hidden" id="pro_id" name="id" value="<?= $data['pros']['id'] ?>">
@@ -345,6 +343,7 @@
     $(document).ready(function() {
         $('#form-add-bag').submit(function(e) {
             e.preventDefault()
+            alert('siuu')
             var action = "addBag";
             var pro_id = $('#pro_id').val()
             var color = $('#color').val()

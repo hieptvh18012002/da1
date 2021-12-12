@@ -12,7 +12,7 @@
                 KOODING</p>
         </div>
     </div>
-    <?php if ($data['count'] > 0) : ?>
+    
         <div class="product__content">
             <div class="proC__fist">
                 <div class="proC__title">
@@ -44,7 +44,7 @@
 
 
             <div class="proC__filters">
-                <form class="form__filter">
+                <form class="form__filter" method="POST">
                     <div class="select__price">
                         <div id="price" class="filter__title">
                             <p>Giá</p>
@@ -52,18 +52,27 @@
                         </div>
                         <div class="box__filter__price none">
                             <!-- khi ng dùng thay đổi value input hidden -> show khoảng giá dưới trên range -->
-                            <input type="hidden" id="hidden_minimum_price" value="0">
-                            <input type="hidden" id="hidden_maximum_price" value="50000000">
-                            <p id="price_show">Từ 10 nghìn đến 20 triệu</p>
+                            <input type="hidden" name="min_price" id="hidden_minimum_price" value="0">
+                            <input type="hidden" name="max_price" id="hidden_maximum_price" value="10000000">
+                            <p id="price_show">
+                                <?php if(isset($_POST['min_price'])){
+                                    echo "Từ ".number_format($_POST['min_price'],0,',')." đến ".number_format($_POST['max_price'],0,',');
+                                }else{
+                                    echo "Từ 10 nghìn đến 10 triệu";
+                                } ?>
+                            </p>
                             <div class="price_range" id="price_range">
 
                             </div>
+                            <!-- btn filter -->
+                            <button type="submit" class="text-center btn btn-secondary mt-2" name="btn_filter_price" style="margin:0 auto;"><i class="fa fa-refresh font-sm" aria-hidden="true"></i></button>
+                           
                         </div>
                     </div>
                 </form>
             </div>
+            <?php if ($data['count'] > 0) : ?>
             <!-- <div class="" id="test"></div> -->
-
             <div class="proC__show">
                 <div class="proC__allItem">
                     <?php if (!empty($data['msg'])) : ?>
@@ -87,7 +96,7 @@
                                     <img src="public/images/layout/colorwheel-2.png" alt="">
                                 </div>
                             </div>
-                            <div onclick="showSuccess('Thêm thành công sản phẩm yêu thích!');" class="proC__love">
+                            <div onclick="showLove()" class="proC__love">
                                 <span class="proC__love__icon btn_add_fa">
                                     <!-- // xử lí nếu sp đã tồn tại favo thì cho icon heart màu đỏ -->
                                     <i class='far fa-heart'></i>

@@ -43,7 +43,7 @@
                         </select>
                         <input type="search" name="keyword" placeholder="Tìm kiếm" required>
                     </div>
-                    <button type="submit" name="action">
+                    <button type="submit">
                         <i class="fa fa-search" aria-hidden="true"></i>
                     </button>
                 </form>
