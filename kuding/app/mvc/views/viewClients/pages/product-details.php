@@ -51,7 +51,7 @@
                             <?php endif; ?>
                         </div>
                         <div class="pd-sku">
-                            <p>SKU# MNB0001599</p>
+                            <p>Kho : <?= $data['pros']['quantity'] ?></p>
                         </div>
                     </div>
                     <div class="pd-processing-time" data-nosnippet="">

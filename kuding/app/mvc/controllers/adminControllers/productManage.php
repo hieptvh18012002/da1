@@ -27,6 +27,7 @@ if (isset($_GET['action'])) {
             $row = $stmt->rowCount();
             // var_dump($result);die;
             // if row>0 -> echo
+            $output = '';
             if ($row > 0) {
                 $n = 1;
                 foreach ($result as $item) :
@@ -35,7 +36,7 @@ if (isset($_GET['action'])) {
                     else :
                         $status = '<label class="badge badge-success">Còn hàng</label>';
                     endif;
-                    $output = ' <tr>
+                    $output .= ' <tr>
                         <td>' . $n . ';</td>
                         <td>' . $item['pr_name'] . '</td>
                         <td>' . $item['ca_name'] . '</td>
