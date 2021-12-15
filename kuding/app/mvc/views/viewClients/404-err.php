@@ -5,7 +5,8 @@
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <link rel="shortcut icon" type="image/png" href="./public/images/layout/kooding-app-icon.ico"/>
+   <!-- ico -->
+   <link rel="shortcut icon" type="image/png" href="./public/images/layout/kooding-app-icon.ico"/>
 
   <title>ERROR</title>
   <!-- plugins:css -->
@@ -37,7 +38,7 @@
             </div>
             <div class="row mt-5">
               <div class="col-12 text-center mt-xl-2">
-                <a class="text-white font-weight-medium" href="../../homepage">Back to home</a>
+               <span>Please enter the correct website address</span>
               </div>
             </div>
             <div class="row mt-5">

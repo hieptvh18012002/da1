@@ -5,8 +5,8 @@
             <p class="card-description">
                 Basic form elements
             </p>
-            <?php if (!empty($data['msg'])) : ?>
-                <div class="alert alert-success"><?php echo $data['msg']; ?></div>
+            <?php if (isset($_GET['msg'])) : ?>
+                <div class="alert alert-success"><?php echo $_GET['msg']; ?></div>
             <?php endif; ?>
             <form id="form_categorys" class="forms-sample" method="POST" enctype="multipart/form-data" >
                 <div class="form-group">

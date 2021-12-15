@@ -343,7 +343,6 @@
     $(document).ready(function() {
         $('#form-add-bag').submit(function(e) {
             e.preventDefault()
-            alert('siuu')
             var action = "addBag";
             var pro_id = $('#pro_id').val()
             var color = $('#color').val()

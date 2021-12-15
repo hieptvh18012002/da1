@@ -36,9 +36,10 @@ if (isset($_GET['action'])) {
         case "checkout":
             // nếu chưa login thì bắt login
             if (!isset($_SESSION['customer'])) :
-                // header('location: cartClient?msg=Vui lòng đăng nhập và tiếp tục trải nghiệm 🥰');
-                $toggle_modal = "<script>$(document).ready(function(){
-                    $('#box-login-register').modal('show')})</script>";
+                $toggle_modal = "<script>
+                        $(document).ready(function(){
+                        $('#box-login-register').modal('show')})
+                    </script>";
 
                 $msg = "Vui lòng đăng nhập trước khi thanh toán 🔄";
                 viewClient('layout', ['page' => 'cart', 'toggle_modal' => $toggle_modal, 'list_cate' => $list_cate, 'msg' => $msg, 'vourchers' => $vourchers, 'display' => $display, 'recommened' => $recommended, 'msg_login' => $msg_login,'count_favo'=>$count_favo]);
