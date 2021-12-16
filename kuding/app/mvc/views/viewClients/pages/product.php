@@ -52,8 +52,8 @@
                         </div>
                         <div class="box__filter__price none">
                             <!-- khi ng dùng thay đổi value input hidden -> show khoảng giá dưới trên range -->
-                            <input type="hidden" name="min_price" id="hidden_minimum_price" value="0">
-                            <input type="hidden" name="max_price" id="hidden_maximum_price" value="10000000">
+                            <input type="hidden" name="min_price" id="hidden_minimum_price" value="<?= isset($_POST['min_price'])? $_POST['min_price'] :0 ?>">
+                            <input type="hidden" name="max_price" id="hidden_maximum_price" value="<?= isset($_POST['max_price'])? $_POST['max_price'] :10000000 ?>">
                             <p id="price_show">
                                 <?php if(isset($_POST['min_price'])){
                                     echo "Từ ".number_format($_POST['min_price'],0,',')." đến ".number_format($_POST['max_price'],0,',');
@@ -65,7 +65,7 @@
 
                             </div>
                             <!-- btn filter -->
-                            <button type="submit" class="text-center btn btn-secondary mt-2" name="btn_filter_price" style="margin:0 auto;"><i class="fa fa-refresh font-sm" aria-hidden="true"></i></button>
+                            <button type="submit" class="text-center btn btn-secondary mt-2 form-control" name="btn_filter_price">Áp dụng</button>
                            
                         </div>
                     </div>

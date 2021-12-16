@@ -9,13 +9,19 @@ $vourchers = vc_select_show();
 $list_favo = [];
 if (isset($_SESSION['admin'])) {
     unset($_SESSION['favorite']);
+
     $client_id = $_SESSION['admin']['id'];
     $list_favo = favo_select_client($client_id);
+    // get attr
+
     $count_favo = count($list_favo);
 } else if (isset($_SESSION['customer'])) {
     unset($_SESSION['favorite']);
+    
     $client_id = $_SESSION['customer']['id'];
     $list_favo = favo_select_client($client_id);
+    // get attr
+    
     $count_favo = count($list_favo);
 } elseif (isset($_SESSION['favorite'])) {
     $list_favo = $_SESSION['favorite'];
@@ -25,8 +31,9 @@ if (isset($_SESSION['admin'])) {
 
 }
 
+
 // echo "<pre>";
-// print_r($list_favo);die;
+// print_r($arr_pro_id);die;
 
 $list_cate = cate_select_all();
 $size_values = size_select_all();

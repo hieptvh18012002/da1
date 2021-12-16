@@ -9,15 +9,12 @@ if (isset($_SESSION['customer'])) {
     $client_id = $_SESSION['customer']['id'];
     $favo = favo_select_client($client_id);
     $count_favo = count($favo);
-
 } elseif (isset($_SESSION['admin'])) {
     $client_id = $_SESSION['admin']['id'];
     $favo = favo_select_client($client_id);
     $count_favo = count($favo);
-
 } elseif (isset($_SESSION['favorite'])) {
     $count_favo = count($_SESSION['favorite']);
-
 } else {
     $count_favo = 0;
 }
@@ -49,12 +46,21 @@ if (isset($_POST['action'])) {
     switch ($_POST['action']) {
         case 'update_cart':
             $id = $_POST['cart_id'];
+            // get qty pros
+            $qty_pro = pdo_query_value("SELECT quantity FROM products WHERE id=" . $_POST['pro_id']);
+
             foreach ($_SESSION['cart'] as $key => $value) {
                 if ($value['cart_id'] == $id) {
-                    $_SESSION['cart'][$key]['quantity'] = $_POST['quantity'];
+                    // check slg hợp lệ
+                    if ($qty_pro >= $_POST['quantity']) :
+                        $_SESSION['cart'][$key]['quantity'] = $_POST['quantity'];
+                        $msg = "Cập nhật thành công số lượng sản phẩm";
+                    else :
+                        $msg = "Không thể tăng thêm số lượng mua vì hiện tại chỉ còn ".$qty_pro." sản phẩm";
+                    endif;
+                    break;
                 }
             }
-            $msg = "Cập nhật thành công số lượng sản phẩm";
             break;
 
         default:

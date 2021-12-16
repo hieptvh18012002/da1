@@ -89,12 +89,14 @@
                         <input type="number" class="quantity" min="1" name="quantity" style="margin-top: 10px;padding: 5px 5px;width: 70px;" value="1" id="quantity">
                         <div class="errQ text-danger"></div>
 
+                        <div class="errQty text-danger"></div>
                     </div>
                     <div class="msg"></div>
                     <div class="er"></div>
                     <div class="fav-forms-wrap">
                         <div class="animate-button-wrap pd-buttons">
-                            <button onclick="showSuccess()" type="submit" id="checkout_0" class="pd-checkout animate black loader">Thêm vào giỏ hàng</button>
+                            <input type="hidden" id="storage" name="storage" value="<?= $data['pros']['quantity'] ?>">
+                            <button type="submit" id="checkout_0" class="pd-checkout animate black loader">Thêm vào giỏ hàng</button>
                             <span onclick="showLove()" class=" btn_add_fa">
                                 <i class="far fa-heart"></i>
                                 <input type="hidden" class="pro_id" name="pro_id" value="<?= $data['pros']['id'] ?>">
@@ -343,13 +345,22 @@
     $(document).ready(function() {
         $('#form-add-bag').submit(function(e) {
             e.preventDefault()
+
             var action = "addBag";
             var pro_id = $('#pro_id').val()
             var color = $('#color').val()
             var size = $('#size').val()
             var quantity = $('#quantity').val()
+            var storage = $('#storage').val()
 
-            $.ajax({
+            // check nếu sl chọn mua nhỏ vượt qua slg trong kho thì mess err
+
+            if(quantity > storage){
+                // alert('đù lớn hơn r')
+                $('.errQty').html('Số lượng sản phẩm còn lại không đủ để bán cho bạn!')
+            }else{
+                showSuccess()
+                $.ajax({
                 url: 'cartClient',
                 method: 'POST',
                 data: {
@@ -362,9 +373,10 @@
                 success: function(data){
                     $('#test').html(data)
                 }
-
-
             })
+            }
+
+           
         })
     })
 </script>

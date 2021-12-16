@@ -4,6 +4,7 @@
             <div class="order__left__title">
                 <h3>1. Địa chỉ giao hàng</h3>
             </div>
+            <!-- address -->
             <div class="form__address">
                 <div class="address">
                     <div class="nation">
@@ -75,6 +76,7 @@
 
                 </div>
             </div>
+            <!-- pro odder -->
             <div class="order__bottom">
                 <div class="order__bottom__title">
                     <h3>2. Mặt hàng thanh toán</h3>
@@ -120,6 +122,7 @@
             </div>
         </div>
         <div class="body__order__right">
+            <!-- bill -->
             <div class="order__right__content">
                 <div class="right__content__title">
                     <h3>Tóm tắt nhanh</h3>
@@ -142,7 +145,7 @@
                     </div>
                     <div /*style="display: none;"*/ id="shiping" class="content__subtotal">
                         <span>Phí chuyển hàng:</span>
-                        <p>30.000đ</p>
+                        <p>30,000đ</p>
                     </div>
                     <?php if (!empty($data['vour_exist'])) : ?>
                         <div class="content__subtotal">
@@ -160,7 +163,7 @@
                             <?php if (!empty($data['price_new'])) : ?>
                                 <?= $data['price_new'] < 0 ? 0 : number_format($data['price_new'], 0, ',') ?>
                             <?php else : ?>
-                                <?= $total < 0 ? 0 : $total + 30000 ?>
+                                <?= $total < 0 ? 0 :number_format( $total + 30000,0,',') ?>
                             <?php endif; ?>
                             đ</span>
 

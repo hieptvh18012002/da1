@@ -41,7 +41,8 @@
                                         <form action="" method="POST">
                                             <input type="hidden" name="action" value="update_cart">
                                             <input type="hidden" name="cart_id" value="<?= $item['cart_id'] ?>">
-                                            <input type="number" name="quantity" value="<?= $item['quantity'] ?>">
+                                            <input type="hidden" name="pro_id" value="<?= $item['id'] ?>">
+                                            <input type="number" name="quantity" min="1" step="0" value="<?= $item['quantity'] ?>">
                                             <button type="submit" name="btn_update_qty" class="btn btn-info"><i class="fa fa-refresh" aria-hidden="true"></i>
                                             </button>
                                         </form>
