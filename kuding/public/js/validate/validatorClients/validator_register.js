@@ -15,6 +15,11 @@ $("#register_user").validate({
             minlength : 6,
             maxlength : 12
         },
+        phone:{
+            required : true,
+            number: true,
+            validatePhone: true
+        },
         birthday: {
             required : true,
             date: true
@@ -37,6 +42,10 @@ $("#register_user").validate({
         birthday: {
             required: "Vui lòng nhập ngày sinh !",
             email: "Nhập đúng định dạng ngày tháng!"
+        },
+        phone:{
+            required : "Số điện thoại không được bỏ trống",
+            number: "Số điện thoại phải là số"
         },
         password: {
             required: "Vui lòng nhập mật khẩu !",
@@ -67,10 +76,9 @@ $("#checkout").validate({
             maxlength : 26
         },
         phone:{
-            required: true,
-            minlength : 10,
-            maxlength : 10,
-            number: true
+            required : true,
+            number: true,
+            validatePhone: true
         },
         xa:{
             required: true
@@ -92,10 +100,8 @@ $("#checkout").validate({
             maxlength : "Nhập tối thiểu 26 ký tự"
         },
         phone:{
-            required: "Vui lòng nhập số điện thoại liên hệ !",
-            minlength : "Số điện thoại phải là 10 số",
-            maxlength : "Số điện thoại phải là 10 số",
-            number: "Vui lòng nhập số !"
+            required : "Số điện thoại không được bỏ trống",
+            number: "Số điện thoại phải là số"
         },
         xa:{
             required: "Vui nhập đầy đủ địa chỉ !"
@@ -154,3 +160,7 @@ $("#favorite").validate({
 $.validator.addMethod("vourcher", function (value, element) {
     return this.optional(element) || /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,}$/.test(value);
 }, "Vui lòng nhập Vourcher không chứa ký tự đặc biệt");
+
+$.validator.addMethod("validatePhone", function (value, element) {
+    return this.optional(element) ||  /(03|05|07|08|09|01[2|6|8|9])+([0-9]{8})\b/.test(value);
+}, "Bạn phải nhập đúng số điện thoại");
