@@ -52,7 +52,7 @@
         <div class="slick__slider">
 
             <div class="pro-news-slider slide-news" id="slide-top-pros">
-                <!-- render bằng ajax -->
+             
                 <?php foreach($data['pro_top10'] as $item): ?>
                     <a href="productDetail?action=viewDetail&id=<?= $item['id'] ?>" class="pro-news-item">
                         <img src="public/images/products/<?= $item['avatar'] ?>" alt="">
@@ -96,7 +96,7 @@
         </div>
         <div class="col-news right">
             <div class="news-item">
-                <a href="" class="box-img">
+                <a href="newsClient?action=viewDetail&id=<?= $item['id'] ?>" class="box-img">
                     <div class="box_newsImg ss2">
                         <!-- <img src="public/images/layout/261d0a0ba82f5e1c2b6b03fb85b850b687c0e93f.jpg" alt=""> -->
                         <img src="./public/images/upload/<?= $data['news_special2']['image'] ?>" alt="">
