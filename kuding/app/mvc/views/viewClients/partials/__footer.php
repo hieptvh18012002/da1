@@ -25,21 +25,21 @@
                 <div class="footer-main">
                     <div class="footer-item">
                         <div class="footer-title text-title">
-                            Cần hỗ trợ?
+                            Các cơ sở?
                         </div>
-                        <a href="">Kết nối với chúng tôi</a>
-                        <a href="">Mua sắm</a>
-                        <a href="">Hoàn trả</a>
-                        <a href="">FAQs</a>
-                        <a href="">Đặt hàng ngay</a>
+                        <span >Thanh xuân - Hà Nội</span>
+                        <span >Cầu Giấy - Hà Nội</span>
+                        <span>Đống Đa - Hà Nội</span>
+                        <span>Quận 7 - Tp HCM</span>
+                        <span>Quận 1 - TP HCM</span>
                     </div>
                     <div class="footer-item">
                         <div class="footer-title text-title">
                             Các liên kết khác
                         </div>
                         <a href="">Thẻ quà tặng</a>
-                        <a href="">Câu chuyện của chúng tôi</a>
-                        <a href="">Blog</a>
+                        <a href="homepage#introduce">Câu chuyện của chúng tôi</a>
+                        <a href="newClient">Blog</a>
                         <a href="">Chương trình liên kết</a>
                         
                     </div>
