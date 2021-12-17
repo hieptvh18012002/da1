@@ -1,15 +1,13 @@
 <main class="body__details">
     <div class="product-page pt-4">
         <div class="subnav-trail">
-            <a href="#">Phụ nữ</a>
+            <a href="productClient?action=list">Mặt hàng</a>
             <span class="divider">/</span>
             <a href="#">Quần áo</a>
             <span class="divider">/</span>
-            <a href="#">Áo sơ mi</a>
+            <a href="#">Chi tiết sản phẩm</a>
             <span class="divider">/</span>
-            <a href="#">Đồ họa tiết</a>
-            <span class="divider">/</span>
-            <a href="#">Jade View Print Cotton Sweatshit</a>
+            <a href="#pd-info"><?= $data['pros']['name'] ?></a>
         </div>
         <!-- <div class="" id="test"></div> -->
 
@@ -33,7 +31,7 @@
                     </div>
                 </div>
             </div>
-            <div class="pd-info">
+            <div class="pd-info" id="pd-info">
                 <!-- chứa thông tin chi tiết sp -->
                 <form class="pd__right" action="cartClient" method="POST" id="form-add-bag">
                     <input type="hidden" id="pro_id" name="id" value="<?= $data['pros']['id'] ?>">
@@ -53,7 +51,7 @@
                             <?php endif; ?>
                         </div>
                         <div class="pd-sku">
-                            <p>SKU# MNB0001599</p>
+                            <p>Kho : <?= $data['pros']['quantity'] ?></p>
                         </div>
                     </div>
                     <div class="pd-processing-time" data-nosnippet="">
@@ -91,12 +89,14 @@
                         <input type="number" class="quantity" min="1" name="quantity" style="margin-top: 10px;padding: 5px 5px;width: 70px;" value="1" id="quantity">
                         <div class="errQ text-danger"></div>
 
+                        <div class="errQty text-danger"></div>
                     </div>
                     <div class="msg"></div>
                     <div class="er"></div>
                     <div class="fav-forms-wrap">
                         <div class="animate-button-wrap pd-buttons">
-                            <button onclick="showSuccess()" type="submit" id="checkout_0" class="pd-checkout animate black loader">Thêm vào giỏ hàng</button>
+                            <input type="hidden" id="storage" name="storage" value="<?= $data['pros']['quantity'] ?>">
+                            <button type="submit" id="checkout_0" class="pd-checkout animate black loader">Thêm vào giỏ hàng</button>
                             <span onclick="showLove()" class=" btn_add_fa">
                                 <i class="far fa-heart"></i>
                                 <input type="hidden" class="pro_id" name="pro_id" value="<?= $data['pros']['id'] ?>">
@@ -345,13 +345,22 @@
     $(document).ready(function() {
         $('#form-add-bag').submit(function(e) {
             e.preventDefault()
+
             var action = "addBag";
             var pro_id = $('#pro_id').val()
             var color = $('#color').val()
             var size = $('#size').val()
             var quantity = $('#quantity').val()
+            var storage = $('#storage').val()
 
-            $.ajax({
+            // check nếu sl chọn mua nhỏ vượt qua slg trong kho thì mess err
+
+            if(quantity > storage){
+                // alert('đù lớn hơn r')
+                $('.errQty').html('Số lượng sản phẩm còn lại không đủ để bán cho bạn!')
+            }else{
+                showSuccess()
+                $.ajax({
                 url: 'cartClient',
                 method: 'POST',
                 data: {
@@ -364,9 +373,10 @@
                 success: function(data){
                     $('#test').html(data)
                 }
-
-
             })
+            }
+
+           
         })
     })
 </script>

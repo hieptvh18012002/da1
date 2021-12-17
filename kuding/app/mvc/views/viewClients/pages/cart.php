@@ -40,8 +40,9 @@
                                     <div class="cart__quanty">
                                         <form action="" method="POST">
                                             <input type="hidden" name="action" value="update_cart">
-                                            <input type="hidden" name="product_id" value="<?= $item['id'] ?>">
-                                            <input type="number" name="quantity" value="<?= $item['quantity'] ?>">
+                                            <input type="hidden" name="cart_id" value="<?= $item['cart_id'] ?>">
+                                            <input type="hidden" name="pro_id" value="<?= $item['id'] ?>">
+                                            <input type="number" name="quantity" min="1" step="0" value="<?= $item['quantity'] ?>">
                                             <button type="submit" name="btn_update_qty" class="btn btn-info"><i class="fa fa-refresh" aria-hidden="true"></i>
                                             </button>
                                         </form>
@@ -51,7 +52,7 @@
                                     </div>
                                 </div>
                                 <div class="cart__remove">
-                                    <a href="cartClient?action=del&id=<?= $item['id'] ?>" class="text-danger">Xóa</a>
+                                    <a href="cartClient?action=del&id=<?= $item['cart_id'] ?>" class="text-danger">Xóa</a>
                                 </div>
                             </li>
                         <?php $tt += $thanhtien;
@@ -95,7 +96,7 @@
                 <?php foreach($data['recommened'] as $item):?>
                 <div class="cart__item">
                     <div class="cart__item__img">
-                        <a href="">
+                        <a href="productDetail?action=viewDetail&id=<?= $item['id'] ?>">
                             <img src="./public/images/products/<?= $item['avatar'] ?>" alt="" width="100%">
                         </a>
                     </div>

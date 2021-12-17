@@ -3,9 +3,12 @@
         <form action="" method="POST">
             <h3 class="text-center">Chi tiết đơn hàng </h3>
             <h5 class="text-center">"Mã đơn hàng: <?= $data['receiver']['id'] ?>"</h5>
-            <?php if(isset($_GET['msg'])):?>
+            <?php if (isset($_GET['msg'])) : ?>
                 <div class="alert alert-success"><?= $_GET['msg'] ?></div>
-                <?php endif;?>
+            <?php endif; ?>
+            <?php if (isset($_GET['danger'])) : ?>
+                <div class="alert alert-danger"><?= $_GET['danger'] ?></div>
+            <?php endif; ?>
             <h4>Ngày tạo đơn</h4>
             <p><?= $data['receiver']['created_at'] ?></p>
 
@@ -76,17 +79,17 @@
             </div>
             <!-- trạng thái đơn hàng -->
             <h4 class="mt-2">TRẠNG THÁI ĐƠN HÀNG</h4>
-            <p class="">
-                <input type="radio" <?= $data['receiver']['status']==0?'checked':'' ?> name="status" id="st1" class="mr-2" value="0"><label for="st1">Chưa xử lý</label>
+            <p class="" style="display:<?= $data['receiver']['status'] > 0 ? 'none' : 'block' ?>">
+                <input type="radio" <?= $data['receiver']['status'] == 0 ? 'checked' : '' ?> name="status" id="st1" class="mr-2" value="0"><label for="st1">Chưa xử lý</label>
             </p>
-            <p class="">
-                <input type="radio"  <?= $data['receiver']['status']==1?'checked':'' ?> name="status" id="st2" class="mr-2" value="1"><label for="st2">Đang xử lý</label>
+            <p class="" style="display:<?= $data['receiver']['status'] > 1 ? 'none' : 'block' ?>">
+                <input type="radio" <?= $data['receiver']['status'] == 1 ? 'checked' : '' ?> name="status" id="st2" class="mr-2" value="1"><label for="st2">Đang xử lý</label>
             </p>
-            <p class="">
-                <input type="radio" name="status"  <?= $data['receiver']['status']==2?'checked':'' ?> id="st3" class="mr-2" value="2"><label for="st3">Đã xử lý</label>
+            <p class="" style="display:<?= $data['receiver']['status'] > 2 ? 'none' : 'block' ?>">
+                <input type="radio" name="status" <?= $data['receiver']['status'] == 2 ? 'checked' : '' ?> id="st3" class="mr-2" value="2"><label for="st3">Đã xử lý</label>
             </p>
-            <p class="">
-                <input type="radio"  <?= $data['receiver']['status']==3?'checked':'' ?> name="status" id="st4" class="mr-2" value="3"><label for="st4">Hủy đơn</label>
+            <p class="" style="display:<?= $data['receiver']['status'] > 3 ? 'none' : 'block' ?>">
+                <input type="radio" <?= $data['receiver']['status'] == 3 ? 'checked' : '' ?> name="status" id="st4" class="mr-2" value="3"><label for="st4">Hủy đơn</label>
             </p>
             <input type="hidden" name="bill_id" value="<?= $data['receiver']['id'] ?>">
             <button type="submit" class="btn btn-primary" name="btn_sb">Xác nhận</button>

@@ -35,7 +35,7 @@ $(document).ready(function () {
             $('#price_show').html('Từ :' + ui.values[0] + '-' + ui.values[1])
             $('#hidden_minimum_price').val(ui.values[0])
             $('#hidden_maximum_price').val(ui.values[1])
-            filter_data();
+            // filter_data();
         }
     })
 });

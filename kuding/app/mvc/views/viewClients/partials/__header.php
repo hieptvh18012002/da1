@@ -43,7 +43,7 @@
                         </select>
                         <input type="search" name="keyword" placeholder="Tìm kiếm" required>
                     </div>
-                    <button type="submit" name="action">
+                    <button type="submit">
                         <i class="fa fa-search" aria-hidden="true"></i>
                     </button>
                 </form>
@@ -204,12 +204,12 @@
                                     <div class="col-6 col-md-6">
                                         <div class="pro-name mb-2"><?= $item['name'] ?></div>
                                         <div class="desc">
-                                            <?= attr_value_select_id($_SESSION['cart'][$item['id']]['color']) ?> | Size <?= attr_value_select_id($_SESSION['cart'][$item['id']]['size']) ?> | SL <?= $item['quantity'] ?>
+                                            <?= attr_value_select_id($item['color']) ?> | Size <?= attr_value_select_id($item['size']) ?> | SL <?= $item['quantity'] ?>
                                         </div>
                                     </div>
                                     <div class="col-3 col-md-3 cart-option">
                                         <div class="pro-price mb-5"><?= $thanhtien ?>đ</div>
-                                        <a href="cartClient?action=del&id=<?= $item['id'] ?>" class="text-danger">Hủy bỏ</a>
+                                        <a href="cartClient?action=del&id=<?= $item['cart_id'] ?>" class="text-danger">Hủy bỏ</a>
                                     </div>
                                 </div>
                             <?php $tt += $thanhtien;

@@ -4,7 +4,20 @@ require_once "./app/common/bridge.php";
 $list_cate = cate_select_all();
 $display = display_select_all();
 $vourchers = vc_select_show();
-
+// favo
+if(isset($_SESSION['customer'])){
+    $client_id = $_SESSION['customer']['id'];
+    $favo = favo_select_client($client_id);
+    $count_favo = count($favo);
+}elseif(isset($_SESSION['admin'])){
+    $client_id = $_SESSION['admin']['id'];
+    $favo = favo_select_client($client_id);
+    $count_favo = count($favo);
+}elseif(isset($_SESSION['favorite'])){
+    $count_favo = count($_SESSION['favorite']);
+}else{
+    $count_favo = 0;
+}
 // handle
 $err = array();
 $err['email'] = '';
@@ -31,4 +44,4 @@ if (isset($_POST['forgot_btn'])) {
     }
 }
 // call view
-viewClient('layout', ['page' => 'forgot-pass', 'list_cate' => $list_cate, 'err' => $err['email'], 'output' => $output,'display'=>$display,'vourchers'=>$vourchers]);
+viewClient('layout', ['page' => 'forgot-pass', 'list_cate' => $list_cate, 'err' => $err['email'], 'output' => $output,'display'=>$display,'vourchers'=>$vourchers,'count_favo'=>$count_favo]);

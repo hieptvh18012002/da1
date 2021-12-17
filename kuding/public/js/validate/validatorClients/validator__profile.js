@@ -9,6 +9,11 @@ $("#form_profile").validate({
         required : true,
         email: /^[a-zA-Z0-9._%-]+@[a-zA-Z0-9.-]+.[a-zA-Z]{2,4}$/
       },
+      phone:{
+        required : true,
+        number: true,
+        validatePhone: true
+      },
       birthday: {
         required : true,
         date : true
@@ -24,6 +29,10 @@ $("#form_profile").validate({
         email: {
             required: "Vui lòng nhập email !",
             email: "Nhập đúng định dạng email (VD:Kooing@gmail.com)"
+        },
+        phone:{
+            required : "Số điện thoại không được bỏ trống",
+            number: "Số điện thoại phải là số"
         },
         birthday: {
             required: "Vui lòng nhập ngày sinh !",
@@ -82,4 +91,8 @@ $("#form_profile").validate({
  $.validator.addMethod("validatePassword", function (value, element) {
     return this.optional(element) || /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,}$/.test(value);
 }, "Mật khẩu không chứa ký đặc biệt ít nhất 1 số và 1 chữ cái");
+
+$.validator.addMethod("validatePhone", function (value, element) {
+    return this.optional(element) ||  /(03|05|07|08|09|01[2|6|8|9])+([0-9]{8})\b/.test(value);
+}, "Bạn phải nhập đúng số điện thoại");
 

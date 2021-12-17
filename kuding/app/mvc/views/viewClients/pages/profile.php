@@ -196,9 +196,11 @@
                                                         <div class="badge badge-success">Đã gửi hàng</div>
                                                     <?php elseif ($o['status'] == 1) : ?>
                                                         <div class="badge badge-warning">Đang xử lí</div>
-                                                    <?php else : ?>
+                                                    <?php elseif($o['status'] == 0) : ?>
                                                         <div class="badge badge-danger">Chưa xác nhận</div>
-                                                    <?php endif; ?>
+                                                    <?php else: ?>
+                                                        <div class="badge badge-danger">Đã bị hủy</div>
+                                                    <?php endif;?>
                                                 </td>
                                                 <!-- <td>
                                                     <a href="order?action=viewDetail&id=<?= $o['id'] ?>" class="btn btn-primary text-light">Đã nhận được hàng</a>

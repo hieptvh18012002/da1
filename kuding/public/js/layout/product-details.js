@@ -73,11 +73,11 @@ $(document).ready(function () {
         $(this).addClass('fas');
         $(this).addClass('favorite')
     });
-    $('.pd-buttons button').click(function (e) { 
-        e.preventDefault();
-        $(this).removeAttr("onclick")
-        $(this).css({'opacity' : '0.4', 'cursor' : 'no-drop'})
-    });
+    // $('.pd-buttons button').click(function (e) { 
+    //     e.preventDefault();
+    //     $(this).removeAttr("onclick")
+    //     $(this).css({'opacity' : '0.4', 'cursor' : 'no-drop'})
+    // });
     $('span.btn_add_fa').click(function (e) { 
         e.preventDefault();
         $(this).removeAttr("onclick")

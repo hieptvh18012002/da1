@@ -7,9 +7,9 @@ $list_cate = cate_select_all();
 // img cate banner
 $cate_banner = category_select_special();
 $pro_top10 = pro_select_top10();
-// sp nam
-$pros_male = pdo_query("SELECT * FROM products WHERE cate_id=1 ORDER BY created_at DESC LIMIT 0,10");
-$pros_female = pdo_query("SELECT * FROM products WHERE cate_id=2 ORDER BY created_at DESC LIMIT 0,10");
+// all qty sp
+$qty_pros = pdo_query("SELECT id,quantity FROM products");
+
 
 $pro_topview = pro_select_view();
 // lấy list
@@ -36,7 +36,7 @@ if (isset($_SESSION['customer'])) {
     $count_favo = 0;
 }
 
-// xử lí nếu hết hạn thì update status -> 0
+// xử lí nếu hết hạn voucher thì update status -> 0
 if (is_array($list_vour)) {
     foreach ($list_vour as $vc) {
         // lặp + ktra nêú  ngày hiện tại => ngày hết hạn mã -> update hết hạn
@@ -50,24 +50,21 @@ if (is_array($list_vour)) {
         }
     }
 }
+// xử lí nếu hết số lg sản phẩm thì update status -> 0
+if(count($qty_pros) > 0){
+    foreach($qty_pros as $qty){
+        if($qty['quantity'] <= 0){
+            pdo_execute("UPDATE products SET status=0 WHERE id=".$qty['id']);
+        }
+    }
+}
+
 if (isset($_GET['action'])) {
     switch ($_GET['action']) {
-
-        case 'filterTopPros':
-            // $gender = $_GET['genderTop'];
-            // // default = nam
-            // $result = pdo_query("SELECT * FROM products WHERE cate_id=$gender ORDER BY created_at DESC LIMIT 0,10");
-            // $output = '';
-
-          
-
-            // echo $output;
-            // // die;
-            break;
 
         default:
             viewClient('layout', ['page' => 'homepage', 'list_cate' => $list_cate, 'pro_special' => $pro_special, 'vourchers' => $vourchers, 'pro_top10' => $pro_top10, 'pro_topview' => $pro_topview, 'news_special' => $news_special, 'news_special2' => $news_special2, 'cate_banner' => $cate_banner, 'count_favo' => $count_favo]);
             break;
     }
 } else
-    viewClient('layout', ['page' => 'homepage', 'list_cate' => $list_cate, 'pro_special' => $pro_special, 'vourchers' => $vourchers, 'pro_top10' => $pro_top10, 'pro_topview' => $pro_topview, 'news_special' => $news_special, 'news_special2' => $news_special2, 'cate_banner' => $cate_banner, 'display' => $display, 'count_favo' => $count_favo,'pros_female'=>$pros_male,'pros_male'=>$pros_female]);
+    viewClient('layout', ['page' => 'homepage', 'list_cate' => $list_cate, 'pro_special' => $pro_special, 'vourchers' => $vourchers, 'pro_top10' => $pro_top10, 'pro_topview' => $pro_topview, 'news_special' => $news_special, 'news_special2' => $news_special2, 'cate_banner' => $cate_banner, 'display' => $display, 'count_favo' => $count_favo]);
