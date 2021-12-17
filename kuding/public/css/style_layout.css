@@ -1016,6 +1016,11 @@ bottom: 0;
     display: none;
 }
 /* ===========responsive =====*/
+@media screen and (max-width:480px) {
+    .banner_imgBox{
+        height: 300px !important;
+    }
+}
 @media screen and (max-width:350px) {
     .wrapper{
             max-width: 100%;
