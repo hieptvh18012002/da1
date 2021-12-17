@@ -61,7 +61,7 @@
                                 <?= $item['name'] ?>
                             </div>
                             <div class="pro-des bg-white">
-                                <span> <?= substr($item['description'], 0, 15) ?></span>
+                                <span> <?= substr($item['description'], 0, 40)."..." ?></span>
                             </div>
                         </div>
                     </a>
@@ -77,7 +77,7 @@
         <div class="col-news left">
             <?php foreach ($data['news_special'] as $item) : ?>
                 <div class="news-item mb-4">
-                    <a href="" class="box-img">
+                    <a href="newsClient?action=viewDetail&id=<?= $item['id'] ?>" class="box-img">
                         <div class="box_newsImg">
                             <!-- <img src="public/images/layout/188906b2571586bae5d3dd009b56647f019b6145.jpg" alt=""> -->
                             <img src="./public/images/upload/<?= $item['image'] ?>" alt="">
@@ -138,7 +138,7 @@
                             <?= $item['name'] ?>
                         </div>
                         <div class="pro-des bg-white">
-                            <?= substr($item['description'], 0, 15) ?>
+                            <?= substr($item['description'], 0, 25)."..." ?>
                         </div>
                     </a>
                 <?php endforeach; ?>
@@ -147,7 +147,7 @@
         </div>
     </div>
     <!-- end trending -->
-    <div class="about-us">
+    <div class="about-us" id="introduce">
         <div class="title text-center">
             <h5><?= $data['display']['title_intro'] ?></h5>
         </div>
