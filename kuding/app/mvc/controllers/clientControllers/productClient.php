@@ -75,7 +75,7 @@ if(isset($_POST['btn_filter_price'])){
 //  search
 // phân trang
 $current_page = isset($_GET['page']) ? $_GET['page'] : 1;
-$limit = 10;
+$limit = 15;
 // tổng trang
 $total_page = ceil($total_records / $limit);
 // trang bắt đầu

@@ -509,7 +509,7 @@ main{
 }
 /* end theme-hot */
 .product-news{
-    background: #355397;
+    background: #973838;
     margin: 60px 0 40px 0;
     position: relative;
 }
@@ -846,6 +846,9 @@ padding: 0 30px;
 .footer-main .footer-item a{
     color:#444;
 }
+.footer-main .footer-item span{
+    color:#444 !important;
+}
 
 .footer-bottom{
     display: flex;
@@ -1016,6 +1019,11 @@ bottom: 0;
     display: none;
 }
 /* ===========responsive =====*/
+@media screen and (max-width:480px) {
+    .banner_imgBox{
+        height: 300px !important;
+    }
+}
 @media screen and (max-width:350px) {
     .wrapper{
             max-width: 100%;
