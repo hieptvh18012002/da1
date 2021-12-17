@@ -14,7 +14,7 @@ function category_select_all(){
 
 }
 function category_select_special(){
-    $sql = "SELECT avatar,id,name FROM categories WHERE special=1 LIMIT 0,4
+    $sql = "SELECT avatar,id,name FROM categories WHERE special=1 ORDER BY created_at DESC LIMIT 0,4
     ";
     // SELECT c.name,c.avatar, COUNT(p.id) qty FROM categories c JOIN products p ON p.cate_id=c.id GROUP BY c.name,c.avatar
     return pdo_query($sql);

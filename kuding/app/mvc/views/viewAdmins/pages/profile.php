@@ -6,7 +6,7 @@
         <div class="col-md-5 align-self-center">
             <h3 class="text-themecolor">Hồ sơ cá nhân</h3>
             <ol class="breadcrumb" style="border: none !important;">
-                <li class="breadcrumb-item"><a href="../index.html">Home</a></li>
+                <li class="breadcrumb-item"><a href="admin">Home</a></li>
                 <li class="breadcrumb-item active">Profile</li>
             </ol>
         </div>
@@ -29,14 +29,7 @@
 
                             ?>
                         </h6>
-                        <div class="row text-center justify-content-md-center">
-                            <div class="col-4"><a href="javascript:void(0)" class="link"><i class="fa fa-user"></i>
-                                    <font class="font-medium">254</font>
-                                </a></div>
-                            <div class="col-4"><a href="javascript:void(0)" class="link"><i class="fa fa-camera"></i>
-                                    <font class="font-medium">54</font>
-                                </a></div>
-                        </div>
+                        
                     </center>
                 </div>
             </div>

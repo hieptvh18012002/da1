@@ -191,13 +191,13 @@
     });
   </script>
   <script>
-    //<!-- sp bán ra hàng tháng -->
+    //<!-- dh bán ra hàng tháng -->
     const spbanra = document.getElementById('spbanra').getContext('2d');
     const myChart_spbanra = new Chart(spbanra, {
       type: 'bar',
       data: {
         labels: [<?php foreach($data['dh_ban_ra'] as $item){
-            echo "'".$item['month']."'".',';
+            echo "'".'Tháng '.$item['month']."'".',';
         } ?>],
         datasets: [{
           label: 'Số lượng đơn',
